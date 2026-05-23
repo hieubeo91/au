@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Cá Nhân Hiện Đại</title>
+    
+    <!-- Tailwind CSS CDN để thiết kế giao diện nhanh và đẹp -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Swiper.js CSS (Trượt ảnh) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Fancybox CSS (Phóng to ảnh) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+
+        /* Tùy chỉnh nhẹ cho Swiper để ôm khít khung */
+        .swiper {
+            width: 100%;
+            height: 400px;
+            border-radius: 12px;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Đè lại màu cho các nút điều hướng Swiper */
+        .swiper-button-next, .swiper-button-prev {
+            color: #ffffff !important;
+            background: rgba(0, 0, 0, 0.4);
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background: rgba(99, 102, 241, 0.9); /* Indigo hover effect */
+            transform: scale(1.05);
+        }
+        
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 14px !important;
+            font-weight: bold;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #6366f1 !important; /* Indigo color */
+            width: 24px !important;
+            border-radius: 4px !important;
+        }
+
+        /* Hiệu ứng mượt mà khi lọc bài viết */
+        .post-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Nút quay lại đầu trang */
+        #back-to-top {
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hiệu ứng chuyển động mượt mà khi đổi giữa trang danh sách và trang chi tiết */
+        .fade-in-up {
+            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="text-slate-800 flex flex-col min-h-screen">
+
+    <!-- HEADER -->
+    <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <a href="#" id="header-logo" class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
+                <i class="fa-solid fa-feather-pointed"></i>
+                <span>The Wanderlust Blog</span>
+            </a>
+            <p class="text-sm text-slate-500 text-center sm:text-right">Nơi chia sẻ trải nghiệm du lịch, ẩm thực và phong cách sống</p>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+        
+        <div id="blog-list-view" class="fade-in-up">
+            <!-- BỘ TÌM KIẾM CHUYÊN NGHIỆP -->
+            <div class="mb-6 max-w-lg mx-auto relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
+                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                </span>
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    placeholder="Tìm kiếm tiêu đề, bài viết, tác giả, tag..." 
+                    class="w-full pl-11 pr-11 py-3.5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-sm"
+                />
+                <button 
+                    id="clear-search-btn" 
+                    class="absolute inset-y-0 right-0 flex items-center pr-4 text-slate-400 hover:text-slate-600 hidden transition-colors"
+                    title="Xóa tìm kiếm"
+                >
+                    <i class="fa-solid fa-circle-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- BỘ LỌC CATEGORY -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+                <button data-filter="all" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-indigo-600 text-white shadow-md shadow-indigo-100">
+                    Tất cả bài viết
+                </button>
+                <button data-filter="travel" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+                    <i class="fa-solid fa-compass mr-1.5 text-emerald-500"></i> Du lịch
+                </button>
+                <button data-filter="food" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+                    <i class="fa-solid fa-utensils mr-1.5 text-amber-500"></i> Ẩm thực
+                </button>
+                <button data-filter="lifestyle" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+                    <i class="fa-solid fa-mug-hot mr-1.5 text-purple-500"></i> Lối sống
+                </button>
+            </div>
+
+            <!-- KHÔNG TÌM THẤY KẾT QUẢ -->
+            <div id="no-results-state" class="hidden text-center py-16 px-4 bg-white border border-slate-100 rounded-2xl shadow-sm mb-12">
+                <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+                    <i class="fa-solid fa-folder-open text-3xl"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 mb-1">Không tìm thấy bài viết phù hợp</h3>
+                <p class="text-slate-500 text-sm max-w-md mx-auto mb-6">Hãy thử tìm kiếm bằng một từ khóa khác hoặc chuyển sang danh mục tin bài khác nhé!</p>
+                <button id="reset-filters-btn" class="px-5 py-2.5 bg-indigo-600 text-white font-medium rounded-xl text-sm shadow-md hover:bg-indigo-700 transition-colors">
+                    Xem tất cả bài viết
+                </button>
+            </div>
+
+            <!-- BỐ CỤC HAI CỘT: CỘT BÀI VIẾT & SIDEBAR CỐ ĐỊNH -->
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                
+                <!-- DANH SÁCH BÀI VIẾT -->
+                <div class="w-full lg:w-2/3 space-y-12" id="posts-container">
+                    
+                    <!-- BÀI VIẾT 1: DU LỊCH -->
+                    <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-category="travel" data-id="post-ha-giang">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="category-badge bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                    Du lịch
+                                </span>
+                                <span class="text-xs text-slate-400">
+                                    <i class="fa-regular fa-calendar mr-1"></i> <span class="post-date">23/05/2026</span>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <h2 class="post-title text-2xl font-bold text-slate-900 mb-3 hover:text-indigo-600 transition-colors cursor-pointer">
+                            Hà Giang - Nơi Những Con Đường Hóa Thần Thoại
+                        </h2>
+                        
+                        <p class="text-slate-600 mb-4 leading-relaxed post-excerpt">
+                            Hành trình chinh phục những cung đèo hùng vĩ nhất miền Bắc Việt Nam luôn đem lại những cảm xúc khó tả. Từ dốc Thẩm Mã uốn lượn cho tới đỉnh đèo Mã Pí Lèng mây phủ, Hà Giang không chỉ có đá tai mèo mà còn có những thung lũng hoa tam giác mạch lãng mạn vô cùng.
+                        </p>
+
+                        <!-- TAGS CHỦ ĐỀ -->
+                        <div class="flex flex-wrap gap-1.5 mb-5 text-xs post-tags">
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#hagiang</span>
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#taybac</span>
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#phuot</span>
+                        </div>
+
+                        <!-- SLIDE ẢNH BÀI VIẾT 1 -->
+                        <div class="swiper mySwiper mb-5">
+                            <div class="swiper-wrapper">
+                                <!-- Slide 1: Ảnh bình thường -->
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-travel" data-caption="Cảnh sắc thiên nhiên vĩ đại">
+                                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Hà Giang 1" class="hover:scale-105 transition-transform duration-300">
+                                    </a>
+                                </div>
+                                
+                                <!-- Slide 2: Video YouTube -->
+                                <div class="swiper-slide relative group">
+                                    <a href="https://www.youtube.com/watch?v=F3t2T6m6z1I" data-fancybox="gallery-travel" data-caption="Video trải nghiệm: Flycam hùng vĩ núi rừng Hà Giang">
+                                        <img src="https://img.youtube.com/vi/F3t2T6m6z1I/maxresdefault.jpg" alt="Video Hà Giang" class="w-full h-full object-cover">
+                                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center transition-all group-hover:bg-black/50">
+                                            <div class="w-16 h-16 md:w-20 md:h-20 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-110 active:scale-95 transition-all duration-300">
+                                                <i class="fa-solid fa-play text-2xl md:text-3xl ml-1.5 animate-pulse"></i>
+                                            </div>
+                                            <span class="absolute top-4 right-4 bg-black/75 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-md flex items-center gap-1.5">
+                                                <i class="fa-solid fa-video"></i> Video
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <!-- Slide 3: Ảnh bình thường -->
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-travel" data-caption="Hoàng hôn nhuộm vàng đỉnh đèo">
+                                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80" alt="Hà Giang 2">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <div class="hidden-full-content hidden">
+                            <p class="mb-6 text-lg leading-relaxed text-slate-700 font-medium">
+                                Hà Giang từ lâu đã trở thành một điểm đến huyền thoại đối với bất cứ ai đam mê khám phá vẻ đẹp hoang sơ, kỳ vĩ của miền biên viễn Việt Nam. Không chỉ nổi tiếng với những vách đá tai mèo sừng sững, vùng đất này còn sưởi ấm lòng người bởi những nụ cười trẻ thơ ngây thơ và các đồng lúa chín tràn ngập thung lũng.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-circle text-[10px] text-indigo-500"></i> 1. Chinh phục Tứ đại đỉnh đèo "Mã Pí Lèng"
+                            </h3>
+                            <p class="mb-6 leading-relaxed text-slate-600">
+                                Điểm nhấn lớn nhất chắc chắn là con đường đèo uốn lượn tựa như dải lụa mỏng vắt vẻo lưng chừng núi. Đứng ở đỉnh Mã Pí Lèng cao gần 2,000m, bạn sẽ cảm nhận được sự bao la của mây trời, nghe gió thốc bên tai và phóng tầm mắt xuống sông Nho Quế thẫm màu ngọc lục bảo sâu hun hút. Hãy thử trải nghiệm đi thuyền trên lòng sông để chạm tay vào hẻm vực Tu Sản sâu nhất Đông Nam Á.
+                            </p>
+
+                            <blockquote class="border-l-4 border-indigo-500 bg-slate-50 p-4 rounded-r-xl italic my-6 text-slate-600">
+                                "Đứng trước thiên nhiên Hà Giang hùng vĩ, mọi mệt nhọc phố thị bỗng chốc tan biến. Chỉ còn lại ta với đại ngàn sương khói."
+                            </blockquote>
+
+                            <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-circle text-[10px] text-indigo-500"></i> 2. Mùa vàng trên rẻo cao Hà Giang
+                            </h3>
+                            <p class="mb-6 leading-relaxed text-slate-600">
+                                Nếu đi vào khoảng tháng 9 và tháng 10, bạn sẽ sững sờ trước thảm vàng óng của ruộng bậc thang đương mùa thu hoạch ở Hoàng Su Phì. Đến tháng 11, sắc tím hồng dịu dàng của hoa tam giác mạch lại bao phủ lấy cao nguyên đá cằn cỗi, tạo nên một bản hòa tấu màu sắc tuyệt hảo khó quên.
+                            </p>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-50">
+                            <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Hoàng Nam</span></span>
+                            <button class="view-detail-btn text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">
+                                Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- BÀI VIẾT 2: ẨM THỰC -->
+                    <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-category="food" data-id="post-cafe">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="category-badge bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                    Ẩm thực
+                                </span>
+                                <span class="text-xs text-slate-400">
+                                    <i class="fa-regular fa-calendar mr-1"></i> <span class="post-date">21/05/2026</span>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <h2 class="post-title text-2xl font-bold text-slate-900 mb-3 hover:text-indigo-600 transition-colors cursor-pointer">
+                            Tìm Kiếm Ly Espresso Hoàn Hảo Giữa Lòng Thành Phố
+                        </h2>
+                        
+                        <p class="text-slate-600 mb-4 leading-relaxed post-excerpt">
+                            Đối với một tín đồ cà phê, việc bắt đầu ngày mới bằng một ly Espresso đậm vị, lớp Crema sánh mịn màu cánh gián là một nghi thức không thể thiếu. Hôm nay cùng mình ghé thăm các quán cà phê specialty ẩn mình trong các con ngõ nhỏ để tìm kiếm hương vị hoàn hảo đó nhé.
+                        </p>
+
+                        <!-- TAGS CHỦ ĐỀ -->
+                        <div class="flex flex-wrap gap-1.5 mb-5 text-xs post-tags">
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#espresso</span>
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#caphe</span>
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#chill</span>
+                        </div>
+
+                        <!-- SLIDE ẢNH BÀI VIẾT 2 -->
+                        <div class="swiper mySwiper mb-5">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-151097252790b-af4f42d914a9?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-food" data-caption="Hạt cà phê chất lượng cao được tuyển lựa">
+                                        <img src="https://images.unsplash.com/photo-151097252790b-af4f42d914a9?auto=format&fit=crop&w=800&q=80" alt="Cà phê 1">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-food" data-caption="Ly Latte Art được pha chế tỉ mỉ">
+                                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" alt="Cà phê 2">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <!-- NỘI DUNG CHI TIẾT ĐẦY ĐỦ -->
+                        <div class="hidden-full-content hidden">
+                            <p class="mb-6 text-lg leading-relaxed text-slate-700 font-medium">
+                                Espresso không chỉ thuần túy là thức uống, đó là một môn nghệ thuật mà người pha chế là một nghệ sĩ. Một tách Espresso tiêu chuẩn đòi hỏi sự căn chỉnh khắt khe từ độ mịn bột cà phê, lực nén, nhiệt độ nước đến thời gian chiết xuất chính xác đến từng giây.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-mug-hot text-indigo-500"></i> Hành Trình Chọn Lọc Hạt Cà Phê Specialty
+                            </h3>
+                            <p class="mb-6 leading-relaxed text-slate-600">
+                                Để có một lớp crema (bọt khí) dày dặn, béo ngậy phủ trên bề mặt, các nhà rang xay thường pha trộn tỷ lệ hoàn hảo giữa hạt Arabica cao cấp (cho hương thơm phong phú của hoa trái) và hạt Robusta nguyên bản (giúp bổ sung body đậm đà). Quá trình thưởng thức ngon nhất là uống ngay khi tách cà phê vừa được phục vụ trong vòng 1 phút, khuấy nhẹ và thưởng thức trọn vẹn trong 2 - 3 ngụm nhỏ.
+                            </p>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-50">
+                            <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Thanh Thảo</span></span>
+                            <button class="view-detail-btn text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">
+                                Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- BÀI VIẾT 3: LỐI SỐNG -->
+                    <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-category="lifestyle" data-id="post-setup">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="category-badge bg-purple-50 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                    Lối sống
+                                </span>
+                                <span class="text-xs text-slate-400">
+                                    <i class="fa-regular fa-calendar mr-1"></i> <span class="post-date">18/05/2026</span>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <h2 class="post-title text-2xl font-bold text-slate-900 mb-3 hover:text-indigo-600 transition-colors cursor-pointer">
+                            Kiến Tạo Góc Làm Việc Tối Giản Cực Chill
+                        </h2>
+                        
+                        <p class="text-slate-600 mb-4 leading-relaxed post-excerpt">
+                            Một góc làm việc gọn gàng, đón nhiều ánh sáng tự nhiên không chỉ giúp bạn tăng hiệu suất làm việc lên gấp đôi, mà còn là nguồn cảm hứng dồi dào mỗi sáng thức dậy. Hãy cùng tối giản hoá mặt bàn bằng một vài chậu cây nhỏ và thanh treo thông minh nhé!
+                        </p>
+
+                        <!-- TAGS CHỦ ĐỀ -->
+                        <div class="flex flex-wrap gap-1.5 mb-5 text-xs post-tags">
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#minimalism</span>
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#setup</span>
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#productivity</span>
+                        </div>
+
+                        <!-- SLIDE ẢNH BÀI VIẾT 3 -->
+                        <div class="swiper mySwiper mb-5">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-lifestyle" data-caption="Góc setup bàn làm việc gỗ tự nhiên">
+                                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" alt="Lối sống 1">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-lifestyle" data-caption="Ánh sáng tự nhiên ngập tràn">
+                                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80" alt="Lối sống 2">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <!-- NỘI DUNG CHI TIẾT ĐẦY ĐỦ -->
+                        <div class="hidden-full-content hidden">
+                            <p class="mb-6 text-lg leading-relaxed text-slate-700 font-medium">
+                                Nơi làm việc phản ánh tâm trí của bạn. Một chiếc bàn bừa bộn tràn ngập giấy tờ vụn sẽ khiến trí óc dễ rơi vào trạng thái bế tắc và quá tải thông tin. Ngược lại, không gian tối giản (Minimalism Desk Setup) mang lại sự thoáng đãng cho luồng tư duy mạch lạc.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-wand-magic-sparkles text-indigo-500"></i> 3 Nguyên tắc mấu chốt để tối giản hóa góc làm việc:
+                            </h3>
+                            <ul class="list-disc pl-6 mb-6 text-slate-600 space-y-2">
+                                <li><strong>Ẩn giấu dây cáp:</strong> Sử dụng khay giấu dây dưới gầm bàn để giải phóng tầm nhìn tuyệt đối bên trên mặt gỗ.</li>
+                                <li><strong>Chỉ giữ lại những gì cần thiết:</strong> Máy tính, bàn phím, chuột và một cuốn sổ nhỏ. Những thứ khác hãy chuyển vào hộc tủ kéo.</li>
+                                <li><strong>Đầu tư vào ánh sáng và sinh khí:</strong> Một dải đèn LED vàng ấm nhẹ hắt tường (Ambient Light) cùng một chậu cây cảnh lọc không khí nhỏ sẽ mang đến nguồn cảm hứng dồi dào.</li>
+                            </ul>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-50">
+                            <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Minh Khang</span></span>
+                            <button class="view-detail-btn text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">
+                                Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- BÀI VIẾT 4: DU LỊCH (BỔ SUNG) -->
+                    <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-category="travel" data-id="post-phu-quoc">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="category-badge bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                    Du lịch
+                                </span>
+                                <span class="text-xs text-slate-400">
+                                    <i class="fa-regular fa-calendar mr-1"></i> <span class="post-date">10/05/2026</span>
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <h2 class="post-title text-2xl font-bold text-slate-900 mb-3 hover:text-indigo-600 transition-colors cursor-pointer">
+                            Phú Quốc - Vẫy Gọi Từ Rạn San Hô Kỳ Thú
+                        </h2>
+                        
+                        <p class="text-slate-600 mb-4 leading-relaxed post-excerpt">
+                            Đảo ngọc Phú Quốc không chỉ hớp hồn du khách bởi làn nước biển xanh như ngọc bích, mà còn bởi cả thế giới san hô đầy rực rỡ dưới lòng đại dương. Ghé thăm hòn Móng Tay hay hòn Gầm Ghì, đeo kính lặn vào và thỏa thích khám phá thế giới sinh thái kỳ diệu nào!
+                        </p>
+
+                        <!-- TAGS CHỦ ĐỀ -->
+                        <div class="flex flex-wrap gap-1.5 mb-5 text-xs post-tags">
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#phuquoc</span>
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#beach</span>
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#lặnbiển</span>
+                        </div>
+
+                        <!-- SLIDE ẢNH BÀI VIẾT 4 -->
+                        <div class="swiper mySwiper mb-5">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-phuquoc" data-caption="Đảo ngọc hoang sơ trong xanh">
+                                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80" alt="Phú Quốc 1">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-phuquoc" data-caption="Rạn san hô đầy màu sắc">
+                                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" alt="Phú Quốc 2">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                        <!-- NỘI DUNG CHI TIẾT ĐẦY ĐỦ -->
+                        <div class="hidden-full-content hidden">
+                            <p class="mb-6 text-lg leading-relaxed text-slate-700 font-medium">
+                                Nằm khuất sâu trong Vịnh Thái Lan, Phú Quốc được thiên nhiên ưu ái ban tặng một thảm sinh vật biển nhiệt đới đa dạng thuộc hàng top khu vực. Các rạn san hô cứng, san hô mềm rực rỡ sắc màu phủ bám dày đặc trên những ghềnh đá ngầm là thiên đường của vô vàn cá mú, cá hề tinh nghịch.
+                            </p>
+                            
+                            <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-info text-indigo-500"></i> Kinh nghiệm lặn ngắm san hô cho người mới:
+                            </h3>
+                            <p class="mb-6 leading-relaxed text-slate-600">
+                                Hãy chuẩn bị kính lặn có ống thở chất lượng tốt và bôi kem chống nắng thân thiện với rạn san hô trước khi nhảy xuống nước. Hãy thả lỏng cơ thể, bơi nhẹ nhàng bằng hai chân chèo và tuyệt đối không giẫm đạp hay bẻ gãy bất cứ nhành san hô nào để cùng bảo vệ môi trường sinh thái nguyên sơ của hòn đảo xinh đẹp này.
+                            </p>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-50">
+                            <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Hoàng Nam</span></span>
+                            <button class="view-detail-btn text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">
+                                Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- CỘT PHẢI (SIDEBAR) - THÔNG TIN CÁ NHÂN -->
+                <aside class="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-6">
+                    <!-- Thẻ Thông Tin Tác Giả (Profile Card) -->
+                    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative w-28 h-28 mb-4">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Ảnh đại diện" class="w-full h-full object-cover rounded-full border-4 border-indigo-50 shadow-sm">
+                                <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full" title="Sẵn sàng kết nối"></span>
+                            </div>
+                            
+                            <h3 class="text-xl font-bold text-slate-800">Khánh Linh (Wanderer)</h3>
+                            <p class="text-xs text-indigo-600 font-semibold uppercase tracking-wider mb-4">Travel Blogger & Photographer</p>
+                            
+                            <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                                Xin chào! Mình là một tâm hồn tự do đam mê dịch chuyển, luôn khao khát kiếm tìm những hương vị ẩm thực độc đáo và chia sẻ phong cách sống chậm đến với mọi người.
+                            </p>
+                            
+                            <div class="grid grid-cols-3 gap-2 w-full py-4 border-y border-slate-100 mb-6 text-center">
+                                <div>
+                                    <span class="block text-lg font-bold text-slate-800">48+</span>
+                                    <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Bài viết</span>
+                                </div>
+                                <div>
+                                    <span class="block text-lg font-bold text-slate-800">15K</span>
+                                    <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Độc giả</span>
+                                </div>
+                                <div>
+                                    <span class="block text-lg font-bold text-slate-800">20+</span>
+                                    <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Điểm đến</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-center gap-3">
+                                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Facebook">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Youtube">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Liên hệ qua Email">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thẻ Đăng Ký Bản Tin (Newsletter Widget) -->
+                    <div class="bg-gradient-to-br from-indigo-50/50 to-purple-50/50 border border-indigo-100/40 rounded-2xl p-6 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+                            <i class="fa-regular fa-paper-plane text-indigo-600"></i> Nhận bài viết mới
+                        </h4>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-4">Điền email của bạn để không bỏ lỡ các cẩm nang du lịch và công thức món ăn ngon sớm nhất.</p>
+                        
+                        <form id="newsletter-form" class="space-y-2">
+                            <input type="email" placeholder="Địa chỉ email của bạn" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500" required>
+                            <button type="submit" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl text-xs transition-colors shadow-sm">Đăng ký ngay</button>
+                        </form>
+                        <div id="newsletter-success" class="text-xs text-emerald-600 font-medium mt-2 hidden flex items-center gap-1.5">
+                            <i class="fa-solid fa-circle-check"></i> Đăng ký thành công! Cảm ơn bạn nhé.
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+
+        <div id="blog-detail-view" class="hidden max-w-4xl mx-auto bg-white border border-slate-100 rounded-3xl p-6 md:p-10 shadow-sm fade-in-up">
+            <!-- Toàn bộ nội dung chi tiết bài viết sẽ được nạp động qua JS -->
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-sm">© 2026 The Wanderlust Blog. Phát triển bằng sự đam mê.</p>
+        </div>
+    </footer>
+
+    <!-- Nút quay về đầu trang -->
+    <button 
+        id="back-to-top" 
+        class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto"
+        title="Quay lên đầu trang"
+    >
+        <i class="fa-solid fa-arrow-up text-lg"></i>
+    </button>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+    <script>
+        // Lưu trữ vị trí cuộn trang trước đó
+        let lastScrollY = 0;
+
+        // 1. KHỞI TẠO TẤT CẢ CÁC SWIPER (SLIDE ẢNH)
+        function initAllSwipers() {
+            document.querySelectorAll('.mySwiper').forEach((el) => {
+                // Hủy instance cũ nếu đã khởi tạo từ trước để tránh rác RAM
+                if (el.swiper) {
+                    el.swiper.destroy(true, true);
+                }
+                new Swiper(el, {
+                    loop: true,
+                    spaceBetween: 10,
+                    observer: true,
+                    observeParents: true,
+                    pagination: {
+                        el: el.querySelector('.swiper-pagination'),
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: el.querySelector('.swiper-button-next'),
+                        prevEl: el.querySelector('.swiper-button-prev'),
+                    },
+                    autoplay: {
+                        delay: 4500,
+                        disableOnInteraction: true,
+                    },
+                });
+            });
+        }
+
+        // Khởi chạy lần đầu tiên
+        initAllSwipers();
+
+        // 2. KHỞI TẠO FANCYBOX (Phóng to ảnh)
+        Fancybox.bind("[data-fancybox^='gallery-']", {
+            Thumbs: {
+                autoStart: true,
+            }
+        });
+
+        // 3. XỬ LÝ LỌC & TÌM KIẾM BÀI VIẾT ĐỒNG THỜI
+        const searchInput = document.getElementById('search-input');
+        const clearSearchBtn = document.getElementById('clear-search-btn');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const postCards = document.querySelectorAll('.post-card');
+        const noResultsState = document.getElementById('no-results-state');
+        const resetFiltersBtn = document.getElementById('reset-filters-btn');
+
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        function applyFilters() {
+            let visiblePostsCount = 0;
+            const query = searchQuery.toLowerCase().trim();
+
+            postCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                
+                const titleText = card.querySelector('h2').textContent.toLowerCase();
+                const bodyText = card.querySelector('.post-excerpt').textContent.toLowerCase();
+                const authorText = card.querySelector('.post-author').textContent.toLowerCase();
+                
+                let tagsText = '';
+                card.querySelectorAll('.tag-badge').forEach(tag => {
+                    tagsText += tag.textContent.toLowerCase() + ' ';
+                });
+
+                const matchesCategory = (currentCategory === 'all' || cardCategory === currentCategory);
+                const matchesSearch = !query || 
+                    titleText.includes(query) || 
+                    bodyText.includes(query) || 
+                    authorText.includes(query) ||
+                    tagsText.includes(query);
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                    visiblePostsCount++;
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(10px)';
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visiblePostsCount === 0) {
+                noResultsState.classList.remove('hidden');
+            } else {
+                noResultsState.classList.add('hidden');
+            }
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            if (searchQuery.length > 0) {
+                clearSearchBtn.classList.remove('hidden');
+            } else {
+                clearSearchBtn.classList.add('hidden');
+            }
+            applyFilters();
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            clearSearchBtn.classList.add('hidden');
+            searchInput.focus();
+            applyFilters();
+        });
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200";
+                });
+                btn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-indigo-600 text-white shadow-md shadow-indigo-100";
+
+                currentCategory = btn.getAttribute('data-filter');
+                applyFilters();
+            });
+        });
+
+        document.querySelectorAll('.tag-badge').forEach(badge => {
+            badge.addEventListener('click', (e) => {
+                e.stopPropagation(); // Ngăn sự kiện click lan ra ngoài thẻ card
+                const tagName = badge.textContent.trim();
+                searchInput.value = tagName;
+                searchQuery = tagName;
+                clearSearchBtn.classList.remove('hidden');
+                
+                const allBtn = document.querySelector('[data-filter="all"]');
+                allBtn.click(); 
+                
+                applyFilters();
+                window.scrollTo({ top: 180, behavior: 'smooth' });
+            });
+        });
+
+        resetFiltersBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            clearSearchBtn.classList.add('hidden');
+            const allBtn = document.querySelector('[data-filter="all"]');
+            allBtn.click();
+        });
+
+        // 4. STREAMING_CHUNK: Phát triển hệ thống mở bài viết chi tiết (Reader Mode)
+        const blogListView = document.getElementById('blog-list-view');
+        const blogDetailView = document.getElementById('blog-detail-view');
+
+        // Hàm mở bài viết chi tiết
+        function openPostDetail(cardElement) {
+            // Ghi nhận vị trí cuộn trang hiện tại để quay về sau này
+            lastScrollY = window.scrollY;
+
+            // Thu thập dữ liệu từ phần HTML của thẻ card
+            const title = cardElement.querySelector('.post-title').textContent.trim();
+            const categoryBadgeHTML = cardElement.querySelector('.category-badge').outerHTML;
+            const date = cardElement.querySelector('.post-date').textContent.trim();
+            const author = cardElement.querySelector('.post-author').textContent.trim();
+            const tagsHTML = cardElement.querySelector('.post-tags').outerHTML;
+            const fullContentHTML = cardElement.querySelector('.hidden-full-content').innerHTML;
+            
+            // Sao chép lại slide Swiper của bài viết để đặt vào trang chi tiết
+            const originalSwiper = cardElement.querySelector('.mySwiper');
+            // Nhân bản sâu (deep clone) cấu trúc slide
+            const clonedSwiperHTML = originalSwiper.outerHTML;
+
+            // Thiết kế dựng layout cho trang bài viết đọc chi tiết
+            blogDetailView.innerHTML = `
+                <!-- Nút trở về trên cùng -->
+                <button id="detail-back-btn-top" class="mb-6 flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
+                    <i class="fa-solid fa-arrow-left-long"></i> Trở lại trang chủ
+                </button>
+
+                <!-- Header bài viết -->
+                <div class="mb-6">
+                    <div class="flex items-center gap-3 mb-3">
+                        ${categoryBadgeHTML}
+                        <span class="text-xs text-slate-400">
+                            <i class="fa-regular fa-calendar mr-1"></i> ${date}
+                        </span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-4">${title}</h1>
+                    <div class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+                        <i class="fa-solid fa-pen-nib text-indigo-400"></i> Viết bởi: <span class="text-slate-800">${author}</span>
+                    </div>
+                </div>
+
+                <!-- Slide trình chiếu ảnh/video nhân bản -->
+                <div class="mb-8">
+                    ${clonedSwiperHTML}
+                </div>
+
+                <!-- Thân văn bản bài viết đầy đủ -->
+                <div class="prose max-w-none text-slate-700 leading-relaxed mb-10">
+                    ${fullContentHTML}
+                </div>
+
+                <!-- Thẻ tags cuối bài -->
+                <div class="pt-6 border-t border-slate-100 mb-8">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Tags liên quan</span>
+                    ${tagsHTML}
+                </div>
+
+                <!-- Nút trở về cuối bài -->
+                <div class="flex justify-center">
+                    <button id="detail-back-btn-bottom" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
+                        <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
+                    </button>
+                </div>
+            `;
+
+            // Ẩn danh sách, hiện trang chi tiết
+            blogListView.classList.add('hidden');
+            blogDetailView.classList.remove('hidden');
+
+            // Khởi tạo Swiper và Fancybox cho tệp slide vừa nhân bản động
+            initAllSwipers();
+            Fancybox.bind("[data-fancybox^='gallery-']");
+
+            // Cuộn mượt màn hình lên đầu trang chi tiết
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Gán sự kiện click cho các nút Trở lại trang chủ
+            const backToHome = () => {
+                blogDetailView.classList.add('hidden');
+                blogListView.classList.remove('hidden');
+                
+                // Khôi phục lại trạng thái Swiper cho danh sách gốc
+                initAllSwipers();
+                
+                // Cuộn trở lại đúng vị trí xem trước đó
+                window.scrollTo({ top: lastScrollY, behavior: 'instant' });
+            };
+
+            document.getElementById('detail-back-btn-top').addEventListener('click', backToHome);
+            document.getElementById('detail-back-btn-bottom').addEventListener('click', backToHome);
+
+            // Bổ sung xử lý click tag trong trang chi tiết để tìm kiếm trực tiếp
+            blogDetailView.querySelectorAll('.tag-badge').forEach(badge => {
+                badge.addEventListener('click', () => {
+                    const tagName = badge.textContent.trim();
+                    backToHome();
+                    
+                    searchInput.value = tagName;
+                    searchQuery = tagName;
+                    clearSearchBtn.classList.remove('hidden');
+                    
+                    const allBtn = document.querySelector('[data-filter="all"]');
+                    allBtn.click();
+                    applyFilters();
+                    window.scrollTo({ top: 180, behavior: 'smooth' });
+                });
+            });
+        }
+
+        // Lắng nghe sự kiện click vào nút Xem chi tiết hoặc Tiêu đề ở trang chủ
+        document.addEventListener('click', (e) => {
+            const viewBtn = e.target.closest('.view-detail-btn');
+            const titleClick = e.target.closest('.post-title');
+            
+            if (viewBtn || titleClick) {
+                const card = e.target.closest('.post-card');
+                if (card) {
+                    openPostDetail(card);
+                }
+            }
+        });
+
+        // Logo Header click quay về Trang chủ chính
+        document.getElementById('header-logo').addEventListener('click', (e) => {
+            e.preventDefault();
+            if (!blogDetailView.classList.contains('hidden')) {
+                blogDetailView.classList.add('hidden');
+                blogListView.classList.remove('hidden');
+                initAllSwipers();
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 5. HIỆU ỨNG CUỘN LÊN ĐẦU TRANG (BACK TO TOP)
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 6. Đăng ký nhận bản tin ở Sidebar không dùng alert() gây đơ giao diện
+        const newsletterForm = document.getElementById('newsletter-form');
+        const newsletterSuccess = document.getElementById('newsletter-success');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                newsletterForm.classList.add('hidden');
+                newsletterSuccess.classList.remove('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
