@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Cá Nhân Hiện Đại</title>
+    <title>.: Hiệu Béo Audition :.</title>
     
     <!-- Tailwind CSS CDN để thiết kế giao diện nhanh và đẹp -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -103,11 +103,12 @@
     <!-- HEADER -->
     <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
         <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <a href="#" id="header-logo" class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
-                <i class="fa-solid fa-feather-pointed"></i>
-                <span>The Wanderlust Blog</span>
-            </a>
-            <p class="text-sm text-slate-500 text-center sm:text-right">Nơi chia sẻ trải nghiệm du lịch, ẩm thực và phong cách sống</p>
+		<a href="#" id="header-logo" class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
+    			<!-- Thay thẻ <i> cũ bằng thẻ <img> dưới đây -->
+    			<img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true" alt="Logo" class="w-6 h-6 object-contain">
+   			 <span>Hieubeo's Audition Studio</span>
+		</a>
+            <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
         </div>
     </header>
 
@@ -123,7 +124,7 @@
                 <input 
                     type="text" 
                     id="search-input" 
-                    placeholder="Tìm kiếm tiêu đề, bài viết, tác giả, tag..." 
+                    placeholder="Tìm kiếm tiêu đề, bài viết, tác giả, hashtag,..." 
                     class="w-full pl-11 pr-11 py-3.5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-sm"
                 />
                 <button 
@@ -140,15 +141,22 @@
                 <button data-filter="all" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-indigo-600 text-white shadow-md shadow-indigo-100">
                     Tất cả bài viết
                 </button>
-                <button data-filter="travel" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
-                    <i class="fa-solid fa-compass mr-1.5 text-emerald-500"></i> Du lịch
-                </button>
-                <button data-filter="food" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
-                    <i class="fa-solid fa-utensils mr-1.5 text-amber-500"></i> Ẩm thực
-                </button>
+              
                 <button data-filter="lifestyle" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
-                    <i class="fa-solid fa-mug-hot mr-1.5 text-purple-500"></i> Lối sống
+                    <img src="https://github.com/hieubeo91/storage/blob/main/blog/tool.png?raw=true" alt="Công cụ" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+                    Công cụ
                 </button>
+              
+                <button data-filter="lifestyle" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+                    <img src="https://github.com/hieubeo91/storage/blob/main/blog/stage.png?raw=true" alt="Sàn nhảy" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+                    Sàn nhảy
+                </button>
+              
+                <button data-filter="lifestyle" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+                    <img src="https://github.com/hieubeo91/storage/blob/main/blog/skin.png?raw=true" alt="Giao diện" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+                    Giao diện
+                </button>
+              
             </div>
 
             <!-- KHÔNG TÌM THẤY KẾT QUẢ -->
@@ -173,28 +181,32 @@
                     <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-category="travel" data-id="post-ha-giang">
                         <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                             <div class="flex items-center gap-3">
-                                <span class="category-badge bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                    Du lịch
+                                <span class="category-badge bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                    Công cụ
+                                </span>
+                                <span class="category-badge bg-red-50 text-red-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                    Trả phí
                                 </span>
                                 <span class="text-xs text-slate-400">
-                                    <i class="fa-regular fa-calendar mr-1"></i> <span class="post-date">23/05/2026</span>
+                                    <i class="fa-regular fa-calendar mr-1"></i> <span class="post-date">24/05/2026</span>
                                 </span>
                             </div>
                         </div>
                         
                         <h2 class="post-title text-2xl font-bold text-slate-900 mb-3 hover:text-indigo-600 transition-colors cursor-pointer">
-                            Hà Giang - Nơi Những Con Đường Hóa Thần Thoại
+                            DDS Converter. Công cụ chuyển đổi ảnh DDS hàng loạt
                         </h2>
                         
-                        <p class="text-slate-600 mb-4 leading-relaxed post-excerpt">
-                            Hành trình chinh phục những cung đèo hùng vĩ nhất miền Bắc Việt Nam luôn đem lại những cảm xúc khó tả. Từ dốc Thẩm Mã uốn lượn cho tới đỉnh đèo Mã Pí Lèng mây phủ, Hà Giang không chỉ có đá tai mèo mà còn có những thung lũng hoa tam giác mạch lãng mạn vô cùng.
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed post-excerpt">
+                            Giải pháp lý tưởng giúp bạn chuyển đổi hàng loạt tệp JPG, PNG sang định dạng DDS, tối ưu cho game và đồ họa 3D. Với giao diện trực quan và tốc độ xử lý nhanh chóng. Chỉ với 1 file thực thi duy nhất, không                               cần thao tác cài đặt phức tạp. Công cụ này cho phép bạn chuyển đổi thư mục, quản lý đầu ra dễ dàng.
                         </p>
 
                         <!-- TAGS CHỦ ĐỀ -->
                         <div class="flex flex-wrap gap-1.5 mb-5 text-xs post-tags">
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#hagiang</span>
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#taybac</span>
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#phuot</span>
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#Tool</span>
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#Công cụ</span>
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#DDS</span>
+                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#Converter</span>
                         </div>
 
                         <!-- SLIDE ẢNH BÀI VIẾT 1 -->
@@ -202,30 +214,15 @@
                             <div class="swiper-wrapper">
                                 <!-- Slide 1: Ảnh bình thường -->
                                 <div class="swiper-slide">
-                                    <a href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-travel" data-caption="Cảnh sắc thiên nhiên vĩ đại">
-                                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Hà Giang 1" class="hover:scale-105 transition-transform duration-300">
-                                    </a>
-                                </div>
-                                
-                                <!-- Slide 2: Video YouTube -->
-                                <div class="swiper-slide relative group">
-                                    <a href="https://www.youtube.com/watch?v=F3t2T6m6z1I" data-fancybox="gallery-travel" data-caption="Video trải nghiệm: Flycam hùng vĩ núi rừng Hà Giang">
-                                        <img src="https://img.youtube.com/vi/F3t2T6m6z1I/maxresdefault.jpg" alt="Video Hà Giang" class="w-full h-full object-cover">
-                                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center transition-all group-hover:bg-black/50">
-                                            <div class="w-16 h-16 md:w-20 md:h-20 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-110 active:scale-95 transition-all duration-300">
-                                                <i class="fa-solid fa-play text-2xl md:text-3xl ml-1.5 animate-pulse"></i>
-                                            </div>
-                                            <span class="absolute top-4 right-4 bg-black/75 text-white text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-md flex items-center gap-1.5">
-                                                <i class="fa-solid fa-video"></i> Video
-                                            </span>
-                                        </div>
+                                    <a href="https://github.com/hieubeo91/storage/blob/main/blog/ddsconverter1.jpg?raw=true" data-fancybox="gallery-travel" data-caption="Giao diện 1">
+                                        <img src="https://github.com/hieubeo91/storage/blob/main/blog/ddsconverter1.jpg?raw=true" alt="Hà Giang 1" class="hover:scale-105 transition-transform duration-300">
                                     </a>
                                 </div>
 
-                                <!-- Slide 3: Ảnh bình thường -->
+                                <!-- Slide 2: Ảnh bình thường -->
                                 <div class="swiper-slide">
-                                    <a href="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-travel" data-caption="Hoàng hôn nhuộm vàng đỉnh đèo">
-                                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80" alt="Hà Giang 2">
+                                    <a href="https://github.com/hieubeo91/storage/blob/main/blog/ddsconverter1.jpg?raw=true" data-fancybox="gallery-travel" data-caption="Giao diện 2">
+                                        <img src="https://github.com/hieubeo91/storage/blob/main/blog/ddsconverter1.jpg?raw=true" alt="Hà Giang 2">
                                     </a>
                                 </div>
                             </div>
@@ -235,245 +232,70 @@
                         </div>
 
                         <div class="hidden-full-content hidden">
-                            <p class="mb-6 text-lg leading-relaxed text-slate-700 font-medium">
-                                Hà Giang từ lâu đã trở thành một điểm đến huyền thoại đối với bất cứ ai đam mê khám phá vẻ đẹp hoang sơ, kỳ vĩ của miền biên viễn Việt Nam. Không chỉ nổi tiếng với những vách đá tai mèo sừng sững, vùng đất này còn sưởi ấm lòng người bởi những nụ cười trẻ thơ ngây thơ và các đồng lúa chín tràn ngập thung lũng.
+                            <p class="mb-6 text-base leading-relaxed text-slate-700 font-medium">
+                                DDS Converter là giải pháp lý tưởng giúp bạn chuyển đổi hàng loạt tệp JPG, PNG sang định dạng DDS tối ưu cho game và đồ họa 3D. Với giao diện trực quan và tốc độ xử lý nhanh chóng, 
+                                chỉ có 1 file thực thi duy nhất, không cần thao tác cài đặt phức tạp. Công cụ này cho phép bạn chuyển đổi thư mục, quản lý đầu ra dễ dàng chỉ trong vài cú click chuột.
                             </p>
-                            
+                          
                             <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
-                                <i class="fa-solid fa-circle text-[10px] text-indigo-500"></i> 1. Chinh phục Tứ đại đỉnh đèo "Mã Pí Lèng"
+                                <i class="fa-solid fa-circle text-[10px] text-indigo-500"></i> Chức năng
                             </h3>
-                            <p class="mb-6 leading-relaxed text-slate-600">
-                                Điểm nhấn lớn nhất chắc chắn là con đường đèo uốn lượn tựa như dải lụa mỏng vắt vẻo lưng chừng núi. Đứng ở đỉnh Mã Pí Lèng cao gần 2,000m, bạn sẽ cảm nhận được sự bao la của mây trời, nghe gió thốc bên tai và phóng tầm mắt xuống sông Nho Quế thẫm màu ngọc lục bảo sâu hun hút. Hãy thử trải nghiệm đi thuyền trên lòng sông để chạm tay vào hẻm vực Tu Sản sâu nhất Đông Nam Á.
+                            <p class="mb-6 text-base leading-relaxed text-slate-700 font-medium">
+                              <li>Chuyển đổi files JPG, JPG, PNG sang DDS không giới hạn</li>
+                              <li>Hỗ trợ thuật toán nén ảnh khối, tiết kiệm 75% dung lượng so với ảnh không nén</li>
+                              <li>Tự động tạo Mipmap (Tăng FPS, khửa răng cưa, tiết kiệm bộ nhớ)</li>
+                              <li>Đổi tên file hàng toàn sau khi chuyển đổi</li>
                             </p>
+                          
+                       <!-- BUTTON MUA NGAY -->
+<div class="flex justify-center items-center w-full my-8">
 
-                            <blockquote class="border-l-4 border-indigo-500 bg-slate-50 p-4 rounded-r-xl italic my-6 text-slate-600">
-                                "Đứng trước thiên nhiên Hà Giang hùng vĩ, mọi mệt nhọc phố thị bỗng chốc tan biến. Chỉ còn lại ta với đại ngàn sương khói."
-                            </blockquote>
+    <div class="relative inline-flex items-center group/buy py-2">
+        
+        <div class="absolute left-full top-1/2 -translate-y-1/2 flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 ease-out transform -translate-x-2 
+                    group-hover/buy:opacity-100 group-hover/buy:pointer-events-auto group-hover/buy:translate-x-3
+                    before:content-[''] before:absolute before:right-full before:top-0 before:bottom-0 before:w-10">
+            
+            <a href="https://facebook.com/nguyenvanhieuhp" target="_blank" 
+               class="flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2] text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200"
+               title="Liên hệ qua Facebook">
+                <i class="fa-brands fa-facebook-f text-lg"></i>
+            </a>
+            
+            <a href="https://zalo.me/0367095324" target="_blank" 
+               class="flex items-center justify-center w-10 h-10 rounded-full bg-[#0068FF] text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 font-bold text-xs"
+               title="Liên hệ qua Zalo">
+                Zalo
+            </a>
+        </div>
 
-                            <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
-                                <i class="fa-solid fa-circle text-[10px] text-indigo-500"></i> 2. Mùa vàng trên rẻo cao Hà Giang
-                            </h3>
-                            <p class="mb-6 leading-relaxed text-slate-600">
-                                Nếu đi vào khoảng tháng 9 và tháng 10, bạn sẽ sững sờ trước thảm vàng óng của ruộng bậc thang đương mùa thu hoạch ở Hoàng Su Phì. Đến tháng 11, sắc tím hồng dịu dàng của hoa tam giác mạch lại bao phủ lấy cao nguyên đá cằn cỗi, tạo nên một bản hòa tấu màu sắc tuyệt hảo khó quên.
-                            </p>
+        <button class="relative flex items-center gap-2 px-6 py-3 font-bold text-white uppercase tracking-wider rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-[length:200%_auto] animate-[gradient_3s_ease_infinite] shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-pink-500/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-300 cursor-pointer">
+            <span class="absolute inset-0 rounded-xl bg-gradient-to-r from-pink-500 to-yellow-500 opacity-40 blur-md animate-ping pointer-events-none"></span>
+            <i class="fa-solid fa-cart-shopping animate-bounce"></i>
+            <span class="relative z-10">Mua Ngay</span>
+        </button>
+    </div>
+
+</div>
+                      <!-- KẾT THÚC BUTTON MUA NGAY -->
+                          
+                          
                         </div>
 
                         <div class="flex items-center justify-between pt-4 border-t border-slate-50">
-                            <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Hoàng Nam</span></span>
+                            <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span>
                             <button class="view-detail-btn text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">
                                 Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
                             </button>
                         </div>
+                      
                     </article>
 
                     <!-- BÀI VIẾT 2: ẨM THỰC -->
-                    <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-category="food" data-id="post-cafe">
-                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-                            <div class="flex items-center gap-3">
-                                <span class="category-badge bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                    Ẩm thực
-                                </span>
-                                <span class="text-xs text-slate-400">
-                                    <i class="fa-regular fa-calendar mr-1"></i> <span class="post-date">21/05/2026</span>
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <h2 class="post-title text-2xl font-bold text-slate-900 mb-3 hover:text-indigo-600 transition-colors cursor-pointer">
-                            Tìm Kiếm Ly Espresso Hoàn Hảo Giữa Lòng Thành Phố
-                        </h2>
-                        
-                        <p class="text-slate-600 mb-4 leading-relaxed post-excerpt">
-                            Đối với một tín đồ cà phê, việc bắt đầu ngày mới bằng một ly Espresso đậm vị, lớp Crema sánh mịn màu cánh gián là một nghi thức không thể thiếu. Hôm nay cùng mình ghé thăm các quán cà phê specialty ẩn mình trong các con ngõ nhỏ để tìm kiếm hương vị hoàn hảo đó nhé.
-                        </p>
-
-                        <!-- TAGS CHỦ ĐỀ -->
-                        <div class="flex flex-wrap gap-1.5 mb-5 text-xs post-tags">
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#espresso</span>
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#caphe</span>
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#chill</span>
-                        </div>
-
-                        <!-- SLIDE ẢNH BÀI VIẾT 2 -->
-                        <div class="swiper mySwiper mb-5">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a href="https://images.unsplash.com/photo-151097252790b-af4f42d914a9?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-food" data-caption="Hạt cà phê chất lượng cao được tuyển lựa">
-                                        <img src="https://images.unsplash.com/photo-151097252790b-af4f42d914a9?auto=format&fit=crop&w=800&q=80" alt="Cà phê 1">
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-food" data-caption="Ly Latte Art được pha chế tỉ mỉ">
-                                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" alt="Cà phê 2">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-
-                        <!-- NỘI DUNG CHI TIẾT ĐẦY ĐỦ -->
-                        <div class="hidden-full-content hidden">
-                            <p class="mb-6 text-lg leading-relaxed text-slate-700 font-medium">
-                                Espresso không chỉ thuần túy là thức uống, đó là một môn nghệ thuật mà người pha chế là một nghệ sĩ. Một tách Espresso tiêu chuẩn đòi hỏi sự căn chỉnh khắt khe từ độ mịn bột cà phê, lực nén, nhiệt độ nước đến thời gian chiết xuất chính xác đến từng giây.
-                            </p>
-                            
-                            <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
-                                <i class="fa-solid fa-mug-hot text-indigo-500"></i> Hành Trình Chọn Lọc Hạt Cà Phê Specialty
-                            </h3>
-                            <p class="mb-6 leading-relaxed text-slate-600">
-                                Để có một lớp crema (bọt khí) dày dặn, béo ngậy phủ trên bề mặt, các nhà rang xay thường pha trộn tỷ lệ hoàn hảo giữa hạt Arabica cao cấp (cho hương thơm phong phú của hoa trái) và hạt Robusta nguyên bản (giúp bổ sung body đậm đà). Quá trình thưởng thức ngon nhất là uống ngay khi tách cà phê vừa được phục vụ trong vòng 1 phút, khuấy nhẹ và thưởng thức trọn vẹn trong 2 - 3 ngụm nhỏ.
-                            </p>
-                        </div>
-
-                        <div class="flex items-center justify-between pt-4 border-t border-slate-50">
-                            <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Thanh Thảo</span></span>
-                            <button class="view-detail-btn text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">
-                                Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </article>
 
                     <!-- BÀI VIẾT 3: LỐI SỐNG -->
-                    <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-category="lifestyle" data-id="post-setup">
-                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-                            <div class="flex items-center gap-3">
-                                <span class="category-badge bg-purple-50 text-purple-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                    Lối sống
-                                </span>
-                                <span class="text-xs text-slate-400">
-                                    <i class="fa-regular fa-calendar mr-1"></i> <span class="post-date">18/05/2026</span>
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <h2 class="post-title text-2xl font-bold text-slate-900 mb-3 hover:text-indigo-600 transition-colors cursor-pointer">
-                            Kiến Tạo Góc Làm Việc Tối Giản Cực Chill
-                        </h2>
-                        
-                        <p class="text-slate-600 mb-4 leading-relaxed post-excerpt">
-                            Một góc làm việc gọn gàng, đón nhiều ánh sáng tự nhiên không chỉ giúp bạn tăng hiệu suất làm việc lên gấp đôi, mà còn là nguồn cảm hứng dồi dào mỗi sáng thức dậy. Hãy cùng tối giản hoá mặt bàn bằng một vài chậu cây nhỏ và thanh treo thông minh nhé!
-                        </p>
-
-                        <!-- TAGS CHỦ ĐỀ -->
-                        <div class="flex flex-wrap gap-1.5 mb-5 text-xs post-tags">
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#minimalism</span>
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#setup</span>
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#productivity</span>
-                        </div>
-
-                        <!-- SLIDE ẢNH BÀI VIẾT 3 -->
-                        <div class="swiper mySwiper mb-5">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a href="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-lifestyle" data-caption="Góc setup bàn làm việc gỗ tự nhiên">
-                                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80" alt="Lối sống 1">
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-lifestyle" data-caption="Ánh sáng tự nhiên ngập tràn">
-                                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80" alt="Lối sống 2">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-
-                        <!-- NỘI DUNG CHI TIẾT ĐẦY ĐỦ -->
-                        <div class="hidden-full-content hidden">
-                            <p class="mb-6 text-lg leading-relaxed text-slate-700 font-medium">
-                                Nơi làm việc phản ánh tâm trí của bạn. Một chiếc bàn bừa bộn tràn ngập giấy tờ vụn sẽ khiến trí óc dễ rơi vào trạng thái bế tắc và quá tải thông tin. Ngược lại, không gian tối giản (Minimalism Desk Setup) mang lại sự thoáng đãng cho luồng tư duy mạch lạc.
-                            </p>
-                            
-                            <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
-                                <i class="fa-solid fa-wand-magic-sparkles text-indigo-500"></i> 3 Nguyên tắc mấu chốt để tối giản hóa góc làm việc:
-                            </h3>
-                            <ul class="list-disc pl-6 mb-6 text-slate-600 space-y-2">
-                                <li><strong>Ẩn giấu dây cáp:</strong> Sử dụng khay giấu dây dưới gầm bàn để giải phóng tầm nhìn tuyệt đối bên trên mặt gỗ.</li>
-                                <li><strong>Chỉ giữ lại những gì cần thiết:</strong> Máy tính, bàn phím, chuột và một cuốn sổ nhỏ. Những thứ khác hãy chuyển vào hộc tủ kéo.</li>
-                                <li><strong>Đầu tư vào ánh sáng và sinh khí:</strong> Một dải đèn LED vàng ấm nhẹ hắt tường (Ambient Light) cùng một chậu cây cảnh lọc không khí nhỏ sẽ mang đến nguồn cảm hứng dồi dào.</li>
-                            </ul>
-                        </div>
-
-                        <div class="flex items-center justify-between pt-4 border-t border-slate-50">
-                            <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Minh Khang</span></span>
-                            <button class="view-detail-btn text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">
-                                Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </article>
 
                     <!-- BÀI VIẾT 4: DU LỊCH (BỔ SUNG) -->
-                    <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-category="travel" data-id="post-phu-quoc">
-                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-                            <div class="flex items-center gap-3">
-                                <span class="category-badge bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                    Du lịch
-                                </span>
-                                <span class="text-xs text-slate-400">
-                                    <i class="fa-regular fa-calendar mr-1"></i> <span class="post-date">10/05/2026</span>
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <h2 class="post-title text-2xl font-bold text-slate-900 mb-3 hover:text-indigo-600 transition-colors cursor-pointer">
-                            Phú Quốc - Vẫy Gọi Từ Rạn San Hô Kỳ Thú
-                        </h2>
-                        
-                        <p class="text-slate-600 mb-4 leading-relaxed post-excerpt">
-                            Đảo ngọc Phú Quốc không chỉ hớp hồn du khách bởi làn nước biển xanh như ngọc bích, mà còn bởi cả thế giới san hô đầy rực rỡ dưới lòng đại dương. Ghé thăm hòn Móng Tay hay hòn Gầm Ghì, đeo kính lặn vào và thỏa thích khám phá thế giới sinh thái kỳ diệu nào!
-                        </p>
-
-                        <!-- TAGS CHỦ ĐỀ -->
-                        <div class="flex flex-wrap gap-1.5 mb-5 text-xs post-tags">
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#phuquoc</span>
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#beach</span>
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#lặnbiển</span>
-                        </div>
-
-                        <!-- SLIDE ẢNH BÀI VIẾT 4 -->
-                        <div class="swiper mySwiper mb-5">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a href="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-phuquoc" data-caption="Đảo ngọc hoang sơ trong xanh">
-                                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80" alt="Phú Quốc 1">
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80" data-fancybox="gallery-phuquoc" data-caption="Rạn san hô đầy màu sắc">
-                                        <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" alt="Phú Quốc 2">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-
-                        <!-- NỘI DUNG CHI TIẾT ĐẦY ĐỦ -->
-                        <div class="hidden-full-content hidden">
-                            <p class="mb-6 text-lg leading-relaxed text-slate-700 font-medium">
-                                Nằm khuất sâu trong Vịnh Thái Lan, Phú Quốc được thiên nhiên ưu ái ban tặng một thảm sinh vật biển nhiệt đới đa dạng thuộc hàng top khu vực. Các rạn san hô cứng, san hô mềm rực rỡ sắc màu phủ bám dày đặc trên những ghềnh đá ngầm là thiên đường của vô vàn cá mú, cá hề tinh nghịch.
-                            </p>
-                            
-                            <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
-                                <i class="fa-solid fa-circle-info text-indigo-500"></i> Kinh nghiệm lặn ngắm san hô cho người mới:
-                            </h3>
-                            <p class="mb-6 leading-relaxed text-slate-600">
-                                Hãy chuẩn bị kính lặn có ống thở chất lượng tốt và bôi kem chống nắng thân thiện với rạn san hô trước khi nhảy xuống nước. Hãy thả lỏng cơ thể, bơi nhẹ nhàng bằng hai chân chèo và tuyệt đối không giẫm đạp hay bẻ gãy bất cứ nhành san hô nào để cùng bảo vệ môi trường sinh thái nguyên sơ của hòn đảo xinh đẹp này.
-                            </p>
-                        </div>
-
-                        <div class="flex items-center justify-between pt-4 border-t border-slate-50">
-                            <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Hoàng Nam</span></span>
-                            <button class="view-detail-btn text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">
-                                Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                    </article>
 
                 </div>
 
@@ -483,29 +305,29 @@
                     <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
                         <div class="flex flex-col items-center text-center">
                             <div class="relative w-28 h-28 mb-4">
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Ảnh đại diện" class="w-full h-full object-cover rounded-full border-4 border-indigo-50 shadow-sm">
+                                <img src="https://github.com/hieubeo91/storage/blob/main/blog/avatar.jpg?raw=true" alt="Ảnh đại diện" class="w-full h-full object-cover rounded-full border-4 border-indigo-50 shadow-sm">
                                 <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full" title="Sẵn sàng kết nối"></span>
                             </div>
                             
-                            <h3 class="text-xl font-bold text-slate-800">Khánh Linh (Wanderer)</h3>
-                            <p class="text-xs text-indigo-600 font-semibold uppercase tracking-wider mb-4">Travel Blogger & Photographer</p>
+                            <h3 class="text-xl font-bold text-slate-800">Nguyễn Văn Hiệu</h3>
+                            <p class="text-xs text-indigo-600 font-semibold uppercase tracking-wider mb-4">♡♡♡</p>
                             
                             <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                                Xin chào! Mình là một tâm hồn tự do đam mê dịch chuyển, luôn khao khát kiếm tìm những hương vị ẩm thực độc đáo và chia sẻ phong cách sống chậm đến với mọi người.
+                                Xin chào! Mình là một kẻ mang bản chất xấu xa, nhưng do biết chơi game mà trở thành người tốt.
                             </p>
                             
                             <div class="grid grid-cols-3 gap-2 w-full py-4 border-y border-slate-100 mb-6 text-center">
                                 <div>
-                                    <span class="block text-lg font-bold text-slate-800">48+</span>
+                                    <span class="block text-lg font-bold text-slate-800">30+</span>
                                     <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Bài viết</span>
                                 </div>
                                 <div>
-                                    <span class="block text-lg font-bold text-slate-800">15K</span>
-                                    <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Độc giả</span>
+                                    <span class="block text-lg font-bold text-slate-800">12K</span>
+                                    <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Theo dõi</span>
                                 </div>
                                 <div>
-                                    <span class="block text-lg font-bold text-slate-800">20+</span>
-                                    <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Điểm đến</span>
+                                    <span class="block text-lg font-bold text-slate-800">2.7M+</span>
+                                    <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Xem trang</span>
                                 </div>
                             </div>
 
@@ -531,7 +353,7 @@
                         <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
                             <i class="fa-regular fa-paper-plane text-indigo-600"></i> Nhận bài viết mới
                         </h4>
-                        <p class="text-xs text-slate-500 leading-relaxed mb-4">Điền email của bạn để không bỏ lỡ các cẩm nang du lịch và công thức món ăn ngon sớm nhất.</p>
+                        <p class="text-xs text-slate-500 leading-relaxed mb-4">Điền email của bạn để không bỏ lỡ các bài viết mới nhất.</p>
                         
                         <form id="newsletter-form" class="space-y-2">
                             <input type="email" placeholder="Địa chỉ email của bạn" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500" required>
@@ -555,7 +377,7 @@
     <!-- FOOTER -->
     <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <p class="text-sm">© 2026 The Wanderlust Blog. Phát triển bằng sự đam mê.</p>
+            <p class="text-sm">© 2026 Hieubeo's Audition Studio   ♫ Rhythm of Life</p>
         </div>
     </footer>
 
@@ -736,7 +558,14 @@
 
             // Thu thập dữ liệu từ phần HTML của thẻ card
             const title = cardElement.querySelector('.post-title').textContent.trim();
-            const categoryBadgeHTML = cardElement.querySelector('.category-badge').outerHTML;
+            // const categoryBadgeHTML = cardElement.querySelector('.category-badge').outerHTML;
+          
+            // Quét lấy tất cả các thẻ badge có trong card
+            let categoryBadgeHTML = '';
+            cardElement.querySelectorAll('.category-badge').forEach(badge => {
+                categoryBadgeHTML += badge.outerHTML; // Cộng dồn chuỗi HTML của từng thẻ lại
+            });
+          
             const date = cardElement.querySelector('.post-date').textContent.trim();
             const author = cardElement.querySelector('.post-author').textContent.trim();
             const tagsHTML = cardElement.querySelector('.post-tags').outerHTML;
@@ -762,7 +591,7 @@
                             <i class="fa-regular fa-calendar mr-1"></i> ${date}
                         </span>
                     </div>
-                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-4">${title}</h1>
+                    <h1 class="text-1xl md:text-2xl font-extrabold text-slate-900 leading-tight mb-4">${title}</h1>
                     <div class="flex items-center gap-2 text-sm text-slate-500 font-medium">
                         <i class="fa-solid fa-pen-nib text-indigo-400"></i> Viết bởi: <span class="text-slate-800">${author}</span>
                     </div>
