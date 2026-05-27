@@ -1,722 +1,824 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>.: Hiệu Béo Audition :.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hieubeo's Audition Studio</title>
     
-    <!-- Tailwind CSS CDN để thiết kế giao diện nhanh và đẹp -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Swiper.js CSS (Trượt ảnh) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
-    <!-- Fancybox CSS (Phóng to ảnh) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f8fafc;
+      scroll-behavior: smooth;
+    }
+
+    /* Tùy chỉnh nhẹ cho Swiper để ôm khít khung */
+    .swiper {
+      width: 100%;
+      height: 400px;
+      border-radius: 12px;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Đè lại màu cho các nút điều hướng Swiper */
+    .swiper-button-next, .swiper-button-prev {
+      color: #ffffff !important;
+      background: rgba(0, 0, 0, 0.4);
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+
+    .swiper-button-next:hover, .swiper-button-prev:hover {
+      background: rgba(99, 102, 241, 0.9);
+      /* Indigo hover effect */
+      transform: scale(1.05);
+    }
         
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
-            scroll-behavior: smooth;
-        }
+    .swiper-button-next::after, .swiper-button-prev::after {
+      font-size: 14px !important;
+      font-weight: bold;
+    }
 
-        /* Tùy chỉnh nhẹ cho Swiper để ôm khít khung */
-        .swiper {
-            width: 100%;
-            height: 400px;
-            border-radius: 12px;
-        }
+    .swiper-pagination-bullet-active {
+      background: #6366f1 !important;
+      /* Indigo color */
+      width: 24px !important;
+      border-radius: 4px !important;
+    }
 
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    /* Hiệu ứng mượt mà khi lọc bài viết */
+    .post-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-        /* Đè lại màu cho các nút điều hướng Swiper */
-        .swiper-button-next, .swiper-button-prev {
-            color: #ffffff !important;
-            background: rgba(0, 0, 0, 0.4);
-            width: 40px !important;
-            height: 40px !important;
-            border-radius: 50%;
-            transition: all 0.2s ease;
-        }
+    /* Nút quay lại đầu trang */
+    #back-to-top {
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
 
-        .swiper-button-next:hover, .swiper-button-prev:hover {
-            background: rgba(99, 102, 241, 0.9); /* Indigo hover effect */
-            transform: scale(1.05);
-        }
-        
-        .swiper-button-next::after, .swiper-button-prev::after {
-            font-size: 14px !important;
-            font-weight: bold;
-        }
+    #back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
 
-        .swiper-pagination-bullet-active {
-            background: #6366f1 !important; /* Indigo color */
-            width: 24px !important;
-            border-radius: 4px !important;
-        }
+    /* Hiệu ứng chuyển động mượt mà khi đổi giữa trang danh sách và trang chi tiết */
+    .fade-in-up {
+      animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
 
-        /* Hiệu ứng mượt mà khi lọc bài viết */
-        .post-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        /* Nút quay lại đầu trang */
-        #back-to-top {
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-        }
-        #back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
+    /* Hiệu ứng Gradient đổi màu động */
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        /* Hiệu ứng chuyển động mượt mà khi đổi giữa trang danh sách và trang chi tiết */
-        .fade-in-up {
-            animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    /* Trạng thái nút lọc khi ĐƯỢC CHỌN */
+    .filter-btn.active-tag {
+      background-color: #4f46e5 !important;
+      /* Màu indigo-600 */
+      color: #ffffff !important;
+      border-color: #4f46e5 !important;
+      box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+    }
+  </style>  
 </head>
 <body class="text-slate-800 flex flex-col min-h-screen">
 
-    <!-- HEADER -->
-    <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-		<a href="#" id="header-logo" class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
-    			<!-- Thay thẻ <i> cũ bằng thẻ <img> dưới đây -->
-    			<img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true" alt="Logo" class="w-6 h-6 object-contain">
-   			 <span>Hieubeo's Audition Studio</span>
-		</a>
-            <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
-        </div>
-    </header>
+  <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="#" id="header-logo" class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
+        <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true" alt="Logo" class="w-6 h-6 object-contain">
+        <span>Hieubeo's Audition Studio</span>
+      </a>
+      <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
+    </div>
+  </header>
 
-    <!-- MAIN CONTENT CONTAINER -->
-    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
         
-        <div id="blog-list-view" class="fade-in-up">
-            <!-- BỘ TÌM KIẾM CHUYÊN NGHIỆP -->
-            <div class="mb-6 max-w-lg mx-auto relative">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
-                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
-                </span>
-                <input 
-                    type="text" 
-                    id="search-input" 
-                    placeholder="Tìm kiếm tiêu đề, bài viết, tác giả, hashtag,..." 
-                    class="w-full pl-11 pr-11 py-3.5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-sm"
-                />
-                <button 
-                    id="clear-search-btn" 
-                    class="absolute inset-y-0 right-0 flex items-center pr-4 text-slate-400 hover:text-slate-600 hidden transition-colors"
-                    title="Xóa tìm kiếm"
-                >
-                    <i class="fa-solid fa-circle-xmark text-lg"></i>
-                </button>
-            </div>
-
-            <!-- BỘ LỌC CATEGORY -->
-            <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
-                <button data-filter="all" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-indigo-600 text-white shadow-md shadow-indigo-100">
-                    Tất cả bài viết
-                </button>
-              
-                <button data-filter="lifestyle" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
-                    <img src="https://github.com/hieubeo91/storage/blob/main/blog/tool.png?raw=true" alt="Công cụ" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
-                    Công cụ
-                </button>
-              
-                <button data-filter="lifestyle" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
-                    <img src="https://github.com/hieubeo91/storage/blob/main/blog/stage.png?raw=true" alt="Sàn nhảy" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
-                    Sàn nhảy
-                </button>
-              
-                <button data-filter="lifestyle" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
-                    <img src="https://github.com/hieubeo91/storage/blob/main/blog/skin.png?raw=true" alt="Giao diện" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
-                    Giao diện
-                </button>
-              
-            </div>
-
-            <!-- KHÔNG TÌM THẤY KẾT QUẢ -->
-            <div id="no-results-state" class="hidden text-center py-16 px-4 bg-white border border-slate-100 rounded-2xl shadow-sm mb-12">
-                <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
-                    <i class="fa-solid fa-folder-open text-3xl"></i>
-                </div>
-                <h3 class="text-lg font-bold text-slate-800 mb-1">Không tìm thấy bài viết phù hợp</h3>
-                <p class="text-slate-500 text-sm max-w-md mx-auto mb-6">Hãy thử tìm kiếm bằng một từ khóa khác hoặc chuyển sang danh mục tin bài khác nhé!</p>
-                <button id="reset-filters-btn" class="px-5 py-2.5 bg-indigo-600 text-white font-medium rounded-xl text-sm shadow-md hover:bg-indigo-700 transition-colors">
-                    Xem tất cả bài viết
-                </button>
-            </div>
-
-            <!-- BỐ CỤC HAI CỘT: CỘT BÀI VIẾT & SIDEBAR CỐ ĐỊNH -->
-            <div class="flex flex-col lg:flex-row gap-8 items-start">
-                
-                <!-- DANH SÁCH BÀI VIẾT -->
-                <div class="w-full lg:w-2/3 space-y-12" id="posts-container">
-                    
-                    <!-- BÀI VIẾT 1: DU LỊCH -->
-                    <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-category="travel" data-id="post-ha-giang">
-                        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-                            <div class="flex items-center gap-3">
-                                <span class="category-badge bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                    Công cụ
-                                </span>
-                                <span class="category-badge bg-red-50 text-red-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                                    Trả phí
-                                </span>
-                                <span class="text-xs text-slate-400">
-                                    <i class="fa-regular fa-calendar mr-1"></i> <span class="post-date">24/05/2026</span>
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <h2 class="post-title text-2xl font-bold text-slate-900 mb-3 hover:text-indigo-600 transition-colors cursor-pointer">
-                            DDS Converter. Công cụ chuyển đổi ảnh DDS hàng loạt
-                        </h2>
-                        
-                        <p class="text-slate-600 text-sm mb-4 leading-relaxed post-excerpt">
-                            Giải pháp lý tưởng giúp bạn chuyển đổi hàng loạt tệp JPG, PNG sang định dạng DDS, tối ưu cho game và đồ họa 3D. Với giao diện trực quan và tốc độ xử lý nhanh chóng. Chỉ với 1 file thực thi duy nhất, không                               cần thao tác cài đặt phức tạp. Công cụ này cho phép bạn chuyển đổi thư mục, quản lý đầu ra dễ dàng.
-                        </p>
-
-                        <!-- TAGS CHỦ ĐỀ -->
-                        <div class="flex flex-wrap gap-1.5 mb-5 text-xs post-tags">
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#Tool</span>
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#Công cụ</span>
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#DDS</span>
-                            <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#Converter</span>
-                        </div>
-
-                        <!-- SLIDE ẢNH BÀI VIẾT 1 -->
-                        <div class="swiper mySwiper mb-5">
-                            <div class="swiper-wrapper">
-                                <!-- Slide 1: Ảnh bình thường -->
-                                <div class="swiper-slide">
-                                    <a href="https://github.com/hieubeo91/storage/blob/main/blog/ddsconverter1.jpg?raw=true" data-fancybox="gallery-travel" data-caption="Giao diện 1">
-                                        <img src="https://github.com/hieubeo91/storage/blob/main/blog/ddsconverter1.jpg?raw=true" alt="Hà Giang 1" class="hover:scale-105 transition-transform duration-300">
-                                    </a>
-                                </div>
-
-                                <!-- Slide 2: Ảnh bình thường -->
-                                <div class="swiper-slide">
-                                    <a href="https://github.com/hieubeo91/storage/blob/main/blog/ddsconverter1.jpg?raw=true" data-fancybox="gallery-travel" data-caption="Giao diện 2">
-                                        <img src="https://github.com/hieubeo91/storage/blob/main/blog/ddsconverter1.jpg?raw=true" alt="Hà Giang 2">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-
-                        <div class="hidden-full-content hidden">
-                            <p class="mb-6 text-base leading-relaxed text-slate-700 font-medium">
-                                DDS Converter là giải pháp lý tưởng giúp bạn chuyển đổi hàng loạt tệp JPG, PNG sang định dạng DDS tối ưu cho game và đồ họa 3D. Với giao diện trực quan và tốc độ xử lý nhanh chóng, 
-                                chỉ có 1 file thực thi duy nhất, không cần thao tác cài đặt phức tạp. Công cụ này cho phép bạn chuyển đổi thư mục, quản lý đầu ra dễ dàng chỉ trong vài cú click chuột.
-                            </p>
-                          
-                            <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
-                                <i class="fa-solid fa-circle text-[10px] text-indigo-500"></i> Chức năng
-                            </h3>
-                            <p class="mb-6 text-base leading-relaxed text-slate-700 font-medium">
-                              <li>Chuyển đổi files JPG, JPG, PNG sang DDS không giới hạn</li>
-                              <li>Hỗ trợ thuật toán nén ảnh khối, tiết kiệm 75% dung lượng so với ảnh không nén</li>
-                              <li>Tự động tạo Mipmap (Tăng FPS, khửa răng cưa, tiết kiệm bộ nhớ)</li>
-                              <li>Đổi tên file hàng toàn sau khi chuyển đổi</li>
-                            </p>
-                          
-                       <!-- BUTTON MUA NGAY -->
-<div class="flex justify-center items-center w-full my-8">
-
-    <div class="relative inline-flex items-center group/buy py-2">
-        
-        <div class="absolute left-full top-1/2 -translate-y-1/2 flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 ease-out transform -translate-x-2 
-                    group-hover/buy:opacity-100 group-hover/buy:pointer-events-auto group-hover/buy:translate-x-3
-                    before:content-[''] before:absolute before:right-full before:top-0 before:bottom-0 before:w-10">
-            
-            <a href="https://facebook.com/nguyenvanhieuhp" target="_blank" 
-               class="flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2] text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200"
-               title="Liên hệ qua Facebook">
-                <i class="fa-brands fa-facebook-f text-lg"></i>
-            </a>
-            
-            <a href="https://zalo.me/0367095324" target="_blank" 
-               class="flex items-center justify-center w-10 h-10 rounded-full bg-[#0068FF] text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 font-bold text-xs"
-               title="Liên hệ qua Zalo">
-                Zalo
-            </a>
-        </div>
-
-        <button class="relative flex items-center gap-2 px-6 py-3 font-bold text-white uppercase tracking-wider rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-[length:200%_auto] animate-[gradient_3s_ease_infinite] shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-pink-500/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-300 cursor-pointer">
-            <span class="absolute inset-0 rounded-xl bg-gradient-to-r from-pink-500 to-yellow-500 opacity-40 blur-md animate-ping pointer-events-none"></span>
-            <i class="fa-solid fa-cart-shopping animate-bounce"></i>
-            <span class="relative z-10">Mua Ngay</span>
+    <div id="blog-list-view" class="fade-in-up">
+      <div class="mb-6 max-w-lg mx-auto relative">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
+          <i class="fa-solid fa-magnifying-glass text-lg"></i>
+        </span>
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Tìm kiếm tiêu đề, bài viết, tác giả, hashtag,..." 
+          class="w-full pl-11 pr-11 py-3.5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-sm"
+        />
+        <button 
+          id="clear-search-btn" 
+          class="absolute inset-y-0 right-0 flex items-center pr-4 text-slate-400 hover:text-slate-600 hidden transition-colors"
+          title="Xóa tìm kiếm"
+        >
+          <i class="fa-solid fa-circle-xmark text-lg"></i>
         </button>
+      </div>
+
+      <div id="tag-container" class="flex flex-wrap items-center justify-center gap-2 mb-10">
+        <button data-filter="all" class="filter-btn active-tag px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 border border-indigo-600 cursor-pointer">
+          Tất cả bài viết
+        </button>
+        <button data-filter="cat_pay" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
+          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_pay.png?raw=true?raw=true" alt="Công cụ" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+          Trả phí
+        </button>
+        <button data-filter="cat_free" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
+          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_free.png?raw=true" alt="Công cụ" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+          Miễn phí
+        </button>
+        <button data-filter="cat_tool" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
+          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_tool.png?raw=true" alt="Công cụ" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+          Công cụ
+        </button>
+        <button data-filter="cat_stage" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
+          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_stage.png?raw=true" alt="Sàn nhảy" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+          Sàn nhảy
+        </button>
+        <button data-filter="cat_skin" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
+          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_skin.png?raw=true" alt="Giao diện" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+          Giao diện
+        </button>
+      </div>
+
+      <div id="no-results-state" class="hidden text-center py-16 px-4 bg-white border border-slate-100 rounded-2xl shadow-sm mb-12">
+        <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+          <i class="fa-solid fa-folder-open text-3xl"></i>
+        </div>
+        <h3 class="text-lg font-bold text-slate-800 mb-1">Không tìm thấy bài viết phù hợp</h3>
+        <p class="text-slate-500 text-sm max-w-md mx-auto mb-6">Hãy thử tìm kiếm bằng một từ khóa khác hoặc chuyển sang danh mục tin bài khác nhé!</p>
+        <button id="reset-filters-btn" class="px-5 py-2.5 bg-indigo-600 text-white font-medium rounded-xl text-sm shadow-md hover:bg-indigo-700 transition-colors">
+          Xem tất cả bài viết
+        </button>
+      </div>
+      
+      <!-- BỐ CỤC HAI CỘT: CỘT BÀI VIẾT & SIDEBAR CỐ ĐỊNH -->
+      <div class="flex flex-col lg:flex-row gap-8 items-start">
+        
+        <!-- DANH SÁCH BÀI VIẾT -->      
+        <div class="w-full lg:w-2/3 space-y-12" id="posts-container">
+
+        <!-- BÀI VIẾT 2 -->          
+          <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-categories="cat_stage, cat_free" data-id="post-ddscoverter">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+              <div class="flex items-center gap-3">
+                <span class="category-badge bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  Sàn nhảy
+                </span>
+                <span class="category-badge bg-green-50 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  Miễn phí
+                </span>
+                <span class="text-xs text-slate-400">
+                  <i class="fa-regular fa-calendar mr-1"></i> <span class="post-date">24/05/2026</span>
+                </span>
+              </div>
+            </div>
+                        
+            <h2 class="post-title text-2xl font-bold text-slate-900 mb-3 hover:text-indigo-600 transition-colors cursor-pointer">
+              [Miễn phí] Sàn nhảy cơ bản Lucky Cat
+            </h2>
+                        
+            <p class="text-slate-600 text-sm mb-4 leading-relaxed post-excerpt">
+              Chia sẻ miễn phí file sàn nhảy Lucky Cat trong game Audition! Nhanh tay tải ngay để trải nghiệm không gian nhảy cực độc đáo, lung linh và đáng yêu hoàn toàn miễn phí. Đừng bỏ lỡ cơ hội làm mới giao diện phòng nhảy của bạn cùng bạn bè ngay hôm nay!
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 mb-5 text-xs post-tags">
+              <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#Sàn nhảy</span>
+              <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#Stage</span>
+<span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#LuckyCat</span>
+            </div>
+            <div class="swiper mySwiper mb-5">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="https://lh3.googleusercontent.com/d/1tfdfxfaxczIZUxK3k6ROTwmUJeVpUbBm" data-fancybox="gallery-travel" data-caption=" ">
+                    <img src="https://lh3.googleusercontent.com/d/1tfdfxfaxczIZUxK3k6ROTwmUJeVpUbBm" alt=" " class="hover:scale-105 transition-transform duration-300">
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="https://lh3.googleusercontent.com/d/19sJwqcAKEBZiyklpEpH7UyXwvnjN7Kjf" data-fancybox="gallery-travel" data-caption=" ">
+                    <img src="https://lh3.googleusercontent.com/d/19sJwqcAKEBZiyklpEpH7UyXwvnjN7Kjf" alt=" ">
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="https://lh3.googleusercontent.com/d/18N_bFwxHZpDndYBKM8D307OcgF_Lqs_f" data-fancybox="gallery-travel" data-caption=" ">
+                    <img src="https://lh3.googleusercontent.com/d/18N_bFwxHZpDndYBKM8D307OcgF_Lqs_f" alt=" ">
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="https://lh3.googleusercontent.com/d/1BNhV383-fvOVfJJ174TxBF42M9mA_dCN" data-fancybox="gallery-travel" data-caption=" ">
+                    <img src="https://lh3.googleusercontent.com/d/1BNhV383-fvOVfJJ174TxBF42M9mA_dCN" alt=" ">
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="https://lh3.googleusercontent.com/d/1q4873s1s7Ic7mvEQPZ4vYIS4rW5Lwdjv" data-fancybox="gallery-travel" data-caption=" ">
+                    <img src="https://lh3.googleusercontent.com/d/1q4873s1s7Ic7mvEQPZ4vYIS4rW5Lwdjv" alt=" ">
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="https://lh3.googleusercontent.com/d/1oftzhY-38n27OCtE8n9tcaCjVnYKJ4uj" data-fancybox="gallery-travel" data-caption=" ">
+                    <img src="https://lh3.googleusercontent.com/d/1oftzhY-38n27OCtE8n9tcaCjVnYKJ4uj" alt=" ">
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="hidden-full-content hidden">
+              <p class="mb-6 text-base leading-relaxed text-slate-700 font-medium">
+                Chia sẻ miễn phí file sàn nhảy Lucky Cat trong game Audition! Nhanh tay tải ngay để trải nghiệm không gian nhảy cực độc đáo, lung linh và đáng yêu hoàn toàn miễn phí. Đừng bỏ lỡ cơ hội làm mới giao diện phòng nhảy của bạn cùng bạn bè ngay hôm nay!
+              </p>
+                          
+              <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-circle text-[10px] text-indigo-500"></i> Nổi bật
+              </h3>
+              <ul class="mb-6 text-base leading-relaxed text-slate-700 font-medium list-disc pl-5 space-y-1">
+		  <li>Bục sàn tròn, với thiết kế bo tròn xung quanh viền bục</li>
+		  <li>Ảnh nền được thiết kế cong, tạo cảm giác có chiều sâu, ảnh rộng, không bị lỗi kéo giãn ảnh</li>
+		  <li>Đèn sâu khấu được căn chỉnh chuyển động đối xứng</li>
+	      </ul>
+       
+              <p class="mb-6 text-base leading-relaxed text-slate-700 font-medium">
+ 		 Mật khẩu giải nén: <span class="text-red-600 font-bold">hieubeo</span>
+	      </p>
+
+              <div class="flex justify-center items-center w-full my-8">
+  		<div class="relative inline-flex items-center py-2">
+    		<a href="https://drive.google.com/file/d/1llL5WE6wDvo332z2ExcaHloKrNzY-uQn/view?usp=sharing" target="_blank" class="relative flex items-center gap-2 px-6 py-3 font-bold text-white uppercase tracking-wider rounded-xl bg-gradient-to-r from-pink-500 via-				red-500 to-yellow-500 bg-[length:200%_auto] animate-[gradient_3s_ease_infinite] shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-pink-500/40 hover:-translate-y-0.5 active:translate-y-0 			active:scale-98 transition-all duration-300 cursor-pointer declaration-none">
+      
+      		<span class="absolute inset-0 rounded-xl bg-gradient-to-r from-pink-500 to-yellow-500 opacity-40 blur-md animate-ping pointer-events-none"></span>
+      
+      		<i class="fa-solid fa-download animate-bounce"></i>
+      
+      		<span class="relative z-10">Tải Ngay</span>
+      
+    		</a>
+  		</div>
+		</div>
+
+            </div>
+
+            <div class="flex items-center justify-between pt-4 border-t border-slate-50">
+              <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span>
+              <button class="view-detail-btn text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">
+                Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+        <!-- HẾT BÀI VIẾT 2 -->   
+
+
+
+          <!-- BÀI VIẾT 1 -->          
+          <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-categories="cat_tool, cat_pay" data-id="post-ddscoverter">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+              <div class="flex items-center gap-3">
+                <span class="category-badge bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  Công cụ
+                </span>
+                <span class="category-badge bg-red-50 text-red-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  Trả phí
+                </span>
+                <span class="text-xs text-slate-400">
+                  <i class="fa-regular fa-calendar mr-1"></i> <span class="post-date">24/05/2026</span>
+                </span>
+              </div>
+            </div>
+                        
+            <h2 class="post-title text-2xl font-bold text-slate-900 mb-3 hover:text-indigo-600 transition-colors cursor-pointer">
+              DDS Converter. Công cụ chuyển đổi ảnh DDS hàng loạt
+            </h2>
+                        
+            <p class="text-slate-600 text-sm mb-4 leading-relaxed post-excerpt">
+              Giải pháp lý tưởng giúp bạn chuyển đổi hàng loạt tệp JPG, PNG sang định dạng DDS, tối ưu cho game và đồ họa 3D. Với giao diện trực quan và tốc độ xử lý nhanh chóng. Chỉ với 1 file thực thi duy nhất, không cần thao tác cài đặt phức tạp. Công cụ này cho phép bạn chuyển đổi thư mục, quản lý đầu ra dễ dàng.
+            </p>
+
+            <div class="flex flex-wrap gap-1.5 mb-5 text-xs post-tags">
+              <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#Tool</span>
+              <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#Công cụ</span>
+              <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#DDS</span>
+              <span class="tag-badge bg-slate-100 hover:bg-indigo-50 hover:text-indigo-600 text-slate-500 px-2.5 py-1 rounded-md cursor-pointer transition-colors">#Converter</span>
+            </div>
+
+            <div class="swiper mySwiper mb-5">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="https://github.com/hieubeo91/storage/blob/main/blog/ddsconverter1.jpg?raw=true" data-fancybox="gallery-travel" data-caption="Giao diện 1">
+                    <img src="https://github.com/hieubeo91/storage/blob/main/blog/ddsconverter1.jpg?raw=true" alt="Hà Giang 1" class="hover:scale-105 transition-transform duration-300">
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="https://github.com/hieubeo91/storage/blob/main/blog/ddsconverter1.jpg?raw=true" data-fancybox="gallery-travel" data-caption="Giao diện 2">
+                    <img src="https://github.com/hieubeo91/storage/blob/main/blog/ddsconverter1.jpg?raw=true" alt="Hà Giang 2">
+                  </a>
+                </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="hidden-full-content hidden">
+              <p class="mb-6 text-base leading-relaxed text-slate-700 font-medium">
+                DDS Converter là giải pháp lý tưởng giúp bạn chuyển đổi hàng loạt tệp JPG, PNG sang định dạng DDS tối ưu cho game và đồ họa 3D. Với giao diện trực quan và tốc độ xử lý nhanh chóng, chỉ có 1 file thực thi duy nhất, không cần thao tác cài đặt phức tạp. Công cụ này cho phép bạn chuyển đổi thư mục, quản lý đầu ra dễ dàng chỉ trong vài cú click chuột.
+              </p>
+                          
+              <h3 class="text-xl font-bold text-slate-900 mt-8 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-circle text-[10px] text-indigo-500"></i> Chức năng
+              </h3>
+              <ul class="mb-6 text-base leading-relaxed text-slate-700 font-medium list-disc pl-5 space-y-1">
+		  <li>Chuyển đổi files JPG, JPEG, PNG sang DDS không giới hạn</li>
+		  <li>Hỗ trợ thuật toán nén ảnh khối, tiết kiệm 75% dung lượng so với ảnh không nén</li>
+		  <li>Tự động tạo Mipmap (Tăng FPS, khử răng cưa, tiết kiệm bộ nhớ)</li>
+		  <li>Đổi tên file hàng loạt sau khi chuyển đổi</li>
+	      </ul>
+                          
+              <div class="flex justify-center items-center w-full my-8">
+                <div class="relative inline-flex items-center group/buy py-2">
+                  <div class="absolute left-full top-1/2 -translate-y-1/2 flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 ease-out transform -translate-x-2 
+                              group-hover/buy:opacity-100 group-hover/buy:pointer-events-auto group-hover/buy:translate-x-3
+                              before:content-[''] before:absolute before:right-full before:top-0 before:bottom-0 before:w-10">
+                    <a href="https://facebook.com/nguyenvanhieuhp" target="_blank" 
+                       class="flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2] text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200"
+                       title="Liên hệ qua Facebook">
+                      <i class="fa-brands fa-facebook-f text-lg"></i>
+                    </a>
+                    <a href="https://zalo.me/0367095324" target="_blank" 
+                       class="flex items-center justify-center w-10 h-10 rounded-full bg-[#0068FF] text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 font-bold text-xs"
+                       title="Liên hệ qua Zalo">
+                      Zalo
+                    </a>
+                  </div>
+                  <button class="relative flex items-center gap-2 px-6 py-3 font-bold text-white uppercase tracking-wider rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-[length:200%_auto] animate-[gradient_3s_ease_infinite] shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-pink-500/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-300 cursor-pointer">
+                    <span class="absolute inset-0 rounded-xl bg-gradient-to-r from-pink-500 to-yellow-500 opacity-40 blur-md animate-ping pointer-events-none"></span>
+                    <i class="fa-solid fa-cart-shopping animate-bounce"></i>
+                    <span class="relative z-10">Mua Ngay</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-4 border-t border-slate-50">
+              <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span>
+              <button class="view-detail-btn text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">
+                Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+        <!-- HẾT BÀI VIẾT 1 -->
+
+        </div>
+        
+        <aside class="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-6">
+          <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div class="flex flex-col items-center text-center">
+              <div class="relative w-28 h-28 mb-4">
+                <img src="https://github.com/hieubeo91/storage/blob/main/blog/avatar.jpg?raw=true" alt="Ảnh đại diện" class="w-full h-full object-cover rounded-full border-4 border-indigo-50 shadow-sm">
+                <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full" title="Sẵn sàng kết nối"></span>
+              </div>
+                            
+              <h3 class="text-xl font-bold text-slate-800">Nguyễn Văn Hiệu</h3>
+              <p class="text-xs text-indigo-600 font-semibold uppercase tracking-wider mb-4">♡♡♡</p>
+                            
+              <p class="text-sm text-slate-500 leading-relaxed mb-6">
+                Xin chào! Mình là một kẻ mang bản chất xấu xa, nhưng do biết chơi game mà trở thành người tốt.
+              </p>
+                            
+              <div class="grid grid-cols-3 gap-2 w-full py-4 border-y border-slate-100 mb-6 text-center">
+                <div>
+                  <span class="block text-lg font-bold text-slate-800">30+</span>
+                  <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Bài viết</span>
+                </div>
+                <div>
+                  <span class="block text-lg font-bold text-slate-800">12K</span>
+                  <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Theo dõi</span>
+                </div>
+                <div>
+                  <span class="block text-lg font-bold text-slate-800">2.7M+</span>
+                  <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Xem trang</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-center gap-3">
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Facebook">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Instagram">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Youtube">
+                  <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Liên hệ qua Email">
+                  <i class="fa-solid fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-indigo-50/50 to-purple-50/50 border border-indigo-100/40 rounded-2xl p-6 shadow-sm">
+            <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+              <i class="fa-regular fa-paper-plane text-indigo-600"></i> Nhận bài viết mới
+            </h4>
+            <p class="text-xs text-slate-500 leading-relaxed mb-4">Điền email của bạn để không bỏ lỡ các bài viết mới nhất.</p>
+                        
+            <form id="newsletter-form" class="space-y-2">
+              <input type="email" placeholder="Địa chỉ email của bạn" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500" required>
+              <button type="submit" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl text-xs transition-colors shadow-sm">Đăng ký ngay</button>
+            </form>
+            <div id="newsletter-success" class="text-xs text-emerald-600 font-medium mt-2 hidden flex items-center gap-1.5">
+              <i class="fa-solid fa-circle-check"></i> Đăng ký thành công! Cảm ơn bạn nhé.
+            </div>
+          </div>
+        </aside>
+
+      </div>
     </div>
 
-</div>
-                      <!-- KẾT THÚC BUTTON MUA NGAY -->
-                          
-                          
-                        </div>
+    <div id="blog-detail-view" class="hidden max-w-4xl mx-auto bg-white border border-slate-100 rounded-3xl p-6 md:p-10 shadow-sm fade-in-up"></div>
 
-                        <div class="flex items-center justify-between pt-4 border-t border-slate-50">
-                            <span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span>
-                            <button class="view-detail-btn text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">
-                                Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
-                            </button>
-                        </div>
-                      
-                    </article>
+  </main>
 
-                    <!-- BÀI VIẾT 2: ẨM THỰC -->
+  <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <p class="text-sm">© 2026 Hieubeo's Audition Studio   ♫ Rhythm of Life</p>
+    </div>
+  </footer>
 
-                    <!-- BÀI VIẾT 3: LỐI SỐNG -->
+  <button 
+    id="back-to-top" 
+    class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto"
+    title="Quay lên đầu trang"
+  >
+    <i class="fa-solid fa-arrow-up text-lg"></i>
+  </button>
 
-                    <!-- BÀI VIẾT 4: DU LỊCH (BỔ SUNG) -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
-                </div>
+  <script>
+    let lastScrollY = 0;
 
-                <!-- CỘT PHẢI (SIDEBAR) - THÔNG TIN CÁ NHÂN -->
-                <aside class="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-6">
-                    <!-- Thẻ Thông Tin Tác Giả (Profile Card) -->
-                    <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="relative w-28 h-28 mb-4">
-                                <img src="https://github.com/hieubeo91/storage/blob/main/blog/avatar.jpg?raw=true" alt="Ảnh đại diện" class="w-full h-full object-cover rounded-full border-4 border-indigo-50 shadow-sm">
-                                <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full" title="Sẵn sàng kết nối"></span>
-                            </div>
-                            
-                            <h3 class="text-xl font-bold text-slate-800">Nguyễn Văn Hiệu</h3>
-                            <p class="text-xs text-indigo-600 font-semibold uppercase tracking-wider mb-4">♡♡♡</p>
-                            
-                            <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                                Xin chào! Mình là một kẻ mang bản chất xấu xa, nhưng do biết chơi game mà trở thành người tốt.
-                            </p>
-                            
-                            <div class="grid grid-cols-3 gap-2 w-full py-4 border-y border-slate-100 mb-6 text-center">
-                                <div>
-                                    <span class="block text-lg font-bold text-slate-800">30+</span>
-                                    <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Bài viết</span>
-                                </div>
-                                <div>
-                                    <span class="block text-lg font-bold text-slate-800">12K</span>
-                                    <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Theo dõi</span>
-                                </div>
-                                <div>
-                                    <span class="block text-lg font-bold text-slate-800">2.7M+</span>
-                                    <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Xem trang</span>
-                                </div>
-                            </div>
+    // 1. KHỞI TẠO TẤT CẢ CÁC SWIPER (SLIDE ẢNH)
+    function initAllSwipers() {
+      document.querySelectorAll('.mySwiper').forEach((el) => {
+        if (el.swiper) {
+          el.swiper.destroy(true, true);
+        }
+        new Swiper(el, {
+          loop: true,
+          spaceBetween: 10,
+          observer: true,
+          observeParents: true,
+          pagination: {
+            el: el.querySelector('.swiper-pagination'),
+            clickable: true,
+          },
+          navigation: {
+            nextEl: el.querySelector('.swiper-button-next'),
+            prevEl: el.querySelector('.swiper-button-prev'),
+          },
+          autoplay: {
+            delay: 4500,
+            disableOnInteraction: true,
+          },
+        });
+      });
+    }
 
-                            <div class="flex items-center justify-center gap-3">
-                                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Facebook">
-                                    <i class="fa-brands fa-facebook-f"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Instagram">
-                                    <i class="fa-brands fa-instagram"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Youtube">
-                                    <i class="fa-brands fa-youtube"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Liên hệ qua Email">
-                                    <i class="fa-solid fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+    initAllSwipers();
 
-                    <!-- Thẻ Đăng Ký Bản Tin (Newsletter Widget) -->
-                    <div class="bg-gradient-to-br from-indigo-50/50 to-purple-50/50 border border-indigo-100/40 rounded-2xl p-6 shadow-sm">
-                        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
-                            <i class="fa-regular fa-paper-plane text-indigo-600"></i> Nhận bài viết mới
-                        </h4>
-                        <p class="text-xs text-slate-500 leading-relaxed mb-4">Điền email của bạn để không bỏ lỡ các bài viết mới nhất.</p>
-                        
-                        <form id="newsletter-form" class="space-y-2">
-                            <input type="email" placeholder="Địa chỉ email của bạn" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500" required>
-                            <button type="submit" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl text-xs transition-colors shadow-sm">Đăng ký ngay</button>
-                        </form>
-                        <div id="newsletter-success" class="text-xs text-emerald-600 font-medium mt-2 hidden flex items-center gap-1.5">
-                            <i class="fa-solid fa-circle-check"></i> Đăng ký thành công! Cảm ơn bạn nhé.
-                        </div>
-                    </div>
-                </aside>
+    // 2. KHỞI TẠO FANCYBOX (Phóng to ảnh)
+    Fancybox.bind("[data-fancybox^='gallery-']", {
+      Thumbs: {
+        autoStart: true,
+      }
+    });
 
-            </div>
-        </div>
+    // 3. XỬ LÝ LỌC ĐA DANH MỤC (MULTI-SELECT TAG) & TÌM KIẾM BÀI VIẾT ĐỒNG THỜI
+    const searchInput = document.getElementById('search-input');
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const postCards = document.querySelectorAll('.post-card');
+    const noResultsState = document.getElementById('no-results-state');
+    const resetFiltersBtn = document.getElementById('reset-filters-btn');
 
-        <div id="blog-detail-view" class="hidden max-w-4xl mx-auto bg-white border border-slate-100 rounded-3xl p-6 md:p-10 shadow-sm fade-in-up">
-            <!-- Toàn bộ nội dung chi tiết bài viết sẽ được nạp động qua JS -->
-        </div>
+    let activeCategories = ['all'];
+    let searchQuery = '';
 
-    </main>
+    function applyFilters() {
+      let visiblePostsCount = 0;
+      const query = searchQuery.toLowerCase().trim();
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <p class="text-sm">© 2026 Hieubeo's Audition Studio   ♫ Rhythm of Life</p>
-        </div>
-    </footer>
+      postCards.forEach(card => {
+        // Đọc giá trị thuộc tính data-categories mới và chuẩn hóa mảng tag bài viết
+        const cardCategoriesAttr = card.getAttribute('data-categories') || '';
+        const cardCategoriesArray = cardCategoriesAttr.split(',').map(item => item.trim());
 
-    <!-- Nút quay về đầu trang -->
-    <button 
-        id="back-to-top" 
-        class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto"
-        title="Quay lên đầu trang"
-    >
-        <i class="fa-solid fa-arrow-up text-lg"></i>
-    </button>
+        const titleText = card.querySelector('h2').textContent.toLowerCase();
+        const bodyText = card.querySelector('.post-excerpt').textContent.toLowerCase();
+        const authorText = card.querySelector('.post-author').textContent.toLowerCase();
+                
+        let tagsText = '';
+        card.querySelectorAll('.tag-badge').forEach(tag => {
+          tagsText += tag.textContent.toLowerCase() + ' ';
+        });
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
-    <!-- Fancybox JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+        // Điều kiện danh mục thông minh: chỉ cần bài viết chứa ít nhất một danh mục đang chọn
+        const matchesCategory = activeCategories.includes('all') || 
+                                cardCategoriesArray.some(cat => activeCategories.includes(cat));
+        
+        const matchesSearch = !query || 
+                              titleText.includes(query) || 
+                              bodyText.includes(query) || 
+                              authorText.includes(query) ||
+                              tagsText.includes(query);
 
-    <script>
-        // Lưu trữ vị trí cuộn trang trước đó
-        let lastScrollY = 0;
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 50);
+          visiblePostsCount++;
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(10px)';
+          card.style.display = 'none';
+        }
+      });
 
-        // 1. KHỞI TẠO TẤT CẢ CÁC SWIPER (SLIDE ẢNH)
-        function initAllSwipers() {
-            document.querySelectorAll('.mySwiper').forEach((el) => {
-                // Hủy instance cũ nếu đã khởi tạo từ trước để tránh rác RAM
-                if (el.swiper) {
-                    el.swiper.destroy(true, true);
-                }
-                new Swiper(el, {
-                    loop: true,
-                    spaceBetween: 10,
-                    observer: true,
-                    observeParents: true,
-                    pagination: {
-                        el: el.querySelector('.swiper-pagination'),
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: el.querySelector('.swiper-button-next'),
-                        prevEl: el.querySelector('.swiper-button-prev'),
-                    },
-                    autoplay: {
-                        delay: 4500,
-                        disableOnInteraction: true,
-                    },
-                });
-            });
+      if (visiblePostsCount === 0) {
+        noResultsState.classList.remove('hidden');
+      } else {
+        noResultsState.classList.add('hidden');
+      }
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      if (searchQuery.length > 0) {
+        clearSearchBtn.classList.remove('hidden');
+      } else {
+        clearSearchBtn.classList.add('hidden');
+      }
+      applyFilters();
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      clearSearchBtn.classList.add('hidden');
+      searchInput.focus();
+      applyFilters();
+    });
+
+    // Logic xử lý Click chọn nhiều danh mục kết hợp đồng bộ theo yêu cầu
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filterValue = btn.getAttribute('data-filter');
+        const allBtn = document.querySelector('[data-filter="all"]');
+
+        // TRƯỜNG HỢP 1: Bấm nút "Tất cả bài viết"
+        if (filterValue === 'all') {
+          activeCategories = ['all'];
+          
+          // Reset giao diện: Bật nút Tất cả, Tắt toàn bộ các nút khác
+          filterButtons.forEach(b => {
+            b.classList.remove('active-tag');
+            if (b !== allBtn) {
+              b.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer";
+            }
+          });
+          allBtn.classList.add('active-tag');
+        } 
+        
+        // TRƯỜNG HỢP 2: Bấm vào các nút danh mục thường khác
+        else {
+          // Luôn luôn xóa bỏ lựa chọn 'all' khi bấm chọn một tag thường
+          if (activeCategories.includes('all')) {
+            activeCategories = activeCategories.filter(item => item !== 'all');
+            allBtn.classList.remove('active-tag');
+            allBtn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer";
+          }
+
+          // Kiểm tra xem tag này đã được chọn trước đó chưa
+          if (btn.classList.contains('active-tag')) {
+            // Đã chọn -> Bỏ chọn (Hủy kích hoạt)
+            btn.classList.remove('active-tag');
+            btn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer";
+            activeCategories = activeCategories.filter(item => item !== filterValue);
+          } else {
+            // Chưa chọn -> Thêm vào lựa chọn (Kích hoạt)
+            btn.classList.add('active-tag');
+            activeCategories.push(filterValue);
+          }
+
+          // Tự động thông minh: Nếu sau khi bấm bỏ chọn mà không còn danh mục thường nào được giữ, bật lại "Tất cả"
+          if (activeCategories.length === 0) {
+            activeCategories = ['all'];
+            allBtn.classList.add('active-tag');
+          }
         }
 
-        // Khởi chạy lần đầu tiên
+        // Thực thi bộ lọc sau khi cập nhật mảng lựa chọn
+        applyFilters();
+      });
+    });
+
+    document.querySelectorAll('.tag-badge').forEach(badge => {
+      badge.addEventListener('click', (e) => {
+        e.stopPropagation(); // Ngăn sự kiện click lan ra ngoài thẻ card
+        const tagName = badge.textContent.trim();
+        searchInput.value = tagName;
+        searchQuery = tagName;
+        clearSearchBtn.classList.remove('hidden');
+                
+        const allBtn = document.querySelector('[data-filter="all"]');
+        allBtn.click(); 
+                
+        applyFilters();
+        window.scrollTo({ top: 180, behavior: 'smooth' });
+      });
+    });
+
+    resetFiltersBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      clearSearchBtn.classList.add('hidden');
+      const allBtn = document.querySelector('[data-filter="all"]');
+      allBtn.click();
+    });
+
+    // 4. XỬ LÝ PHÁT TRIỂN HỆ THỐNG MỞ BÀI VIẾT CHI TIẾT (READER MODE)
+    const blogListView = document.getElementById('blog-list-view');
+    const blogDetailView = document.getElementById('blog-detail-view');
+
+    function openPostDetail(cardElement) {
+      lastScrollY = window.scrollY;
+      const title = cardElement.querySelector('.post-title').textContent.trim();
+      let categoryBadgeHTML = '';
+      cardElement.querySelectorAll('.category-badge').forEach(badge => {
+        categoryBadgeHTML += badge.outerHTML;
+      });
+      const date = cardElement.querySelector('.post-date').textContent.trim();
+      const author = cardElement.querySelector('.post-author').textContent.trim();
+      const tagsHTML = cardElement.querySelector('.post-tags').outerHTML;
+      const fullContentHTML = cardElement.querySelector('.hidden-full-content').innerHTML;
+      const originalSwiper = cardElement.querySelector('.mySwiper');
+      const clonedSwiperHTML = originalSwiper.outerHTML;
+
+      blogDetailView.innerHTML = `
+        <button id="detail-back-btn-top" class="mb-6 flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
+          <i class="fa-solid fa-arrow-left-long"></i> Trở lại trang chủ
+        </button>
+
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-3">
+            ${categoryBadgeHTML}
+            <span class="text-xs text-slate-400">
+              <i class="fa-regular fa-calendar mr-1"></i> ${date}
+            </span>
+          </div>
+          <h1 class="text-1xl md:text-2xl font-extrabold text-slate-900 leading-tight mb-4">${title}</h1>
+          <div class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+            <i class="fa-solid fa-pen-nib text-indigo-400"></i> Viết bởi: <span class="text-slate-800">${author}</span>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          ${clonedSwiperHTML}
+        </div>
+
+        <div class="prose max-w-none text-slate-700 leading-relaxed mb-10">
+          ${fullContentHTML}
+        </div>
+
+        <div class="pt-6 border-t border-slate-100 mb-8">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Tags liên quan</span>
+          ${tagsHTML}
+        </div>
+
+        <div class="flex justify-center">
+          <button id="detail-back-btn-bottom" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
+            <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
+          </button>
+        </div>
+      `;
+
+      blogListView.classList.add('hidden');
+      blogDetailView.classList.remove('hidden');
+      initAllSwipers();
+      Fancybox.bind("[data-fancybox^='gallery-']");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      const backToHome = () => {
+        blogDetailView.classList.add('hidden');
+        blogListView.classList.remove('hidden');
         initAllSwipers();
+        window.scrollTo({ top: lastScrollY, behavior: 'instant' });
+      };
 
-        // 2. KHỞI TẠO FANCYBOX (Phóng to ảnh)
-        Fancybox.bind("[data-fancybox^='gallery-']", {
-            Thumbs: {
-                autoStart: true,
-            }
-        });
+      document.getElementById('detail-back-btn-top').addEventListener('click', backToHome);
+      document.getElementById('detail-back-btn-bottom').addEventListener('click', backToHome);
 
-        // 3. XỬ LÝ LỌC & TÌM KIẾM BÀI VIẾT ĐỒNG THỜI
-        const searchInput = document.getElementById('search-input');
-        const clearSearchBtn = document.getElementById('clear-search-btn');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const postCards = document.querySelectorAll('.post-card');
-        const noResultsState = document.getElementById('no-results-state');
-        const resetFiltersBtn = document.getElementById('reset-filters-btn');
-
-        let currentCategory = 'all';
-        let searchQuery = '';
-
-        function applyFilters() {
-            let visiblePostsCount = 0;
-            const query = searchQuery.toLowerCase().trim();
-
-            postCards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                
-                const titleText = card.querySelector('h2').textContent.toLowerCase();
-                const bodyText = card.querySelector('.post-excerpt').textContent.toLowerCase();
-                const authorText = card.querySelector('.post-author').textContent.toLowerCase();
-                
-                let tagsText = '';
-                card.querySelectorAll('.tag-badge').forEach(tag => {
-                    tagsText += tag.textContent.toLowerCase() + ' ';
-                });
-
-                const matchesCategory = (currentCategory === 'all' || cardCategory === currentCategory);
-                const matchesSearch = !query || 
-                    titleText.includes(query) || 
-                    bodyText.includes(query) || 
-                    authorText.includes(query) ||
-                    tagsText.includes(query);
-
-                if (matchesCategory && matchesSearch) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
-                    visiblePostsCount++;
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(10px)';
-                    card.style.display = 'none';
-                }
-            });
-
-            if (visiblePostsCount === 0) {
-                noResultsState.classList.remove('hidden');
-            } else {
-                noResultsState.classList.add('hidden');
-            }
-        }
-
-        searchInput.addEventListener('input', (e) => {
-            searchQuery = e.target.value;
-            if (searchQuery.length > 0) {
-                clearSearchBtn.classList.remove('hidden');
-            } else {
-                clearSearchBtn.classList.add('hidden');
-            }
-            applyFilters();
-        });
-
-        clearSearchBtn.addEventListener('click', () => {
-            searchInput.value = '';
-            searchQuery = '';
-            clearSearchBtn.classList.add('hidden');
-            searchInput.focus();
-            applyFilters();
-        });
-
-        filterButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterButtons.forEach(b => {
-                    b.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200";
-                });
-                btn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-indigo-600 text-white shadow-md shadow-indigo-100";
-
-                currentCategory = btn.getAttribute('data-filter');
-                applyFilters();
-            });
-        });
-
-        document.querySelectorAll('.tag-badge').forEach(badge => {
-            badge.addEventListener('click', (e) => {
-                e.stopPropagation(); // Ngăn sự kiện click lan ra ngoài thẻ card
-                const tagName = badge.textContent.trim();
-                searchInput.value = tagName;
-                searchQuery = tagName;
-                clearSearchBtn.classList.remove('hidden');
-                
-                const allBtn = document.querySelector('[data-filter="all"]');
-                allBtn.click(); 
-                
-                applyFilters();
-                window.scrollTo({ top: 180, behavior: 'smooth' });
-            });
-        });
-
-        resetFiltersBtn.addEventListener('click', () => {
-            searchInput.value = '';
-            searchQuery = '';
-            clearSearchBtn.classList.add('hidden');
-            const allBtn = document.querySelector('[data-filter="all"]');
-            allBtn.click();
-        });
-
-        // 4. STREAMING_CHUNK: Phát triển hệ thống mở bài viết chi tiết (Reader Mode)
-        const blogListView = document.getElementById('blog-list-view');
-        const blogDetailView = document.getElementById('blog-detail-view');
-
-        // Hàm mở bài viết chi tiết
-        function openPostDetail(cardElement) {
-            // Ghi nhận vị trí cuộn trang hiện tại để quay về sau này
-            lastScrollY = window.scrollY;
-
-            // Thu thập dữ liệu từ phần HTML của thẻ card
-            const title = cardElement.querySelector('.post-title').textContent.trim();
-            // const categoryBadgeHTML = cardElement.querySelector('.category-badge').outerHTML;
-          
-            // Quét lấy tất cả các thẻ badge có trong card
-            let categoryBadgeHTML = '';
-            cardElement.querySelectorAll('.category-badge').forEach(badge => {
-                categoryBadgeHTML += badge.outerHTML; // Cộng dồn chuỗi HTML của từng thẻ lại
-            });
-          
-            const date = cardElement.querySelector('.post-date').textContent.trim();
-            const author = cardElement.querySelector('.post-author').textContent.trim();
-            const tagsHTML = cardElement.querySelector('.post-tags').outerHTML;
-            const fullContentHTML = cardElement.querySelector('.hidden-full-content').innerHTML;
-            
-            // Sao chép lại slide Swiper của bài viết để đặt vào trang chi tiết
-            const originalSwiper = cardElement.querySelector('.mySwiper');
-            // Nhân bản sâu (deep clone) cấu trúc slide
-            const clonedSwiperHTML = originalSwiper.outerHTML;
-
-            // Thiết kế dựng layout cho trang bài viết đọc chi tiết
-            blogDetailView.innerHTML = `
-                <!-- Nút trở về trên cùng -->
-                <button id="detail-back-btn-top" class="mb-6 flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
-                    <i class="fa-solid fa-arrow-left-long"></i> Trở lại trang chủ
-                </button>
-
-                <!-- Header bài viết -->
-                <div class="mb-6">
-                    <div class="flex items-center gap-3 mb-3">
-                        ${categoryBadgeHTML}
-                        <span class="text-xs text-slate-400">
-                            <i class="fa-regular fa-calendar mr-1"></i> ${date}
-                        </span>
-                    </div>
-                    <h1 class="text-1xl md:text-2xl font-extrabold text-slate-900 leading-tight mb-4">${title}</h1>
-                    <div class="flex items-center gap-2 text-sm text-slate-500 font-medium">
-                        <i class="fa-solid fa-pen-nib text-indigo-400"></i> Viết bởi: <span class="text-slate-800">${author}</span>
-                    </div>
-                </div>
-
-                <!-- Slide trình chiếu ảnh/video nhân bản -->
-                <div class="mb-8">
-                    ${clonedSwiperHTML}
-                </div>
-
-                <!-- Thân văn bản bài viết đầy đủ -->
-                <div class="prose max-w-none text-slate-700 leading-relaxed mb-10">
-                    ${fullContentHTML}
-                </div>
-
-                <!-- Thẻ tags cuối bài -->
-                <div class="pt-6 border-t border-slate-100 mb-8">
-                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Tags liên quan</span>
-                    ${tagsHTML}
-                </div>
-
-                <!-- Nút trở về cuối bài -->
-                <div class="flex justify-center">
-                    <button id="detail-back-btn-bottom" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
-                    </button>
-                </div>
-            `;
-
-            // Ẩn danh sách, hiện trang chi tiết
-            blogListView.classList.add('hidden');
-            blogDetailView.classList.remove('hidden');
-
-            // Khởi tạo Swiper và Fancybox cho tệp slide vừa nhân bản động
-            initAllSwipers();
-            Fancybox.bind("[data-fancybox^='gallery-']");
-
-            // Cuộn mượt màn hình lên đầu trang chi tiết
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Gán sự kiện click cho các nút Trở lại trang chủ
-            const backToHome = () => {
-                blogDetailView.classList.add('hidden');
-                blogListView.classList.remove('hidden');
-                
-                // Khôi phục lại trạng thái Swiper cho danh sách gốc
-                initAllSwipers();
-                
-                // Cuộn trở lại đúng vị trí xem trước đó
-                window.scrollTo({ top: lastScrollY, behavior: 'instant' });
-            };
-
-            document.getElementById('detail-back-btn-top').addEventListener('click', backToHome);
-            document.getElementById('detail-back-btn-bottom').addEventListener('click', backToHome);
-
-            // Bổ sung xử lý click tag trong trang chi tiết để tìm kiếm trực tiếp
-            blogDetailView.querySelectorAll('.tag-badge').forEach(badge => {
-                badge.addEventListener('click', () => {
-                    const tagName = badge.textContent.trim();
-                    backToHome();
+      blogDetailView.querySelectorAll('.tag-badge').forEach(badge => {
+        badge.addEventListener('click', () => {
+          const tagName = badge.textContent.trim();
+          backToHome();
                     
-                    searchInput.value = tagName;
-                    searchQuery = tagName;
-                    clearSearchBtn.classList.remove('hidden');
+          searchInput.value = tagName;
+          searchQuery = tagName;
+          clearSearchBtn.classList.remove('hidden');
                     
-                    const allBtn = document.querySelector('[data-filter="all"]');
-                    allBtn.click();
-                    applyFilters();
-                    window.scrollTo({ top: 180, behavior: 'smooth' });
-                });
-            });
-        }
+          const allBtn = document.querySelector('[data-filter="all"]');
+          allBtn.click();
+          applyFilters();
+          window.scrollTo({ top: 180, behavior: 'smooth' });
+        });
+      });
+    }
 
-        // Lắng nghe sự kiện click vào nút Xem chi tiết hoặc Tiêu đề ở trang chủ
-        document.addEventListener('click', (e) => {
-            const viewBtn = e.target.closest('.view-detail-btn');
-            const titleClick = e.target.closest('.post-title');
+    document.addEventListener('click', (e) => {
+      const viewBtn = e.target.closest('.view-detail-btn');
+      const titleClick = e.target.closest('.post-title');
             
-            if (viewBtn || titleClick) {
-                const card = e.target.closest('.post-card');
-                if (card) {
-                    openPostDetail(card);
-                }
-            }
-        });
-
-        // Logo Header click quay về Trang chủ chính
-        document.getElementById('header-logo').addEventListener('click', (e) => {
-            e.preventDefault();
-            if (!blogDetailView.classList.contains('hidden')) {
-                blogDetailView.classList.add('hidden');
-                blogListView.classList.remove('hidden');
-                initAllSwipers();
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // 5. HIỆU ỨNG CUỘN LÊN ĐẦU TRANG (BACK TO TOP)
-        const backToTopBtn = document.getElementById('back-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // 6. Đăng ký nhận bản tin ở Sidebar không dùng alert() gây đơ giao diện
-        const newsletterForm = document.getElementById('newsletter-form');
-        const newsletterSuccess = document.getElementById('newsletter-success');
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                newsletterForm.classList.add('hidden');
-                newsletterSuccess.classList.remove('hidden');
-            });
+      if (viewBtn || titleClick) {
+        const card = e.target.closest('.post-card');
+        if (card) {
+          openPostDetail(card);
         }
-    </script>
+      }
+    });
+
+    document.getElementById('header-logo').addEventListener('click', (e) => {
+      e.preventDefault();
+      if (!blogDetailView.classList.contains('hidden')) {
+        blogDetailView.classList.add('hidden');
+        blogListView.classList.remove('hidden');
+        initAllSwipers();
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    const newsletterForm = document.getElementById('newsletter-form');
+    const newsletterSuccess = document.getElementById('newsletter-success');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        newsletterForm.classList.add('hidden');
+        newsletterSuccess.classList.remove('hidden');
+      });
+    }
+  </script>
 </body>
 </html>
