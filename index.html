@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc" />
 <script data-goatcounter="https://vetraitim.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
@@ -9,13 +10,9 @@
   <title>Hieubeo's Audition Studio</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
   <script src="https://cdn.tailwindcss.com"></script>
-    
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-    
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
@@ -153,27 +150,31 @@
       <div id="tag-container" class="flex flex-wrap items-center justify-center gap-2 mb-10">
         <button data-filter="all" class="filter-btn active-tag px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 border border-indigo-600 cursor-pointer">
           Tất cả bài viết
-        </button>
-        <button data-filter="cat_pay" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
-          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_pay.png?raw=true?raw=true" alt="Công cụ" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
-          Trả phí
-        </button>
-        <button data-filter="cat_free" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
-          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_free.png?raw=true" alt="Công cụ" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
-          Miễn phí
-        </button>
-        <button data-filter="cat_tool" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
-          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_tool.png?raw=true" alt="Công cụ" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
-          Công cụ
-        </button>
-        <button data-filter="cat_stage" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
-          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_stage.png?raw=true" alt="Sàn nhảy" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
-          Sàn nhảy
-        </button>
-        <button data-filter="cat_skin" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
-          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_skin.png?raw=true" alt="Giao diện" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
-          Giao diện
-        </button>
+		        </button>
+		<button data-filter="cat_pay" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
+		    <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_pay.png?raw=true" alt="Trả phí" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+		    Trả phí
+		  </button>
+		  
+		  <button data-filter="cat_free" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
+		    <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_free.png?raw=true" alt="Miễn phí" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+		    Miễn phí
+		  </button>
+		  
+		  <button data-filter="cat_tool" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
+		    <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_tool.png?raw=true" alt="Công cụ" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+		    Công cụ
+		  </button>
+		  
+		  <button data-filter="cat_stage" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
+		    <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_stage.png?raw=true" alt="Sàn nhảy" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+		    Sàn nhảy
+		  </button>
+		  
+		  <button data-filter="cat_skin" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
+		    <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_skin.png?raw=true" alt="Giao diện" class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle"> 
+		    Giao diện
+		  </button>
       </div>
 
       <div id="no-results-state" class="hidden text-center py-16 px-4 bg-white border border-slate-100 rounded-2xl shadow-sm mb-12">
