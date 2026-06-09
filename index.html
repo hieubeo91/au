@@ -924,6 +924,19 @@
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
   <script>
+	const redirect =
+	    sessionStorage.getItem("redirect");
+	if (redirect) {
+	    sessionStorage.removeItem(
+	        "redirect"
+	    );
+	    history.replaceState(
+	        {},
+	        "",
+	        redirect
+	    );
+	}
+	  
     let lastScrollY = 0;
 
     // 1. KHỞI TẠO TẤT CẢ CÁC SWIPER (SLIDE ẢNH)
@@ -1122,6 +1135,12 @@
     const blogDetailView = document.getElementById('blog-detail-view');
 
     function openPostDetail(cardElement) {
+	const slug = cardElement.dataset.id.replace("post-", "");
+	history.pushState(
+	    { slug: slug },
+	    "",
+	    "/au/" + slug
+	);
       lastScrollY = window.scrollY;
       const title = cardElement.querySelector('.post-title').textContent.trim();
       let categoryBadgeHTML = '';
@@ -1180,6 +1199,11 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
       const backToHome = () => {
+		history.pushState(
+		    {},
+		    "",
+		    "/au/"
+		);
         blogDetailView.classList.add('hidden');
         blogListView.classList.remove('hidden');
         initAllSwipers();
@@ -1253,6 +1277,36 @@
         newsletterSuccess.classList.remove('hidden');
       });
     }
+	  
+	window.addEventListener("load", () => {
+	    const slug = location.pathname
+	        .replace("/au/", "")
+	        .replace("/", "");
+	    if (!slug) return;
+	    const card = document.querySelector(
+	        `[data-id="post-${slug}"]`
+	    );
+	    if (card) {
+	        openPostDetail(card);
+	    }
+	});
+
+	window.addEventListener("popstate", () => {
+	    const slug = location.pathname
+	        .replace("/au/", "")
+	        .replace("/", "");
+	    if (!slug) {
+	        blogDetailView.classList.add("hidden");
+	        blogListView.classList.remove("hidden");
+	        return;
+	    }
+	    const card = document.querySelector(
+	        `[data-id="post-${slug}"]`
+	    );
+	    if (card) {
+	        openPostDetail(card);
+	    }
+	});
   </script>
 </body>
 </html>
