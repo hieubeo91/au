@@ -1135,6 +1135,10 @@
     const blogDetailView = document.getElementById('blog-detail-view');
 
     function openPostDetail(cardElement) {
+	window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+	});
 	const slug = cardElement.dataset.id.replace("post-", "");
 	history.pushState(
 	    { slug: slug },
@@ -1151,6 +1155,62 @@
       const author = cardElement.querySelector('.post-author').textContent.trim();
       const tagsHTML = cardElement.querySelector('.post-tags').outerHTML;
       const fullContentHTML = cardElement.querySelector('.hidden-full-content').innerHTML;
+	  const currentCategory =
+	      cardElement.dataset.category;
+	  const relatedPosts =
+	      [...document.querySelectorAll('.post-card')]
+	      .filter(card =>
+	          card !== cardElement &&
+	          card.dataset.category === currentCategory
+	      )
+	      .slice(0, 3);
+		let relatedPostsHTML = '';
+		if (relatedPosts.length > 0) {
+		    relatedPostsHTML = `
+		    <div class="pt-6 border-t border-slate-100 mb-10">
+		        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-5">
+		            Bài viết liên quan
+		        </span>
+				        <div class="grid gap-4">
+		    `;
+		    relatedPosts.forEach(post => {
+		        const title =
+		            post.querySelector('.post-title')
+		            ?.textContent.trim() || '';
+		        const excerpt =
+		            post.querySelector('.post-excerpt')
+		            ?.textContent.trim() || '';
+		        const image =
+		            post.querySelector('img')
+		            ?.src || '';
+		        relatedPostsHTML += `
+		            <button
+		                class="related-post-card w-full text-left bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition-all duration-200"
+		                data-id="${post.dataset.id}">
+		                <div class="flex">
+		                    <div class="w-32 h-24 shrink-0">
+		                        <img
+		                            src="${image}"
+		                            class="w-full h-full object-cover"
+		                            alt="${title}">
+		                    </div>
+		                    <div class="p-4 flex-1">
+		                        <h3 class="font-bold text-slate-800 mb-2 line-clamp-1">
+		                            ${title}
+		                        </h3>
+		                        <p class="text-sm text-slate-500 line-clamp-2">
+		                            ${excerpt}
+		                        </p>
+		                    </div>
+		                </div>
+		            </button>
+		        `;
+		    });
+		    relatedPostsHTML += `
+		        </div>
+		    </div>
+		    `;
+		}
       const originalSwiper = cardElement.querySelector('.mySwiper');
       const clonedSwiperHTML = originalSwiper.outerHTML;
 
@@ -1180,10 +1240,14 @@
           ${fullContentHTML}
         </div>
 
-        <div class="pt-6 border-t border-slate-100 mb-8">
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Tags liên quan</span>
-          ${tagsHTML}
-        </div>
+		<div class="pt-6 border-t border-slate-100 mb-8">
+		  <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">
+		      Tags liên quan
+		  </span>
+		  ${tagsHTML}
+		</div>
+		
+		${relatedPostsHTML}
 
         <div class="flex justify-center">
           <button id="detail-back-btn-bottom" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
@@ -1229,6 +1293,32 @@
         });
       });
     }
+
+	blogDetailView
+	.querySelectorAll('.related-post-card')
+	.forEach(card => {
+	
+	    card.addEventListener('click', () => {
+	
+	        const postId =
+	            card.dataset.id;
+	
+	        const targetPost =
+	            document.querySelector(
+	                `[data-id="${postId}"]`
+	            );
+	
+	        if (targetPost) {
+	
+	            openPostDetail(
+	                targetPost
+	            );
+	
+	        }
+	
+	    });
+	
+	});
 
     document.addEventListener('click', (e) => {
       const viewBtn = e.target.closest('.view-detail-btn');
