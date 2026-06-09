@@ -625,7 +625,7 @@
                     </article>
 
         <!-- BÀI VIẾT 2 -->          
-          <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-categories="cat_stage, cat_free" data-id="post-ddscoverter">
+          <article class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-categories="cat_stage, cat_free" data-id="post-lucky-cat">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
               <div class="flex items-center gap-3">
                 <span class="category-badge bg-amber-50 text-amber-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
@@ -1214,6 +1214,101 @@
       const originalSwiper = cardElement.querySelector('.mySwiper');
       const clonedSwiperHTML = originalSwiper.outerHTML;
 
+	const currentTags =
+	    [...cardElement.querySelectorAll('.tag-badge')]
+	    .map(tag => tag.textContent.trim());
+	
+	let relatedPosts =
+	    [...document.querySelectorAll('.post-card')]
+	    .filter(post => post !== cardElement)
+	    .map(post => {
+	
+	        const tags =
+	            [...post.querySelectorAll('.tag-badge')]
+	            .map(tag => tag.textContent.trim());
+	
+	        const score =
+	            tags.filter(tag =>
+	                currentTags.includes(tag)
+	            ).length;
+	
+	        return {
+	            post,
+	            score
+	        };
+	    })
+	    .sort((a, b) => b.score - a.score)
+	    .slice(0, 5);
+	let relatedPostsHTML = '';
+	
+	if (relatedPosts.length > 0) {
+	
+	    relatedPostsHTML = `
+	        <div class="pt-6 border-t border-slate-100 mb-8">
+	
+	            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-4">
+	                Bài viết liên quan
+	            </span>
+	
+	            <div class="grid gap-4">
+	
+	    `;
+	
+	    relatedPosts.forEach(item => {
+	
+	        const post = item.post;
+	
+	        const title =
+	            post.querySelector('.post-title')
+	            ?.textContent.trim() || '';
+	
+	        const excerpt =
+	            post.querySelector('.post-excerpt')
+	            ?.textContent.trim() || '';
+	
+	        const image =
+	            post.querySelector('.swiper-slide img')
+	            ?.src || '';
+	
+	        relatedPostsHTML += `
+	            <div
+	                class="related-post-card cursor-pointer bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition"
+	                data-id="${post.dataset.id}">
+	
+	                <div class="flex">
+	
+	                    <div class="w-32 h-24 shrink-0">
+	
+	                        <img
+	                            src="${image}"
+	                            class="w-full h-full object-cover">
+	
+	                    </div>
+	
+	                    <div class="p-4 flex-1">
+	
+	                        <div class="font-bold text-slate-800 line-clamp-1 mb-2">
+	                            ${title}
+	                        </div>
+	
+	                        <div class="text-sm text-slate-500 line-clamp-2">
+	                            ${excerpt}
+	                        </div>
+	
+	                    </div>
+	
+	                </div>
+	
+	            </div>
+	        `;
+	    });
+	
+	    relatedPostsHTML += `
+	            </div>
+	        </div>
+	    `;
+	}
+		
       blogDetailView.innerHTML = `
         <button id="detail-back-btn-top" class="mb-6 flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
           <i class="fa-solid fa-arrow-left-long"></i> Trở lại trang chủ
@@ -1244,6 +1339,7 @@
 		  <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">
 		      Tags liên quan
 		  </span>
+		
 		  ${tagsHTML}
 		</div>
 		
@@ -1278,6 +1374,26 @@
       document.getElementById('detail-back-btn-bottom').addEventListener('click', backToHome);
 
       blogDetailView.querySelectorAll('.tag-badge').forEach(badge => {
+
+		blogDetailView
+		.querySelectorAll('.related-post-card')
+		.forEach(card => {
+		
+		    card.addEventListener('click', () => {
+		
+		        const targetPost =
+		            document.querySelector(
+		                `[data-id="${card.dataset.id}"]`
+		            );
+		
+		        if (!targetPost) return;
+		
+		        openPostDetail(targetPost);
+		
+		    });
+		
+		});
+		  
         badge.addEventListener('click', () => {
           const tagName = badge.textContent.trim();
           backToHome();
