@@ -951,6 +951,18 @@
         // Xóa hash trên URL
         window.history.pushState("", document.title, window.location.pathname);
     }
+    window.addEventListener('load', () => {
+        const pendingPostId = sessionStorage.getItem('openPostId');
+        if (pendingPostId) {
+            // Tìm thẻ bài viết có data-id tương ứng
+            const targetCard = document.querySelector(`[data-id="${pendingPostId}"]`);
+            if (targetCard) {
+                openPostDetail(targetCard);
+            }
+            // Xóa lệnh sau khi đã mở
+            sessionStorage.removeItem('openPostId');
+        }
+    });
   </script>
 </body>
 </html>
