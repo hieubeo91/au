@@ -923,66 +923,61 @@
       });
     }
 
-    // Cập nhật hàm mở bài viết để thay đổi URL trên trình duyệt
-    function openPostDetail(cardElement) {
-        const postId = cardElement.getAttribute('data-id');
-        
-        // Cập nhật URL trình duyệt mà không load lại trang
-        window.history.pushState(null, null, `#${postId}`);
-        
-        // ... (giữ nguyên logic hiển thị bài viết chi tiết của bạn ở đây)
-    }
-
-    // Cập nhật hàm quay lại trang chủ
-    function backToHome() {
-        // ... (logic ẩn bài viết chi tiết)
-        
-        // Xóa hash trên URL
-        window.history.pushState("", document.title, window.location.pathname);
-    }
-    window.addEventListener('load', () => {
-        const pendingPostId = sessionStorage.getItem('openPostId');
-        if (pendingPostId) {
-            // Tìm thẻ bài viết có data-id tương ứng
-            const targetCard = document.querySelector(`[data-id="${pendingPostId}"]`);
-            if (targetCard) {
-                openPostDetail(targetCard);
-            }
-            // Xóa lệnh sau khi đã mở
-            sessionStorage.removeItem('openPostId');
-        }
-    });
-	window.addEventListener('load', () => {
-	        const pendingPostId = sessionStorage.getItem('openPostId');
-	        if (pendingPostId) {
-	            console.log("Đang tìm bài viết với ID:", pendingPostId);
-	            
-	            // Tìm phần tử có data-id khớp chính xác với chuỗi post-...
-	            const targetCard = document.querySelector(`[data-id="${pendingPostId}"]`);
-	            
-	            if (targetCard) {
-	                // Gọi hàm mở bài viết của bạn
-	                openPostDetail(targetCard);
-	            } else {
-	                console.error("Không tìm thấy bài viết nào có data-id:", pendingPostId);
-	            }
-	            
-	            // Xóa để không bị mở lại khi F5
-	            sessionStorage.removeItem('openPostId');
-	        }
-	    });
+	// 1. Hàm mở bài viết (ĐÃ BỎ DẤU #)
+	function openPostDetail(cardElement) {
+	    const postId = cardElement.getAttribute('data-id');
+	    const slug = postId.replace('post-', ''); // Tách lấy phần sau post-
+	
+	    // Cập nhật URL sạch (không dấu #)
+	    // Lưu ý: Đảm bảo đường dẫn này đúng với cấu trúc web của bạn
+	    window.history.pushState({ postId: postId }, "", `/au/${slug}`);
+	
+	    // ... (Giữ nguyên logic ẩn/hiện bài viết cũ của bạn ở đây)
+	    const blogListView = document.getElementById('blog-list-view');
+	    const blogDetailView = document.getElementById('blog-detail-view');
+	    blogListView.classList.add('hidden');
+	    blogDetailView.classList.remove('hidden');
+	    
+	    window.scrollTo(0, 0);
+	}
+	
+	// 2. Hàm quay lại trang chủ
+	function backToHome() {
+	    // ... (logic ẩn bài viết chi tiết)
+	    const blogListView = document.getElementById('blog-list-view');
+	    const blogDetailView = document.getElementById('blog-detail-view');
+	    blogDetailView.classList.add('hidden');
+	    blogListView.classList.remove('hidden');
+	    
+	    // Xóa URL sạch và quay về trang chủ
+	    window.history.pushState(null, null, '/au/');
+	}
+	
+	// 3. Hàm xử lý click (dùng cho tiêu đề/nút bấm)
 	function handleCardClick(postId) {
-	    // 1. Tìm element card
 	    const card = document.querySelector(`[data-id="${postId}"]`);
 	    if (card) {
-	        // 2. Mở bài viết
 	        openPostDetail(card);
-	        
-	        // 3. Đổi URL sạch bằng history.pushState (không có dấu #)
-	        const slug = postId.replace('post-', '');
-	        window.history.pushState(null, null, `/au/${slug}`);
 	    }
 	}
+	
+	// 4. Chỉ dùng MỘT sự kiện load duy nhất
+	window.addEventListener('load', () => {
+	    const pendingPostId = sessionStorage.getItem('openPostId');
+	    if (pendingPostId) {
+	        console.log("Đang tìm bài viết với ID:", pendingPostId);
+	        
+	        const targetCard = document.querySelector(`[data-id="${pendingPostId}"]`);
+	        
+	        if (targetCard) {
+	            openPostDetail(targetCard);
+	        } else {
+	            console.error("Không tìm thấy bài viết:", pendingPostId);
+	        }
+	        
+	        sessionStorage.removeItem('openPostId');
+	    }
+	});
   </script>
 </body>
 </html>
