@@ -955,6 +955,17 @@
         newsletterSuccess.classList.remove('hidden');
       });
     }
+	document.addEventListener('DOMContentLoaded', () => {
+	    const params = new URLSearchParams(window.location.search);
+	    const keyword = params.get('search');
+	    if (!keyword) return;
+	    const searchInput = document.getElementById('search-input');
+	    if (!searchInput) return;
+	    // Điền từ khóa vào ô tìm kiếm
+	    searchInput.value = keyword;
+	    // Kích hoạt chức năng tìm kiếm đang có sẵn
+	    searchInput.dispatchEvent(new Event('input'));
+	});
   </script>
 </body>
 </html>
