@@ -971,6 +971,18 @@
 	            sessionStorage.removeItem('openPostId');
 	        }
 	    });
+	function handleCardClick(postId) {
+	    // 1. Tìm element card
+	    const card = document.querySelector(`[data-id="${postId}"]`);
+	    if (card) {
+	        // 2. Mở bài viết
+	        openPostDetail(card);
+	        
+	        // 3. Đổi URL sạch bằng history.pushState (không có dấu #)
+	        const slug = postId.replace('post-', '');
+	        window.history.pushState(null, null, `/au/${slug}`);
+	    }
+	}
   </script>
 </body>
 </html>
