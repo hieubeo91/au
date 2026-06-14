@@ -970,30 +970,18 @@
 
 	// 4. Chỉ dùng MỘT sự kiện load duy nhất
 	window.addEventListener('load', () => {
-	    const pendingPostId = sessionStorage.getItem('openPostId');
-	    if (pendingPostId) {
-	        console.log("Đang tìm bài viết với ID:", pendingPostId);
-	        
-	        const targetCard = document.querySelector(`[data-id="${pendingPostId}"]`);
-	        
-	        if (targetCard) {
-	            openPostDetail(targetCard);
-	        } else {
-	            console.error("Không tìm thấy bài viết:", pendingPostId);
-	        }
-	        
-	        sessionStorage.removeItem('openPostId');
-	    }
-	});
-	    window.addEventListener('load', () => {
-	        const pendingPost = sessionStorage.getItem('pendingPost');
-	        if (pendingPost) {
-	            // Tìm bài viết có data-id tương ứng
-	            const targetCard = document.querySelector(`[data-id*="${pendingPost}"]`);
+	        const pendingPostId = sessionStorage.getItem('openPostId');
+	        if (pendingPostId) {
+	            // Tìm thẻ bài viết có data-id chứa chuỗi đó
+	            // Lưu ý: dùng [data-id*="..."] để tìm khớp một phần
+	            const targetCard = document.querySelector(`[data-id*="${pendingPostId}"]`);
+	            
 	            if (targetCard) {
 	                openPostDetail(targetCard);
 	            }
-	            sessionStorage.removeItem('pendingPost'); // Xóa sau khi dùng
+	            
+	            // Xóa ngay sau khi đã sử dụng để tránh bị mở lại khi F5
+	            sessionStorage.removeItem('openPostId');
 	        }
 	    });
 	</script>
