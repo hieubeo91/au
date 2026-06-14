@@ -922,17 +922,6 @@
         newsletterSuccess.classList.remove('hidden');
       });
     }
-    // Hàm kiểm tra URL khi tải trang
-    window.addEventListener('load', () => {
-        const hash = window.location.hash.substring(1); // Lấy phần sau dấu #
-        if (hash) {
-            const targetPost = document.querySelector(`[data-id="${hash}"]`);
-            if (targetPost) {
-                // Mở bài viết chi tiết
-                openPostDetail(targetPost);
-            }
-        }
-    });
 
     // Cập nhật hàm mở bài viết để thay đổi URL trên trình duyệt
     function openPostDetail(cardElement) {
