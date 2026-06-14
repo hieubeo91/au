@@ -1165,24 +1165,6 @@
       const author = cardElement.querySelector('.post-author').textContent.trim();
       const tagsHTML = cardElement.querySelector('.post-tags').outerHTML;
       const fullContentHTML = cardElement.querySelector('.hidden-full-content').innerHTML;
-
-	const slug =
-	    cardElement.dataset.id
-	        .replace('post-','');
-	
-	fetch(
-	    `posts/${slug}.html`
-	)
-	.then(r => r.text())
-	.then(html => {
-	
-	    console.log(
-	        'Loaded:',
-	        slug
-	    );
-	
-	});
-		
       const originalSwiper = cardElement.querySelector('.mySwiper');
       const clonedSwiperHTML = originalSwiper.outerHTML;
 
