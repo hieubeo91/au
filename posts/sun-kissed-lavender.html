@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc" />
-<script data-goatcounter="https://vetraitim.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+  <meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc" />
+  <script data-goatcounter="https://vetraitim.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hieubeo's Audition Studio</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
   <script src="https://cdn.tailwindcss.com"></script>
-    
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-    
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
@@ -39,7 +39,8 @@
     }
 
     /* Đè lại màu cho các nút điều hướng Swiper */
-    .swiper-button-next, .swiper-button-prev {
+    .swiper-button-next,
+    .swiper-button-prev {
       color: #ffffff !important;
       background: rgba(0, 0, 0, 0.4);
       width: 40px !important;
@@ -48,13 +49,15 @@
       transition: all 0.2s ease;
     }
 
-    .swiper-button-next:hover, .swiper-button-prev:hover {
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
       background: rgba(99, 102, 241, 0.9);
       /* Indigo hover effect */
       transform: scale(1.05);
     }
-        
-    .swiper-button-next::after, .swiper-button-prev::after {
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
       font-size: 14px !important;
       font-weight: bold;
     }
@@ -93,6 +96,7 @@
         opacity: 0;
         transform: translateY(20px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
@@ -101,9 +105,17 @@
 
     /* Hiệu ứng Gradient đổi màu động */
     @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     /* Trạng thái nút lọc khi ĐƯỢC CHỌN */
@@ -114,211 +126,259 @@
       border-color: #4f46e5 !important;
       box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
     }
-  </style>  
+  </style>
 </head>
+
 <body class="text-slate-800 flex flex-col min-h-screen">
 
   <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
     <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-	<a href="https://hieubeo91.github.io/au/" id="header-logo" class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
-	  <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true" alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
-	  <span>Hieubeo's Audition Studio</span>
-	</a>
-      <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
+      <a href="https://hieubeo91.github.io/au/" id="header-logo"
+        class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
+        <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true"
+          alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
+        <span>Hieubeo's Audition Studio</span>
+      </a>
+      <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho game Audition
+        (PC)</p>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
 
-      <div id="no-results-state" class="hidden text-center py-16 px-4 bg-white border border-slate-100 rounded-2xl shadow-sm mb-12">
-        <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
-          <i class="fa-solid fa-folder-open text-3xl"></i>
-        </div>
-        <h3 class="text-lg font-bold text-slate-800 mb-1">Không tìm thấy bài viết phù hợp</h3>
-        <p class="text-slate-500 text-sm max-w-md mx-auto mb-6">Hãy thử tìm kiếm bằng một từ khóa khác hoặc chuyển sang danh mục tin bài khác nhé!</p>
-        <button id="reset-filters-btn" class="px-5 py-2.5 bg-indigo-600 text-white font-medium rounded-xl text-sm shadow-md hover:bg-indigo-700 transition-colors">
-          Xem tất cả bài viết
-        </button>
+    <div id="no-results-state"
+      class="hidden text-center py-16 px-4 bg-white border border-slate-100 rounded-2xl shadow-sm mb-12">
+      <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+        <i class="fa-solid fa-folder-open text-3xl"></i>
       </div>
-      
-      	<!-- BỐ CỤC HAI CỘT: CỘT BÀI VIẾT & SIDEBAR CỐ ĐỊNH -->
-		<div class="flex flex-col lg:flex-row gap-8 items-start">
-			<div class="w-full lg:w-2/3">
-			  <article class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-				  <a href="../index.html"
-				     class="inline-flex items-center gap-2 text-indigo-600 mb-6">
-				    ← Quay lại trang chủ
-				  </a>		  
-				  
-			      <div class="flex items-center gap-3 mb-4">
-			          <span class="category-badge bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-			              Sàn nhảy
-			          </span>
-			          <span class="text-xs text-slate-400">
-			              31/05/2026
-			          </span>
-			      </div>
-			      <h1 class="text-3xl font-bold text-slate-900 mb-6">
-			          Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương
-			      </h1>
-                        <!-- SLIDE ẢNH BÌA TRANG CHỦ -->
-                        <div class="swiper mySwiper mb-5">
-                            <div class="swiper-wrapper">
-                                <!-- Slide Ảnh -->
-                                <div class="swiper-slide">
-                                    <a href="https://lh3.googleusercontent.com/d/1HKVZZdgnwGrqvV0dGMghfM7gZZZaR4wX" data-fancybox="gallery-post-sun-kissed-lavender-cham-nhip-perfect-det-mong-uyen-uong" data-caption="Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương">
-                                        <img src="https://lh3.googleusercontent.com/d/1HKVZZdgnwGrqvV0dGMghfM7gZZZaR4wX" alt="Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương" class="hover:scale-105 transition-transform duration-300">
-                                    </a>
-                                </div>
-                                <!-- Slide Ảnh -->
-                                <div class="swiper-slide">
-                                    <a href="https://lh3.googleusercontent.com/d/1ufu-2fX7W3dA8wSx2shofc5JSIwJtR7M" data-fancybox="gallery-post-sun-kissed-lavender-cham-nhip-perfect-det-mong-uyen-uong" data-caption="Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương">
-                                        <img src="https://lh3.googleusercontent.com/d/1ufu-2fX7W3dA8wSx2shofc5JSIwJtR7M" alt="Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương" class="hover:scale-105 transition-transform duration-300">
-                                    </a>
-                                </div>
-                                <!-- Slide Ảnh -->
-                                <div class="swiper-slide">
-                                    <a href="https://lh3.googleusercontent.com/d/13OOZYWBR7MX0uHsxuTTPEa0U7BVZzd6J" data-fancybox="gallery-post-sun-kissed-lavender-cham-nhip-perfect-det-mong-uyen-uong" data-caption="Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương">
-                                        <img src="https://lh3.googleusercontent.com/d/13OOZYWBR7MX0uHsxuTTPEa0U7BVZzd6J" alt="Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương" class="hover:scale-105 transition-transform duration-300">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-
-                        <!-- NỘI DUNG CHI TIẾT SẮP XẾP LINH HOẠT -->
-                            <!-- Khối Văn Bản Rich Text -->
-                            <div class="rich-editor-content mb-6 leading-relaxed text-slate-600">
-                                <b>Sun-Kissed Lavender</b>&nbsp;là không gian lãng mạn và thơ mộng nhất từng xuất hiện tại Thành Phố Vũ Hội Audition. Bước vào phòng nhảy, bạn sẽ ngay lập tức chìm đắm trong sắc tím ngút ngàn của cánh đồng hoa oải hương trải dài vô tận dưới ánh hoàng hôn hồng tím huyền ảo. Điểm nhấn trung tâm là chiếc cối xay gió và ngôi nhà nhỏ yên bình, mang đến cảm giác như đang lạc bước giữa vùng Provence nước Pháp.<div><br></div><div>Từng bước nhảy hay những cú Perfect của bạn và người ấy sẽ trở nên thăng hoa, ngọt ngào hơn bao giờ hết trên nền bối cảnh đậm chất cổ tích này. Hãy nhanh tay sở hữu ngay sàn nhảy giới hạn này để tạo nên những khoảnh khắc bùng nổ và lãng mạn nhất cùng bạn bè nhé!
-
-								<div class="flex justify-center items-center w-full my-8">
-									<div class="relative inline-flex items-center group/buy py-2">
-										<div class="absolute left-full top-1/2 -translate-y-1/2 flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 ease-out transform -translate-x-2 
-												group-hover/buy:opacity-100 group-hover/buy:pointer-events-auto group-hover/buy:translate-x-3
-												before:content-[''] before:absolute before:right-full before:top-0 before:bottom-0 before:w-10">
-										<a href="https://facebook.com/nguyenvanhieuhp" target="_blank" 
-											class="flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2] text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200"
-											title="Liên hệ qua Facebook">
-											<i class="fa-brands fa-facebook-f text-lg"></i>
-										</a>
-										<a href="https://zalo.me/0367095324" target="_blank" 
-											class="flex items-center justify-center w-10 h-10 rounded-full bg-[#0068FF] text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 font-bold text-xs"
-											title="Liên hệ qua Zalo">
-												Zalo
-										</a>
-										</div>
-											<button class="relative flex items-center gap-2 px-6 py-3 font-bold text-white uppercase tracking-wider rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-[length:200%_auto] animate-[gradient_3s_ease_infinite] shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-pink-500/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-300 cursor-pointer">
-												<span class="absolute inset-0 rounded-xl bg-gradient-to-r from-pink-500 to-yellow-500 opacity-40 blur-md animate-ping pointer-events-none"></span>
-												<i class="fa-solid fa-cart-shopping animate-bounce"></i>
-												<span class="relative z-10">Mua Ngay</span>
-											</button>
-										</div>
-									</div>
-								</div>
-                            </div>
-				  
-				<div class="pt-6 border-t border-slate-100 mb-8">
-				  <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Tags liên quan</span>
-					<div class="flex flex-wrap gap-2">
-				    <a href="../index.html?search=Audition" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm hover:bg-indigo-100 transition">#Audition</a>
-					<a href="../index.html?search=SunKissedLavender" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-sm hover:bg-pink-100 transition">#SunKissedLavender</a>
-					<a href="../index.html?search=DanceFloor" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm hover:bg-purple-100 transition">#DanceFloor</a>
-				  </div>
-				</div>
-		
-		        <div class="flex justify-center">
-				  <a href="../index.html"
-				    class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
-				    <i class="fa-solid fa-house text-sm"></i>
-				    Quay lại trang chủ
-				  </a>
-				</div>
-			  </article>
-			</div>
-
-        <aside class="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-6">
-          <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-            <div class="flex flex-col items-center text-center">
-              <div class="relative w-28 h-28 mb-4">
-                <img src="https://github.com/hieubeo91/storage/blob/main/blog/avatar.jpg?raw=true" alt="Ảnh đại diện" class="w-full h-full object-cover rounded-full border-4 border-indigo-50 shadow-sm">
-                <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full" title="Sẵn sàng kết nối"></span>
-              </div>
-                            
-              <h3 class="text-xl font-bold text-slate-800">Nguyễn Văn Hiệu</h3>
-              <p class="text-xs text-indigo-600 font-semibold uppercase tracking-wider mb-4">♡♡♡</p>
-                            
-              <p class="text-sm text-slate-500 leading-relaxed mb-6">
-                Xin chào! Mình là một kẻ mang bản chất xấu xa, nhưng do biết chơi game mà trở thành người tốt.
-              </p>
-                            
-              <div class="grid grid-cols-3 gap-2 w-full py-4 border-y border-slate-100 mb-6 text-center">
-                <div>
-                  <span class="block text-lg font-bold text-slate-800">30+</span>
-                  <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Bài viết</span>
-                </div>
-                <div>
-                  <span class="block text-lg font-bold text-slate-800">12K</span>
-                  <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Theo dõi</span>
-                </div>
-                <div>
-                  <span class="block text-lg font-bold text-slate-800">2.7M+</span>
-                  <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Xem trang</span>
-                </div>
-              </div>
-
-              <div class="flex items-center justify-center gap-3">
-                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Facebook">
-                  <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Instagram">
-                  <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Youtube">
-                  <i class="fa-brands fa-youtube"></i>
-                </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Liên hệ qua Email">
-                  <i class="fa-solid fa-envelope"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-gradient-to-br from-indigo-50/50 to-purple-50/50 border border-indigo-100/40 rounded-2xl p-6 shadow-sm">
-            <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
-              <i class="fa-regular fa-paper-plane text-indigo-600"></i> Nhận bài viết mới
-            </h4>
-            <p class="text-xs text-slate-500 leading-relaxed mb-4">Điền email của bạn để không bỏ lỡ các bài viết mới nhất.</p>
-                        
-            <form id="newsletter-form" class="space-y-2">
-              <input type="email" placeholder="Địa chỉ email của bạn" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500" required>
-              <button type="submit" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl text-xs transition-colors shadow-sm">Đăng ký ngay</button>
-            </form>
-            <div id="newsletter-success" class="text-xs text-emerald-600 font-medium mt-2 hidden flex items-center gap-1.5">
-              <i class="fa-solid fa-circle-check"></i> Đăng ký thành công! Cảm ơn bạn nhé.
-            </div>
-          </div>
-        </aside>	  
-
-      </div>
+      <h3 class="text-lg font-bold text-slate-800 mb-1">Không tìm thấy bài viết phù hợp</h3>
+      <p class="text-slate-500 text-sm max-w-md mx-auto mb-6">Hãy thử tìm kiếm bằng một từ khóa khác hoặc chuyển sang
+        danh mục tin bài khác nhé!</p>
+      <button id="reset-filters-btn"
+        class="px-5 py-2.5 bg-indigo-600 text-white font-medium rounded-xl text-sm shadow-md hover:bg-indigo-700 transition-colors">
+        Xem tất cả bài viết
+      </button>
     </div>
 
-    <div id="blog-detail-view" class="hidden max-w-4xl mx-auto bg-white border border-slate-100 rounded-3xl p-6 md:p-10 shadow-sm fade-in-up"></div>
+    <!-- BỐ CỤC HAI CỘT: CỘT BÀI VIẾT & SIDEBAR CỐ ĐỊNH -->
+    <div class="flex flex-col lg:flex-row gap-8 items-start">
+      <div class="w-full lg:w-2/3">
+        <article class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+          <a href="../index.html" class="inline-flex items-center gap-2 text-indigo-600 mb-6">
+            ← Quay lại trang chủ
+          </a>
+
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="category-badge bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              Sàn nhảy
+            </span>
+            <span class="text-xs text-slate-400">
+              31/05/2026
+            </span>
+          </div>
+          <h1 class="text-3xl font-bold text-slate-900 mb-6">
+            Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương
+          </h1>
+          <!-- SLIDE ẢNH BÌA TRANG CHỦ -->
+          <div class="swiper mySwiper mb-5">
+            <div class="swiper-wrapper">
+              <!-- Slide Ảnh -->
+              <div class="swiper-slide">
+                <a href="https://lh3.googleusercontent.com/d/1HKVZZdgnwGrqvV0dGMghfM7gZZZaR4wX"
+                  data-fancybox="gallery-post-sun-kissed-lavender-cham-nhip-perfect-det-mong-uyen-uong"
+                  data-caption="Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương">
+                  <img src="https://lh3.googleusercontent.com/d/1HKVZZdgnwGrqvV0dGMghfM7gZZZaR4wX"
+                    alt="Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương"
+                    class="hover:scale-105 transition-transform duration-300">
+                </a>
+              </div>
+              <!-- Slide Ảnh -->
+              <div class="swiper-slide">
+                <a href="https://lh3.googleusercontent.com/d/1ufu-2fX7W3dA8wSx2shofc5JSIwJtR7M"
+                  data-fancybox="gallery-post-sun-kissed-lavender-cham-nhip-perfect-det-mong-uyen-uong"
+                  data-caption="Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương">
+                  <img src="https://lh3.googleusercontent.com/d/1ufu-2fX7W3dA8wSx2shofc5JSIwJtR7M"
+                    alt="Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương"
+                    class="hover:scale-105 transition-transform duration-300">
+                </a>
+              </div>
+              <!-- Slide Ảnh -->
+              <div class="swiper-slide">
+                <a href="https://lh3.googleusercontent.com/d/13OOZYWBR7MX0uHsxuTTPEa0U7BVZzd6J"
+                  data-fancybox="gallery-post-sun-kissed-lavender-cham-nhip-perfect-det-mong-uyen-uong"
+                  data-caption="Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương">
+                  <img src="https://lh3.googleusercontent.com/d/13OOZYWBR7MX0uHsxuTTPEa0U7BVZzd6J"
+                    alt="Sun-Kissed Lavender - Chạm nhịp Perfect, dệt mộng uyên ương"
+                    class="hover:scale-105 transition-transform duration-300">
+                </a>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <!-- NỘI DUNG CHI TIẾT SẮP XẾP LINH HOẠT -->
+          <!-- Khối Văn Bản Rich Text -->
+          <div class="rich-editor-content mb-6 leading-relaxed text-slate-600">
+            <b>Sun-Kissed Lavender</b>&nbsp;là không gian lãng mạn và thơ mộng nhất từng xuất hiện tại Thành Phố Vũ Hội
+            Audition. Bước vào phòng nhảy, bạn sẽ ngay lập tức chìm đắm trong sắc tím ngút ngàn của cánh đồng hoa oải
+            hương trải dài vô tận dưới ánh hoàng hôn hồng tím huyền ảo. Điểm nhấn trung tâm là chiếc cối xay gió và ngôi
+            nhà nhỏ yên bình, mang đến cảm giác như đang lạc bước giữa vùng Provence nước Pháp.<div><br></div>
+            <div>Từng bước nhảy hay những cú Perfect của bạn và người ấy sẽ trở nên thăng hoa, ngọt ngào hơn bao giờ hết
+              trên nền bối cảnh đậm chất cổ tích này. Hãy nhanh tay sở hữu ngay sàn nhảy giới hạn này để tạo nên những
+              khoảnh khắc bùng nổ và lãng mạn nhất cùng bạn bè nhé!
+
+              <div class="flex justify-center items-center w-full my-8">
+                <div class="relative inline-flex items-center group/buy py-2">
+                  <div class="absolute left-full top-1/2 -translate-y-1/2 flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300 ease-out transform -translate-x-2 
+												group-hover/buy:opacity-100 group-hover/buy:pointer-events-auto group-hover/buy:translate-x-3
+												before:content-[''] before:absolute before:right-full before:top-0 before:bottom-0 before:w-10">
+                    <a href="https://facebook.com/nguyenvanhieuhp" target="_blank"
+                      class="flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2] text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200"
+                      title="Liên hệ qua Facebook">
+                      <i class="fa-brands fa-facebook-f text-lg"></i>
+                    </a>
+                    <a href="https://zalo.me/0367095324" target="_blank"
+                      class="flex items-center justify-center w-10 h-10 rounded-full bg-[#0068FF] text-white shadow-lg hover:scale-110 active:scale-95 transition-all duration-200 font-bold text-xs"
+                      title="Liên hệ qua Zalo">
+                      Zalo
+                    </a>
+                  </div>
+                  <button
+                    class="relative flex items-center gap-2 px-6 py-3 font-bold text-white uppercase tracking-wider rounded-xl bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-[length:200%_auto] animate-[gradient_3s_ease_infinite] shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-pink-500/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-98 transition-all duration-300 cursor-pointer">
+                    <span
+                      class="absolute inset-0 rounded-xl bg-gradient-to-r from-pink-500 to-yellow-500 opacity-40 blur-md animate-ping pointer-events-none"></span>
+                    <i class="fa-solid fa-cart-shopping animate-bounce"></i>
+                    <span class="relative z-10">Mua Ngay</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-100 mb-8">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Tags liên quan</span>
+            <div class="flex flex-wrap gap-2">
+              <a href="../index.html?search=Audition"
+                class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-sm hover:bg-indigo-100 transition">#Audition</a>
+              <a href="../index.html?search=SunKissedLavender"
+                class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-sm hover:bg-pink-100 transition">#SunKissedLavender</a>
+              <a href="../index.html?search=DanceFloor"
+                class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-sm hover:bg-purple-100 transition">#DanceFloor</a>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
+            <a href="../index.html"
+              class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
+              <i class="fa-solid fa-house text-sm"></i>
+              Quay lại trang chủ
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <aside class="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-6">
+        <div
+          class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div class="flex flex-col items-center text-center">
+            <div class="relative w-28 h-28 mb-4">
+              <img src="https://github.com/hieubeo91/storage/blob/main/blog/avatar.jpg?raw=true" alt="Ảnh đại diện"
+                class="w-full h-full object-cover rounded-full border-4 border-indigo-50 shadow-sm">
+              <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full"
+                title="Sẵn sàng kết nối"></span>
+            </div>
+
+            <h3 class="text-xl font-bold text-slate-800">Nguyễn Văn Hiệu</h3>
+            <p class="text-xs text-indigo-600 font-semibold uppercase tracking-wider mb-4">♡♡♡</p>
+
+            <p class="text-sm text-slate-500 leading-relaxed mb-6">
+              Xin chào! Mình là một kẻ mang bản chất xấu xa, nhưng do biết chơi game mà trở thành người tốt.
+            </p>
+
+            <div class="grid grid-cols-3 gap-2 w-full py-4 border-y border-slate-100 mb-6 text-center">
+              <div>
+                <span class="block text-lg font-bold text-slate-800">30+</span>
+                <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Bài viết</span>
+              </div>
+              <div>
+                <span class="block text-lg font-bold text-slate-800">12K</span>
+                <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Theo dõi</span>
+              </div>
+              <div>
+                <span class="block text-lg font-bold text-slate-800">2.7M+</span>
+                <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Xem trang</span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-center gap-3">
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200"
+                title="Theo dõi Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200"
+                title="Theo dõi Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200"
+                title="Theo dõi Youtube">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200"
+                title="Liên hệ qua Email">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-gradient-to-br from-indigo-50/50 to-purple-50/50 border border-indigo-100/40 rounded-2xl p-6 shadow-sm">
+          <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+            <i class="fa-regular fa-paper-plane text-indigo-600"></i> Nhận bài viết mới
+          </h4>
+          <p class="text-xs text-slate-500 leading-relaxed mb-4">Điền email của bạn để không bỏ lỡ các bài viết mới
+            nhất.</p>
+
+          <form id="newsletter-form" class="space-y-2">
+            <input type="email" placeholder="Địa chỉ email của bạn"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+              required>
+            <button type="submit"
+              class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl text-xs transition-colors shadow-sm">Đăng
+              ký ngay</button>
+          </form>
+          <div id="newsletter-success"
+            class="text-xs text-emerald-600 font-medium mt-2 hidden flex items-center gap-1.5">
+            <i class="fa-solid fa-circle-check"></i> Đăng ký thành công! Cảm ơn bạn nhé.
+          </div>
+        </div>
+      </aside>
+
+    </div>
+    </div>
+
+    <div id="blog-detail-view"
+      class="hidden max-w-4xl mx-auto bg-white border border-slate-100 rounded-3xl p-6 md:p-10 shadow-sm fade-in-up">
+    </div>
 
   </main>
 
   <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
     <div class="max-w-6xl mx-auto px-4 text-center">
-      <p class="text-sm">© 2026 Hieubeo's Audition Studio   ♫ Rhythm of Life</p>
+      <p class="text-sm">© 2026 Hieubeo's Audition Studio ♫ Rhythm of Life</p>
     </div>
   </footer>
 
-  <button 
-    id="back-to-top" 
+  <button id="back-to-top"
     class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto"
-    title="Quay lên đầu trang"
-  >
+    title="Quay lên đầu trang">
     <i class="fa-solid fa-arrow-up text-lg"></i>
   </button>
 
@@ -387,21 +447,21 @@
         const titleText = card.querySelector('h2').textContent.toLowerCase();
         const bodyText = card.querySelector('.post-excerpt').textContent.toLowerCase();
         const authorText = card.querySelector('.post-author').textContent.toLowerCase();
-                
+
         let tagsText = '';
         card.querySelectorAll('.tag-badge').forEach(tag => {
           tagsText += tag.textContent.toLowerCase() + ' ';
         });
 
         // Điều kiện danh mục thông minh: chỉ cần bài viết chứa ít nhất một danh mục đang chọn
-        const matchesCategory = activeCategories.includes('all') || 
-                                cardCategoriesArray.some(cat => activeCategories.includes(cat));
-        
-        const matchesSearch = !query || 
-                              titleText.includes(query) || 
-                              bodyText.includes(query) || 
-                              authorText.includes(query) ||
-                              tagsText.includes(query);
+        const matchesCategory = activeCategories.includes('all') ||
+          cardCategoriesArray.some(cat => activeCategories.includes(cat));
+
+        const matchesSearch = !query ||
+          titleText.includes(query) ||
+          bodyText.includes(query) ||
+          authorText.includes(query) ||
+          tagsText.includes(query);
 
         if (matchesCategory && matchesSearch) {
           card.style.display = 'block';
@@ -451,7 +511,7 @@
         // TRƯỜNG HỢP 1: Bấm nút "Tất cả bài viết"
         if (filterValue === 'all') {
           activeCategories = ['all'];
-          
+
           // Reset giao diện: Bật nút Tất cả, Tắt toàn bộ các nút khác
           filterButtons.forEach(b => {
             b.classList.remove('active-tag');
@@ -460,8 +520,8 @@
             }
           });
           allBtn.classList.add('active-tag');
-        } 
-        
+        }
+
         // TRƯỜNG HỢP 2: Bấm vào các nút danh mục thường khác
         else {
           // Luôn luôn xóa bỏ lựa chọn 'all' khi bấm chọn một tag thường
@@ -502,10 +562,10 @@
         searchInput.value = tagName;
         searchQuery = tagName;
         clearSearchBtn.classList.remove('hidden');
-                
+
         const allBtn = document.querySelector('[data-filter="all"]');
-        allBtn.click(); 
-                
+        allBtn.click();
+
         applyFilters();
         window.scrollTo({ top: 180, behavior: 'smooth' });
       });
@@ -595,11 +655,11 @@
         badge.addEventListener('click', () => {
           const tagName = badge.textContent.trim();
           backToHome();
-                    
+
           searchInput.value = tagName;
           searchQuery = tagName;
           clearSearchBtn.classList.remove('hidden');
-                    
+
           const allBtn = document.querySelector('[data-filter="all"]');
           allBtn.click();
           applyFilters();
@@ -611,7 +671,7 @@
     document.addEventListener('click', (e) => {
       const viewBtn = e.target.closest('.view-detail-btn');
       const titleClick = e.target.closest('.post-title');
-            
+
       if (viewBtn || titleClick) {
         const card = e.target.closest('.post-card');
         if (card) {
@@ -657,4 +717,5 @@
     }
   </script>
 </body>
+
 </html>
