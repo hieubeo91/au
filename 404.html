@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="refresh" content="0; url=/au/index.html">
-</head>
-<body></body>
+<body>
+<script>
+    // Khi bị 404, giữ lại ID bài viết vào bộ nhớ tạm rồi mới về trang chủ
+    const path = window.location.pathname; // Ví dụ: /au/sun-kissed-lavender
+    const slug = path.split('/').pop();
+    
+    if (slug && slug !== 'index.html' && slug !== 'au') {
+        sessionStorage.setItem('openPostId', 'post-' + slug);
+        // Chỉ cần redirect về index.html thôi
+        window.location.replace('/au/index.html');
+    } else {
+        window.location.replace('/au/index.html');
+    }
+</script>
+</body>
 </html>
