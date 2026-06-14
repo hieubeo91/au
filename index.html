@@ -963,6 +963,25 @@
             sessionStorage.removeItem('openPostId');
         }
     });
+	window.addEventListener('load', () => {
+	        const pendingPostId = sessionStorage.getItem('openPostId');
+	        if (pendingPostId) {
+	            console.log("Đang tìm bài viết với ID:", pendingPostId);
+	            
+	            // Tìm phần tử có data-id khớp chính xác với chuỗi post-...
+	            const targetCard = document.querySelector(`[data-id="${pendingPostId}"]`);
+	            
+	            if (targetCard) {
+	                // Gọi hàm mở bài viết của bạn
+	                openPostDetail(targetCard);
+	            } else {
+	                console.error("Không tìm thấy bài viết nào có data-id:", pendingPostId);
+	            }
+	            
+	            // Xóa để không bị mở lại khi F5
+	            sessionStorage.removeItem('openPostId');
+	        }
+	    });
   </script>
 </body>
 </html>
