@@ -1135,6 +1135,20 @@
     const blogDetailView = document.getElementById('blog-detail-view');
 
     function openPostDetail(cardElement) {
+	const slug =
+	    cardElement.dataset.id;
+	fetch(
+	    `posts/${slug}.html`
+	)
+	.then(response => response.text())
+	.then(content => {
+	
+	    console.log(
+	        "Loaded:",
+	        slug
+	    );
+	
+	});
 	const slug = cardElement.dataset.id.replace("post-", "");
 	history.pushState(
 	    { slug: slug },
