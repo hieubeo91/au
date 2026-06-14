@@ -926,19 +926,10 @@
 	// 1. Hàm mở bài viết (ĐÃ BỎ DẤU #)
 	function openPostDetail(cardElement) {
 	    const postId = cardElement.getAttribute('data-id');
-	    const slug = postId.replace('post-', ''); // Tách lấy phần sau post-
-	
-	    // Cập nhật URL sạch (không dấu #)
-	    // Lưu ý: Đảm bảo đường dẫn này đúng với cấu trúc web của bạn
+	    const slug = postId.replace('post-', '');
 	    window.history.pushState({ postId: postId }, "", `/au/${slug}`);
-	
-	    // ... (Giữ nguyên logic ẩn/hiện bài viết cũ của bạn ở đây)
-	    const blogListView = document.getElementById('blog-list-view');
-	    const blogDetailView = document.getElementById('blog-detail-view');
-	    blogListView.classList.add('hidden');
-	    blogDetailView.classList.remove('hidden');
-	    
-	    window.scrollTo(0, 0);
+	    document.getElementById('blog-list-view').classList.add('hidden');
+	    document.getElementById('blog-detail-view').classList.remove('hidden');
 	}
 	
 	// 2. Hàm quay lại trang chủ
@@ -978,6 +969,33 @@
 	        sessionStorage.removeItem('openPostId');
 	    }
 	});
-  </script>
+	    window.addEventListener('load', () => {
+	        const pendingPost = sessionStorage.getItem('pendingPost');
+	        if (pendingPost) {
+	            // Tìm bài viết có data-id tương ứng
+	            const targetCard = document.querySelector(`[data-id*="${pendingPost}"]`);
+	            if (targetCard) {
+	                openPostDetail(targetCard);
+	            }
+	            sessionStorage.removeItem('pendingPost'); // Xóa sau khi dùng
+	        }
+	    });
+	
+	    // Xử lý nút Back/Forward trên trình duyệt
+	    window.addEventListener('popstate', (event) => {
+	        // Nếu không có state, nghĩa là người dùng quay về trang danh sách
+	        if (!event.state) {
+	            const blogListView = document.getElementById('blog-list-view');
+	            const blogDetailView = document.getElementById('blog-detail-view');
+	            blogDetailView.classList.add('hidden');
+	            blogListView.classList.remove('hidden');
+	            window.scrollTo(0, 0);
+	        } else {
+	            // Nếu có state, tìm lại bài viết
+	            const targetCard = document.querySelector(`[data-id="${event.state.postId}"]`);
+	            if (targetCard) openPostDetail(targetCard);
+	        }
+	    });
+	</script>
 </body>
 </html>
