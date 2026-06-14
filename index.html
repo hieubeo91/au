@@ -922,6 +922,35 @@
         newsletterSuccess.classList.remove('hidden');
       });
     }
+    // Hàm kiểm tra URL khi tải trang
+    window.addEventListener('load', () => {
+        const hash = window.location.hash.substring(1); // Lấy phần sau dấu #
+        if (hash) {
+            const targetPost = document.querySelector(`[data-id="${hash}"]`);
+            if (targetPost) {
+                // Mở bài viết chi tiết
+                openPostDetail(targetPost);
+            }
+        }
+    });
+
+    // Cập nhật hàm mở bài viết để thay đổi URL trên trình duyệt
+    function openPostDetail(cardElement) {
+        const postId = cardElement.getAttribute('data-id');
+        
+        // Cập nhật URL trình duyệt mà không load lại trang
+        window.history.pushState(null, null, `#${postId}`);
+        
+        // ... (giữ nguyên logic hiển thị bài viết chi tiết của bạn ở đây)
+    }
+
+    // Cập nhật hàm quay lại trang chủ
+    function backToHome() {
+        // ... (logic ẩn bài viết chi tiết)
+        
+        // Xóa hash trên URL
+        window.history.pushState("", document.title, window.location.pathname);
+    }
   </script>
 </body>
 </html>
