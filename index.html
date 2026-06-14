@@ -952,6 +952,22 @@
 	    }
 	}
 	
+	// Xử lý nút Back/Forward trên trình duyệt
+	window.addEventListener('popstate', (event) => {
+	    // Nếu không có state, nghĩa là người dùng quay về trang danh sách
+	    if (!event.state) {
+	        const blogListView = document.getElementById('blog-list-view');
+	        const blogDetailView = document.getElementById('blog-detail-view');
+	        blogDetailView.classList.add('hidden');
+	        blogListView.classList.remove('hidden');
+	        window.scrollTo(0, 0);
+	    } else {
+	        // Nếu có state, tìm lại bài viết
+	        const targetCard = document.querySelector(`[data-id="${event.state.postId}"]`);
+	        if (targetCard) openPostDetail(targetCard);
+	    }
+	});
+
 	// 4. Chỉ dùng MỘT sự kiện load duy nhất
 	window.addEventListener('load', () => {
 	    const pendingPostId = sessionStorage.getItem('openPostId');
@@ -978,22 +994,6 @@
 	                openPostDetail(targetCard);
 	            }
 	            sessionStorage.removeItem('pendingPost'); // Xóa sau khi dùng
-	        }
-	    });
-	
-	    // Xử lý nút Back/Forward trên trình duyệt
-	    window.addEventListener('popstate', (event) => {
-	        // Nếu không có state, nghĩa là người dùng quay về trang danh sách
-	        if (!event.state) {
-	            const blogListView = document.getElementById('blog-list-view');
-	            const blogDetailView = document.getElementById('blog-detail-view');
-	            blogDetailView.classList.add('hidden');
-	            blogListView.classList.remove('hidden');
-	            window.scrollTo(0, 0);
-	        } else {
-	            // Nếu có state, tìm lại bài viết
-	            const targetCard = document.querySelector(`[data-id="${event.state.postId}"]`);
-	            if (targetCard) openPostDetail(targetCard);
 	        }
 	    });
 	</script>
