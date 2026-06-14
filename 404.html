@@ -1,26 +1,20 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Đang chuyển hướng...</title>
+<html>
+<body>
 <script>
+    // Lấy path, ví dụ: /au/sun-kissed-lavender
     const path = window.location.pathname;
-    if (path.includes('/au/')) {
-        const segments = path.split('/au/');
-        const slug = segments[1] ? segments[1].replace(/\/$/, "") : null;
-        if (slug) {
-            const postId = "post-" + slug; 
-            sessionStorage.setItem('openPostId', postId);
-            window.location.href = '/au/index.html';
-        } else {
-            window.location.href = '/au/index.html';
-        }
+    const parts = path.split('/');
+    const slug = parts[parts.length - 1]; // Lấy 'sun-kissed-lavender'
+
+    if (slug && slug !== 'index.html' && slug !== 'au') {
+        // Lưu slug vào bộ nhớ tạm để index.html đọc
+        sessionStorage.setItem('pendingPost', 'post-' + slug);
+        // Chuyển về index.html
+        window.location.href = '/au/index.html';
     } else {
         window.location.href = '/au/index.html';
     }
 </script>
-</head>
-<body>
-    <p>Đang tải bài viết...</p>
 </body>
 </html>
