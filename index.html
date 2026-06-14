@@ -998,6 +998,18 @@
 	        openPostDetail(targetId);
 	    }
 	});
+
+	document.addEventListener('click', (e) => {
+	        // Tìm element gần nhất có class .post-card
+	        const card = e.target.closest('.post-card');
+	        
+	        // Kiểm tra xem click có phải vào nút xem chi tiết hoặc tiêu đề không
+	        if (card && (e.target.closest('.view-detail-btn') || e.target.closest('.post-title'))) {
+	            e.preventDefault(); // Ngăn link mặc định
+	            const postId = card.getAttribute('data-id');
+	            openPostDetail(card); // Gọi hàm của bạn
+	        }
+	});
 	</script>
 </body>
 </html>
