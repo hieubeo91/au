@@ -3,30 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Đang chuyển hướng...</title>
-    <script>
-        // Lấy đường dẫn hiện tại, ví dụ: /au/sun-kissed-lavender
-        const path = window.location.pathname;
-        
-        // Kiểm tra nếu đường dẫn chứa '/au/' và không phải là trang chủ
-        if (path.includes('/au/')) {
-            // Tách lấy ID bài viết từ URL (ví dụ: 'sun-kissed-lavender')
-            const segments = path.split('/au/');
-            const postId = segments[1] ? segments[1].replace(/\/$/, "") : null;
-            
-            if (postId) {
-                // Chuyển hướng về index.html kèm theo hash (giả lập)
-                // Hoặc lưu vào sessionStorage để index.html tự mở bài viết
-                sessionStorage.setItem('openPostId', postId);
-                window.location.href = '/au/index.html';
-            } else {
-                // Nếu chỉ truy cập /au/, về thẳng index
-                window.location.href = '/au/index.html';
-            }
+<script>
+    const path = window.location.pathname;
+    if (path.includes('/au/')) {
+        const segments = path.split('/au/');
+        const slug = segments[1] ? segments[1].replace(/\/$/, "") : null;
+        if (slug) {
+            const postId = "post-" + slug; 
+            sessionStorage.setItem('openPostId', postId);
+            window.location.href = '/au/index.html';
         } else {
-            // Nếu không đúng định dạng, về trang chủ
             window.location.href = '/au/index.html';
         }
-    </script>
+    } else {
+        window.location.href = '/au/index.html';
+    }
+</script>
 </head>
 <body>
     <p>Đang tải bài viết...</p>
