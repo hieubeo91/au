@@ -968,22 +968,36 @@
 	    }
 	});
 
-	// 4. Chỉ dùng MỘT sự kiện load duy nhất
+	// Hàm này là "trái tim" để mở bài viết
+	function openPostDetail(postId) {
+	    const card = document.querySelector(`[data-id="${postId}"]`);
+	    if (!card) {
+	        console.error("Không tìm thấy bài với ID:", postId);
+	        return;
+	    }
+	
+	    // 1. Logic ẩn/hiện của bạn
+	    document.getElementById('blog-list-view').classList.add('hidden');
+	    document.getElementById('blog-detail-view').classList.remove('hidden');
+	
+	    // 2. Load nội dung vào detail-view (Tùy thuộc vào code của bạn)
+	    // Ví dụ: document.getElementById('blog-detail-view').innerHTML = card.innerHTML;
+	
+	    // 3. Cập nhật URL sạch (dùng replaceState để không lưu vào lịch sử nếu không muốn)
+	    window.history.pushState(null, null, `/au/${postId.replace('post-', '')}`);
+	}
+	
+	// 4. Lắng nghe URL ngay khi load trang
 	window.addEventListener('load', () => {
-	        const pendingPostId = sessionStorage.getItem('openPostId');
-	        if (pendingPostId) {
-	            // Tìm thẻ bài viết có data-id chứa chuỗi đó
-	            // Lưu ý: dùng [data-id*="..."] để tìm khớp một phần
-	            const targetCard = document.querySelector(`[data-id*="${pendingPostId}"]`);
-	            
-	            if (targetCard) {
-	                openPostDetail(targetCard);
-	            }
-	            
-	            // Xóa ngay sau khi đã sử dụng để tránh bị mở lại khi F5
-	            sessionStorage.removeItem('openPostId');
-	        }
-	    });
+	    // Lấy phần path cuối cùng, ví dụ: 'sun-kissed-lavender'
+	    const path = window.location.pathname.split('/').pop();
+	    const targetId = 'post-' + path;
+	
+	    // Kiểm tra xem có bài viết nào khớp không
+	    if (document.querySelector(`[data-id="${targetId}"]`)) {
+	        openPostDetail(targetId);
+	    }
+	});
 	</script>
 </body>
 </html>
