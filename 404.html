@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-        // Lưu đường dẫn người dùng muốn vào để index.html biết đường mà mở
-        // Ví dụ truy cập /au/sun-kissed-lavender -> lưu 'sun-kissed-lavender'
-        const path = window.location.pathname;
-        const slug = path.split('/').pop();
-        
-        if (slug) {
-            sessionStorage.setItem('openPostId', 'post-' + slug);
-        }
-        
-        // Chuyển hướng về trang chủ index.html
-        window.location.href = '/au/index.html';
-    </script>
+    <meta http-equiv="refresh" content="0; url=/au/index.html">
 </head>
-<body>Đang chuyển hướng...</body>
+<body></body>
 </html>
