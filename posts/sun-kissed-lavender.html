@@ -80,7 +80,7 @@
       opacity: 1;
       visibility: visible;
     }
-	  
+
     /* Hiệu ứng Gradient đổi màu động */
     @keyframes gradient {
       0% {
@@ -102,8 +102,8 @@
 
   <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
     <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-		<a href="https://hieubeo91.github.io/au/"
-		   class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
+      <a href="https://hieubeo91.github.io/au/"
+        class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
         <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true"
           alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
         <span>Hieubeo's Audition Studio</span>
@@ -126,7 +126,8 @@
           </a>
 
           <div class="flex items-center gap-3 mb-4">
-			<span class="bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            <span
+              class="bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
               Sàn nhảy
             </span>
             <span class="text-xs text-slate-400">
@@ -226,21 +227,17 @@
             </div>
           </div>
 
-			<div class="border-t border-slate-100 pt-6">
-			  <div class="flex gap-2 mb-4">
-			    <button
-			      id="related-btn"
-			      class="px-4 py-2 bg-indigo-600 text-white rounded-xl text-sm font-medium">
-			      Bài viết liên quan
-			    </button>
-			    <button
-			      id="random-btn"
-			      class="px-4 py-2 bg-slate-100 text-slate-600 rounded-xl text-sm font-medium">
-			      Bài viết ngẫu nhiên
-			    </button>
-			  </div>
-			  <div id="suggested-posts" class="space-y-3"></div>
-			</div>	
+          <div class="border-t border-slate-100 pt-6">
+            <div class="flex gap-2 mb-4">
+              <button id="related-btn" class="px-4 py-2 bg-indigo-600 text-white rounded-xl text-sm font-medium">
+                Bài viết liên quan
+              </button>
+              <button id="random-btn" class="px-4 py-2 bg-slate-100 text-slate-600 rounded-xl text-sm font-medium">
+                Bài viết ngẫu nhiên
+              </button>
+            </div>
+            <div id="suggested-posts" class="space-y-3"></div>
+          </div>
 
           <div class="flex justify-center">
             <a href="../index.html"
@@ -387,25 +384,25 @@
       }
     });
 
-	// Back To Top
-	const backToTopBtn = document.getElementById('back-to-top');
-	
-	window.addEventListener('scroll', () => {
-	  if (window.scrollY > 400) {
-	    backToTopBtn.classList.add('show');
-	  } else {
-	    backToTopBtn.classList.remove('show');
-	  }
-	});
-	
-	backToTopBtn.addEventListener('click', () => {
-	  window.scrollTo({
-	    top: 0,
-	    behavior: 'smooth'
-	  });
-	});
-	
-	// Newsletter
+    // Back To Top
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Newsletter
     const newsletterForm = document.getElementById('newsletter-form');
     const newsletterSuccess = document.getElementById('newsletter-success');
     if (newsletterForm) {
@@ -416,60 +413,60 @@
       });
     }
 
-	const CURRENT_POST = {
-	  title: "Sun-Kissed Lavender",
-	  tags: ["Audition","DanceFloor","SunKissedLavender"]
-	};
+    const CURRENT_POST = {
+      title: "Sun-Kissed Lavender",
+      tags: ["Audition", "DanceFloor", "SunKissedLavender"]
+    };
 
-async function loadPosts() {
+    async function loadPosts() {
 
-  const response = await fetch("../index.html");
-  const html = await response.text();
+      const response = await fetch("../index.html");
+      const html = await response.text();
 
-  const parser = new DOMParser();
+      const parser = new DOMParser();
 
-  const doc = parser.parseFromString(
-    html,
-    "text/html"
-  );
+      const doc = parser.parseFromString(
+        html,
+        "text/html"
+      );
 
-  const cards =
-    doc.querySelectorAll(".post-card");
+      const cards =
+        doc.querySelectorAll(".post-card");
 
-  const posts = [];
+      const posts = [];
 
-  cards.forEach(card => {
+      cards.forEach(card => {
 
-    posts.push({
+        posts.push({
 
-      title: card.dataset.title,
+          title: card.dataset.title,
 
-      url: card.dataset.url,
+          url: card.dataset.url,
 
-      image: card.dataset.image,
+          image: card.dataset.image,
 
-tags: (card.dataset.tags || "")
-  .split(",")
-  .map(tag => tag.trim())
-  .filter(Boolean)
+          tags: (card.dataset.tags || "")
+            .split(",")
+            .map(tag => tag.trim())
+            .filter(Boolean)
 
-    });
+        });
 
-  });
+      });
 
-  return posts;
+      return posts;
 
-}
-function renderPosts(posts) {
+    }
+    function renderPosts(posts) {
 
-  const container =
-    document.getElementById("suggested-posts");
+      const container =
+        document.getElementById("suggested-posts");
 
-  container.innerHTML = "";
+      container.innerHTML = "";
 
-  posts.forEach(post => {
+      posts.forEach(post => {
 
-    container.innerHTML += `
+        container.innerHTML += `
       <a href="../${post.url}"
          class="flex gap-3 p-3 rounded-xl bg-slate-50 hover:bg-indigo-50 transition">
 
@@ -492,66 +489,66 @@ function renderPosts(posts) {
       </a>
     `;
 
-  });
+      });
 
-}
-function getRelatedPosts(posts) {
+    }
+    function getRelatedPosts(posts) {
 
-  return posts
-    .filter(post => {
+      return posts
+        .filter(post => {
 
-      if(post.title === CURRENT_POST.title)
-        return false;
+          if (post.title === CURRENT_POST.title)
+            return false;
 
-      return post.tags.some(tag =>
-        CURRENT_POST.tags.includes(tag)
+          return post.tags.some(tag =>
+            CURRENT_POST.tags.includes(tag)
+          );
+
+        })
+        .slice(0, 10);
+
+    }
+    function getRandomPosts(posts) {
+
+      return [...posts]
+        .filter(post =>
+          post.title !== CURRENT_POST.title
+        )
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 10);
+
+    }
+    let ALL_POSTS = [];
+
+    loadPosts().then(posts => {
+
+      ALL_POSTS = posts;
+
+      renderPosts(
+        getRelatedPosts(posts)
       );
 
-    })
-    .slice(0,10);
+    });
 
-}
-function getRandomPosts(posts) {
+    document
+      .getElementById("related-btn")
+      .addEventListener("click", () => {
 
-  return [...posts]
-    .filter(post =>
-      post.title !== CURRENT_POST.title
-    )
-    .sort(() => Math.random() - 0.5)
-    .slice(0,10);
+        renderPosts(
+          getRelatedPosts(ALL_POSTS)
+        );
 
-}
-let ALL_POSTS = [];
+      });
 
-loadPosts().then(posts => {
+    document
+      .getElementById("random-btn")
+      .addEventListener("click", () => {
 
-  ALL_POSTS = posts;
+        renderPosts(
+          getRandomPosts(ALL_POSTS)
+        );
 
-  renderPosts(
-    getRelatedPosts(posts)
-  );
-
-});
-
-document
-  .getElementById("related-btn")
-  .addEventListener("click", () => {
-
-    renderPosts(
-      getRelatedPosts(ALL_POSTS)
-    );
-
-  });
-
-document
-  .getElementById("random-btn")
-  .addEventListener("click", () => {
-
-    renderPosts(
-      getRandomPosts(ALL_POSTS)
-    );
-
-  });
+      });
   </script>
 </body>
 
