@@ -923,16 +923,6 @@
       }
     });
 
-    document.getElementById('header-logo').addEventListener('click', (e) => {
-      e.preventDefault();
-      if (!blogDetailView.classList.contains('hidden')) {
-        blogDetailView.classList.add('hidden');
-        blogListView.classList.remove('hidden');
-        initAllSwipers();
-      }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
     const backToTopBtn = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) {
