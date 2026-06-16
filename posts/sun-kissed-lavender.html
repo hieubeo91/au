@@ -520,35 +520,80 @@
     }
     let ALL_POSTS = [];
 
-    loadPosts().then(posts => {
+loadPosts().then(posts => {
 
-      ALL_POSTS = posts;
+  ALL_POSTS = posts;
 
-      renderPosts(
-        getRelatedPosts(posts)
-      );
+  renderPosts(
+    getRelatedPosts(posts)
+  );
 
-    });
+  setActiveButton(
+    document.getElementById("related-btn")
+  );
 
-    document
-      .getElementById("related-btn")
-      .addEventListener("click", () => {
+});
 
-        renderPosts(
-          getRelatedPosts(ALL_POSTS)
-        );
+document
+  .getElementById("related-btn")
+  .addEventListener("click", () => {
 
-      });
+    renderPosts(
+      getRelatedPosts(ALL_POSTS)
+    );
 
-    document
-      .getElementById("random-btn")
-      .addEventListener("click", () => {
+    setActiveButton(
+      document.getElementById("related-btn")
+    );
 
-        renderPosts(
-          getRandomPosts(ALL_POSTS)
-        );
+  });
 
-      });
+document
+  .getElementById("random-btn")
+  .addEventListener("click", () => {
+
+    renderPosts(
+      getRandomPosts(ALL_POSTS)
+    );
+
+    setActiveButton(
+      document.getElementById("random-btn")
+    );
+
+  });
+function setActiveButton(activeBtn) {
+
+  const relatedBtn =
+    document.getElementById("related-btn");
+
+  const randomBtn =
+    document.getElementById("random-btn");
+
+  [relatedBtn, randomBtn].forEach(btn => {
+
+    btn.classList.remove(
+      "bg-indigo-600",
+      "text-white"
+    );
+
+    btn.classList.add(
+      "bg-slate-100",
+      "text-slate-600"
+    );
+
+  });
+
+  activeBtn.classList.remove(
+    "bg-slate-100",
+    "text-slate-600"
+  );
+
+  activeBtn.classList.add(
+    "bg-indigo-600",
+    "text-white"
+  );
+
+}
   </script>
 </body>
 
