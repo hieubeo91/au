@@ -603,9 +603,10 @@
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
   <script>
     let lastScrollY = 0;
-    // 1. KHỞI TẠO TẤT CẢ CÁC SWIPER (SLIDE ẢNH)
+// 1. KHỞI TẠO TẤT CẢ CÁC SWIPER (Bao gồm cả slide bài viết chi tiết và slide ngoài trang chủ)
     function initAllSwipers() {
-      document.querySelectorAll('.mySwiper').forEach((el) => {
+      // Thêm dấu phẩy và '.postSwiper' để nhận diện cấu trúc slide ngoài trang chủ bạn vừa chèn
+      document.querySelectorAll('.mySwiper, .postSwiper').forEach((el) => {
         if (el.swiper) {
           el.swiper.destroy(true, true);
         }
@@ -614,6 +615,7 @@
           spaceBetween: 10,
           observer: true,
           observeParents: true,
+          nested: true, // Ngăn hiện tượng lướt slide này làm lệch slide kia
           pagination: {
             el: el.querySelector('.swiper-pagination'),
             clickable: true,
@@ -624,7 +626,7 @@
           },
           autoplay: {
             delay: 4500,
-            disableOnInteraction: true,
+            disableOnInteraction: false, // Giữ tự động chạy kể cả khi người dùng tương tác
           },
         });
       });
