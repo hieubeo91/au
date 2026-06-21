@@ -566,23 +566,72 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   
   <script>
-// Đoạn mã tự động bắt tham số danh mục (?cat=...) khi người dùng click chủ đề từ trang con hoặc trang chủ
+// =========================================================================
+// 🎯 TRỌN GÓI XỬ LÝ LỌC CATEGORY CHÍNH XÁC & TỰ ĐỘNG BẮT THAM SỐ URL TRÊN INDEX.HTML
+// =========================================================================
+
+// 1. Hàm lọc bài viết (Đã sửa lỗi so sánh chuỗi data-categories của bài viết)
+function filterPosts() {
+    // Thu thập danh sách các category key đang được tích chọn (Ví dụ: ['cat_pay', 'cat_free'])
+    const checkedCategories = Array.from(document.querySelectorAll('input[name="categories"]:checked')).map(cb => cb.value);
+    const searchQuery = (document.getElementById('search-input')?.value || '').trim().toLowerCase();
+
+    // Duyệt qua từng bài viết post-card trên trang chủ
+    document.querySelectorAll('.post-card').forEach(card => {
+        // Tách chuỗi data-categories thành mảng để tìm kiếm con chính xác
+        const cardCatsStr = card.dataset.categories || '';
+        const cardCategories = cardCatsStr.split(',').map(c => c.trim()).filter(Boolean);
+        
+        const cardTitle = (card.dataset.title || card.querySelector('h2')?.textContent || '').toLowerCase();
+        const cardExcerpt = (card.querySelector('.post-excerpt')?.textContent || '').toLowerCase();
+        const cardTags = (card.dataset.tags || '').toLowerCase();
+
+        // Kiểm tra điều kiện danh mục (Hiển thị nếu bài viết chứa ít nhất 1 danh mục được tích)
+        let matchCategory = true;
+        if (checkedCategories.length > 0) {
+            matchCategory = cardCategories.some(cat => checkedCategories.includes(cat));
+        }
+
+        // Kiểm tra điều kiện ô tìm kiếm text
+        let matchSearch = true;
+        if (searchQuery) {
+            matchSearch = cardTitle.includes(searchQuery) || 
+                          cardExcerpt.includes(searchQuery) || 
+                          cardTags.includes(searchQuery);
+        }
+
+        // Thực hiện ẩn/hiển thị bài viết
+        if (matchCategory && matchSearch) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+}
+
+// 2. Đoạn mã lắng nghe khi trang Index tải xong (Gồm đoạn code của bạn)
 window.addEventListener('DOMContentLoaded', () => {
+    // Gắn sự kiện chạy hàm lọc khi người dùng click thủ công các checkbox trên trang chủ
+    document.querySelectorAll('input[name="categories"]').forEach(checkbox => {
+        checkbox.addEventListener('change', filterPosts);
+    });
+    
+    // Gắn sự kiện gõ tìm kiếm text (nếu trang của bạn có ô tìm kiếm)
+    document.getElementById('search-input')?.addEventListener('input', filterPosts);
+
+    // [ĐOẠN CODE CỦA BẠN]: Tự động bắt tham số danh mục khi chuyển từ trang con về
     const urlParams = new URLSearchParams(window.location.search);
     const catParam = urlParams.get('cat');
     
     if (catParam) {
-        // Tự động bỏ tích tất cả các danh mục trước đó
+        // Tự động bỏ tích tất cả các danh mục mặc định trước đó
         document.querySelectorAll('input[name="categories"]').forEach(cb => cb.checked = false);
         
-        // Tìm checkbox tương ứng với key truyền sang (Ví dụ: id="cat_pay" hoặc value="cat_pay")
+        // Tìm checkbox tương ứng với key truyền sang
         const targetCheckbox = document.getElementById(catParam) || document.querySelector(`input[value="${catParam}"]`);
         if (targetCheckbox) {
-            targetCheckbox.checked = true;
-            // Gọi lại hàm thực hiện bộ lọc bài viết trên trang Index của bạn (Ví dụ: filterPosts())
-            if (typeof filterPosts === 'function') {
-                filterPosts(); 
-            }
+            targetCheckbox.checked = true; // Tích chọn danh mục mục tiêu
+            filterPosts(); // Kích hoạt bộ lọc chạy ngay lập tức
         }
     }
 });
