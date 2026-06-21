@@ -576,6 +576,26 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   
   <script>
+// Đoạn mã tự động bắt tham số danh mục (?cat=...) khi người dùng click chủ đề từ trang con hoặc trang chủ
+window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const catParam = urlParams.get('cat');
+    
+    if (catParam) {
+        // Tự động bỏ tích tất cả các danh mục trước đó
+        document.querySelectorAll('input[name="categories"]').forEach(cb => cb.checked = false);
+        
+        // Tìm checkbox tương ứng với key truyền sang (Ví dụ: id="cat_pay" hoặc value="cat_pay")
+        const targetCheckbox = document.getElementById(catParam) || document.querySelector(`input[value="${catParam}"]`);
+        if (targetCheckbox) {
+            targetCheckbox.checked = true;
+            // Gọi lại hàm thực hiện bộ lọc bài viết trên trang Index của bạn (Ví dụ: filterPosts())
+            if (typeof filterPosts === 'function') {
+                filterPosts(); 
+            }
+        }
+    }
+});
   function initPostSwipers() {
     // Kích hoạt Swiper cho class .postSwiper trên toàn bộ các bài viết
     new Swiper('.postSwiper', {
