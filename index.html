@@ -562,6 +562,42 @@
     <i class="fa-solid fa-arrow-up text-lg"></i>
   </button>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+  <script>
+  function initPostSwipers() {
+    // Kích hoạt Swiper cho class .postSwiper trên toàn bộ các bài viết
+    new Swiper('.postSwiper', {
+      loop: true,                 // Chạy lặp vòng tròn qua các ảnh
+      spaceBetween: 0,            // Khoảng cách giữa các ảnh (px)
+      nested: true,               // Ngăn xung đột nếu có Swiper khác bọc ngoài
+      
+      // Cấu hình các nút bấm mũi tên trái / phải
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      
+      // Cấu hình dấu chấm chuyển trang dưới đáy slide
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,          // Cho phép bấm vào chấm tròn để chuyển ảnh nhanh
+      },
+      
+      // Tùy chọn: Tự động chuyển ảnh sau 3.5 giây nếu người dùng không chạm vào
+      autoplay: {
+        delay: 3500,
+        disableOnInteraction: false,
+      }
+    });
+  }
+
+  // Lệnh đảm bảo Swiper chỉ chạy sau khi trình duyệt đã tải xong toàn bộ giao diện HTML
+  document.addEventListener("DOMContentLoaded", () => {
+    initPostSwipers();
+  });
+</script>
+  
+  
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
   <script>
     let lastScrollY = 0;
