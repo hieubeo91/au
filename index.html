@@ -572,18 +572,19 @@
   
   <script>
 // =========================================================================
-// 🎯 TRỌN GÓI XỬ LÝ LỌC CATEGORY CHÍNH XÁC & TỰ ĐỘNG BẮT THAM SỐ URL TRÊN INDEX.HTML
+// 🎯 BỘ LỌC HOÀN CHỈNH: SỬA LỖI HIỂN THỊ TẤT CẢ BÀI VIẾT KHI CLICK CHỦ ĐỀ
 // =========================================================================
 
-// 1. Hàm lọc bài viết (Đã sửa lỗi so sánh chuỗi data-categories của bài viết)
+// 1. Hàm thực hiện lọc bài viết (Bóc tách chính xác mảng danh mục data-categories)
 function filterPosts() {
-    // Thu thập danh sách các category key đang được tích chọn (Ví dụ: ['cat_pay', 'cat_free'])
+    // Thu thập toàn bộ category key đang được tích chọn (Ví dụ: ['cat_pay', 'cat_free'])
     const checkedCategories = Array.from(document.querySelectorAll('input[name="categories"]:checked')).map(cb => cb.value);
+    // Thu thập từ khóa từ ô tìm kiếm text (nếu có)
     const searchQuery = (document.getElementById('search-input')?.value || '').trim().toLowerCase();
 
-    // Duyệt qua từng bài viết post-card trên trang chủ
+    // Lặp qua từng bài viết bài viết trên trang chủ để xét ẩn/hiện
     document.querySelectorAll('.post-card').forEach(card => {
-        // Tách chuỗi data-categories thành mảng để tìm kiếm con chính xác
+        // Tách chuỗi danh mục lưu trên card thành mảng (Ví dụ: "cat_free, cat_tool" -> ['cat_free', 'cat_tool'])
         const cardCatsStr = card.dataset.categories || '';
         const cardCategories = cardCatsStr.split(',').map(c => c.trim()).filter(Boolean);
         
@@ -591,13 +592,13 @@ function filterPosts() {
         const cardExcerpt = (card.querySelector('.post-excerpt')?.textContent || '').toLowerCase();
         const cardTags = (card.dataset.tags || '').toLowerCase();
 
-        // Kiểm tra điều kiện danh mục (Hiển thị nếu bài viết chứa ít nhất 1 danh mục được tích)
+        // Kiểm tra điều kiện Danh mục: Bài viết chứa ít nhất một danh mục đang được chọn
         let matchCategory = true;
         if (checkedCategories.length > 0) {
             matchCategory = cardCategories.some(cat => checkedCategories.includes(cat));
         }
 
-        // Kiểm tra điều kiện ô tìm kiếm text
+        // Kiểm tra điều kiện tìm kiếm chữ xuôi
         let matchSearch = true;
         if (searchQuery) {
             matchSearch = cardTitle.includes(searchQuery) || 
@@ -605,7 +606,7 @@ function filterPosts() {
                           cardTags.includes(searchQuery);
         }
 
-        // Thực hiện ẩn/hiển thị bài viết
+        // Thực thi ẩn hoặc hiện bài viết dựa trên kết quả kiểm tra
         if (matchCategory && matchSearch) {
             card.classList.remove('hidden');
         } else {
@@ -614,29 +615,32 @@ function filterPosts() {
     });
 }
 
-// 2. Đoạn mã lắng nghe khi trang Index tải xong (Gồm đoạn code của bạn)
+// 2. Sự kiện lắng nghe khi trang Index load xong để kích hoạt bộ lọc tự động từ URL sang
 window.addEventListener('DOMContentLoaded', () => {
-    // Gắn sự kiện chạy hàm lọc khi người dùng click thủ công các checkbox trên trang chủ
+    // Gắn sự kiện chạy hàm lọc bất cứ khi nào người dùng tương tác click vào các Checkbox danh mục
     document.querySelectorAll('input[name="categories"]').forEach(checkbox => {
         checkbox.addEventListener('change', filterPosts);
     });
     
-    // Gắn sự kiện gõ tìm kiếm text (nếu trang của bạn có ô tìm kiếm)
+    // Gắn sự kiện gõ chữ vào thanh tìm kiếm (Nếu trang index của bạn có thanh tìm kiếm text)
     document.getElementById('search-input')?.addEventListener('input', filterPosts);
 
-    // [ĐOẠN CODE CỦA BẠN]: Tự động bắt tham số danh mục khi chuyển từ trang con về
+    // KÍCH HOẠT CHÍNH XÁC: Nhận diện tham số ?cat=... từ trang con chuyển về
     const urlParams = new URLSearchParams(window.location.search);
     const catParam = urlParams.get('cat');
     
     if (catParam) {
-        // Tự động bỏ tích tất cả các danh mục mặc định trước đó
+        // Bước A: Bỏ tích toàn bộ các danh mục đang chọn mặc định trước đó
         document.querySelectorAll('input[name="categories"]').forEach(cb => cb.checked = false);
         
-        // Tìm checkbox tương ứng với key truyền sang
+        // Bước B: Tìm checkbox tương ứng với mã truyền sang (tìm theo ID hoặc theo thuộc tính value)
         const targetCheckbox = document.getElementById(catParam) || document.querySelector(`input[value="${catParam}"]`);
+        
         if (targetCheckbox) {
-            targetCheckbox.checked = true; // Tích chọn danh mục mục tiêu
-            filterPosts(); // Kích hoạt bộ lọc chạy ngay lập tức
+            targetCheckbox.checked = true; // Tiến hành tích chọn nó trên thanh menu
+            
+            // Bước C: Chạy lệnh lọc ngay lập tức để ẩn các bài viết không liên quan đi
+            filterPosts(); 
         }
     }
 });
