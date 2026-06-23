@@ -98,7 +98,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            sdfdsf
+            aaaaaaaaâ
           </h1>
 
 			<div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span></div>
@@ -106,8 +106,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" data-fancybox="gallery-post-sdfdsf" data-caption="sdfdsf" class="block w-full h-full relative group">
-                  <img src="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" alt="sdfdsf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" data-fancybox="gallery-post-aaaaaaaaa" data-caption="aaaaaaaaâ" class="block w-full h-full relative group">
+                  <img src="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" alt="aaaaaaaaâ" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -118,15 +118,14 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm">
-                    <div class="mb-4">dfgdfg</div>
+                    <div class="mb-4">fdfdsf</div>
 
           </div>
 
           <div class="pt-6 border-t border-slate-100 mb-8">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=Stage" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#Stage</a>
-              <a href="../index.html?search=Tool" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#Tool</a>
+              
             </div>
           </div>
 
@@ -251,8 +250,8 @@
     }
 
     const CURRENT_POST = {
-      title: "gfdg",
-      tags: ["Stage", "Tool"]
+      title: "Sun",
+      tags: []
     };
 
     async function loadPosts() {
@@ -299,25 +298,34 @@
       });
     }
 
-// =========================================================================
+	// =========================================================================
+    // 🎯 SỬA LỖI HIỂN THỊ BÀI VIẾT LIÊN QUAN & BÀI VIẾT NGẪU NHIÊN CHUẨN HTML
+    // =========================================================================
+	// =========================================================================
     // 🎯 SỬA LỖI HIỂN THỊ BÀI VIẾT LIÊN QUAN & BÀI VIẾT NGẪU NHIÊN CHUẨN HTML
     // =========================================================================
     function getRelatedPosts(posts) {
       return [...posts]
         .filter(post => {
-          // Loại bỏ bài viết hiện tại khỏi danh sách dựa trên tiêu đề hoặc URL dữ liệu của nó
-          if (post.title === CURRENT_POST.title || (CURRENT_POST.dataUrl && post.url.includes(CURRENT_POST.dataUrl))) return false;
+          // 1. Loại bỏ bài viết hiện tại khỏi danh sách hiển thị liên quan
+          if (post.title === CURRENT_POST.title) return false;
+          if (CURRENT_POST.dataUrl && post.url.includes(CURRENT_POST.dataUrl)) return false;
           
-          // Lọc theo danh mục (categories): Kiểm tra xem bài viết ngoài trang chủ có trùng danh mục nào với bài hiện tại không
-          const postCats = (post.categories || '').split(',').map(c => c.trim()).filter(Boolean);
-          const currentCats = (CURRENT_POST.categories || '').split(',').map(c => c.trim()).filter(Boolean);
+          // 2. Chuyển đổi dữ liệu Danh mục (categories) thành mảng để so sánh chuẩn xác
+          const postCats = (post.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
+          const currentCats = (CURRENT_POST.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
           const hasCommonCategory = currentCats.some(cat => postCats.includes(cat));
           
-          // Lọc theo tags (Nếu không trùng danh mục, kiểm tra xem có trùng tag không)
-          const postTags = Array.isArray(post.tags) ? post.tags : (post.tags || '').split(',').map(t => t.trim()).filter(Boolean);
-          const currentTags = Array.isArray(CURRENT_POST.tags) ? CURRENT_POST.tags : (CURRENT_POST.tags || '').split(',').map(t => t.trim()).filter(Boolean);
+          // 3. Chuyển đổi dữ liệu Từ khóa (tags) thành mảng để so sánh chuẩn xác
+          const postTagsStr = Array.isArray(post.tags) ? post.tags.join(',') : (post.tags || '');
+          const postTags = postTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+          
+          const currentTagsStr = Array.isArray(CURRENT_POST.tags) ? CURRENT_POST.tags.join(',') : (CURRENT_POST.tags || '');
+          const currentTags = currentTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+          
           const hasCommonTag = currentTags.some(tag => postTags.includes(tag));
           
+          // Chỉ cần trùng khớp Danh mục HOẶC Từ khóa là hợp lệ
           return hasCommonCategory || hasCommonTag;
         })
         .slice(0, 3); // Lấy tối đa 3 bài viết liên quan để sidebar gọn đẹp
@@ -325,7 +333,11 @@
 
     function getRandomPosts(posts) {
       return [...posts]
-        .filter(post => post.title !== CURRENT_POST.title && !(CURRENT_POST.dataUrl && post.url.includes(CURRENT_POST.dataUrl)))
+        .filter(post => {
+          if (post.title === CURRENT_POST.title) return false;
+          if (CURRENT_POST.dataUrl && post.url.includes(CURRENT_POST.dataUrl)) return false;
+          return true;
+        })
         .sort(() => Math.random() - 0.5)
         .slice(0, 3); // Lấy tối đa 3 bài viết ngẫu nhiên
     }
@@ -342,13 +354,16 @@
 
       let listHTML = '';
       postsList.forEach(post => {
-        // Kiểm tra xem đường dẫn URL có cần nhảy ra thư mục gốc không (thường bài viết con nằm trong thư mục con nên cần dùng ../ )
-        const correctUrl = post.url.startsWith('http') || post.url.startsWith('../') ? post.url : `../${post.url}`;
+        // Đảm bảo đường dẫn nhảy ra đúng thư mục gốc (từ thư mục posts/ nhảy ra ngoài bằng ../)
+        let correctUrl = post.url || '';
+        if (correctUrl && !correctUrl.startsWith('http') && !correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
+          correctUrl = `../${correctUrl}`;
+        }
         
         listHTML += `
           <a href="${correctUrl}" class="flex items-center gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-colors">
             <img src="${post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'}" class="w-12 h-12 object-cover rounded-lg border border-slate-100 flex-shrink-0" onerror="this.src='https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'">
-            <div class="min-w-0">
+            <div class="min-w-0 class='flex-grow'">
               <h5 class="text-xs font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2">${post.title}</h5>
               <span class="text-[10px] text-slate-400">${post.date || ''}</span>
             </div>
@@ -356,15 +371,23 @@
         `;
       });
       
-      container.innerHTML = listHTML; // ĐÃ SỬA: Thay thế hoàn toàn sang innerHTML để xử lý triệt để lỗi hiển thị code thô
+      container.innerHTML = listHTML; // Ép ghi nhận HTML thay vì Text thô
     }
 
     // LUỒNG CHẠY HỆ THỐNG BAN ĐẦU VÀ ĐĂNG KÝ SỰ KIỆN CLICK TAB
     let ALL_POSTS = [];
     loadPosts().then(posts => {
       ALL_POSTS = posts;
-      renderPosts(getRelatedPosts(posts));
-      setActiveButton(document.getElementById("related-btn"));
+      // Mặc định ban đầu sẽ ưu tiên hiển thị bài viết liên quan
+      const related = getRelatedPosts(posts);
+      // Nếu bài viết liên quan bị trống do ít bài, tự động lấy bài viết ngẫu nhiên lấp đầy để giao diện không bị trống trơn
+      if (related.length === 0) {
+        renderPosts(getRandomPosts(posts));
+        setActiveButton(document.getElementById("random-btn"));
+      } else {
+        renderPosts(related);
+        setActiveButton(document.getElementById("related-btn"));
+      }
     }).catch(err => {
       console.error("Lỗi khi tải danh sách bài viết:", err);
     });
