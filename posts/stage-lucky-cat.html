@@ -1,327 +1,438 @@
+<meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc">
+<script data-goatcounter="https://vetraitim.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hieubeo's Audition Studio</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8fafc;
+    scroll-behavior: smooth;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+  }
+
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #ffffff !important;
+    background: rgba(0, 0, 0, 0.4);
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background: rgba(99, 102, 241, 0.9);
+    transform: scale(1.05);
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 14px !important;
+    font-weight: bold;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #6366f1 !important;
+    width: 24px !important;
+    border-radius: 4px !important;
+  }
+
+  #back-to-top {
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  #back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>
 
 
+<header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <a href="https://hieubeo91.github.io/au/"
+      class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
+      <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true"
+        alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
+      <span>Hieubeo's Audition Studio</span>
+    </a>
+    <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho game Audition (PC)
+    </p>
+  </div>
+</header>
 
-  <meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc">
-  <script data-goatcounter="https://vetraitim.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hieubeo's Audition Studio</title>
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #f8fafc;
-      scroll-behavior: smooth;
-    }
-    .swiper {
-      width: 100%;
-      height: 400px;
-      border-radius: 12px;
-    }
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: #ffffff !important;
-      background: rgba(0, 0, 0, 0.4);
-      width: 40px !important;
-      height: 40px !important;
-      border-radius: 50%;
-      transition: all 0.2s ease;
-    }
-    .swiper-button-next:hover,
-    .swiper-button-prev:hover {
-      background: rgba(99, 102, 241, 0.9);
-      transform: scale(1.05);
-    }
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-      font-size: 14px !important;
-      font-weight: bold;
-    }
-    .swiper-pagination-bullet-active {
-      background: #6366f1 !important;
-      width: 24px !important;
-      border-radius: 4px !important;
-    }
-    #back-to-top {
-      transition: all 0.3s ease;
-      opacity: 0;
-      visibility: hidden;
-    }
-    #back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-  </style>
+<main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+  <div class="flex flex-col lg:flex-row gap-8 items-start">
+    <div class="w-full lg:w-2/3">
+      <article class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+        <a href="../index.html"
+          class="mb-6 inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
+          <i class="fa-solid fa-arrow-left-long"></i> Trở lại trang chủ
+        </a>
 
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <div class="flex items-center gap-3">
+            <a href="../index.html?cat=cat_stage"
+              class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
+              style="background-color: #ecfdf5; color: #047857;" title="Xem thêm bài viết thuộc chủ đề Sàn nhảy">Sàn
+              nhảy</a>
+            <a href="../index.html?cat=cat_free"
+              class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
+              style="background-color: #eff6ff; color: #1d4ed8;" title="Xem thêm bài viết thuộc chủ đề Miễn phí">Miễn
+              phí</a>
+            <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>24/05/2026</span>
+          </div>
 
-  <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <a href="https://hieubeo91.github.io/au/" class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
-        <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true" alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
-        <span>Hieubeo's Audition Studio</span>
-      </a>
-      <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
-    </div>
-  </header>
+        </div>
 
-  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
-    <div class="flex flex-col lg:flex-row gap-8 items-start">
-      <div class="w-full lg:w-2/3">
-        <article class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-          <a href="../index.html" class="mb-6 inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
-            <i class="fa-solid fa-arrow-left-long"></i> Trở lại trang chủ
+        <h1 class="text-xl font-bold text-slate-900 mb-4 leading-snug">
+          [Miễn phí] Sàn nhảy cơ bản Lucky Cat
+        </h1>
+
+        <div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i
+              class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn
+              Hiệu</span></span></div>
+
+        <div class="swiper mySwiper mb-5">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="https://lh3.googleusercontent.com/d/1tfdfxfaxczIZUxK3k6ROTwmUJeVpUbBm"
+                data-fancybox="gallery-post-mien-phi-san-nhay-co-ban-lucky-cat"
+                data-caption="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="block w-full h-full relative group">
+                <img src="https://lh3.googleusercontent.com/d/1tfdfxfaxczIZUxK3k6ROTwmUJeVpUbBm"
+                  alt="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="hover:scale-105 transition-transform duration-300">
+
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://lh3.googleusercontent.com/d/19sJwqcAKEBZiyklpEpH7UyXwvnjN7Kjf"
+                data-fancybox="gallery-post-mien-phi-san-nhay-co-ban-lucky-cat"
+                data-caption="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="block w-full h-full relative group">
+                <img src="https://lh3.googleusercontent.com/d/19sJwqcAKEBZiyklpEpH7UyXwvnjN7Kjf"
+                  alt="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="hover:scale-105 transition-transform duration-300">
+
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://lh3.googleusercontent.com/d/18N_bFwxHZpDndYBKM8D307OcgF_Lqs_f"
+                data-fancybox="gallery-post-mien-phi-san-nhay-co-ban-lucky-cat"
+                data-caption="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="block w-full h-full relative group">
+                <img src="https://lh3.googleusercontent.com/d/18N_bFwxHZpDndYBKM8D307OcgF_Lqs_f"
+                  alt="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="hover:scale-105 transition-transform duration-300">
+
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://lh3.googleusercontent.com/d/1BNhV383-fvOVfJJ174TxBF42M9mA_dCN"
+                data-fancybox="gallery-post-mien-phi-san-nhay-co-ban-lucky-cat"
+                data-caption="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="block w-full h-full relative group">
+                <img src="https://lh3.googleusercontent.com/d/1BNhV383-fvOVfJJ174TxBF42M9mA_dCN"
+                  alt="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="hover:scale-105 transition-transform duration-300">
+
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://lh3.googleusercontent.com/d/1q4873s1s7Ic7mvEQPZ4vYIS4rW5Lwdjv"
+                data-fancybox="gallery-post-mien-phi-san-nhay-co-ban-lucky-cat"
+                data-caption="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="block w-full h-full relative group">
+                <img src="https://lh3.googleusercontent.com/d/1q4873s1s7Ic7mvEQPZ4vYIS4rW5Lwdjv"
+                  alt="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="hover:scale-105 transition-transform duration-300">
+
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="https://lh3.googleusercontent.com/d/1oftzhY-38n27OCtE8n9tcaCjVnYKJ4uj"
+                data-fancybox="gallery-post-mien-phi-san-nhay-co-ban-lucky-cat"
+                data-caption="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="block w-full h-full relative group">
+                <img src="https://lh3.googleusercontent.com/d/1oftzhY-38n27OCtE8n9tcaCjVnYKJ4uj"
+                  alt="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="hover:scale-105 transition-transform duration-300">
+
+              </a>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="mb-6 leading-relaxed text-slate-600 text-sm">
+          <div class="mb-4">
+            <div>
+              <div class="image-wrapper my-6 text-center block select-media-block"
+                style="margin: 1.5rem auto; float: none; width: 512px; display: block; clear: both; max-width: 512px;">
+                <img src="https://lh3.googleusercontent.com/d/15HldU7JoYuXh3lMhfDj-zC5JUaD-IzKd" alt=""
+                  class="resizable-image block-img-element mx-auto rounded-xl shadow-sm transition-transform duration-300 cursor-pointer"
+                  data-width="512px" style="width: 512px; max-width: 512px;">
+
+              </div>
+              <p><br></p>
+            </div>
+            <div>
+              <div>Chia sẻ miễn phí file sàn nhảy <b>
+                  <font color="#4f46e4">Lucky Cat</font>
+                </b> trong game Audition! Nhanh tay tải ngay để trải nghiệm không gian nhảy cực độc đáo, lung linh và
+                đáng yêu hoàn
+                toàn miễn phí. Đừng bỏ lỡ cơ hội làm mới giao diện phòng nhảy của bạn cùng bạn bè ngay hôm nay!</div>
+              <div><br></div>
+              <div><b>Nổi bật</b></div>
+              <div>
+                <ul>
+                  <li>Bục sàn tròn, với thiết kế bo tròn xung quanh viền bục</li>
+                  <li>Ảnh nền được thiết kế cong, tạo cảm giác có chiều sâu, ảnh rộng, không bị lỗi kéo giãn ảnh</li>
+                  <li>Đèn sâu khấu được căn chỉnh chuyển động đối xứng</li>
+                </ul>
+              </div>
+              <div><br></div>
+              <div>Mật khẩu giải nén: <b>
+                  <font color="#ef4444">hieubeo</font>
+                </b></div>
+            </div>
+            <div><br></div>
+            <div class="flex justify-center items-center w-full my-8">
+              <div class="relative inline-flex items-center py-2">
+                <a href="https://drive.google.com/file/d/1llL5WE6wDvo332z2ExcaHloKrNzY-uQn/view?usp=sharing"
+                  target="_blank"
+                  class="relative flex items-center gap-2 px-6 py-3 font-bold text-white uppercase tracking-wider rounded-xl bg-gradient-to-r from-pink-500 via-				red-500 to-yellow-500 bg-[length:200%_auto] animate-[gradient_3s_ease_infinite] shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-pink-500/40 hover:-translate-y-0.5 active:translate-y-0 			active:scale-98 transition-all duration-300 cursor-pointer declaration-none">
+                  <span
+                    class="absolute inset-0 rounded-xl bg-gradient-to-r from-pink-500 to-yellow-500 opacity-40 blur-md animate-ping pointer-events-none"></span>
+                  <i class="fa-solid fa-download animate-bounce"></i>
+                  <span class="relative z-10">Tải Ngay</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="pt-6 border-t border-slate-100 mb-8">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
+          <div class="flex flex-wrap gap-2 text-sm">
+            <a href="../index.html?search=Audition"
+              class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#Audition</a>
+            <a href="../index.html?search=Sàn nhảy"
+              class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#Sàn
+              nhảy</a>
+            <a href="../index.html?search=Stage"
+              class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#Stage</a>
+            <a href="../index.html?search=LuckyCat"
+              class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#LuckyCat</a>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-100 pt-6 mb-8">
+          <div class="flex gap-2 mb-4">
+            <button id="related-btn" class="px-4 py-2 bg-indigo-600 text-white rounded-xl text-sm font-medium">
+              Bài viết liên quan
+            </button>
+            <button id="random-btn" class="px-4 py-2 bg-slate-100 text-slate-600 rounded-xl text-sm font-medium">
+              Bài viết ngẫu nhiên
+            </button>
+          </div>
+          <div id="suggested-posts" class="space-y-3"></div>
+        </div>
+
+        <div class="flex justify-center">
+          <a href="../index.html"
+            class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
+            <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
           </a>
-          
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-            <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_stage" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #047857;" title="Xem thêm bài viết thuộc chủ đề Sàn nhảy">Sàn nhảy</a>
-              <a href="../index.html?cat=cat_free" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #eff6ff; color: #1d4ed8;" title="Xem thêm bài viết thuộc chủ đề Miễn phí">Miễn phí</a>
-              <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>24/05/2026</span>
+        </div>
+      </article>
+    </div>
+
+    <aside class="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-6">
+      <div
+        class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+        <div class="flex flex-col items-center text-center">
+          <div class="relative w-28 h-28 mb-4">
+            <img src="https://github.com/hieubeo91/storage/blob/main/blog/avatar.jpg?raw=true" alt="Ảnh đại diện"
+              class="w-full h-full object-cover rounded-full border-4 border-indigo-50 shadow-sm">
+            <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full"
+              title="Sẵn sàng kết nối"></span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800">Nguyễn Văn Hiệu</h3>
+          <p class="text-xs text-indigo-600 font-semibold tracking-wider mb-4">♡ IG: Vẽ Trái Tim ♡</p>
+          <p class="text-sm text-slate-500 leading-relaxed mb-6">
+            Xin chào! Mình là một kẻ mang bản chất xấu xa, nhưng do biết chơi game mà trở thành người tốt.
+          </p>
+          <div class="grid grid-cols-3 gap-2 w-full py-4 border-y border-slate-100 mb-6 text-center">
+            <div>
+              <span class="block text-lg font-bold text-slate-800">30+</span>
+              <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Bài viết</span>
             </div>
-            
-          </div>
-
-          <h1 class="text-xl font-bold text-slate-900 mb-6 leading-snug">
-            [Miễn phí] Sàn nhảy cơ bản Lucky Cat
-          </h1>
-
-			<div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span></div>
-
-          <div class="swiper mySwiper mb-5">
-            <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                <a href="https://lh3.googleusercontent.com/d/1tfdfxfaxczIZUxK3k6ROTwmUJeVpUbBm" data-fancybox="gallery-post-mien-phi-san-nhay-co-ban-lucky-cat" data-caption="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="block w-full h-full relative group">
-                  <img src="https://lh3.googleusercontent.com/d/1tfdfxfaxczIZUxK3k6ROTwmUJeVpUbBm" alt="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="hover:scale-105 transition-transform duration-300">
-                  
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="https://lh3.googleusercontent.com/d/19sJwqcAKEBZiyklpEpH7UyXwvnjN7Kjf" data-fancybox="gallery-post-mien-phi-san-nhay-co-ban-lucky-cat" data-caption="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="block w-full h-full relative group">
-                  <img src="https://lh3.googleusercontent.com/d/19sJwqcAKEBZiyklpEpH7UyXwvnjN7Kjf" alt="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="hover:scale-105 transition-transform duration-300">
-                  
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="https://lh3.googleusercontent.com/d/18N_bFwxHZpDndYBKM8D307OcgF_Lqs_f" data-fancybox="gallery-post-mien-phi-san-nhay-co-ban-lucky-cat" data-caption="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="block w-full h-full relative group">
-                  <img src="https://lh3.googleusercontent.com/d/18N_bFwxHZpDndYBKM8D307OcgF_Lqs_f" alt="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="hover:scale-105 transition-transform duration-300">
-                  
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="https://lh3.googleusercontent.com/d/1BNhV383-fvOVfJJ174TxBF42M9mA_dCN" data-fancybox="gallery-post-mien-phi-san-nhay-co-ban-lucky-cat" data-caption="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="block w-full h-full relative group">
-                  <img src="https://lh3.googleusercontent.com/d/1BNhV383-fvOVfJJ174TxBF42M9mA_dCN" alt="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="hover:scale-105 transition-transform duration-300">
-                  
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="https://lh3.googleusercontent.com/d/1q4873s1s7Ic7mvEQPZ4vYIS4rW5Lwdjv" data-fancybox="gallery-post-mien-phi-san-nhay-co-ban-lucky-cat" data-caption="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="block w-full h-full relative group">
-                  <img src="https://lh3.googleusercontent.com/d/1q4873s1s7Ic7mvEQPZ4vYIS4rW5Lwdjv" alt="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="hover:scale-105 transition-transform duration-300">
-                  
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="https://lh3.googleusercontent.com/d/1oftzhY-38n27OCtE8n9tcaCjVnYKJ4uj" data-fancybox="gallery-post-mien-phi-san-nhay-co-ban-lucky-cat" data-caption="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="block w-full h-full relative group">
-                  <img src="https://lh3.googleusercontent.com/d/1oftzhY-38n27OCtE8n9tcaCjVnYKJ4uj" alt="[Miễn phí] Sàn nhảy cơ bản Lucky Cat" class="hover:scale-105 transition-transform duration-300">
-                  
-                </a>
-              </div>
+            <div>
+              <span class="block text-lg font-bold text-slate-800">12K</span>
+              <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Theo dõi</span>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
-          </div>
-
-          <div class="mb-6 leading-relaxed text-slate-600 text-sm">
-                    <div class="mb-4"><div><div class="image-wrapper my-6 text-center block select-media-block" style="margin: 1.5rem auto; float: none; width: 512px; display: block; clear: both; max-width: 512px;">
-                                    <img src="https://lh3.googleusercontent.com/d/15HldU7JoYuXh3lMhfDj-zC5JUaD-IzKd" alt="" class="resizable-image block-img-element mx-auto rounded-xl shadow-sm transition-transform duration-300 cursor-pointer" data-width="512px" style="width: 512px; max-width: 512px;">
-                                    
-                                </div><p><br></p></div><div><div>Chia sẻ miễn phí file sàn nhảy <b><font color="#4f46e4">Lucky Cat</font></b> trong game Audition! Nhanh tay tải ngay để trải nghiệm không gian nhảy cực độc đáo, lung linh và đáng yêu hoàn toàn miễn phí. Đừng bỏ lỡ cơ hội làm mới giao diện phòng nhảy của bạn cùng bạn bè ngay hôm nay!</div><div><br></div><div><b>Nổi bật</b></div><div><ul><li>Bục sàn tròn, với thiết kế bo tròn xung quanh viền bục</li><li>Ảnh nền được thiết kế cong, tạo cảm giác có chiều sâu, ảnh rộng, không bị lỗi kéo giãn ảnh</li><li>Đèn sâu khấu được căn chỉnh chuyển động đối xứng</li></ul></div><div><br></div><div>Mật khẩu giải nén: <b><font color="#ef4444">hieubeo</font></b></div></div><div><br></div></div>
-
-          </div>
-
-          <div class="pt-6 border-t border-slate-100 mb-8">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
-            <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=Audition" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#Audition</a>
-              <a href="../index.html?search=Sàn nhảy" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#Sàn nhảy</a>
-              <a href="../index.html?search=Stage" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#Stage</a>
-              <a href="../index.html?search=LuckyCat" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#LuckyCat</a>
+            <div>
+              <span class="block text-lg font-bold text-slate-800">9.1M+</span>
+              <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Xem trang</span>
             </div>
           </div>
-
-          <div class="border-t border-slate-100 pt-6 mb-8">
-            <div class="flex gap-2 mb-4">
-              <button id="related-btn" class="px-4 py-2 bg-indigo-600 text-white rounded-xl text-sm font-medium">
-                Bài viết liên quan
-              </button>
-              <button id="random-btn" class="px-4 py-2 bg-slate-100 text-slate-600 rounded-xl text-sm font-medium">
-                Bài viết ngẫu nhiên
-              </button>
-            </div>
-            <div id="suggested-posts" class="space-y-3"></div>
+          <div class="flex items-center justify-center gap-3">
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200"
+              title="Liên hệ qua Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200"
+              title="Liên hệ qua Zalo"><i class="fa-solid fa-z"></i></a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200"
+              title="Theo dõi Youtube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200"
+              title="Liên hệ qua Email"><i class="fa-solid fa-envelope"></i></a>
           </div>
-
-          <div class="flex justify-center">
-            <a href="../index.html" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
-              <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
-            </a>
-          </div>
-        </article>
+        </div>
       </div>
 
-      <aside class="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-6">
-        <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-          <div class="flex flex-col items-center text-center">
-            <div class="relative w-28 h-28 mb-4">
-              <img src="https://github.com/hieubeo91/storage/blob/main/blog/avatar.jpg?raw=true" alt="Ảnh đại diện" class="w-full h-full object-cover rounded-full border-4 border-indigo-50 shadow-sm">
-              <span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 border-2 border-white rounded-full" title="Sẵn sàng kết nối"></span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-800">Nguyễn Văn Hiệu</h3>
-            <p class="text-xs text-indigo-600 font-semibold tracking-wider mb-4">♡ IG: Vẽ Trái Tim ♡</p>
-            <p class="text-sm text-slate-500 leading-relaxed mb-6">
-              Xin chào! Mình là một kẻ mang bản chất xấu xa, nhưng do biết chơi game mà trở thành người tốt.
-            </p>
-            <div class="grid grid-cols-3 gap-2 w-full py-4 border-y border-slate-100 mb-6 text-center">
-              <div>
-                <span class="block text-lg font-bold text-slate-800">30+</span>
-                <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Bài viết</span>
-              </div>
-              <div>
-                <span class="block text-lg font-bold text-slate-800">12K</span>
-                <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Theo dõi</span>
-              </div>
-              <div>
-                <span class="block text-lg font-bold text-slate-800">9.1M+</span>
-                <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider">Xem trang</span>
-              </div>
-            </div>
-            <div class="flex items-center justify-center gap-3">
-              <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Liên hệ qua Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Liên hệ qua Zalo"><i class="fa-solid fa-z"></i></a>
-              <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Theo dõi Youtube"><i class="fa-brands fa-youtube"></i></a>
-              <a href="#" class="w-10 h-10 rounded-full bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 text-slate-400 flex items-center justify-center transition-colors duration-200" title="Liên hệ qua Email"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-          </div>
+      <div
+        class="bg-gradient-to-br from-indigo-50/50 to-purple-50/50 border border-indigo-100/40 rounded-2xl p-6 shadow-sm">
+        <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
+          <i class="fa-regular fa-paper-plane text-indigo-600"></i> Nhận bài viết mới
+        </h4>
+        <p class="text-xs text-slate-500 leading-relaxed mb-4">Điền email của bạn để không bỏ lỡ các bài viết mới nhất.
+        </p>
+        <form id="newsletter-form" class="space-y-2">
+          <input type="email" placeholder="Địa chỉ email của bạn"
+            class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+            required="">
+          <button type="submit"
+            class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl text-xs transition-colors shadow-sm">Đăng
+            ký ngay</button>
+        </form>
+        <div id="newsletter-success" class="text-xs text-emerald-600 font-medium mt-2 hidden flex items-center gap-1.5">
+          <i class="fa-solid fa-circle-check"></i> Đăng ký thành công! Cảm ơn bạn nhé.
         </div>
+      </div>
+    </aside>
+  </div>
+</main>
 
-        <div class="bg-gradient-to-br from-indigo-50/50 to-purple-50/50 border border-indigo-100/40 rounded-2xl p-6 shadow-sm">
-          <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
-            <i class="fa-regular fa-paper-plane text-indigo-600"></i> Nhận bài viết mới
-          </h4>
-          <p class="text-xs text-slate-500 leading-relaxed mb-4">Điền email của bạn để không bỏ lỡ các bài viết mới nhất.</p>
-          <form id="newsletter-form" class="space-y-2">
-            <input type="email" placeholder="Địa chỉ email của bạn" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500" required="">
-            <button type="submit" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl text-xs transition-colors shadow-sm">Đăng ký ngay</button>
-          </form>
-          <div id="newsletter-success" class="text-xs text-emerald-600 font-medium mt-2 hidden flex items-center gap-1.5">
-            <i class="fa-solid fa-circle-check"></i> Đăng ký thành công! Cảm ơn bạn nhé.
-          </div>
-        </div>
-      </aside>
-    </div>
-  </main>
+<footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <p class="text-sm">© 2026 Hieubeo's Audition Studio ♫ Rhythm of Life</p>
+  </div>
+</footer>
 
-  <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <p class="text-sm">© 2026 Hieubeo's Audition Studio ♫ Rhythm of Life</p>
-    </div>
-  </footer>
+<button id="back-to-top"
+  class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto"
+  title="Quay lên đầu trang">
+  <i class="fa-solid fa-arrow-up text-lg"></i>
+</button>
 
-  <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto" title="Quay lên đầu trang">
-    <i class="fa-solid fa-arrow-up text-lg"></i>
-  </button>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-  <script>
-    function initAllSwipers() {
-      document.querySelectorAll('.mySwiper').forEach((el) => {
-        if (el.swiper) { el.swiper.destroy(true, true); }
-        new Swiper(el, {
-          loop: true,
-          spaceBetween: 10,
-          observer: true,
-          observeParents: true,
-          pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
-          navigation: { nextEl: el.querySelector('.swiper-button-next'), prevEl: el.querySelector('.swiper-button-prev') },
-          autoplay: { delay: 4500, disableOnInteraction: true },
-        });
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script>
+  function initAllSwipers() {
+    document.querySelectorAll('.mySwiper').forEach((el) => {
+      if (el.swiper) { el.swiper.destroy(true, true); }
+      new Swiper(el, {
+        loop: true,
+        spaceBetween: 10,
+        observer: true,
+        observeParents: true,
+        pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
+        navigation: { nextEl: el.querySelector('.swiper-button-next'), prevEl: el.querySelector('.swiper-button-prev') },
+        autoplay: { delay: 4500, disableOnInteraction: true },
       });
-    }
-    initAllSwipers();
-
-    Fancybox.bind("[data-fancybox^='gallery-']", { Thumbs: { autoStart: true } });
-
-    const backToTopBtn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) { backToTopBtn.classList.add('show'); }
-      else { backToTopBtn.classList.remove('show'); }
     });
-    backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  }
+  initAllSwipers();
 
-    const newsletterForm = document.getElementById('newsletter-form');
-    const newsletterSuccess = document.getElementById('newsletter-success');
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        newsletterForm.classList.add('hidden');
-        newsletterSuccess.classList.remove('hidden');
-      });
-    }
+  Fancybox.bind("[data-fancybox^='gallery-']", { Thumbs: { autoStart: true } });
 
-    const CURRENT_POST = {
-      title: "Lucky Cat",
-      tags: ["Audition", "Sàn nhảy", "Stage", "LuckyCat"]
-    };
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) { backToTopBtn.classList.add('show'); }
+    else { backToTopBtn.classList.remove('show'); }
+  });
+  backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-    async function loadPosts() {
-      try {
-        const response = await fetch("../index.html");
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
-        const cards = doc.querySelectorAll(".post-card");
-        const posts = [];
-        cards.forEach(card => {
-          posts.push({
-            title: card.dataset.title,
-            url: card.dataset.url,
-            image: card.dataset.image,
-            tags: (card.dataset.tags || "").split(",").map(tag => tag.trim()).filter(Boolean)
-          });
+  const newsletterForm = document.getElementById('newsletter-form');
+  const newsletterSuccess = document.getElementById('newsletter-success');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      newsletterForm.classList.add('hidden');
+      newsletterSuccess.classList.remove('hidden');
+    });
+  }
+
+  const CURRENT_POST = {
+    title: "Lucky Cat",
+    tags: ["Audition", "Sàn nhảy", "Stage", "LuckyCat"]
+  };
+
+  async function loadPosts() {
+    try {
+      const response = await fetch("../index.html");
+      const html = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+      const cards = doc.querySelectorAll(".post-card");
+      const posts = [];
+      cards.forEach(card => {
+        posts.push({
+          title: card.dataset.title,
+          url: card.dataset.url,
+          image: card.dataset.image,
+          tags: (card.dataset.tags || "").split(",").map(tag => tag.trim()).filter(Boolean)
         });
-        return posts;
-      } catch (e) {
-        console.error("Lỗi khi tải danh sách bài viết:", e);
-        return [];
-      }
+      });
+      return posts;
+    } catch (e) {
+      console.error("Lỗi khi tải danh sách bài viết:", e);
+      return [];
     }
+  }
 
-    function renderPosts(posts) {
-      const container = document.getElementById("suggested-posts");
-      if(!container) return;
-      container.innerHTML = "";
-      if(posts.length === 0) {
-        container.innerHTML = '<div class="text-xs text-slate-400">Không có bài viết gợi ý phù hợp.</div>';
-        return;
-      }
-      posts.forEach(post => {
-        container.innerHTML += `
+  function renderPosts(posts) {
+    const container = document.getElementById("suggested-posts");
+    if (!container) return;
+    container.innerHTML = "";
+    if (posts.length === 0) {
+      container.innerHTML = '<div class="text-xs text-slate-400">Không có bài viết gợi ý phù hợp.</div>';
+      return;
+    }
+    posts.forEach(post => {
+      container.innerHTML += `
           <a href="../\${post.url}" class="flex gap-3 p-3 rounded-xl bg-slate-50 hover:bg-indigo-50 transition">
             <img src="\${post.image}" class="w-20 h-20 rounded-lg object-cover">
             <div>
@@ -330,52 +441,51 @@
             </div>
           </a>
         `;
-      });
-    }
-
-    function getRelatedPosts(posts) {
-      return posts
-        .filter(post => {
-          if (post.title === CURRENT_POST.title) return false;
-          return post.tags.some(tag => CURRENT_POST.tags.includes(tag));
-        })
-        .slice(0, 10);
-    }
-
-    function getRandomPosts(posts) {
-      return [...posts]
-        .filter(post => post.title !== CURRENT_POST.title)
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 10);
-    }
-
-    let ALL_POSTS = [];
-    loadPosts().then(posts => {
-      ALL_POSTS = posts;
-      renderPosts(getRelatedPosts(posts));
-      setActiveButton(document.getElementById("related-btn"));
     });
+  }
 
-    document.getElementById("related-btn").addEventListener("click", () => {
-      renderPosts(getRelatedPosts(ALL_POSTS));
-      setActiveButton(document.getElementById("related-btn"));
+  function getRelatedPosts(posts) {
+    return posts
+      .filter(post => {
+        if (post.title === CURRENT_POST.title) return false;
+        return post.tags.some(tag => CURRENT_POST.tags.includes(tag));
+      })
+      .slice(0, 10);
+  }
+
+  function getRandomPosts(posts) {
+    return [...posts]
+      .filter(post => post.title !== CURRENT_POST.title)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 10);
+  }
+
+  let ALL_POSTS = [];
+  loadPosts().then(posts => {
+    ALL_POSTS = posts;
+    renderPosts(getRelatedPosts(posts));
+    setActiveButton(document.getElementById("related-btn"));
+  });
+
+  document.getElementById("related-btn").addEventListener("click", () => {
+    renderPosts(getRelatedPosts(ALL_POSTS));
+    setActiveButton(document.getElementById("related-btn"));
+  });
+
+  document.getElementById("random-btn").addEventListener("click", () => {
+    renderPosts(getRandomPosts(ALL_POSTS));
+    setActiveButton(document.getElementById("random-btn"));
+  });
+
+  function setActiveButton(activeBtn) {
+    const relatedBtn = document.getElementById("related-btn");
+    const randomBtn = document.getElementById("random-btn");
+    if (!relatedBtn || !randomBtn || !activeBtn) return;
+    [relatedBtn, randomBtn].forEach(btn => {
+      btn.classList.remove("bg-indigo-600", "text-white");
+      btn.classList.add("bg-slate-100", "text-slate-600");
     });
-
-    document.getElementById("random-btn").addEventListener("click", () => {
-      renderPosts(getRandomPosts(ALL_POSTS));
-      setActiveButton(document.getElementById("random-btn"));
-    });
-
-    function setActiveButton(activeBtn) {
-      const relatedBtn = document.getElementById("related-btn");
-      const randomBtn = document.getElementById("random-btn");
-      if(!relatedBtn || !randomBtn || !activeBtn) return;
-      [relatedBtn, randomBtn].forEach(btn => {
-        btn.classList.remove("bg-indigo-600", "text-white");
-        btn.classList.add("bg-slate-100", "text-slate-600");
-      });
-      activeBtn.classList.remove("bg-slate-100", "text-slate-600");
-      activeBtn.classList.add("bg-indigo-600", "text-white");
-    }
-  </script>
-
+    activeBtn.classList.remove("bg-slate-100", "text-slate-600");
+    activeBtn.classList.add("bg-indigo-600", "text-white");
+  }
+</script>
