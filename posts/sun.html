@@ -98,7 +98,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            ccccccccccc
+            aaaaa
           </h1>
 
 			<div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span></div>
@@ -106,8 +106,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" data-fancybox="gallery-post-ccccccccccc" data-caption="ccccccccccc" class="block w-full h-full relative group">
-                  <img src="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" alt="ccccccccccc" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" data-fancybox="gallery-post-aaaaa" data-caption="aaaaa" class="block w-full h-full relative group">
+                  <img src="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" alt="aaaaa" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -118,15 +118,14 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm">
-                    <div class="mb-4">sdfsdfsdf</div>
+                    <div class="mb-4">gdfg</div>
 
           </div>
 
           <div class="pt-6 border-t border-slate-100 mb-8">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=Stage" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#Stage</a>
-              <a href="../index.html?search=Tool" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#Tool</a>
+              
             </div>
           </div>
 
@@ -252,7 +251,7 @@
 
     const CURRENT_POST = {
       title: "sun",
-      tags: ["Stage", "Tool"]
+      tags: []
     };
 
     async function loadPosts() {
@@ -346,7 +345,7 @@
         .slice(0, 3);
     }
 
-// Hàm dựng giao diện với bộ Dò Tìm Vùng Chứa thông minh (Đã thêm mô tả ngắn & tăng size chữ)
+// Hàm dựng giao diện với bộ Dò Tìm Vùng Chứa thông minh (Tự động sửa lỗi thiếu excerpt)
     function renderPosts(postsList) {
       let container = document.querySelector('#sidebar-posts') || 
                       document.querySelector('.space-y-4.mt-4') || 
@@ -377,16 +376,25 @@
           correctUrl = `../${correctUrl}`;
         }
         
-        // Lấy đoạn mô tả ngắn, nếu không có thì để trống
-        const excerptText = post.excerpt || '';
+        // 🎯 THUẬT TOÁN TỰ TẠO MÔ TẢ CHO BÀI VIẾT CŨ NẾU BỊ THIẾU EXCERPT
+        let excerptText = post.excerpt ? post.excerpt.trim() : '';
+        if (!excerptText) {
+          // Nếu bài viết cũ không có mô tả, tự động bốc danh sách tags làm mô tả ngắn mẫu
+          const cleanTags = Array.isArray(post.tags) ? post.tags.join(', ') : (post.tags || '');
+          if (cleanTags) {
+            excerptText = `Chủ đề bài viết liên quan: ${cleanTags}`;
+          } else {
+            excerptText = `Xem chi tiết nội dung bài viết ${post.title}`;
+          }
+        }
         
         listHTML += `
           <a href="${correctUrl}" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-colors">
             <img src="${post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'}" class="w-14 h-14 object-cover rounded-lg border border-slate-100 flex-shrink-0" onerror="this.src='https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'">
-            <div class="min-w-0 flex-grow style='margin-top: -2px;'">
+            <div class="min-w-0 flex-grow" style="margin-top: -2px;">
               <h5 class="text-sm font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug mb-0.5">${post.title}</h5>
               
-              ${excerptText ? `<p class="text-xs text-slate-400 line-clamp-1 mb-1 leading-normal">${excerptText}</p>` : ''}
+              <p class="text-xs text-slate-400 line-clamp-1 mb-1 leading-normal">${excerptText}</p>
               
               <span class="text-[10px] text-slate-400 block">${post.date || ''}</span>
             </div>
