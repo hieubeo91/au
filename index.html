@@ -485,24 +485,6 @@
 	// =========================================================================
     // 🎯 BỘ LỌC HOÀN CHỈNH: SỬA LỖI HIỂN THỊ TẤT CẢ BÀI VIẾT KHI CLICK CHỦ ĐỀ
     // =========================================================================
-    
-    // Hàm này tự động kích hoạt click vào tag tương ứng khi nhận tham số từ trang bài viết con gửi về
-    window.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const catParam = urlParams.get('cat');
-      
-      if (catParam) {
-        // Tìm nút lọc có data-filter trùng với tham số truyền vào (ví dụ: data-filter="cat_stage")
-        const targetBtn = document.querySelector(`.filter-btn[data-filter="${catParam}"]`);
-        if (targetBtn) {
-          // Thực hiện click giả lập vào nút đó sau khi trang tải xong để hệ thống tự lọc bài viết
-          setTimeout(() => {
-            targetBtn.click();
-          }, 100);
-        }
-      }
-    });
-
     function initPostSwipers() {
       // Kích hoạt Swiper cho class .postSwiper trên toàn bộ các bài viết
       new Swiper('.postSwiper', {
@@ -814,16 +796,32 @@
         newsletterSuccess.classList.remove('hidden');
       });
     }
+	// XỬ LÝ NHẬN THAM SỐ TỪ URL (BÀI VIẾT CON QUAY VỀ HOẶC CLICK DANH MỤC)
     document.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
+      
+      // 1. Xử lý nếu có tham số tìm kiếm (?search=...)
       const keyword = params.get('search');
-      if (!keyword) return;
-      const searchInput = document.getElementById('search-input');
-      if (!searchInput) return;
-      // Điền từ khóa vào ô tìm kiếm
-      searchInput.value = keyword;
-      // Kích hoạt chức năng tìm kiếm đang có sẵn
-      searchInput.dispatchEvent(new Event('input'));
+      if (keyword) {
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+          searchInput.value = keyword;
+          searchInput.dispatchEvent(new Event('input'));
+        }
+      }
+
+      // 2. XỬ LÝ DỨT ĐIỂM LỖI LỌC CHỦ ĐỀ (?cat=...)
+      const catParam = params.get('cat');
+      if (catParam) {
+        // Tìm đúng nút danh mục ngoài trang chủ có data-filter trùng khớp
+        const targetBtn = document.querySelector(`.filter-btn[data-filter="${catParam}"]`);
+        if (targetBtn) {
+          // Giả lập hành vi click của người dùng để kích hoạt hàm applyFilters() gốc
+          setTimeout(() => {
+            targetBtn.click();
+          }, 150); // Trì hoãn 150ms để đảm bảo DOM và Swiper đã sẵn sàng
+        }
+      }
     });
   </script>
 </body>
