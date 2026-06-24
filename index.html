@@ -139,48 +139,41 @@
           class="filter-btn active-tag px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 border border-indigo-600 cursor-pointer">
           Tất cả bài viết
         </button>
-        <button data-filter="cat_pay"
+        <button data-filter="cat_free"
           class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
-          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_pay.png?raw=true?raw=true" alt="Công cụ"
+          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_free.png?raw=true" alt="Miễn phí"
+            class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle">
+          Miễn phí
+        </button>		  
+        <button data-filter="cat_paid"
+          class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
+          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_pay.png?raw=true?raw=true" alt="Trả phí"
             class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle">
           Trả phí
         </button>
-        <button data-filter="cat_free"
+        <button data-filter="cat_mod"
           class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
-          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_free.png?raw=true" alt="Công cụ"
+          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_stage.png?raw=true" alt="Modding"
             class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle">
-          Miễn phí
+          Modding
         </button>
         <button data-filter="cat_tool"
           class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
-          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_tool.png?raw=true" alt="Công cụ"
+          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_skin.png?raw=true" alt="Công cụ"
             class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle">
           Công cụ
-        </button>
-		<div><br></div>
-        <button data-filter="cat_stage"
-          class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
-          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_stage.png?raw=true" alt="Sàn nhảy"
-            class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle">
-          Sàn nhảy
-        </button>
-        <button data-filter="cat_skin"
-          class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
-          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_skin.png?raw=true" alt="Giao diện"
-            class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle">
-          Giao diện
-        </button>
-        <button data-filter="cat_avatar"
-          class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
-          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_skin.png?raw=true" alt="Avatar"
-            class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle">
-          Avatar
         </button>
         <button data-filter="cat_guide"
           class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
           <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_skin.png?raw=true" alt="Hướng dẫn"
             class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle">
           Hướng dẫn
+        </button>
+        <button data-filter="cat_misc"
+          class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer">
+          <img src="https://github.com/hieubeo91/storage/blob/main/blog/tag_skin.png?raw=true" alt="Khác"
+            class="w-4 h-4 object-contain inline-block mr-1.5 vertical-align-middle">
+          Khác
         </button>
       </div>
       <div id="no-results-state"
@@ -204,13 +197,13 @@
 		<!-- BÀI VIẾT: [MIỄN PHÍ] SÀN NHẢY CƠ BẢN LUCKY CAT -->
 		<article
 		  class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
-		  data-categories="cat_stage, cat_free" data-id="post-stage-lucky-cat.html" data-title="Lucky Cat"
+		  data-categories="cat_mod, cat_free" data-id="post-stage-lucky-cat.html" data-title="Lucky Cat"
 		  data-url="posts/stage-lucky-cat.html"
 		  data-image="https://lh3.googleusercontent.com/d/15HldU7JoYuXh3lMhfDj-zC5JUaD-IzKd"
 		  data-tags="Audition,Sàn nhảy,Stage,LuckyCat">
 		  <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
 		    <div class="flex items-center gap-3">
-		      <a href="index.html?cat=cat_stage"
+		      <a href="index.html?cat=cat_mod"
 		        class="category-badge text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
 		        style="background-color: #ecfdf5; color: #047857;" title="Xem thêm bài viết thuộc chủ đề Sàn nhảy">Sàn nhảy</a>
 		      <a href="index.html?cat=cat_free"
@@ -323,12 +316,12 @@
 		<!-- BÀI VIẾT: DDS CONVERTER. CÔNG CỤ CHUYỂN ĐỔI ẢNH DDS HÀNG LOẠT -->
 		<article
 		  class="post-card bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
-		  data-categories="cat_pay, cat_tool" data-id="post-ddsconverter.html" data-title="DDS Converter"
+		  data-categories="cat_paid, cat_tool" data-id="post-ddsconverter.html" data-title="DDS Converter"
 		  data-url="posts/ddsconverter.html" data-image="https://lh3.googleusercontent.com/d/1kXa-jMmliGy5JzDo8Gbu9r9IXvmDiaM7"
 		  data-tags="Tool,Công cụ,DDS,Converter">
 		  <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
 		    <div class="flex items-center gap-3">
-		      <a href="index.html?cat=cat_pay"
+		      <a href="index.html?cat=cat_paid"
 		        class="category-badge text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
 		        style="background-color: #fef2f2; color: #b91c1c;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
 		      <a href="index.html?cat=cat_tool"
