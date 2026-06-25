@@ -538,7 +538,7 @@
       const zaloBtn = document.getElementById('share-zalo-btn');
       if (zaloBtn) {
         zaloBtn.addEventListener('click', () => {
-          const zaloShareUrl = `https://sp.zalo.me/share_ext?url=${currentUrl}&title=${currentTitle}`;
+          const zaloShareUrl = `https://zalo.me/share_ext?url=${currentUrl}&title=${currentTitle}`;
           window.open(zaloShareUrl, '_blank', 'width=600,height=400,resizable=yes,scrollbars=yes');
         });
       }
