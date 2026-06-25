@@ -72,27 +72,27 @@
       100% { background-position: 0% 50%; }
     }
 
-	/* Hiệu ứng hoạt họa cho trái tim bay */
-		@keyframes heartFlyUp {
+	@keyframes heartFlyUp {
 		0% {
-			transform: translateY(0) scale(0.5) rotate(0deg);
-			opacity: 1;
+		  transform: translateY(0) translateX(0) scale(0.6) rotate(0deg);
+		  opacity: 1;
 		}
 		50% {
-			transform: translateY(-60px) scale(1.2) rotate(15deg);
-			opacity: 0.9;
+		  /* Giữa đường bay sẽ tự động dạt nhẹ sang hai bên */
+		  opacity: 0.9;
 		}
 		100% {
-			transform: translateY(-120px) scale(0.8) rotate(-15deg);
-			opacity: 0;
+		  /* Bay vút lên cao 140px và tản rộng ngẫu nhiên theo biến CSS được gán bằng JS */
+		  transform: translateY(-140px) translateX(var(--drift-x)) scale(1.3) rotate(var(--rotate-deg));
+		  opacity: 0;
 		}
-	}
-		.floating-heart {
-		position: absolute;
-		color: #f43f5e; /* Màu đỏ hồng rose-500 */
-		pointer-events: none; /* Không cản trở việc click chuột */
-		animation: heartFlyUp 1.2s ease-out forwards;
-		z-index: 50;
+	  }
+	.floating-heart {
+    position: absolute;
+    color: #f43f5e; /* Màu đỏ hồng rose-500 */
+    pointer-events: none; /* Không cản trở việc click chuột */
+    animation: heartFlyUp 1.2s ease-out forwards;
+    z-index: 50;
 	}
   </style>
 
@@ -119,7 +119,6 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_paid" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
               <a href="../index.html?cat=cat_mod" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>26/06/2026</span>
             </div>
@@ -127,7 +126,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            4444444444
+            zzzzzzzzz
           </h1>
 
 			<div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span></div>
@@ -135,8 +134,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" data-fancybox="gallery-post-4444444444" data-caption="4444444444" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" alt="4444444444" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" data-fancybox="gallery-post-zzzzzzzzz" data-caption="zzzzzzzzz" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" alt="zzzzzzzzz" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -147,7 +146,7 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm">
-                    <div class="mb-4">gdfg</div>
+                    <div class="mb-4">gfgdfg</div>
 
           </div>
 
@@ -184,11 +183,11 @@
           <div class="pt-6 border-t border-slate-100 mb-8">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=dfgdf" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfgdf</a>
-              <a href="../index.html?search=g" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#g</a>
+                            <a href="../index.html?search=gdfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#gdfg</a>
               <a href="../index.html?search=dfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dfg</a>
-              <a href="../index.html?search=dfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfg</a>
-              <a href="../index.html?search=dfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfg</a>
+              <a href="../index.html?search=dfgdf" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfgdf</a>
+              <a href="../index.html?search=gdfgdfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#gdfgdfg</a>
+              <a href="../index.html?search=df" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#df</a>
             </div>
           </div>
 
@@ -314,7 +313,7 @@
 
     const CURRENT_POST = {
       title: "gdfg",
-      tags: ["dfgdf", "g", "dfg", "dfg", "dfg"]
+      tags: ["gdfg", "dfg", "dfgdf", "gdfgdfg", "df"]
     };
 
     async function loadPosts() {
@@ -593,29 +592,59 @@
         heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
       }
 
-      if (heartBtn) {
+	if (heartBtn) {
         heartBtn.addEventListener('click', (e) => {
-          const hasVoted = localStorage.getItem(localClickedKey) === 'true';
           
-          // Chỉ cho phép tăng số đếm vĩnh viễn lên cơ sở dữ liệu 1 LẦN DUY NHẤT cho mỗi người đọc
-          if (!hasVoted) {
-            dbRef.transaction((currentValue) => {
-              return (currentValue || 0) + 1;
-            });
-            localStorage.setItem(localClickedKey, 'true');
-            heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
-            heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
+          // Mở khóa giới hạn: Cứ mỗi lần click là tăng vĩnh viễn 1 tim lên Firebase
+          dbRef.transaction((currentValue) => {
+            return (currentValue || 0) + 1;
+          });
+
+          heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
+          heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
+
+          // KHU VỰC TẠO HIỆU ỨNG NHIỀU TIM & TẢN RỘNG HƠN
+          let effectContainer = heartBtn.querySelector('.heart-effect-zone');
+          if (!effectContainer) {
+            effectContainer = document.createElement('div');
+            effectContainer.className = 'heart-effect-zone';
+            effectContainer.style.position = 'absolute';
+            effectContainer.style.top = '0';
+            effectContainer.style.left = '0';
+            effectContainer.style.width = '100%';
+            effectContainer.style.height = '100%';
+            effectContainer.style.pointerEvents = 'none';
+            heartBtn.style.position = 'relative';
+            heartBtn.appendChild(effectContainer);
           }
 
-          // HIỆU ỨNG TRÁI TIM BAY (Vẫn cho phép bấm liên tục để tim bay nhảy vui mắt)
-          for (let i = 0; i < 3; i++) {
+          // 🎯 TĂNG LÊN 9 TRÁI TIM CHO MỖI CÚ CLICK
+          for (let i = 0; i < 9; i++) {
             const heart = document.createElement('i');
             heart.className = 'fa-solid fa-heart floating-heart';
-            const rect = heartBtn.getBoundingClientRect();
-            heart.style.left = `${e.clientX - rect.left + (Math.random() * 30 - 15)}px`;
-            heart.style.top = `${e.clientY - rect.top - 10}px`;
-            heart.style.fontSize = `${Math.floor(Math.random() * 8) + 12}px`;
-            heartBtn.parentElement.appendChild(heart);
+            heart.style.position = 'absolute';
+            heart.style.color = '#f43f5e'; 
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '100';
+            
+            // 🎯 Khoảng cách xuất hiện ban đầu lệch nhau một chút dưới chân nút
+            heart.style.left = `${15 + (Math.random() * 40 - 20)}px`;
+            heart.style.top = `-5px`;
+            
+            // Kích thước to nhỏ so le ngẫu nhiên từ 10px đến 18px nhìn rất sinh động
+            heart.style.fontSize = `${Math.floor(Math.random() * 8) + 10}px`;
+            
+            // 🎯 THUẬT TOÁN TẢN RỘNG: Tạo biến CSS để mỗi trái tim bay dạt sang trái/phải ngẫu nhiên lên tới 60px
+            const randomDriftX = `${Math.floor(Math.random() * 120) - 60}px`; // Tản sang trái hoặc phải từ -60px đến +60px
+            const randomRotate = `${Math.floor(Math.random() * 80) - 40}deg`; // Xoay nghiêng từ -40 độ đến +40 độ
+            
+            heart.style.setProperty('--drift-x', randomDriftX);
+            heart.style.setProperty('--rotate-deg', randomRotate);
+            
+            // Tốc độ bay của từng hạt tim nhanh chậm lệch nhau một chút (từ 0.8s đến 1.2s) để tạo chiều sâu
+            heart.style.animation = `heartFlyUp ${0.8 + Math.random() * 0.4}s ease-out forwards`;
+            
+            effectContainer.appendChild(heart);
             setTimeout(() => { heart.remove(); }, 1200);
           }
         });
