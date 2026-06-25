@@ -95,7 +95,7 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_mod" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
+              <a href="../index.html?cat=cat_paid" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
               <a href="../index.html?cat=cat_tool" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f0f9ff; color: #0284c7;" title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>26/06/2026</span>
             </div>
@@ -103,7 +103,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            22222222
+            33333333
           </h1>
 
 			<div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span></div>
@@ -111,8 +111,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" data-fancybox="gallery-post-22222222" data-caption="22222222" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" alt="22222222" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" data-fancybox="gallery-post-33333333" data-caption="33333333" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" alt="33333333" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -123,39 +123,45 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm">
-                    <div class="mb-4">dfgfdg</div>
+                    <div class="mb-4">dfhgẻtyt</div>
 
           </div>
 
 		<!-- Nút share -->
-		<div class="mt-8 pt-6 border-t border-slate-100">
+		<!-- ========================================================================= -->
+          <!-- 🎯 BỘ NÚT TƯƠNG TÁC TỰ CHẾ: THÍCH TRÁI TIM & CHIA SẺ FACEBOOK -->
+          <!-- ========================================================================= -->
+          <div class="mt-8 pt-6 border-t border-slate-100 relative">
             <div class="flex flex-wrap items-center justify-between gap-4">
               <div class="flex items-center gap-2">
                 <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Tương tác &amp; Chia sẻ:</span>
               </div>
               <div class="flex flex-wrap items-center gap-3">
                 
-                <div class="fb-like" data-href="" data-width="" data-layout="button" data-action="like" data-size="large" data-share="false">
-                </div>
+                <!-- Nút Trái Tim Tự Chế (Có hiệu ứng hover phóng to, click đổi màu đỏ) -->
+                <button id="custom-heart-btn" class="flex items-center gap-2 px-3 py-1.5 bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm border border-rose-100 group active:scale-95 h-[32px]">
+                  <i class="fa-solid fa-heart text-sm transition-transform group-hover:scale-110" id="heart-icon"></i> 
+                  <span id="heart-count">0</span>
+                </button>
 
-                <button id="share-facebook-btn" class="flex items-center gap-1.5 px-3 py-1.5 bg-[#1877F2] hover:bg-[#166FE5] text-white text-xs font-medium rounded-lg transition-colors cursor-pointer shadow-sm h-[28px]">
+                <!-- Nút Chia sẻ Facebook (Giữ nguyên) -->
+                <button id="share-facebook-btn" class="flex items-center gap-1.5 px-3 py-1.5 bg-[#1877F2] hover:bg-[#166FE5] text-white text-xs font-medium rounded-lg transition-colors cursor-pointer shadow-sm h-[32px]">
                   <i class="fab fa-facebook-f text-[11px]"></i> Chia sẻ
                 </button>
 
-                <button id="copy-link-btn" class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium rounded-lg transition-colors cursor-pointer shadow-sm h-[28px]">
+                <!-- Nút Sao chép liên kết (Giữ nguyên) -->
+                <button id="copy-link-btn" class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium rounded-lg transition-colors cursor-pointer shadow-sm h-[32px]">
                   <i class="fa-regular fa-copy text-[11px]"></i> <span id="copy-text">Sao chép Link</span>
                 </button>
               </div>
             </div>
-        </div>
+          </div>
 
           <div class="pt-6 border-t border-slate-100 mb-8">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=gfdgdf" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#gfdgdf</a>
-              <a href="../index.html?search=g" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#g</a>
-              <a href="../index.html?search=fdg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#fdg</a>
-              <a href="../index.html?search=dfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfg</a>
+                            <a href="../index.html?search=gdfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#gdfg</a>
+              <a href="../index.html?search=dfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dfg</a>
               <a href="../index.html?search=dfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfg</a>
               <a href="../index.html?search=dfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfg</a>
             </div>
@@ -282,8 +288,8 @@
     }
 
     const CURRENT_POST = {
-      title: "gfdg",
-      tags: ["gfdgdf", "g", "fdg", "dfg", "dfg", "dfg"]
+      title: "fgfdg",
+      tags: ["gdfg", "dfg", "dfg", "dfg"]
     };
 
     async function loadPosts() {
