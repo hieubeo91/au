@@ -6,6 +6,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hieubeo's Audition Studio</title>
+  
+ <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+  
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -99,7 +103,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            aaaaâ
+            1111111111111
           </h1>
 
 			<div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span></div>
@@ -107,8 +111,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/36/63/aa/3663aa85a1c5d8f375842b9d56b90579.jpg" data-fancybox="gallery-post-aaaaa" data-caption="aaaaâ" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/36/63/aa/3663aa85a1c5d8f375842b9d56b90579.jpg" alt="aaaaâ" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" data-fancybox="gallery-post-1111111111111" data-caption="1111111111111" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" alt="1111111111111" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -119,7 +123,7 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm">
-                    <div class="mb-4">fsdfdsf</div>
+                    <div class="mb-4">ggfjgh</div>
 
           </div>
 
@@ -148,14 +152,10 @@
           <div class="pt-6 border-t border-slate-100 mb-8">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=dfgdgg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dfgdgg</a>
-              <a href="../index.html?search=dg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dg</a>
+                            <a href="../index.html?search=dfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfg</a>
               <a href="../index.html?search=dfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfg</a>
-              <a href="../index.html?search=dfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfg</a>
-              <a href="../index.html?search=fd" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#fd</a>
-              <a href="../index.html?search=gfd" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#gfd</a>
-              <a href="../index.html?search=gfdgdfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#gfdgdfg</a>
-              <a href="../index.html?search=dfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfg</a>
+              <a href="../index.html?search=fdgggggg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#fdgggggg</a>
+              <a href="../index.html?search=ggg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#ggg</a>
             </div>
           </div>
 
@@ -280,8 +280,8 @@
     }
 
     const CURRENT_POST = {
-      title: "dsfds",
-      tags: ["dfgdgg", "dg", "dfg", "dfg", "fd", "gfd", "gfdgdfg", "dfg"]
+      title: "dfgfdg",
+      tags: ["dfg", "dfg", "fdgggggg", "ggg"]
     };
 
     async function loadPosts() {
@@ -507,45 +507,103 @@
       if (ogUrl) ogUrl.setAttribute('content', window.location.href);
     }
 	
-	// =========================================================================
-    // 🎯 LOGIC XỬ LÝ KHỐI NÚT TƯƠNG TÁC (LIKE FACEBOOK, SHARE, COPY LINK)
+// =========================================================================
+    // 🎯 KẾT NỐI FIREBASE - LƯU TRỮ LƯỢT TIM VĨNH VIỄN TOÀN MẠNG
     // =========================================================================
+    
+    // 1. Cấu hình Firebase (DÁN ĐOẠN CONFIG BẠN LẤY ĐƯỢC Ở BƯỚC 1 VÀO ĐÂY)
+    const firebaseConfig = {
+      apiKey: "AIzaSy...", // Thay bằng key của bạn
+      databaseURL: "https://YOUR-DB-NAME-default-rtdb.firebaseio.com", // Thay bằng link DB của bạn
+      projectId: "YOUR-PROJECT-ID" // Thay bằng ID của bạn
+    };
+
+    // Khởi tạo Firebase kết nối lên đám mây
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const database = firebase.database();
+
     document.addEventListener('DOMContentLoaded', () => {
       const currentUrl = window.location.href;
       const encodedUrl = encodeURIComponent(currentUrl);
+      
+      // Định danh bài viết bằng tên file sạch để làm thư mục lưu trữ trên Firebase
+      const pageId = (window.location.pathname.split('/').pop() || 'index').replace(/\./g, '_');
+      const dbRef = database.ref('heart_counts/' + pageId);
+      const localClickedKey = `heart_voted_${pageId}`;
 
-      // 1. Tự động gán URL của bài viết hiện tại vào nút Like Facebook
-      const fbLikeWidget = document.querySelector('.fb-like');
-      if (fbLikeWidget) {
-        fbLikeWidget.setAttribute('data-href', currentUrl);
+      const heartBtn = document.getElementById('custom-heart-btn');
+      const heartCountEl = document.getElementById('heart-count');
+
+      // --- ĐỒNG BỘ SỐ TIM TỪ TRÊN MẠNG XUỐNG GIAO DIỆN (Thời gian thực) ---
+      dbRef.on('value', (snapshot) => {
+        const votes = snapshot.val();
+        // Nếu bài viết mới tinh chưa có tim trên đám mây, tự nạp 1 con số ngẫu nhiên ban đầu cho đẹp
+        if (votes === null) {
+          const initialHearts = Math.floor(Math.random() * 25) + 15;
+          dbRef.set(initialHearts);
+          heartCountEl.textContent = initialHearts;
+        } else {
+          heartCountEl.textContent = votes;
+        }
+      });
+
+      // Kiểm tra xem máy khách hiện tại đã từng nhấn tim chưa để giữ màu nút đỏ
+      if (localStorage.getItem(localClickedKey) === 'true' && heartBtn) {
+        heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
+        heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
       }
 
-      // 2. Hành động chia sẻ lên Facebook
-      const fbBtn = document.getElementById('share-facebook-btn');
-      if (fbBtn) {
-        fbBtn.addEventListener('click', () => {
-          const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-          window.open(fbShareUrl, '_blank', 'width=600,height=400,resizable=yes,scrollbars=yes');
+      if (heartBtn) {
+        heartBtn.addEventListener('click', (e) => {
+          const hasVoted = localStorage.getItem(localClickedKey) === 'true';
+          
+          // Chỉ cho phép tăng số đếm vĩnh viễn lên cơ sở dữ liệu 1 LẦN DUY NHẤT cho mỗi người đọc
+          if (!hasVoted) {
+            dbRef.transaction((currentValue) => {
+              return (currentValue || 0) + 1;
+            });
+            localStorage.setItem(localClickedKey, 'true');
+            heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
+            heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
+          }
+
+          // HIỆU ỨNG TRÁI TIM BAY (Vẫn cho phép bấm liên tục để tim bay nhảy vui mắt)
+          for (let i = 0; i < 3; i++) {
+            const heart = document.createElement('i');
+            heart.className = 'fa-solid fa-heart floating-heart';
+            const rect = heartBtn.getBoundingClientRect();
+            heart.style.left = `${e.clientX - rect.left + (Math.random() * 30 - 15)}px`;
+            heart.style.top = `${e.clientY - rect.top - 10}px`;
+            heart.style.fontSize = `${Math.floor(Math.random() * 8) + 12}px`;
+            heartBtn.parentElement.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 1200);
+          }
         });
       }
 
-      // 3. Hành động Sao chép Link nhanh kèm hiệu ứng thông báo
+      // --- CÁC NÚT KHÁC (GIỮ NGUYÊN) ---
+      const fbBtn = document.getElementById('share-facebook-btn');
+      if (fbBtn) {
+        fbBtn.addEventListener('click', () => {
+          window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`, '_blank', 'width=600,height=400');
+        });
+      }
+
       const copyBtn = document.getElementById('copy-link-btn');
       const copyText = document.getElementById('copy-text');
       if (copyBtn && copyText) {
         copyBtn.addEventListener('click', () => {
           navigator.clipboard.writeText(currentUrl).then(() => {
             copyText.textContent = 'Đã sao chép!';
-            copyBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-            copyBtn.classList.add('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-
+            copyBtn.classList.remove('bg-slate-100', 'text-slate-700');
+            copyBtn.classList.add('bg-emerald-500', 'text-white');
             setTimeout(() => {
               copyText.textContent = 'Sao chép Link';
-              copyBtn.classList.remove('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-              copyBtn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+              copyBtn.classList.remove('bg-emerald-500', 'text-white');
+              copyBtn.classList.add('bg-slate-100', 'text-slate-700');
             }, 2000);
-          }).catch(err => {
-            console.error('Không thể sao chép liên kết: ', err);
           });
         });
       }
