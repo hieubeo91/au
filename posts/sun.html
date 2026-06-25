@@ -65,11 +65,35 @@
       opacity: 1;
       visibility: visible;
     }
+	
     @keyframes gradient {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
+	/* Hiệu ứng hoạt họa cho trái tim bay */
+		@keyframes heartFlyUp {
+		0% {
+			transform: translateY(0) scale(0.5) rotate(0deg);
+			opacity: 1;
+		}
+		50% {
+			transform: translateY(-60px) scale(1.2) rotate(15deg);
+			opacity: 0.9;
+		}
+		100% {
+			transform: translateY(-120px) scale(0.8) rotate(-15deg);
+			opacity: 0;
+		}
+	}
+		.floating-heart {
+		position: absolute;
+		color: #f43f5e; /* Màu đỏ hồng rose-500 */
+		pointer-events: none; /* Không cản trở việc click chuột */
+		animation: heartFlyUp 1.2s ease-out forwards;
+		z-index: 50;
+	}
   </style>
 
 
@@ -96,14 +120,14 @@
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
               <a href="../index.html?cat=cat_paid" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
-              <a href="../index.html?cat=cat_tool" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f0f9ff; color: #0284c7;" title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
+              <a href="../index.html?cat=cat_mod" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>26/06/2026</span>
             </div>
             
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            33333333
+            4444444444
           </h1>
 
 			<div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span></div>
@@ -111,8 +135,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" data-fancybox="gallery-post-33333333" data-caption="33333333" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" alt="33333333" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" data-fancybox="gallery-post-4444444444" data-caption="4444444444" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" alt="4444444444" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -123,7 +147,7 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm">
-                    <div class="mb-4">dfhgẻtyt</div>
+                    <div class="mb-4">gdfg</div>
 
           </div>
 
@@ -160,10 +184,11 @@
           <div class="pt-6 border-t border-slate-100 mb-8">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=gdfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#gdfg</a>
+                            <a href="../index.html?search=dfgdf" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfgdf</a>
+              <a href="../index.html?search=g" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#g</a>
               <a href="../index.html?search=dfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dfg</a>
-              <a href="../index.html?search=dfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfg</a>
-              <a href="../index.html?search=dfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfg</a>
+              <a href="../index.html?search=dfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfg</a>
+              <a href="../index.html?search=dfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfg</a>
             </div>
           </div>
 
@@ -288,8 +313,8 @@
     }
 
     const CURRENT_POST = {
-      title: "fgfdg",
-      tags: ["gdfg", "dfg", "dfg", "dfg"]
+      title: "gdfg",
+      tags: ["dfgdf", "g", "dfg", "dfg", "dfg"]
     };
 
     async function loadPosts() {
