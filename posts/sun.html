@@ -95,15 +95,15 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_paid" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
               <a href="../index.html?cat=cat_mod" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
+              <a href="../index.html?cat=cat_tool" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f0f9ff; color: #0284c7;" title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>26/06/2026</span>
             </div>
             
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            1111111111111
+            22222222
           </h1>
 
 			<div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span></div>
@@ -111,8 +111,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" data-fancybox="gallery-post-1111111111111" data-caption="1111111111111" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" alt="1111111111111" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" data-fancybox="gallery-post-22222222" data-caption="22222222" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/bd/26/a2/bd26a215324075ac702dbbc8416e44ec.jpg" alt="22222222" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -123,7 +123,7 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm">
-                    <div class="mb-4">ggfjgh</div>
+                    <div class="mb-4">dfgfdg</div>
 
           </div>
 
@@ -152,10 +152,12 @@
           <div class="pt-6 border-t border-slate-100 mb-8">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=dfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfg</a>
+                            <a href="../index.html?search=gfdgdf" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#gfdgdf</a>
+              <a href="../index.html?search=g" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#g</a>
+              <a href="../index.html?search=fdg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#fdg</a>
+              <a href="../index.html?search=dfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfg</a>
               <a href="../index.html?search=dfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfg</a>
-              <a href="../index.html?search=fdgggggg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#fdgggggg</a>
-              <a href="../index.html?search=ggg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#ggg</a>
+              <a href="../index.html?search=dfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfg</a>
             </div>
           </div>
 
@@ -280,8 +282,8 @@
     }
 
     const CURRENT_POST = {
-      title: "dfgfdg",
-      tags: ["dfg", "dfg", "fdgggggg", "ggg"]
+      title: "gfdg",
+      tags: ["gfdgdf", "g", "fdg", "dfg", "dfg", "dfg"]
     };
 
     async function loadPosts() {
@@ -512,11 +514,16 @@
     // =========================================================================
     
     // 1. Cấu hình Firebase (DÁN ĐOẠN CONFIG BẠN LẤY ĐƯỢC Ở BƯỚC 1 VÀO ĐÂY)
-    const firebaseConfig = {
-      apiKey: "AIzaSy...", // Thay bằng key của bạn
-      databaseURL: "https://YOUR-DB-NAME-default-rtdb.firebaseio.com", // Thay bằng link DB của bạn
-      projectId: "YOUR-PROJECT-ID" // Thay bằng ID của bạn
-    };
+	const firebaseConfig = {
+	  apiKey: "AIzaSyCsc84GUdMK5zethbCibY1oSXpeXA9YlSo",
+	  authDomain: "myblog-heart.firebaseapp.com",
+	  databaseURL: "https://myblog-heart-default-rtdb.firebaseio.com",
+	  projectId: "myblog-heart",
+	  storageBucket: "myblog-heart.firebasestorage.app",
+	  messagingSenderId: "424150915416",
+	  appId: "1:424150915416:web:1e6c9bbdf99a5da7642d2d",
+	  measurementId: "G-4570E7XHL4"
+	};
 
     // Khởi tạo Firebase kết nối lên đám mây
     if (!firebase.apps.length) {
