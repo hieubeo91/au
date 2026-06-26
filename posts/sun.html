@@ -1,6 +1,38 @@
 
 
 
+
+<meta charset="UTF-8">
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Tự động lấy tiêu đề bài viết gán vào Meta Share
+        const postTitle = document.querySelector('h1')?.innerText || document.title;
+        document.title = postTitle;
+        
+        // Tạo các thẻ Meta Open Graph động bằng code
+        const createMeta = (property, content) => {
+          let meta = document.createElement('meta');
+          meta.setAttribute('property', property);
+          meta.setAttribute('content', content);
+          document.head.appendChild(meta);
+        };
+
+        createMeta('og:type', 'article');
+        createMeta('og:title', postTitle);
+        createMeta('og:description', postTitle);
+        createMeta('og:url', window.location.href);
+
+        // Tìm bức ảnh đầu tiên trong nội dung bài viết
+        const firstImg = document.querySelector('#post-content img, article img, img');
+        const defaultImg = 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?raw=true';
+        const finalImg = firstImg ? firstImg.src : defaultImg;
+
+        createMeta('og:image', finalImg);
+        createMeta('og:image:secure_url', finalImg);
+      });
+    </script>
+
   <meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc">
   <script data-goatcounter="https://vetraitim.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
   <meta charset="UTF-8">
@@ -119,14 +151,15 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_mod" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
+              <a href="../index.html?cat=cat_paid" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
+              <a href="../index.html?cat=cat_misc" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fdf2f8; color: #db2777;" title="Xem thêm bài viết thuộc chủ đề Khác">Khác</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>26/06/2026</span>
             </div>
             
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            Trình soạn và biên dịch bài viết sang HTML
+            1111111111111111111
           </h1>
 
 			<div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span></div>
@@ -134,8 +167,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/webp87/736x/f9/6a/9e/f96a9ebf2a9c6ca4911432ebc8343f29.webp" data-fancybox="gallery-post-trinh-soan-va-bien-dich-bai-viet-sang-html" data-caption="Trình soạn và biên dịch bài viết sang HTML" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/webp87/736x/f9/6a/9e/f96a9ebf2a9c6ca4911432ebc8343f29.webp" alt="Trình soạn và biên dịch bài viết sang HTML" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/8b/bc/4b/8bbc4b7c0c1fa3818490aa467215bbe2.jpg" data-fancybox="gallery-post-1111111111111111111" data-caption="1111111111111111111" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/8b/bc/4b/8bbc4b7c0c1fa3818490aa467215bbe2.jpg" alt="1111111111111111111" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -146,7 +179,7 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm">
-                    <div class="mb-4">sdfsdf</div>
+                    <div class="mb-4">dfdsfds</div>
 
           </div>
 
@@ -184,11 +217,11 @@
           <div class="pt-6 border-t border-slate-100 mb-8">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=gdfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#gdfg</a>
-              <a href="../index.html?search=dfgdfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfgdfg</a>
-              <a href="../index.html?search=dfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dfg</a>
-              <a href="../index.html?search=dfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dfg</a>
-              <a href="../index.html?search=fd" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#fd</a>
+                            <a href="../index.html?search=dsgfd" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dsgfd</a>
+              <a href="../index.html?search=gdfgdfgdf" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#gdfgdfgdf</a>
+              <a href="../index.html?search=gdfgdfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#gdfgdfg</a>
+              <a href="../index.html?search=dfgdf" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfgdf</a>
+              <a href="../index.html?search=g" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#g</a>
             </div>
           </div>
 
@@ -313,8 +346,8 @@
     }
 
     const CURRENT_POST = {
-      title: "alo alo alo",
-      tags: ["gdfg", "dfgdfg", "dfg", "dfg", "fd"]
+      title: "gdfgdfg",
+      tags: ["dsgfd", "gdfgdfgdf", "gdfgdfg", "dfgdf", "g"]
     };
 
     async function loadPosts() {
