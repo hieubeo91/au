@@ -5,8 +5,7 @@
   <script data-goatcounter="https://vetraitim.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hieubeo's Audition S
-	  tudio</title>
+  <title>Hieubeo's Audition Studio</title>
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -114,7 +113,7 @@
         class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
         <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true"
           alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
-        <span>Hieubeo's Audition Studioo-o</span>
+        <span>Hieubeo's Audition Studio</span>
       </a>
       <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho game Audition
         (PC)</p>
@@ -684,191 +683,56 @@
     // 4. XỬ LÝ PHÁT TRIỂN HỆ THỐNG MỞ BÀI VIẾT CHI TIẾT (READER MODE)
     const blogListView = document.getElementById('blog-list-view');
     const blogDetailView = document.getElementById('blog-detail-view');
-	function openPostDetail(cardElement) {
+    function openPostDetail(cardElement) {
       lastScrollY = window.scrollY;
-      const title = cardElement.querySelector('.post-title') ? cardElement.querySelector('.post-title').textContent.trim() : cardElement.querySelector('h2').textContent.trim();
+      const title = cardElement.querySelector('.post-title').textContent.trim();
       let categoryBadgeHTML = '';
       cardElement.querySelectorAll('.category-badge').forEach(badge => {
         categoryBadgeHTML += badge.outerHTML;
       });
       const date = cardElement.querySelector('.post-date').textContent.trim();
       const author = cardElement.querySelector('.post-author').textContent.trim();
-      
-      // Lấy danh sách thẻ tags của bài viết hiện tại
-      let tagsHTML = '';
-      cardElement.querySelectorAll('.tag-badge').forEach(tag => {
-        tagsHTML += tag.outerHTML + ' ';
-      });
-      
-      // Lấy nội dung chi tiết bài viết và slide ảnh
-      const fullContentHTML = cardElement.querySelector('.hidden-full-content') ? cardElement.querySelector('.hidden-full-content').innerHTML : cardElement.querySelector('.post-excerpt').innerHTML;
-      const originalSwiper = cardElement.querySelector('.postSwiper');
-      const clonedSwiperHTML = originalSwiper ? originalSwiper.outerHTML : '';
-
-      // 🎯 ĐỔ GIAO DIỆN MỚI: BỐ CỤC 2 CỘT CHO BÀI VIẾT CON
+      const tagsHTML = cardElement.querySelector('.post-tags').outerHTML;
+      const fullContentHTML = cardElement.querySelector('.hidden-full-content').innerHTML;
+      const originalSwiper = cardElement.querySelector('.mySwiper');
+      const clonedSwiperHTML = originalSwiper.outerHTML;
       blogDetailView.innerHTML = `
         <button id="detail-back-btn-top" class="mb-6 flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
           <i class="fa-solid fa-arrow-left-long"></i> Trở lại trang chủ
         </button>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          
-          <div class="lg:col-span-2 space-y-6">
-            <div class="mb-4">
-              <div class="flex items-center gap-3 mb-3">
-                ${categoryBadgeHTML}
-                <span class="text-xs text-slate-400">
-                  <i class="fa-regular fa-calendar mr-1"></i> ${date}
-                </span>
-              </div>
-              <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight mb-4">${title}</h1>
-              <div class="flex items-center gap-2 text-sm text-slate-500 font-medium">
-                <i class="fa-solid fa-pen-nib text-indigo-400"></i> Viết bởi: <span class="text-slate-800">${author}</span>
-              </div>
-            </div>
-
-            <div class="mb-6">
-              ${clonedSwiperHTML}
-            </div>
-
-            <div class="prose max-w-none text-slate-700 leading-relaxed mb-8">
-              ${fullContentHTML}
-            </div>
-
-            <div class="pt-6 border-t border-slate-100 mb-6">
-              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Tags liên quan</span>
-              <div class="flex flex-wrap gap-1.5">${tagsHTML}</div>
-            </div>
-
-            <div class="pt-8 border-t border-slate-200" id="post-comments-box">
-              <h3 class="text-lg font-bold text-slate-800 mb-4"><i class="fa-regular fa-comments mr-2 text-indigo-500"></i>Bình luận bài viết</h3>
-              <div class="bg-slate-50 p-6 rounded-2xl text-center text-sm text-slate-400 border border-dashed">
-                Khu vực tương tác và bình luận hiển thị tại đây.
-              </div>
-            </div>
-
-            <div class="flex justify-center pt-4">
-              <button id="detail-back-btn-bottom" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
-                <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
-              </button>
-            </div>
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-3">
+            ${categoryBadgeHTML}
+            <span class="text-xs text-slate-400">
+              <i class="fa-regular fa-calendar mr-1"></i> ${date}
+            </span>
           </div>
-
-          <div class="lg:col-span-1 lg:sticky lg:top-24 space-y-6">
-            
-            <div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden">
-              <div class="flex border-b border-slate-100 bg-slate-50/50">
-                <button id="btn-tab-related" class="flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors">
-                  <i class="fa-solid fa-link mr-1.5"></i>Liên quan
-                </button>
-                <button id="btn-tab-random" class="flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors">
-                  <i class="fa-solid fa-shuffle mr-1.5"></i>Ngẫu nhiên
-                </button>
-              </div>
-              
-              <div id="detail-sidebar-list" class="p-4 space-y-4 max-h-[450px] overflow-y-auto">
-                </div>
-            </div>
-
+          <h1 class="text-1xl md:text-2xl font-extrabold text-slate-900 leading-tight mb-4">${title}</h1>
+          <div class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+            <i class="fa-solid fa-pen-nib text-indigo-400"></i> Viết bởi: <span class="text-slate-800">${author}</span>
           </div>
         </div>
+        <div class="mb-8">
+          ${clonedSwiperHTML}
+        </div>
+        <div class="prose max-w-none text-slate-700 leading-relaxed mb-10">
+          ${fullContentHTML}
+        </div>
+        <div class="pt-6 border-t border-slate-100 mb-8">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Tags liên quan</span>
+          ${tagsHTML}
+        </div>
+        <div class="flex justify-center">
+          <button id="detail-back-btn-bottom" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
+            <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
+          </button>
+        </div>
       `;
-
       blogListView.classList.add('hidden');
       blogDetailView.classList.remove('hidden');
       initAllSwipers();
       Fancybox.bind("[data-fancybox^='gallery-']");
       window.scrollTo({ top: 0, behavior: 'smooth' });
-
-      // ---- LOGIC XỬ LÝ ĐỔ DỮ LIỆU VÀO SIDEBAR PHẢI ----
-      const sidebarList = document.getElementById('detail-sidebar-list');
-      const btnTabRelated = document.getElementById('btn-tab-related');
-      const btnTabRandom = document.getElementById('btn-random'); // Nhận diện nút ngẫu nhiên
-
-      // Thu thập toàn bộ danh sách bài viết hiện có ngoài trang chủ để làm dữ liệu nền
-      const allCards = Array.from(document.querySelectorAll('#posts-container .post-card'));
-      
-      // Lấy danh sách tag của bài viết hiện tại để so sánh bài liên quan
-      const currentTags = Array.from(cardElement.querySelectorAll('.tag-badge')).map(t => t.textContent.trim().toLowerCase());
-      const currentId = cardElement.getAttribute('data-id');
-
-      // Hàm sinh HTML cho từng mục bài viết nhỏ gọn trên sidebar
-      function renderSidebarContent(type) {
-        let filteredCards = [];
-
-        if (type === 'related') {
-          // Lọc bài liên quan: Có chung ít nhất 1 tag và không trùng với bài đang đọc
-          filteredCards = allCards.filter(card => {
-            if (card.getAttribute('data-id') === currentId) return false;
-            const cardTags = Array.from(card.querySelectorAll('.tag-badge')).map(t => t.textContent.trim().toLowerCase());
-            return cardTags.some(tag => currentTags.includes(tag));
-          });
-          
-          // Nếu không có bài nào trùng tag, lấy tạm các bài khác để không bị trống sidebar
-          if (filteredCards.length === 0) {
-            filteredCards = allCards.filter(card => card.getAttribute('data-id') !== currentId);
-          }
-        } else {
-          // Lấy ngẫu nhiên các bài viết (trừ bài đang mở)
-          filteredCards = allCards.filter(card => card.getAttribute('data-id') !== currentId)
-                                  .sort(() => 0.5 - Math.random());
-        }
-
-        // Giới hạn hiển thị tối đa 4 bài viết ở sidebar để tránh quá dài
-        const displayCards = filteredCards.slice(0, 4);
-
-        if (displayCards.length === 0) {
-          sidebarList.innerHTML = `<p class="text-xs text-slate-400 text-center py-4">Không có bài viết nào khác.</p>`;
-          return;
-        }
-
-        sidebarList.innerHTML = displayCards.map(card => {
-          const cTitle = card.querySelector('h2').textContent.trim();
-          const cUrl = card.getAttribute('data-url');
-          const cImage = card.getAttribute('data-image') || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png';
-          const cDate = card.querySelector('.post-date').textContent.trim();
-          
-          return `
-            <div class="flex gap-3 items-start group p-1.5 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer sidebar-item-click" data-target-id="${card.getAttribute('data-id')}">
-              <img src="${cImage}" class="w-16 h-16 object-cover rounded-lg flex-shrink-0 border border-slate-100">
-              <div class="space-y-1">
-                <h4 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">${cTitle}</h4>
-                <span class="text-[10px] text-slate-400 block"><i class="fa-regular fa-calendar mr-1"></i>${cDate}</span>
-              </div>
-            </div>
-          `;
-        }).join('');
-
-        // Gắn sự kiện click để chuyển bài nhanh khi đang ở chế độ xem chi tiết
-        sidebarList.querySelectorAll('.sidebar-item-click').forEach(item => {
-          item.addEventListener('click', () => {
-            const targetId = item.getAttribute('data-target-id');
-            const targetCard = document.querySelector(`#posts-container .post-card[data-id="${targetId}"]`);
-            if (targetCard) {
-              openPostDetail(targetCard);
-            }
-          });
-        });
-      }
-
-      // Khởi chạy mặc định hiển thị tab liên quan trước
-      renderSidebarContent('related');
-
-      // Xử lý sự kiện bấm đổi qua đổi lại giữa 2 tab
-      document.getElementById('btn-tab-related').addEventListener('click', function() {
-        this.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors";
-        document.getElementById('btn-tab-random').className = "flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors";
-        renderSidebarContent('related');
-      });
-
-      document.getElementById('btn-tab-random').addEventListener('click', function() {
-        this.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors";
-        document.getElementById('btn-tab-related').className = "flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors";
-        renderSidebarContent('random');
-      });
-
-      // ---- KẾT THÚC XỬ LÝ SIDEBAR ----
-
       const backToHome = () => {
         blogDetailView.classList.add('hidden');
         blogListView.classList.remove('hidden');
@@ -877,7 +741,6 @@
       };
       document.getElementById('detail-back-btn-top').addEventListener('click', backToHome);
       document.getElementById('detail-back-btn-bottom').addEventListener('click', backToHome);
-      
       blogDetailView.querySelectorAll('.tag-badge').forEach(badge => {
         badge.addEventListener('click', () => {
           const tagName = badge.textContent.trim();
