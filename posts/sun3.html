@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="ádf">
-	<meta property="og:description" content="dsfdsf">
+	<meta property="og:title" content="dfgfdg">
+	<meta property="og:description" content="dfgfdg">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/c0/32/fe/c032fe6e262128b23bcd7ffc821d73c4.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/c0/32/fe/c032fe6e262128b23bcd7ffc821d73c4.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/3e/ad/c8/3eadc820d94bdeed98ab515f4135ea5c.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/3e/ad/c8/3eadc820d94bdeed98ab515f4135ea5c.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +26,53 @@
  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+ 
+ <script>
+ // 🎯 Sử dụng chuỗi mã hóa SHA-256 của "hieubeo91@admin"
+  const ADMIN_HASH_CODE = "8fa45dc33a39150005708b792ff48ec42551ec46820ef0ff1806385cfcf47225";
+
+  // Hàm băm SHA-256 thuần chạy ĐỒNG BỘ (Không lo lỗi môi trường mạng hay bất đồng bộ)
+  function hashSHA256Sync(s) {
+    var ch = function(x,y,z) { return (x & y) ^ (~x & z); }, mj = function(x,y,z) { return (x & y) ^ (x & z) ^ (y & z); };
+    var r = function(X, n) { return (X >>> n) | (X << (32 - n)); };
+    var S0 = function(x) { return r(x, 2) ^ r(x, 13) ^ r(x, 22); }, S1 = function(x) { return r(x, 6) ^ r(x, 11) ^ r(x, 25); };
+    var s0 = function(x) { return r(x, 7) ^ r(x, 18) ^ (x >>> 3); }, s1 = function(x) { return r(x, 17) ^ r(x, 19) ^ (x >>> 10); };
+    var K = [0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+    var H = [0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+    var words = []; for (var i = 0; i < s.length * 8; i += 8) words[i >> 5] |= (s.charCodeAt(i / 8) & 255) << (24 - (i % 32));
+    var end = s.length * 8; words[end >> 5] |= 128 << (24 - (end % 32)); words[(((end + 64) >> 9) << 4) + 15] = end;
+    for (var i = 0; i < words.length; i += 16) {
+      var w = new Array(64); for (var t = 0; t < 16; t++) w[t] = words[i + t];
+      for (var t = 16; t < 64; t++) w[t] = (s1(w[t - 2]) + w[t - 7] + s0(w[t - 15]) + w[t - 16]) | 0;
+      var a = H[0], b = H[1], c = H[2], d = H[3], e = H[4], f = H[5], g = H[6], h = H[7];
+      for (var t = 0; t < 64; t++) {
+        var T1 = h + S1(e) + ch(e, f, g) + K[t] + w[t]; var T2 = S0(a) + mj(a, b, c);
+        h = g; g = f; f = e; e = (d + T1) | 0; d = c; c = b; b = a; a = (T1 + T2) | 0;
+      }
+      H[0] = (H[0] + a) | 0; H[1] = (H[1] + b) | 0; H[2] = (H[2] + c) | 0; H[3] = (H[3] + d) | 0; H[4] = (H[4] + e) | 0; H[5] = (H[5] + f) | 0; H[6] = (H[6] + g) | 0; H[7] = (H[7] + h) | 0;
+    }
+    var res = ""; for (var i = 0; i < 8; i++) { var hex = (H[i] >>> 0).toString(16); while (hex.length < 8) hex = "0" + hex; res += hex; }
+    return res;
+  }
+
+  // Lắng nghe sự kiện gõ tên khi ô input đã xuất hiện trên trang bài viết thực tế
+  if (commentNameInput) {
+    commentNameInput.addEventListener('input', (e) => {
+      const inputValue = e.target.value.trim().toLowerCase();
+      if (!inputValue || isAdminActive) return;
+
+      // Kiểm tra chuỗi băm
+      if (hashSHA256Sync(inputValue) === ADMIN_HASH_CODE) {
+        isAdminActive = true;
+        e.target.value = "Hieubeo (Admin) 👑"; 
+        e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
+        if (adminStatusText) adminStatusText.classList.remove('hidden');
+        e.target.blur(); // Tự động bỏ chọn ô để lưu trạng thái
+      }
+    });
+  }
+ </script>
+ 
   
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -143,13 +190,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_free" class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity">Miễn phí</a>
+              <a href="../index.html?cat=cat_paid" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>28/06/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            ádf
+            dfgfdg
           </h1>
 
           <div class="mb-5">
@@ -161,8 +208,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/c0/32/fe/c032fe6e262128b23bcd7ffc821d73c4.jpg" data-fancybox="gallery-post-adf" data-caption="ádf" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/c0/32/fe/c032fe6e262128b23bcd7ffc821d73c4.jpg" alt="ádf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/3e/ad/c8/3eadc820d94bdeed98ab515f4135ea5c.jpg" data-fancybox="gallery-post-dfgfdg" data-caption="dfgfdg" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/3e/ad/c8/3eadc820d94bdeed98ab515f4135ea5c.jpg" alt="dfgfdg" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -174,7 +221,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">sdf</div>
+                    <div class="mb-4">dgdfg</div>
 
           </div>
 
@@ -204,7 +251,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=sfdsf" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#sfdsf</a>
+                            <a href="../index.html?search=dfgdfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dfgdfg</a>
             </div>
           </div>
         </article>
@@ -320,8 +367,8 @@
     }
 
     const CURRENT_POST = {
-      title: "sdfsdf",
-      tags: ["sfdsf"]
+      title: "dfgdfg",
+      tags: ["dfgdfg"]
     };
 
     async function loadPosts() {
