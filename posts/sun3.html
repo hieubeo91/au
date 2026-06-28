@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="dfgdg">
-	<meta property="og:description" content="dsgdfg">
+	<meta property="og:title" content="SDFDSFSDF">
+	<meta property="og:description" content="fdsfsd">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/94/b0/32/94b032eb5ebe8b6b69fa64db3fb5474b.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/94/b0/32/94b032eb5ebe8b6b69fa64db3fb5474b.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/7f/de/a3/7fdea3f79e03fa245c78502a48741f29.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/7f/de/a3/7fdea3f79e03fa245c78502a48741f29.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,7 +148,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            dfgdg
+            SDFDSFSDF
           </h1>
 
           <div class="mb-5">
@@ -160,8 +160,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/94/b0/32/94b032eb5ebe8b6b69fa64db3fb5474b.jpg" data-fancybox="gallery-post-dfgdg" data-caption="dfgdg" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/94/b0/32/94b032eb5ebe8b6b69fa64db3fb5474b.jpg" alt="dfgdg" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/7f/de/a3/7fdea3f79e03fa245c78502a48741f29.jpg" data-fancybox="gallery-post-sdfdsfsdf" data-caption="SDFDSFSDF" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/7f/de/a3/7fdea3f79e03fa245c78502a48741f29.jpg" alt="SDFDSFSDF" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -173,7 +173,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">gdfg</div>
+                    <div class="mb-4">dsfdsf</div>
 
           </div>
 
@@ -203,7 +203,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=dfgdfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dfgdfg</a>
+                            <a href="../index.html?search=DFDF" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#DFDF</a>
             </div>
           </div>
         </article>
@@ -323,8 +323,8 @@
     }
 
     const CURRENT_POST = {
-      title: "dfgdfg",
-      tags: ["dfgdfg"]
+      title: "SDFDSF",
+      tags: ["DFDF"]
     };
 
     async function loadPosts() {
@@ -381,12 +381,6 @@
       });
     }
 
-	// =========================================================================
-    // 🎯 SỬA LỖI HIỂN THỊ BÀI VIẾT LIÊN QUAN & BÀI VIẾT NGẪU NHIÊN CHUẨN HTML
-    // =========================================================================
-// =========================================================================
-    // 🎯 SỬA LỖI TỰ ĐỘNG DÒ SIDEBAR & HIỂN THỊ BÀI VIẾT KHÔNG BỊ TRỐNG TRƠN
-    // =========================================================================
     function getRelatedPosts(posts) {
       if (!posts || !Array.isArray(posts)) return [];
       return [...posts]
@@ -429,64 +423,62 @@
     }
 
 // Hàm dựng giao diện với bộ Dò Tìm Vùng Chứa thông minh (Tự động sửa lỗi thiếu excerpt)
-    function renderPosts(postsList) {
-      let container = document.querySelector('#sidebar-posts') || 
-                      document.querySelector('.space-y-4.mt-4') || 
-                      document.querySelector('.space-y-4');
-                      
-      if (!container) {
-        const btn = document.getElementById("related-btn");
-        if (btn && btn.parentElement && btn.parentElement.nextElementSibling) {
-          container = btn.parentElement.nextElementSibling;
-        }
-      }
+// Hàm dựng giao diện chuẩn xác trỏ thẳng vào ID của Sidebar
+	function renderPosts(postsList) {
+	  // Sửa lại: Ưu tiên tìm đúng ID "detail-sidebar-list" ở cột bên phải trước
+	  let container = document.getElementById("detail-sidebar-list") || 
+					  document.querySelector('#sidebar-posts') || 
+					  document.querySelector('.space-y-4.mt-4');
+					  
+	  if (!container) {
+		const btn = document.getElementById("related-btn");
+		if (btn && btn.parentElement && btn.parentElement.nextElementSibling) {
+		  container = btn.parentElement.nextElementSibling;
+		}
+	  }
 
-      if (!container) {
-        console.error("Không tìm thấy phân vùng Sidebar hiển thị bài viết trên trang!");
-        return;
-      }
+	  if (!container) {
+		console.error("Không tìm thấy phân vùng Sidebar hiển thị bài viết trên trang!");
+		return;
+	  }
 
-      if (!postsList || postsList.length === 0) {
-        container.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-4">Không có bài viết nào phù hợp.</p>`;
-        return;
-      }
+	  if (!postsList || postsList.length === 0) {
+		container.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-4">Không có bài viết nào phù hợp.</p>`;
+		return;
+	  }
 
-      let listHTML = '';
-      postsList.forEach(post => {
-        if (!post) return;
-        let correctUrl = post.url || '';
-        if (correctUrl && !correctUrl.startsWith('http') && !correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
-          correctUrl = `../${correctUrl}`;
-        }
-        
-        // 🎯 THUẬT TOÁN TỰ TẠO MÔ TẢ CHO BÀI VIẾT CŨ NẾU BỊ THIẾU EXCERPT
-        let excerptText = post.excerpt ? post.excerpt.trim() : '';
-        if (!excerptText) {
-          // Nếu bài viết cũ không có mô tả, tự động bốc danh sách tags làm mô tả ngắn mẫu
-          const cleanTags = Array.isArray(post.tags) ? post.tags.join(', ') : (post.tags || '');
-          if (cleanTags) {
-            excerptText = `Chủ đề bài viết liên quan: ${cleanTags}`;
-          } else {
-            excerptText = `Xem chi tiết nội dung bài viết ${post.title}`;
-          }
-        }
-        
-        listHTML += `
-          <a href="${correctUrl}" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-colors">
-            <img src="${post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'}" class="w-14 h-14 object-cover rounded-lg border border-slate-100 flex-shrink-0" onerror="this.src='https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'">
-            <div class="min-w-0 flex-grow" style="margin-top: -2px;">
-              <h5 class="text-sm font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug mb-0.5">${post.title}</h5>
-              
-              <p class="text-xs text-slate-400 line-clamp-1 mb-1 leading-normal">${excerptText}</p>
-              
-              <span class="text-[10px] text-slate-400 block">${post.date || ''}</span>
-            </div>
-          </a>
-        `;
-      });
-      
-      container.innerHTML = listHTML;
-    }
+	  let listHTML = '';
+	  postsList.forEach(post => {
+		if (!post) return;
+		let correctUrl = post.url || '';
+		if (correctUrl && !correctUrl.startsWith('http') && !correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
+		  correctUrl = `../${correctUrl}`;
+		}
+		
+		let excerptText = post.excerpt ? post.excerpt.trim() : '';
+		if (!excerptText) {
+		  const cleanTags = Array.isArray(post.tags) ? post.tags.join(', ') : (post.tags || '');
+		  if (cleanTags) {
+			excerptText = `Chủ đề bài viết liên quan: ${cleanTags}`;
+		  } else {
+			excerptText = `Xem chi tiết nội dung bài viết ${post.title}`;
+		  }
+		}
+		
+		listHTML += `
+		  <a href="${correctUrl}" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-colors">
+			<img src="${post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'}" class="w-14 h-14 object-cover rounded-lg border border-slate-100 flex-shrink-0" onerror="this.src='https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'">
+			<div class="min-w-0 flex-grow" style="margin-top: -2px;">
+			  <h5 class="text-sm font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug mb-0.5">${post.title}</h5>
+			  <p class="text-xs text-slate-400 line-clamp-1 mb-1 leading-normal">${excerptText}</p>
+			  <span class="text-[10px] text-slate-400 block">${post.date || ''}</span>
+			</div>
+		  </a>
+		`;
+	  });
+	  
+	  container.innerHTML = listHTML;
+	}
 
     // LUỒNG KHỞI CHẠY & GẮN SỰ KIỆN CLICK TAB AN TOÀN
     let ALL_POSTS = [];
@@ -522,19 +514,6 @@
         setActiveButton(mBtn);
       });
     }
-
-	
-    //function setActiveButton(activeBtn) {
-    //  const relatedBtn = document.getElementById("related-btn");
-    //  const randomBtn = document.getElementById("random-btn");
-    //  if(!relatedBtn || !randomBtn || !activeBtn) return;
-    // [relatedBtn, randomBtn].forEach(btn => {
-    //    btn.classList.remove("bg-indigo-600", "text-white");
-    //    btn.classList.add("bg-slate-100", "text-slate-600");
-    //  });
-    //  activeBtn.classList.remove("bg-slate-100", "text-slate-600");
-    //  activeBtn.classList.add("bg-indigo-600", "text-white");
-    //}
 
 	
 	function setActiveButton(activeBtn) {
