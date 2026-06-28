@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="sdfdsf">
-	<meta property="og:description" content="sfsdf">
+	<meta property="og:title" content="sfsdf">
+	<meta property="og:description" content="gdfg">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/42/47/c8/4247c896cb71b3022db26681a4023cde.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/42/47/c8/4247c896cb71b3022db26681a4023cde.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/webp87/1200x/e3/c5/91/e3c591e088db992fcf373272a460e60e.webp">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/webp87/1200x/e3/c5/91/e3c591e088db992fcf373272a460e60e.webp">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -135,14 +135,14 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_free" class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity">Miễn phí</a>
+              <a href="../index.html?cat=cat_paid" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>28/06/2026</span>
             </div>
             
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            sdfdsf
+            sfsdf
           </h1>
 
 			<div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span></div>
@@ -150,8 +150,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/28/31/37/283137cc9973e6a78caf6a2a6eb0c923.jpg" data-fancybox="gallery-post-sdfdsf" data-caption="sdfdsf" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/28/31/37/283137cc9973e6a78caf6a2a6eb0c923.jpg" alt="sdfdsf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/d7/bd/31/d7bd31e7bb54d2782b91741ec72e42d2.jpg" data-fancybox="gallery-post-sfsdf" data-caption="sfsdf" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/d7/bd/31/d7bd31e7bb54d2782b91741ec72e42d2.jpg" alt="sfsdf" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -162,7 +162,7 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm">
-                    <div class="mb-4">sfsdf</div>
+                    <div class="mb-4">sdsfds</div>
 
           </div>
 
@@ -200,7 +200,7 @@
           <div class="pt-6 border-t border-slate-100 mb-8">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=sfsdf" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#sfsdf</a>
+                            <a href="../index.html?search=sfdf" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#sfdf</a>
             </div>
           </div>
 
@@ -294,8 +294,8 @@
     }
 
     const CURRENT_POST = {
-      title: "sdfsdf",
-      tags: ["sfsdf"]
+      title: "dfdsg",
+      tags: ["sfdf"]
     };
 
     async function loadPosts() {
@@ -700,89 +700,126 @@
           });
         });
       }
-	  
-	  
-	  
+    });
+	
 	  // =========================================================================
-      // 🎯 LOGIC TỰ ĐỘNG LỌC VÀ ĐỔ DỮ LIỆU VÀO SIDEBAR BÀI VIẾT CON
+      // 🎯 SỬA LỖI HIỂN THỊ BÀI VIẾT LIÊN QUAN & BÀI VIẾT NGẪU NHIÊN CHUẨN HTML
       // =========================================================================
-      const sidebarList = document.getElementById('detail-sidebar-list');
-      // Lấy toàn bộ danh sách bài viết hiện đang có ngoài trang chủ để làm cơ sở dữ liệu nền
-      const allCards = Array.from(document.querySelectorAll('#posts-container .post-card'));
       
-      // Tìm ID hoặc tiêu đề bài viết hiện tại để loại trừ không hiển thị lại chính nó
-      const currentTitle = document.querySelector('h1').textContent.trim();
-      // Thu thập các tag của bài hiện tại
-      const currentTags = Array.from(document.querySelectorAll('.tag-badge')).map(t => t.textContent.trim().toLowerCase());
+      // Khai báo biến toàn cục hứng dữ liệu để chuyển đổi giữa các tab không bị mất dữ liệu
+      let sidebarAllPosts = [];
 
       function renderSidebarContent(type) {
-        let filteredCards = [];
+        const sidebarList = document.getElementById('detail-sidebar-list');
+        if (!sidebarList) return;
 
-        if (type === 'related') {
-          // Lọc các bài viết trùng ít nhất 1 tag (trừ bài đang đọc)
-          filteredCards = allCards.filter(card => {
-            const cTitle = card.querySelector('h2').textContent.trim();
-            if (cTitle === currentTitle) return false;
-            const cardTags = Array.from(card.querySelectorAll('.tag-badge')).map(t => t.textContent.trim().toLowerCase());
-            return cardTags.some(tag => currentTags.includes(tag));
-          });
-          
-          // Nếu không có bài nào trùng tag, lấy tạm các bài khác để không trống sidebar
-          if (filteredCards.length === 0) {
-            filteredCards = allCards.filter(card => card.querySelector('h2').textContent.trim() !== currentTitle);
-          }
-        } else {
-          // Trộn ngẫu nhiên danh sách các bài viết còn lại ngoài trang chủ
-          filteredCards = allCards.filter(card => card.querySelector('h2').textContent.trim() !== currentTitle)
-                                  .sort(() => 0.5 - Math.random());
-        }
-
-        // Giới hạn hiển thị 4 bài trên sidebar cho gọn gàng
-        const displayCards = filteredCards.slice(0, 4);
-
-        if (displayCards.length === 0) {
-          sidebarList.innerHTML = \`<p class="text-xs text-slate-400 text-center py-4">Không có bài viết nào khác.</p>\`;
+        if (!sidebarAllPosts || sidebarAllPosts.length === 0) {
+          sidebarList.innerHTML = '<p class="text-xs text-slate-400 text-center py-4">Đang tải dữ liệu blog...</p>';
           return;
         }
 
-        sidebarList.innerHTML = displayCards.map(card => {
-          const cTitle = card.querySelector('h2').textContent.trim();
-          const cImage = card.getAttribute('data-image') || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png';
-          const cDate = card.querySelector('.post-date').textContent.trim();
-          const cUrl = card.getAttribute('data-url') || '#';
+        // Lọc bỏ bài viết hiện tại ra khỏi danh sách hiển thị ở Sidebar
+        const currentTitle = document.querySelector('h1') ? document.querySelector('h1').textContent.trim() : '';
+        let filtered = sidebarAllPosts.filter(p => p.title !== currentTitle);
+
+        if (type === 'related') {
+          // Lấy danh sách các thẻ tags hiện tại của bài viết con để so sánh
+          const currentTags = Array.from(document.querySelectorAll('.tag-badge')).map(t => t.textContent.trim().toLowerCase());
           
-          return \`
-            <a href="\${cUrl}" class="flex gap-3 items-start group p-1.5 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer">
-              <img src="\${cImage}" class="w-14 h-14 object-cover rounded-lg flex-shrink-0 border border-slate-100 shadow-sm">
-              <div class="space-y-0.5">
-                <h4 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">\${cTitle}</h4>
-                <span class="text-[10px] text-slate-400 block"><i class="fa-regular fa-calendar mr-1"></i>\${cDate}</span>
-              </div>
-            </a>
-          \`;
-        }).join('');
+          // Lọc các bài viết có chung ít nhất 1 thẻ tag
+          let related = filtered.filter(p => {
+            const pTags = (p.tags || '').split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+            return pTags.some(tag => currentTags.includes(tag));
+          });
+
+          // Nếu không có bài nào trùng tag, mượn tạm danh sách bài viết thường để tránh sidebar trống trơn
+          filtered = related.length > 0 ? related : filtered;
+        } else if (type === 'random') {
+          // Xáo trộn ngẫu nhiên danh sách bài viết bằng thuật toán Sort ngẫu nhiên
+          filtered.sort(() => 0.5 - Math.random());
+        }
+
+        // Giới hạn hiển thị tối đa 4 bài viết ở Sidebar cho cân đối giao diện
+        const displayPosts = filtered.slice(0, 4);
+
+        if (displayPosts.length === 0) {
+          sidebarList.innerHTML = '<p class="text-xs text-slate-400 text-center py-4">Không có bài viết nào khác.</p>';
+          return;
+        }
+
+        // Tạo chuỗi HTML an toàn tuyệt đối không sử dụng dấu đóng mở của template chính nhằm tránh đơ nút
+        let listHTML = '';
+        displayPosts.forEach(post => {
+          let correctUrl = post.url || '#';
+          if (!correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
+            correctUrl = '../' + correctUrl;
+          }
+          const imgUrl = post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png';
+          const postDate = post.date || '20/06/2026';
+
+          listHTML += '<a href="' + correctUrl + '" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-all duration-200">';
+          listHTML += '  <img src="' + imgUrl + '" class="w-14 h-14 rounded-lg object-cover flex-shrink-0 border border-slate-100 shadow-sm group-hover:scale-105 transition-transform">';
+          listHTML += '  <div class="space-y-1 flex-grow">';
+          listHTML += '    <h4 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">' + post.title + '</h4>';
+          listHTML += '    <span class="text-[10px] text-slate-400 block"><i class="fa-regular fa-calendar mr-1"></i>' + postDate + '</span>';
+          listHTML += '  </div>';
+          listHTML += '</a>';
+        });
+
+        sidebarList.innerHTML = listHTML;
       }
 
-      // Khởi chạy mặc định đổ dữ liệu vào tab Liên quan
-      renderSidebarContent('related');
+      // Đợi cấu trúc DOM tải xong sẽ nạp toàn bộ dữ liệu từ posts-container và thiết lập sự kiện click cho tab
+      document.addEventListener('DOMContentLoaded', () => {
+        const postsContainer = document.getElementById('posts-container');
+        if (postsContainer) {
+          const cards = postsContainer.querySelectorAll('.post-card');
+          cards.forEach(card => {
+            const titleEl = card.querySelector('h2');
+            if (titleEl) {
+              const pTitle = titleEl.textContent.trim();
+              const pImg = card.getAttribute('data-image') || '';
+              const pUrl = card.getAttribute('data-url') || '';
+              const dateEl = card.querySelector('.post-date');
+              const pDate = dateEl ? dateEl.textContent.trim() : '';
+              
+              // Thu thập danh sách tags từ các badge trong thẻ
+              const tagEls = card.querySelectorAll('.tag-badge');
+              const pTags = Array.from(tagEls).map(t => t.textContent.trim()).join(',');
 
-      // Sự kiện lắng nghe hành vi click đổi Tab trên sidebar
-      const btnTabRelated = document.getElementById('btn-tab-related');
-      const btnTabRandom = document.getElementById('btn-tab-random');
+              sidebarAllPosts.push({
+                title: pTitle,
+                image: pImg,
+                url: pUrl,
+                date: pDate,
+                tags: pTags
+              });
+            }
+          });
+        }
 
-      btnTabRelated.addEventListener('click', function() {
-        this.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
-        btnTabRandom.className = "flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors cursor-pointer";
+        // Chạy khởi tạo danh sách tab 'Liên quan' mặc định khi người dùng vào bài viết con
         renderSidebarContent('related');
-      });
 
-      btnTabRandom.addEventListener('click', function() {
-        this.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
-        btnTabRelated.className = "flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors cursor-pointer";
-        renderSidebarContent('random');
-      });	  
-	  
-	  
-    });
+        // Gắn sự kiện click điều khiển chuyển đổi class CSS và Render nội dung Tab động mượt mà
+        const btnTabRelated = document.getElementById('btn-tab-related');
+        const btnTabRandom = document.getElementById('btn-tab-random');
+
+        if (btnTabRelated && btnTabRandom) {
+          btnTabRelated.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
+            btnTabRandom.className = "flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors cursor-pointer";
+            renderSidebarContent('related');
+          });
+
+          btnTabRandom.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
+            btnTabRelated.className = "flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors cursor-pointer";
+            renderSidebarContent('random');
+          });
+        }
+      });
   </script>
 
