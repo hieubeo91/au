@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="SDFDSFSDF">
-	<meta property="og:description" content="fdsfsd">
+	<meta property="og:title" content="dfsdf">
+	<meta property="og:description" content="sdfdsf">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/7f/de/a3/7fdea3f79e03fa245c78502a48741f29.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/7f/de/a3/7fdea3f79e03fa245c78502a48741f29.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/3d/cf/96/3dcf96f62c3b875af864b1151f0c36ea.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/3d/cf/96/3dcf96f62c3b875af864b1151f0c36ea.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,7 +148,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            SDFDSFSDF
+            dfsdf
           </h1>
 
           <div class="mb-5">
@@ -160,8 +160,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/7f/de/a3/7fdea3f79e03fa245c78502a48741f29.jpg" data-fancybox="gallery-post-sdfdsfsdf" data-caption="SDFDSFSDF" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/7f/de/a3/7fdea3f79e03fa245c78502a48741f29.jpg" alt="SDFDSFSDF" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/3d/cf/96/3dcf96f62c3b875af864b1151f0c36ea.jpg" data-fancybox="gallery-post-dfsdf" data-caption="dfsdf" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/3d/cf/96/3dcf96f62c3b875af864b1151f0c36ea.jpg" alt="dfsdf" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -173,7 +173,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">dsfdsf</div>
+                    <div class="mb-4">sfsdf</div>
 
           </div>
 
@@ -203,7 +203,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=DFDF" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#DFDF</a>
+                            <a href="../index.html?search=sdfsdf" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#sdfsdf</a>
             </div>
           </div>
         </article>
@@ -215,17 +215,13 @@
             Bình luận (<span id="comment-total-count">0</span>)
           </h3>
 
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-3">
+		  <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-3">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">Tên của bạn</label>
-                <input type="text" id="comment-name" class="w-full px-3 py-1.5 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700" placeholder="Nhập tên...">
-              </div>
-              <div class="flex items-end">
-                <label class="inline-flex items-center gap-2 cursor-pointer py-1.5">
-                  <input type="checkbox" id="comment-is-admin" class="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500">
-                  <span class="text-xs font-semibold text-slate-600 select-none">Bình luận với tư cách Admin</span>
+                <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">
+                  Tên của bạn <span id="admin-status-text" class="text-emerald-500 hidden font-bold">(Đã kích hoạt Admin)</span>
                 </label>
+                <input type="text" id="comment-name" class="w-full px-3 py-1.5 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 transition-colors" placeholder="Nhập tên... (Nhập mã Admin để kích hoạt)">
               </div>
             </div>
             <div>
@@ -323,8 +319,8 @@
     }
 
     const CURRENT_POST = {
-      title: "SDFDSF",
-      tags: ["DFDF"]
+      title: "sdfdsf",
+      tags: ["sdfsdf"]
     };
 
     async function loadPosts() {
@@ -737,5 +733,118 @@
         });
       }
     });
+	
+// =========================================================================
+// 🎯 HỆ THỐNG BÌNH LUẬN ĐÁM MÂY FIREBASE & ĐỘC QUYỀN ADMIN
+// =========================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  // Định danh bài viết sạch để làm thư mục lưu bình luận trên Firebase
+  const pageId = (window.location.pathname.split('/').pop() || 'index').replace(/\./g, '_');
+  const commentRef = database.ref('comments/' + pageId);
+
+  const commentNameInput = document.getElementById('comment-name');
+  const commentContentInput = document.getElementById('comment-content');
+  const submitCommentBtn = document.getElementById('submit-comment-btn');
+  const commentsWrapper = document.getElementById('comments-wrapper');
+  const commentTotalCount = document.getElementById('comment-total-count');
+  const adminStatusText = document.getElementById('admin-status-text');
+
+  // Cấu hình mã kích hoạt Admin bí mật của bạn
+  const ADMIN_SECRET_CODE = "hieubeo91@admin"; // Thay đổi mã này tùy ý bạn
+  let isAdminActive = false;
+
+  // 1. Kiểm tra mã kích hoạt Admin khi bạn gõ tên
+  if (commentNameInput) {
+    commentNameInput.addEventListener('input', (e) => {
+      if (e.target.value.trim() === ADMIN_SECRET_CODE) {
+        isAdminActive = true;
+        e.target.value = "Hieubeo (Admin) 👑"; // Tự động đổi text hiển thị đẹp mắt
+        e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
+        if (adminStatusText) adminStatusText.classList.remove('hidden');
+      }
+    });
+  }
+
+  // 2. Hàm lắng nghe và tải bình luận thời gian thực từ Firebase
+  commentRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    commentsWrapper.innerHTML = "";
+    
+    if (!data) {
+      commentTotalCount.textContent = "0";
+      commentsWrapper.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-4">Chưa có bình luận nào. Hãy là người đầu tiên!</p>`;
+      return;
+    }
+
+    // Chuyển object dữ liệu thành mảng để sắp xếp theo thời gian mới nhất lên đầu
+    const commentList = Object.keys(data).map(key => data[key]);
+    commentList.sort((a, b) => b.timestamp - a.timestamp);
+    
+    commentTotalCount.textContent = commentList.length;
+
+    commentList.forEach(cmt => {
+      // Định dạng ngày giờ hiển thị
+      const cmtDate = new Date(cmt.timestamp).toLocaleString('vi-VN', {
+        hour: '2-digit', minute: '2-digit', day: '2-digit', month: '2-digit'
+      });
+
+      // Kiểm tra nếu là admin thì thêm badge vương miện và đổi màu khung viền rực rỡ
+      const isAdminCmt = cmt.isAdmin === true;
+      const avatarBg = isAdminCmt ? 'bg-indigo-600 text-white font-bold' : 'bg-slate-200 text-slate-600';
+      const borderClass = isAdminCmt ? 'border-indigo-100 bg-indigo-50/10' : 'border-slate-100 bg-white';
+      const nameClass = isAdminCmt ? 'text-indigo-600 font-bold flex items-center gap-1' : 'text-slate-800 font-semibold';
+      const adminBadge = isAdminCmt ? '<span class="px-1.5 py-0.5 bg-indigo-600 text-white text-[9px] font-bold rounded uppercase tracking-wider scale-90">Admin</span>' : '';
+
+      commentsWrapper.innerHTML += `
+        <div class="p-3 border ${borderClass} rounded-xl shadow-sm flex gap-3 transition-all">
+          <div class="w-8 h-8 rounded-full ${avatarBg} flex items-center justify-center text-xs flex-shrink-0 shadow-sm">
+            ${isAdminCmt ? '👑' : (cmt.name ? cmt.name.charAt(0).toUpperCase() : '?')}
+          </div>
+          <div class="space-y-1 min-w-0 flex-grow">
+            <div class="flex items-center justify-between gap-2">
+              <span class="${nameClass}">${cmt.name} ${adminBadge}</span>
+              <span class="text-[10px] text-slate-400">${cmtDate}</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed whitespace-pre-line">${cmt.content}</p>
+          </div>
+        </div>
+      `;
+    });
+  });
+
+  // 3. Xử lý sự kiện gửi bình luận lên mây
+  if (submitCommentBtn) {
+    submitCommentBtn.addEventListener('click', () => {
+      const name = commentNameInput.value.trim();
+      const content = commentContentInput.value.trim();
+
+      if (!name) { alert("Vui lòng nhập tên của bạn!"); return; }
+      if (!content) { alert("Vui lòng nhập nội dung bình luận!"); return; }
+
+      // Tạo cấu trúc dữ liệu bình luận gửi lên Firebase
+      const newComment = {
+        name: name,
+        content: content,
+        isAdmin: isAdminActive,
+        timestamp: firebase.database.ServerValue.TIMESTAMP
+      };
+
+      submitCommentBtn.disabled = true;
+      submitCommentBtn.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> Đang gửi...`;
+
+      commentRef.push(newComment).then(() => {
+        // Gửi thành công -> Reset ô nhập nội dung
+        commentContentInput.value = "";
+        submitCommentBtn.disabled = false;
+        submitCommentBtn.innerHTML = `<i class="fa-solid fa-paper-plane"></i>Gửi bình luận`;
+      }).catch(err => {
+        console.error("Lỗi gửi bình luận:", err);
+        alert("Có lỗi xảy ra khi gửi bình luận, vui lòng thử lại!");
+        submitCommentBtn.disabled = false;
+        submitCommentBtn.innerHTML = `<i class="fa-solid fa-paper-plane"></i>Gửi bình luận`;
+      });
+    });
+  }
+});
   </script>
 
