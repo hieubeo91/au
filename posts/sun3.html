@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="dfdsf">
-	<meta property="og:description" content="sdfsdf">
+	<meta property="og:title" content="dfgdfg">
+	<meta property="og:description" content="dfgdfgdf">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/54/86/75/54867589b06b88ceecb0b7957183a4a2.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/54/86/75/54867589b06b88ceecb0b7957183a4a2.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/78/8e/ef/788eef6ca4f4a9577c9aef6ce81c1516.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/78/8e/ef/788eef6ca4f4a9577c9aef6ce81c1516.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -143,13 +143,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_mod" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
+              <a href="../index.html?cat=cat_tool" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f0f9ff; color: #0284c7;" title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>28/06/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            dfdsf
+            dfgdfg
           </h1>
 
           <div class="mb-5">
@@ -161,8 +161,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/54/86/75/54867589b06b88ceecb0b7957183a4a2.jpg" data-fancybox="gallery-post-dfdsf" data-caption="dfdsf" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/54/86/75/54867589b06b88ceecb0b7957183a4a2.jpg" alt="dfdsf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/78/8e/ef/788eef6ca4f4a9577c9aef6ce81c1516.jpg" data-fancybox="gallery-post-dfgdfg" data-caption="dfgdfg" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/78/8e/ef/788eef6ca4f4a9577c9aef6ce81c1516.jpg" alt="dfgdfg" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -174,7 +174,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">sdfdsf</div>
+                    <div class="mb-4">dfgdfg</div>
 
           </div>
 
@@ -204,7 +204,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=sdfsdf" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#sdfsdf</a>
+                            <a href="../index.html?search=dfgdfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfgdfg</a>
             </div>
           </div>
         </article>
@@ -320,8 +320,8 @@
     }
 
     const CURRENT_POST = {
-      title: "sdfsdf",
-      tags: ["sdfsdf"]
+      title: "fgfdgfg",
+      tags: ["dfgdfg"]
     };
 
     async function loadPosts() {
@@ -750,12 +750,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const commentTotalCount = document.getElementById('comment-total-count');
   const adminStatusText = document.getElementById('admin-status-text');
 
+// 🎯 Sử dụng chuỗi mã hóa SHA-256 của "hieubeo91@admin"
   const ADMIN_HASH_CODE = "8fa45dc33a39150005708b792ff48ec42551ec46820ef0ff1806385cfcf47225";
   let isAdminActive = false;
 
-  // Hàm băm SHA-256 tích hợp sẵn trong trình duyệt (Không lo thiếu thư viện)
-  async function hashSHA256(string) {
-    const utf8 = new TextEncoder().encode(string);
+  // Hàm băm bảo mật SHA-256 viết bằng tiếng Anh chuẩn không dấu
+  async function hashSHA256(text) {
+    const utf8 = new TextEncoder().encode(text);
     const hashBuffer = await crypto.subtle.digest('SHA-256', utf8);
     const hashArray = Array.from(new Uint8Array(hashBuffer));
     return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
@@ -766,25 +767,26 @@ document.addEventListener('DOMContentLoaded', () => {
     commentNameInput.addEventListener('input', async (e) => {
       const inputValue = e.target.value.trim().toLowerCase();
       
-      if (!inputValue || isAdminActive) return; // Nếu đã là admin rồi thì dừng lại không kiểm tra nữa
+      // Nếu ô trống hoặc đã kích hoạt admin thành công trước đó thì dừng lại
+      if (!inputValue || isAdminActive) return;
 
-      // Tiến hành băm chuỗi người dùng nhập
+      // Tiến hành mã hóa chuỗi vừa nhập bằng thuật toán của trình duyệt
       const hashedInput = await hashSHA256(inputValue);
       
+      // So sánh kết quả mã hóa với mã gốc ẩn
       if (hashedInput === ADMIN_HASH_CODE) {
         isAdminActive = true;
         
-        // Thực hiện đổi giao diện diện mạo Admin
+        // Cập nhật giao diện Admin 
         e.target.value = "Hieubeo (Admin) 👑"; 
         e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
         if (adminStatusText) adminStatusText.classList.remove('hidden');
         
-        // Làm mờ ô nhập để kết thúc chuỗi sự kiện nhập liệu
+        // Làm mờ ô nhập (blur) để ngắt sự kiện gõ phím liên tục khi đã nhận diện xong
         e.target.blur();
       }
     });
   }
-
   // 2. Hàm lắng nghe và tải bình luận thời gian thực từ Firebase
   commentRef.on('value', (snapshot) => {
     const data = snapshot.val();
