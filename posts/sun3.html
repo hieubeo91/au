@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="fsdfsdf">
-	<meta property="og:description" content="sdfsdf">
+	<meta property="og:title" content="fgfdg">
+	<meta property="og:description" content="dfgdfg">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/89/4a/b0/894ab0f43105270f5cf12df62f6b98b1.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/89/4a/b0/894ab0f43105270f5cf12df62f6b98b1.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/88/fe/a7/88fea70bfa69f6a15323e4c17c726796.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/88/fe/a7/88fea70bfa69f6a15323e4c17c726796.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,13 +142,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_tool" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f0f9ff; color: #0284c7;" title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
+              <a href="../index.html?cat=cat_mod" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>28/06/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            fsdfsdf
+            fgfdg
           </h1>
 
           <div class="mb-5">
@@ -160,8 +160,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/89/4a/b0/894ab0f43105270f5cf12df62f6b98b1.jpg" data-fancybox="gallery-post-fsdfsdf" data-caption="fsdfsdf" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/89/4a/b0/894ab0f43105270f5cf12df62f6b98b1.jpg" alt="fsdfsdf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/88/fe/a7/88fea70bfa69f6a15323e4c17c726796.jpg" data-fancybox="gallery-post-fgfdg" data-caption="fgfdg" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/88/fe/a7/88fea70bfa69f6a15323e4c17c726796.jpg" alt="fgfdg" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -173,7 +173,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">sdfsdf</div>
+                    <div class="mb-4">dfgdfg</div>
 
           </div>
 
@@ -203,7 +203,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-              
+                            <a href="../index.html?search=dfgfdg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dfgfdg</a>
             </div>
           </div>
         </article>
@@ -320,8 +320,8 @@
     }
 
     const CURRENT_POST = {
-      title: "sdfdsf",
-      tags: []
+      title: "dfgdfg",
+      tags: ["dfgfdg"]
     };
 
     async function loadPosts() {
@@ -751,20 +751,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const adminStatusText = document.getElementById('admin-status-text');
 
   // Cấu hình mã kích hoạt Admin bí mật của bạn
-// Cấu hình mã MD5 bí mật (được chuyển đổi từ chuỗi hieubeo91@admin)
+	// Cấu hình mã MD5 bí mật (Được tạo ra từ chuỗi: hieubeo91@admin)
   const ADMIN_HASH = "0cd93a551da74d30c5e7b24f5dfd2d3a"; 
   let isAdminActive = false;
 
   if (commentNameInput) {
     commentNameInput.addEventListener('input', (e) => {
-      // Băm nội dung người dùng đang gõ sang MD5
-      const typedHash = CryptoJS.MD5(e.target.value.trim()).toString();
+      // Làm sạch chuỗi: xóa khoảng trắng 2 đầu và chuyển hết thành chữ thường
+      const cleanInput = e.target.value.trim().toLowerCase();
       
-      if (typedHash === ADMIN_HASH) {
-        isAdminActive = true;
-        e.target.value = "Hieubeo (Admin) 👑";
-        e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
-        if (adminStatusText) adminStatusText.classList.remove('hidden');
+      // Kiểm tra xem thư viện đã tải thành công chưa
+      if (typeof CryptoJS !== "undefined") {
+        // Tiến hành băm chuỗi bạn vừa gõ sang MD5
+        const typedHash = CryptoJS.MD5(cleanInput).toString();
+        
+        if (typedHash === ADMIN_HASH) {
+          isAdminActive = true;
+          e.target.value = "Hieubeo (Admin) 👑"; // Đổi text hiển thị
+          e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
+          if (adminStatusText) adminStatusText.classList.remove('hidden');
+          
+          // Khóa ô input lại không cho gõ tiếp để tránh làm mất trạng thái Admin
+          e.target.blur(); 
+        }
+      } else {
+        console.error("Thư viện mã hóa CryptoJs chưa được tải thành công!");
       }
     });
   }
