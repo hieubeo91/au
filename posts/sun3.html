@@ -1,0 +1,764 @@
+
+
+
+    
+<meta property="og:type" content="article">
+    <meta property="og:title" content="' + title + '">
+    <meta property="og:image" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
+    <meta property="og:image:secure_url" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
+    <meta property="og:url" content="' + window.location.href + '">
+
+  <meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc">
+  <script data-goatcounter="https://vetraitim.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+  <meta charset="UTF-8">
+	<meta property="fb:app_id" content="966242223397117">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="DDS Converter. Công cụ chuyển đổi ảnh DDS hàng loạt">
+	<meta property="og:description" content="sdfsdf">
+
+	<meta property="og:image" content="https://i.pinimg.com/736x/b8/51/c8/b851c85e663ce6b9380cc28b52acbd17.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/b8/51/c8/b851c85e663ce6b9380cc28b52acbd17.jpg">
+	<meta property="og:url" content="${window.location.href}">
+		
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hieubeo's Audition Studio</title>
+  
+ <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+  
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f8fafc;
+      scroll-behavior: smooth;
+    }
+    .swiper {
+      width: 100%;
+      height: 400px;
+      border-radius: 12px;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #ffffff !important;
+      background: rgba(0, 0, 0, 0.4);
+      width: 40px !important;
+      height: 40px !important;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+    }
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background: rgba(99, 102, 241, 0.9);
+      transform: scale(1.05);
+    }
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 14px !important;
+      font-weight: bold;
+    }
+    .swiper-pagination-bullet-active {
+      background: #6366f1 !important;
+      width: 24px !important;
+      border-radius: 4px !important;
+    }
+    #back-to-top {
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+    #back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+	
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+	@keyframes heartFlyUp {
+		0% {
+		  transform: translateY(0) translateX(0) scale(0.6) rotate(0deg);
+		  opacity: 1;
+		}
+		50% {
+		  /* Giữa đường bay sẽ tự động dạt nhẹ sang hai bên */
+		  opacity: 0.9;
+		}
+		100% {
+		  /* Bay vút lên cao 140px và tản rộng ngẫu nhiên theo biến CSS được gán bằng JS */
+		  transform: translateY(-140px) translateX(var(--drift-x)) scale(1.3) rotate(var(--rotate-deg));
+		  opacity: 0;
+		}
+	  }
+	.floating-heart {
+    position: absolute;
+    color: #f43f5e; /* Màu đỏ hồng rose-500 */
+    pointer-events: none; /* Không cản trở việc click chuột */
+    animation: heartFlyUp 1.2s ease-out forwards;
+    z-index: 50;
+	}
+  </style>
+
+
+<div id="fb-root"></div>
+<script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;version=v18.0"></script>
+  <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="https://hieubeo91.github.io/au/" class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
+        <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true" alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
+        <span>Hieubeo's Audition Studio</span>
+      </a>
+      <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+    <div class="flex flex-col lg:flex-row gap-8 items-start">
+      <div class="w-full lg:w-2/3">
+        <article class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+          <a href="../index.html" class="mb-6 inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
+            <i class="fa-solid fa-arrow-left-long"></i> Trở lại trang chủ
+          </a>
+          
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <div class="flex items-center gap-3">
+              <a href="../index.html?cat=cat_free" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fef2f2; color: #dc2626;" title="Xem thêm bài viết thuộc chủ đề Miễn phí">Miễn phí</a>
+              <a href="../index.html?cat=cat_paid" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
+              <a href="../index.html?cat=cat_mod" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
+              <a href="../index.html?cat=cat_tool" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f0f9ff; color: #0284c7;" title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
+              <a href="../index.html?cat=cat_guide" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f5f3ff; color: #7c3aed;" title="Xem thêm bài viết thuộc chủ đề Hướng dẫn">Hướng dẫn</a>
+              <a href="../index.html?cat=cat_misc" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fdf2f8; color: #db2777;" title="Xem thêm bài viết thuộc chủ đề Khác">Khác</a>
+              <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>28/06/2026</span>
+            </div>
+            
+          </div>
+
+          <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
+            DDS Converter. Công cụ chuyển đổi ảnh DDS hàng loạt
+          </h1>
+
+			<div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span></div>
+
+          <div class="swiper mySwiper mb-5">
+            <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                <a href="https://i.pinimg.com/736x/b8/51/c8/b851c85e663ce6b9380cc28b52acbd17.jpg" data-fancybox="gallery-post-dds-converter-cong-cu-chuyen-doi-anh-dds-hang-loat" data-caption="DDS Converter. Công cụ chuyển đổi ảnh DDS hàng loạt" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/b8/51/c8/b851c85e663ce6b9380cc28b52acbd17.jpg" alt="DDS Converter. Công cụ chuyển đổi ảnh DDS hàng loạt" class="hover:scale-105 transition-transform duration-300">
+                  
+                </a>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <div class="mb-6 leading-relaxed text-slate-600 text-sm">
+                    <div class="mb-4">sfdsdf</div>
+
+          </div>
+
+		<!-- Nút share -->
+		<!-- ========================================================================= -->
+          <!-- 🎯 BỘ NÚT TƯƠNG TÁC TỰ CHẾ: THÍCH TRÁI TIM & CHIA SẺ FACEBOOK -->
+          <!-- ========================================================================= -->
+          <div class="mt-8 pt-6 border-t border-slate-100 relative mb-8">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Chia sẻ</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-3">
+                
+                <!-- Nút Trái Tim Tự Chế (Có hiệu ứng hover phóng to, click đổi màu đỏ) -->
+                <button id="custom-heart-btn" class="flex items-center gap-2 px-3 py-1.5 bg-rose-50 hover:bg-rose-500 text-rose-600 text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm border border-rose-100 group active:scale-95 h-[32px]">
+                  <i class="fa-solid fa-heart text-sm transition-transform group-hover:scale-110" id="heart-icon"></i> 
+                  <span id="heart-count">0</span>
+                </button>
+
+                <!-- Nút Chia sẻ Facebook (Giữ nguyên) -->
+                <button id="share-facebook-btn" class="flex items-center gap-1.5 px-3 py-1.5 bg-[#1877F2] hover:bg-[#166FE5] text-white text-xs font-medium rounded-lg transition-colors cursor-pointer shadow-sm h-[32px]">
+                  <i class="fab fa-facebook-f text-[11px]"></i> Chia sẻ
+                </button>
+
+                <!-- Nút Sao chép liên kết (Giữ nguyên) -->
+				<button id="copy-link-btn" class="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm h-[32px] min-w-[115px]">
+                  <i class="fa-regular fa-copy text-[11px] flex-shrink-0"></i> 
+                  <span id="copy-text" class="block text-center w-full">Sao chép Link</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-slate-100 mb-8">
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
+            <div class="flex flex-wrap gap-2 text-sm">
+                            <a href="../index.html?search=dsfdsf" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dsfdsf</a>
+            </div>
+          </div>
+
+
+
+          <div class="flex justify-center">
+            <a href="../index.html" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
+              <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <aside class="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-6">
+        <!-- <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+        </div> here
+		<div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden">
+		  <div class="flex border-b border-slate-100 bg-slate-50/50 p-1 gap-1">
+			<button id="related-btn" class="flex-1 py-2.5 text-xs font-bold rounded-xl transition-all duration-200 cursor-pointer bg-indigo-600 text-white">
+			  <i class="fa-solid fa-link mr-1.5"></i>Cùng chủ đề
+			</button>
+			<button id="random-btn" class="flex-1 py-2.5 text-xs font-semibold rounded-xl transition-all duration-200 cursor-pointer bg-slate-100 text-slate-600">
+			  <i class="fa-solid fa-shuffle mr-1.5"></i>Ngẫu nhiên
+			</button>
+		  </div>
+		  
+		  <div id="suggested-posts" class="p-4 space-y-4 max-h-[480px] overflow-y-auto">
+			</div>
+		</div> -->
+			
+			
+		<!--	
+		<div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden">
+		  <div class="flex border-b border-slate-100 bg-slate-50/50">
+			<button id="related-btn" class="flex-1 py-2 hover:bg-indigo-100 text-sm font-semibold text-slate-400 border-b-2 hover:text-slate-600 transition-colors cursor-pointer">
+			  <i class="fa-solid fa-link mr-1.5"></i>Cùng chủ đề
+			</button>
+			<button id="random-btn" class="flex-1 py-2 hover:bg-indigo-100 text-sm font-semibold text-slate-400 border-b-2 hover:text-slate-600 transition-colors cursor-pointer">
+			  <i class="fa-solid fa-shuffle mr-1.5"></i>Ngẫu nhiên
+			</button>
+		  </div>
+		  
+		  <div id="detail-sidebar-list" class="p-4 space-y-4 max-h-[450px] overflow-y-auto">
+			</div>
+		</div>
+		  </div>
+		  -->
+
+
+		<div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden">
+		  <div class="flex border-b border-slate-100 bg-slate-50/50">
+			<button id="related-btn" class="flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer">
+			  <i class="fa-solid fa-link mr-1.5"></i>Cùng chủ đề
+			</button>
+			<button id="random-btn" class="flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer">
+			  <i class="fa-solid fa-shuffle mr-1.5"></i>Ngẫu nhiên
+			</button>
+		  </div>
+		  
+		  <div id="detail-sidebar-list" class="p-4 space-y-4 max-h-[450px] overflow-y-auto">
+		  </div>
+		</div>
+
+
+
+		
+      </aside>
+    </div>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <p class="text-sm">© 2026 Hieubeo's Audition Studio ♫ Rhythm of Life</p>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto" title="Quay lên đầu trang">
+    <i class="fa-solid fa-arrow-up text-lg"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+  <script>
+    function initAllSwipers() {
+      document.querySelectorAll('.mySwiper').forEach((el) => {
+        if (el.swiper) { el.swiper.destroy(true, true); }
+        new Swiper(el, {
+          loop: true,
+          spaceBetween: 10,
+          observer: true,
+          observeParents: true,
+          pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
+          navigation: { nextEl: el.querySelector('.swiper-button-next'), prevEl: el.querySelector('.swiper-button-prev') },
+          autoplay: { delay: 4500, disableOnInteraction: true },
+        });
+      });
+    }
+    initAllSwipers();
+
+    Fancybox.bind("[data-fancybox^='gallery-']", { Thumbs: { autoStart: true } });
+
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) { backToTopBtn.classList.add('show'); }
+      else { backToTopBtn.classList.remove('show'); }
+    });
+    backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    const newsletterForm = document.getElementById('newsletter-form');
+    const newsletterSuccess = document.getElementById('newsletter-success');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        newsletterForm.classList.add('hidden');
+        newsletterSuccess.classList.remove('hidden');
+      });
+    }
+
+    const CURRENT_POST = {
+      title: "DDS Converter. Công cụ chuyển đổi ảnh DDS hàng loạt",
+      tags: ["dsfdsf"]
+    };
+
+    async function loadPosts() {
+      try {
+        const response = await fetch("../index.html");
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const cards = doc.querySelectorAll(".post-card");
+        const posts = [];
+        cards.forEach(card => {
+          posts.push({
+            title: card.dataset.title,
+            url: card.dataset.url,
+            image: card.dataset.image,
+            tags: (card.dataset.tags || "").split(",").map(tag => tag.trim()).filter(Boolean)
+          });
+        });
+        return posts;
+      } catch (e) {
+        console.error("Lỗi khi tải danh sách bài viết:", e);
+        return [];
+      }
+    }
+
+	function renderPosts(posts) {
+      const container = document.getElementById("suggested-posts");
+      if(!container) return;
+      
+      // 🎯 NÂNG CẤP 1: Giới hạn chỉ lấy tối đa đúng 5 bài viết
+      const displayPosts = (posts || []).slice(0, 5);
+      
+      container.innerHTML = "";
+      if(displayPosts.length === 0) {
+        container.innerHTML = '<div class="text-xs text-slate-400 text-center py-4">Không có bài viết gợi ý phù hợp.</div>';
+        return;
+      }
+      
+      // 🎯 NÂNG CẤP 2: Chạy vòng lặp trên displayPosts và dùng chuỗi nối (+) để loại bỏ 100% lỗi đơ nút
+      displayPosts.forEach(post => {
+        let correctUrl = post.url || '#';
+        if (!correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
+          correctUrl = '../' + correctUrl;
+        }
+        const imgUrl = post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png';
+
+        container.innerHTML += '<a href="' + correctUrl + '" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-all duration-200">';
+        container.innerHTML += '  <img src="' + imgUrl + '" class="w-14 h-14 rounded-lg object-cover flex-shrink-0 border border-slate-100 shadow-sm group-hover:scale-105 transition-transform">';
+        container.innerHTML += '  <div class="space-y-1 flex-grow">';
+        container.innerHTML += '    <h4 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">' + post.title + '</h4>';
+        container.innerHTML += '    <span class="text-[10px] text-slate-400 block mt-1">Xem bài viết →</span>';
+        container.innerHTML += '  </div>';
+        container.innerHTML += '</a>';
+      });
+    }
+
+	// =========================================================================
+    // 🎯 SỬA LỖI HIỂN THỊ BÀI VIẾT LIÊN QUAN & BÀI VIẾT NGẪU NHIÊN CHUẨN HTML
+    // =========================================================================
+// =========================================================================
+    // 🎯 SỬA LỖI TỰ ĐỘNG DÒ SIDEBAR & HIỂN THỊ BÀI VIẾT KHÔNG BỊ TRỐNG TRƠN
+    // =========================================================================
+    function getRelatedPosts(posts) {
+      if (!posts || !Array.isArray(posts)) return [];
+      return [...posts]
+        .filter(post => {
+          if (!post || !CURRENT_POST) return false;
+          // 1. Loại bỏ bài viết hiện tại khỏi danh sách hiển thị
+          if (post.title === CURRENT_POST.title) return false;
+          if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
+          
+          // 2. Chuyển đổi dữ liệu Danh mục (categories) thành mảng để so sánh
+          const postCats = (post.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
+          const currentCats = (CURRENT_POST.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
+          const hasCommonCategory = currentCats.some(cat => postCats.includes(cat));
+          
+          // 3. Chuyển đổi dữ liệu Từ khóa (tags) thành mảng để so sánh
+          const postTagsStr = Array.isArray(post.tags) ? post.tags.join(',') : (post.tags || '');
+          const postTags = postTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+          
+          const currentTagsStr = Array.isArray(CURRENT_POST.tags) ? CURRENT_POST.tags.join(',') : (CURRENT_POST.tags || '');
+          const currentTags = currentTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+          
+          const hasCommonTag = currentTags.some(tag => postTags.includes(tag));
+          
+          return hasCommonCategory || hasCommonTag;
+        })
+        .slice(0, 3);
+    }
+
+    function getRandomPosts(posts) {
+      if (!posts || !Array.isArray(posts)) return [];
+      return [...posts]
+        .filter(post => {
+          if (!post) return false;
+          if (post.title === CURRENT_POST.title) return false;
+          if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
+          return true;
+        })
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 3);
+    }
+
+// Hàm dựng giao diện với bộ Dò Tìm Vùng Chứa thông minh (Tự động sửa lỗi thiếu excerpt)
+    function renderPosts(postsList) {
+      let container = document.querySelector('#sidebar-posts') || 
+                      document.querySelector('.space-y-4.mt-4') || 
+                      document.querySelector('.space-y-4');
+                      
+      if (!container) {
+        const btn = document.getElementById("related-btn");
+        if (btn && btn.parentElement && btn.parentElement.nextElementSibling) {
+          container = btn.parentElement.nextElementSibling;
+        }
+      }
+
+      if (!container) {
+        console.error("Không tìm thấy phân vùng Sidebar hiển thị bài viết trên trang!");
+        return;
+      }
+
+      if (!postsList || postsList.length === 0) {
+        container.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-4">Không có bài viết nào phù hợp.</p>`;
+        return;
+      }
+
+      let listHTML = '';
+      postsList.forEach(post => {
+        if (!post) return;
+        let correctUrl = post.url || '';
+        if (correctUrl && !correctUrl.startsWith('http') && !correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
+          correctUrl = `../${correctUrl}`;
+        }
+        
+        // 🎯 THUẬT TOÁN TỰ TẠO MÔ TẢ CHO BÀI VIẾT CŨ NẾU BỊ THIẾU EXCERPT
+        let excerptText = post.excerpt ? post.excerpt.trim() : '';
+        if (!excerptText) {
+          // Nếu bài viết cũ không có mô tả, tự động bốc danh sách tags làm mô tả ngắn mẫu
+          const cleanTags = Array.isArray(post.tags) ? post.tags.join(', ') : (post.tags || '');
+          if (cleanTags) {
+            excerptText = `Chủ đề bài viết liên quan: ${cleanTags}`;
+          } else {
+            excerptText = `Xem chi tiết nội dung bài viết ${post.title}`;
+          }
+        }
+        
+        listHTML += `
+          <a href="${correctUrl}" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-colors">
+            <img src="${post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'}" class="w-14 h-14 object-cover rounded-lg border border-slate-100 flex-shrink-0" onerror="this.src='https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'">
+            <div class="min-w-0 flex-grow" style="margin-top: -2px;">
+              <h5 class="text-sm font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug mb-0.5">${post.title}</h5>
+              
+              <p class="text-xs text-slate-400 line-clamp-1 mb-1 leading-normal">${excerptText}</p>
+              
+              <span class="text-[10px] text-slate-400 block">${post.date || ''}</span>
+            </div>
+          </a>
+        `;
+      });
+      
+      container.innerHTML = listHTML;
+    }
+
+    // LUỒNG KHỞI CHẠY & GẮN SỰ KIỆN CLICK TAB AN TOÀN
+    let ALL_POSTS = [];
+    if (typeof loadPosts === "function") {
+      loadPosts().then(posts => {
+        ALL_POSTS = posts || [];
+        const related = getRelatedPosts(ALL_POSTS);
+        if (related.length === 0) {
+          renderPosts(getRandomPosts(ALL_POSTS));
+          setActiveButton(document.getElementById("random-btn"));
+        } else {
+          renderPosts(related);
+          setActiveButton(document.getElementById("related-btn"));
+        }
+      }).catch(err => {
+        console.error("Lỗi khi tải danh sách bài viết bằng loadPosts():", err);
+      });
+    }
+
+    const rBtn = document.getElementById("related-btn");
+    const mBtn = document.getElementById("random-btn");
+
+    if (rBtn) {
+      rBtn.addEventListener("click", () => {
+        renderPosts(getRelatedPosts(ALL_POSTS));
+        setActiveButton(rBtn);
+      });
+    }
+
+    if (mBtn) {
+      mBtn.addEventListener("click", () => {
+        renderPosts(getRandomPosts(ALL_POSTS));
+        setActiveButton(mBtn);
+      });
+    }
+
+<!-- goc
+    function setActiveButton(activeBtn) {
+      const relatedBtn = document.getElementById("related-btn");
+      const randomBtn = document.getElementById("random-btn");
+      if(!relatedBtn || !randomBtn || !activeBtn) return;
+      [relatedBtn, randomBtn].forEach(btn => {
+        btn.classList.remove("bg-indigo-600", "text-white");
+        btn.classList.add("bg-slate-100", "text-slate-600");
+      });
+      activeBtn.classList.remove("bg-slate-100", "text-slate-600");
+      activeBtn.classList.add("bg-indigo-600", "text-white");
+    }
+-->
+	
+	function setActiveButton(activeBtn) {
+      const relatedBtn = document.getElementById("related-btn");
+      const randomBtn = document.getElementById("random-btn");
+      if(!relatedBtn || !randomBtn || !activeBtn) return;
+      
+      // 1. Reset cả 2 nút về trạng thái bình thường (Chữ xám, viền dưới trong suốt)
+      [relatedBtn, randomBtn].forEach(btn => {
+        btn.className = "flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer";
+      });
+      
+      // 2. Kích hoạt nút được chọn: Đổi chữ sang màu xanh Indigo, viền dưới dày có màu xanh Indigo bừng sáng
+      activeBtn.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
+    }
+	
+	
+	
+	// =========================================================================
+    // 🎯 TỰ ĐỘNG ĐIỀN THÔNG TIN BÀI VIẾT VÀO THẺ META CHIA SẺ (OPEN GRAPH)
+    // =========================================================================
+    if (typeof CURRENT_POST !== 'undefined') {
+      // 1. Cập nhật tiêu đề trang web
+      if (CURRENT_POST.title) {
+        document.title = CURRENT_POST.title;
+      }
+
+      // 2. Tìm và gán dữ liệu thật vào các thẻ Meta Open Graph để chia sẻ Facebook, Zalo đẹp hơn
+      const ogTitle = document.getElementById('meta-og-title');
+      const ogDesc = document.getElementById('meta-og-description');
+      const ogImage = document.getElementById('meta-og-image');
+      const ogUrl = document.getElementById('meta-og-url');
+
+      if (ogTitle) ogTitle.setAttribute('content', CURRENT_POST.title || document.title);
+      
+      // Sử dụng excerpt (mô tả ngắn), nếu trống sẽ lấy mặc định
+      const cleanExcerpt = CURRENT_POST.excerpt ? CURRENT_POST.excerpt.trim() : '';
+      if (ogDesc) ogDesc.setAttribute('content', cleanExcerpt || 'Xem chi tiết nội dung bài viết trên Hieubeo Audition Studio.');
+      
+      if (ogImage) ogImage.setAttribute('content', CURRENT_POST.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png');
+      if (ogUrl) ogUrl.setAttribute('content', window.location.href);
+    }
+	
+// =========================================================================
+    // 🎯 KẾT NỐI FIREBASE - LƯU TRỮ LƯỢT TIM VĨNH VIỄN TOÀN MẠNG
+    // =========================================================================
+    
+    // 1. Cấu hình Firebase (DÁN ĐOẠN CONFIG BẠN LẤY ĐƯỢC Ở BƯỚC 1 VÀO ĐÂY)
+	const firebaseConfig = {
+	  apiKey: "AIzaSyCsc84GUdMK5zethbCibY1oSXpeXA9YlSo",
+	  authDomain: "myblog-heart.firebaseapp.com",
+	  databaseURL: "https://myblog-heart-default-rtdb.firebaseio.com",
+	  projectId: "myblog-heart",
+	  storageBucket: "myblog-heart.firebasestorage.app",
+	  messagingSenderId: "424150915416",
+	  appId: "1:424150915416:web:1e6c9bbdf99a5da7642d2d",
+	  measurementId: "G-4570E7XHL4"
+	};
+
+    // Khởi tạo Firebase kết nối lên đám mây
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    const database = firebase.database();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const currentUrl = window.location.href;
+      const encodedUrl = encodeURIComponent(currentUrl);
+      
+      // Định danh bài viết bằng tên file sạch để làm thư mục lưu trữ trên Firebase
+      const pageId = (window.location.pathname.split('/').pop() || 'index').replace(/\./g, '_');
+      const dbRef = database.ref('heart_counts/' + pageId);
+      const localClickedKey = `heart_voted_${pageId}`;
+
+      const heartBtn = document.getElementById('custom-heart-btn');
+      const heartCountEl = document.getElementById('heart-count');
+
+      // --- ĐỒNG BỘ SỐ TIM TỪ TRÊN MẠNG XUỐNG GIAO DIỆN (Thời gian thực) ---
+      dbRef.on('value', (snapshot) => {
+        const votes = snapshot.val();
+        // Nếu bài viết mới tinh chưa có tim trên đám mây, tự nạp 1 con số ngẫu nhiên ban đầu cho đẹp
+        if (votes === null) {
+          const initialHearts = Math.floor(Math.random() * 25) + 15;
+          dbRef.set(initialHearts);
+          heartCountEl.textContent = initialHearts;
+        } else {
+          heartCountEl.textContent = votes;
+        }
+      });
+
+      // Kiểm tra xem máy khách hiện tại đã từng nhấn tim chưa để giữ màu nút đỏ
+      if (localStorage.getItem(localClickedKey) === 'true' && heartBtn) {
+        heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
+        heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
+      }
+
+	if (heartBtn) {
+        heartBtn.addEventListener('click', (e) => {
+          
+          // Mở khóa giới hạn: Cứ mỗi lần click là tăng vĩnh viễn 1 tim lên Firebase
+          dbRef.transaction((currentValue) => {
+            return (currentValue || 0) + 1;
+          });
+
+          heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
+          heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
+
+          // KHU VỰC TẠO HIỆU ỨNG NHIỀU TIM & TẢN RỘNG HƠN
+          let effectContainer = heartBtn.querySelector('.heart-effect-zone');
+          if (!effectContainer) {
+            effectContainer = document.createElement('div');
+            effectContainer.className = 'heart-effect-zone';
+            effectContainer.style.position = 'absolute';
+            effectContainer.style.top = '0';
+            effectContainer.style.left = '0';
+            effectContainer.style.width = '100%';
+            effectContainer.style.height = '100%';
+            effectContainer.style.pointerEvents = 'none';
+            heartBtn.style.position = 'relative';
+            heartBtn.appendChild(effectContainer);
+          }
+
+          // 🎯 TĂNG LÊN 9 TRÁI TIM CHO MỖI CÚ CLICK
+          for (let i = 0; i < 9; i++) {
+            const heart = document.createElement('i');
+            heart.className = 'fa-solid fa-heart floating-heart';
+            heart.style.position = 'absolute';
+            heart.style.color = '#f43f5e'; 
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '100';
+            
+            // 🎯 Khoảng cách xuất hiện ban đầu lệch nhau một chút dưới chân nút
+            heart.style.left = `${15 + (Math.random() * 40 - 20)}px`;
+            heart.style.top = `-5px`;
+            
+            // Kích thước to nhỏ so le ngẫu nhiên từ 10px đến 18px nhìn rất sinh động
+            heart.style.fontSize = `${Math.floor(Math.random() * 8) + 10}px`;
+            
+            // 🎯 THUẬT TOÁN TẢN RỘNG: Tạo biến CSS để mỗi trái tim bay dạt sang trái/phải ngẫu nhiên lên tới 60px
+            const randomDriftX = `${Math.floor(Math.random() * 120) - 60}px`; // Tản sang trái hoặc phải từ -60px đến +60px
+            const randomRotate = `${Math.floor(Math.random() * 80) - 40}deg`; // Xoay nghiêng từ -40 độ đến +40 độ
+            
+            heart.style.setProperty('--drift-x', randomDriftX);
+            heart.style.setProperty('--rotate-deg', randomRotate);
+            
+            // Tốc độ bay của từng hạt tim nhanh chậm lệch nhau một chút (từ 0.8s đến 1.2s) để tạo chiều sâu
+            heart.style.animation = `heartFlyUp ${0.8 + Math.random() * 0.4}s ease-out forwards`;
+            
+            effectContainer.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 1200);
+          }
+        });
+      }
+
+	// Tự động nạp ảnh đại diện thật của bài viết vào thẻ Meta OG:Image trước khi Facebook quét
+    //  const metaOgImage = document.getElementById('meta-og-image');
+    //  const postThumbnail = document.querySelector('#post-content img'); // Tìm bức ảnh đầu tiên trong bài viết
+      
+    //  if (metaOgImage && postThumbnail) {
+    //    metaOgImage.setAttribute('content', postThumbnail.src);
+    //  }
+
+	// --- 2. HÀNH ĐỘNG CHIA SẺ LÊN FACEBOOK CHUẨN ĐA NỀN TẢNG ---
+      const fbBtn = document.getElementById('share-facebook-btn');
+      if (fbBtn) {
+        fbBtn.addEventListener('click', () => {
+          const isAndroid = /Android/i.test(navigator.userAgent);
+          const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+          
+          // Đường link chia sẻ chuẩn hóa, Facebook App bắt buộc phải nhận diện được
+          const targetUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+
+          if (isAndroid) {
+            // Sử dụng cấu trúc Android Intent chuẩn để ép hệ điều hành gọi App Facebook
+            // Nếu có App, nó sẽ mở thẳng luồng chia sẻ của App. Nếu không có, nó sẽ mở bằng trình duyệt.
+            const androidIntent = `intent://www.facebook.com/sharer/sharer.php?u=${encodedUrl}#Intent;scheme=https;package=com.facebook.katana;end`;
+            window.location.href = androidIntent;
+          } 
+          else if (isIOS) {
+            // Đối với iOS (Safari/Chrome), sử dụng liên kết trực tiếp. 
+            // Hệ điều hành iOS sẽ tự động hỏi "Mở trong Facebook?" nếu cấu hình Universal Links trên máy hoạt động.
+            // Sử dụng window.open trên iOS để không làm mất trang hiện tại của blog
+            window.open(targetUrl, '_blank');
+          } 
+          else {
+            // Nếu dùng máy tính (PC/Laptop), giữ nguyên cửa sổ popup nhỏ chuyên nghiệp
+            window.open(targetUrl, '_blank', 'width=600,height=400,resizable=yes,scrollbars=yes');
+          }
+        });
+      }
+
+	// --- 3. HÀNH ĐỘNG SAO CHÉP LINK NHANH (ĐÃ KHÓA CHẶT ĐỘ RỘNG BẰNG JS CHỐNG CO GIÃN) ---
+      const copyBtn = document.getElementById('copy-link-btn');
+      const copyText = document.getElementById('copy-text');
+      if (copyBtn && copyText) {
+        copyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(currentUrl).then(() => {
+            
+            // 🎯 BƯỚC THẦN KỲ: Đo độ rộng thực tế hiện tại của nút (tính bằng pixel)
+            const currentWidth = copyBtn.offsetWidth;
+            // Ép độ rộng cố định bằng inline-style để nút đứng im băng, không bị giật hay co lại
+            copyBtn.style.width = `${currentWidth}px`;
+
+            // Tiến hành đổi chữ và đổi màu như bình thường
+            copyText.textContent = 'Đã sao chép!';
+            copyBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+            copyBtn.classList.add('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
+
+            // Trả về trạng thái ban đầu sau 2 giây
+            setTimeout(() => {
+              copyText.textContent = 'Sao chép Link';
+              copyBtn.classList.remove('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
+              copyBtn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+              
+              // 🎯 Giải phóng thuộc tính width để nút tự do co dãn theo giao diện gốc khi cần
+              copyBtn.style.width = '';
+            }, 2000);
+          }).catch(err => {
+            console.error('Không thể sao chép liên kết: ', err);
+          });
+        });
+      }
+    });
+  </script>
+
