@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="sdfsdf">
+	<meta property="og:title" content="sdfdsfdsf">
 	<meta property="og:description" content="sdfsdf">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/ea/69/e3/ea69e35021b7ce242fe14a4ff5629f34.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/ea/69/e3/ea69e35021b7ce242fe14a4ff5629f34.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/fe/78/b1/fe78b1be6b329aac22778a5fcff53537.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/fe/78/b1/fe78b1be6b329aac22778a5fcff53537.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,7 +142,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            sdfsdf
+            sdfdsfdsf
           </h1>
 
 			<div class="mb-5"><span class="text-sm text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span></div>
@@ -150,8 +150,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/54/76/52/547652e7f91134fde82ec5df8e3bf562.jpg" data-fancybox="gallery-post-sdfsdf" data-caption="sdfsdf" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/54/76/52/547652e7f91134fde82ec5df8e3bf562.jpg" alt="sdfsdf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/03/48/04/0348043fe5d6097321d252db64b89e69.jpg" data-fancybox="gallery-post-sdfdsfdsf" data-caption="sdfdsfdsf" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/03/48/04/0348043fe5d6097321d252db64b89e69.jpg" alt="sdfdsfdsf" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -162,7 +162,7 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm">
-                    <div class="mb-4">gdfg</div>
+                    <div class="mb-4">ssdf</div>
 
           </div>
 
@@ -227,19 +227,19 @@
       <aside class="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-6">
         <!-- <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
         </div> here-->
-		<div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden">
-		  <div class="flex border-b border-slate-100 bg-slate-50/50">
-			<button id="btn-tab-related" onclick="switchSidebarTab('related')" class="flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer">
-			  <i class="fa-solid fa-link mr-1.5"></i>Liên quan
-			</button>
-			<button id="btn-tab-random" onclick="switchSidebarTab('random')" class="flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors cursor-pointer">
-			  <i class="fa-solid fa-shuffle mr-1.5"></i>Ngẫu nhiên
-			</button>
-		  </div>
-		  
-		  <div id="detail-sidebar-list" class="p-4 space-y-4 max-h-[450px] overflow-y-auto">
-			</div>
-		</div>
+<div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden">
+  <div class="flex border-b border-slate-100 bg-slate-50/50">
+    <button id="btn-tab-related" class="flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer">
+      <i class="fa-solid fa-link mr-1.5"></i>Liên quan
+    </button>
+    <button id="btn-tab-random" class="flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors cursor-pointer">
+      <i class="fa-solid fa-shuffle mr-1.5"></i>Ngẫu nhiên
+    </button>
+  </div>
+  
+  <div id="detail-sidebar-list" class="p-4 space-y-4 max-h-[450px] overflow-y-auto">
+    </div>
+</div>
 
       </aside>
     </div>
@@ -294,7 +294,7 @@
     }
 
     const CURRENT_POST = {
-      title: "sdfdsf",
+      title: "sdfsdfsdf",
       tags: ["sdfsdf"]
     };
 
@@ -346,74 +346,57 @@
       // 🎯 SỬA LỖI HIỂN THỊ BÀI VIẾT LIÊN QUAN & BÀI VIẾT NGẪU NHIÊN CHUẨN HTML
       // =========================================================================
       
+      // Biến cục bộ an toàn nằm trong phạm vi script bài con
       var sidebarAllPosts = [];
-      var currentActiveTab = 'related';
-
-      // Hàm chuyển đổi trạng thái giao diện Tab và kích hoạt re-render làm mới danh sách
-      window.switchSidebarTab = function(type) {
-        currentActiveTab = type;
-        const btnTabRelated = document.getElementById('btn-tab-related');
-        const btnTabRandom = document.getElementById('btn-tab-random');
-        
-        if (type === 'related') {
-          if(btnTabRelated) btnTabRelated.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
-          if(btnTabRandom) btnTabRandom.className = "flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors cursor-pointer";
-        } else {
-          if(btnTabRandom) btnTabRandom.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
-          if(btnTabRelated) btnTabRelated.className = "flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors cursor-pointer";
-        }
-        
-        // Gọi hàm render để luôn tính toán làm mới hoặc xáo trộn lại ngẫu nhiên danh sách dữ liệu bài viết
-        renderSidebarContent(type);
-      };
 
       function renderSidebarContent(type) {
-        const sidebarList = document.getElementById('detail-sidebar-list');
+        var sidebarList = document.getElementById('detail-sidebar-list');
         if (!sidebarList) return;
 
         if (!sidebarAllPosts || sidebarAllPosts.length === 0) {
-          sidebarList.innerHTML = '<p class="text-xs text-slate-400 text-center py-4">Đang dữ liệu bài viết...</p>';
+          sidebarList.innerHTML = '<p class="text-xs text-slate-400 text-center py-4">Đang tải dữ liệu bài viết...</p>';
           return;
         }
 
-        // Loại bỏ chính bài viết hiện tại ra khỏi danh sách đề xuất ở cột phải
-        const currentTitleEl = document.querySelector('h1');
-        const currentTitle = currentTitleEl ? currentTitleEl.textContent.trim() : '';
-        let filtered = sidebarAllPosts.filter(function(p) { return p.title !== currentTitle; });
+        // Lọc bỏ bài viết hiện tại theo tiêu đề h1 tránh lặp lại bài đang đọc
+        var currentTitleEl = document.querySelector('h1');
+        var currentTitle = currentTitleEl ? currentTitleEl.textContent.trim() : '';
+        var filtered = sidebarAllPosts.filter(function(p) { return p.title !== currentTitle; });
 
         if (type === 'related') {
-          const currentTags = Array.from(document.querySelectorAll('.tag-badge')).map(function(t) { 
+          // Lấy danh sách tags bài viết hiện tại
+          var currentTags = Array.from(document.querySelectorAll('.tag-badge')).map(function(t) { 
             return t.textContent.trim().toLowerCase(); 
           });
           
-          let related = filtered.filter(function(p) {
-            const pTags = (p.tags || '').split(',').map(function(t) { return t.trim().toLowerCase(); }).filter(Boolean);
-            return pTags.some(function(tag) { return currentTags.includes(tag); });
+          var related = filtered.filter(function(p) {
+            var pTags = (p.tags || '').split(',').map(function(t) { return t.trim().toLowerCase(); }).filter(Boolean);
+            return pTags.some(function(tag) { return currentTags.includes(tag)); });
           });
 
-          // Nếu không có bài nào trùng tag, mượn tạm danh sách bài viết khác để tránh sidebar trống
+          // Nếu bài liên quan trống, lấy danh sách bài viết thường để lấp đầy sidebar
           filtered = related.length > 0 ? related : filtered;
         } else if (type === 'random') {
-          // Thực hiện xáo trộn ngẫu nhiên toàn bộ danh sách bài viết nền mỗi khi click vào tiêu đề tab
+          // Thuật toán xáo trộn vị trí mảng ngẫu nhiên hoàn toàn khi click làm mới
           filtered.sort(function() { return 0.5 - Math.random(); });
         }
 
-        // 🎯 THAY ĐỔI CỐT LÕI: Điều chỉnh cắt mảng lấy tối đa 5 bài viết xuất sắc nhất
-        const displayPosts = filtered.slice(0, 5);
+        // 🎯 THIẾT LẬP HIỂN THỊ TỐI ĐA VỪA VẶN 5 BÀI VIẾT TẠI SIDEBAR PHẢI
+        var displayPosts = filtered.slice(0, 5);
 
         if (displayPosts.length === 0) {
           sidebarList.innerHTML = '<p class="text-xs text-slate-400 text-center py-4">Không có bài viết nào khác.</p>';
           return;
         }
 
-        let listHTML = '';
+        var listHTML = '';
         displayPosts.forEach(function(post) {
-          let correctUrl = post.url || '#';
+          var correctUrl = post.url || '#';
           if (!correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
             correctUrl = '../' + correctUrl;
           }
-          const imgUrl = post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png';
-          const postDate = post.date || '';
+          var imgUrl = post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png';
+          var postDate = post.date || '';
 
           listHTML += '<a href="' + correctUrl + '" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-all duration-200">';
           listHTML += '  <img src="' + imgUrl + '" class="w-14 h-14 rounded-lg object-cover flex-shrink-0 border border-slate-100 shadow-sm group-hover:scale-105 transition-transform">';
@@ -427,22 +410,22 @@
         sidebarList.innerHTML = listHTML;
       }
 
-      // Khi trang tải xong, tự động thu thập thông tin bài viết từ các thẻ card ngoài trang chủ
+      // Đợi toàn bộ cấu trúc trang tải hoàn tất mới đăng ký sự kiện tránh xung đột gây đơ nút
       document.addEventListener('DOMContentLoaded', function() {
-        const postsContainer = document.getElementById('posts-container');
+        var postsContainer = document.getElementById('posts-container');
         if (postsContainer) {
-          const cards = postsContainer.querySelectorAll('.post-card');
+          var cards = postsContainer.querySelectorAll('.post-card');
           cards.forEach(function(card) {
-            const titleEl = card.querySelector('h2');
+            var titleEl = card.querySelector('h2');
             if (titleEl) {
-              const pTitle = titleEl.textContent.trim();
-              const pImg = card.getAttribute('data-image') || '';
-              const pUrl = card.getAttribute('data-url') || '';
-              const dateEl = card.querySelector('.post-date');
-              const pDate = dateEl ? dateEl.textContent.trim() : '';
+              var pTitle = titleEl.textContent.trim();
+              var pImg = card.getAttribute('data-image') || '';
+              var pUrl = card.getAttribute('data-url') || '';
+              var dateEl = card.querySelector('.post-date');
+              var pDate = dateEl ? dateEl.textContent.trim() : '';
               
-              const tagEls = card.querySelectorAll('.tag-badge');
-              const pTags = Array.from(tagEls).map(function(t) { return t.textContent.trim(); }).join(',');
+              var tagEls = card.querySelectorAll('.tag-badge');
+              var pTags = Array.from(tagEls).map(function(t) { return t.textContent.trim(); }).join(',');
 
               sidebarAllPosts.push({
                 title: pTitle,
@@ -455,8 +438,32 @@
           });
         }
 
-        // Thực hiện render mặc định Tab "Liên quan" khi mở trang con lên
+        // Render danh sách Liên quan mặc định ban đầu
         renderSidebarContent('related');
+
+        // GẮN SỰ KIỆN CLICK BẰNG JAVASCRIPT THUẦN CHỐNG ĐƠ NÚT & HỖ TRỢ REFRESH KHI CLICK LẠI
+        var btnTabRelated = document.getElementById('btn-tab-related');
+        var btnTabRandom = document.getElementById('btn-tab-random');
+
+        if (btnTabRelated) {
+          btnTabRelated.addEventListener('click', function() {
+            btnTabRelated.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
+            if (btnTabRandom) btnTabRandom.className = "flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors cursor-pointer";
+            
+            // Luôn gọi lại hàm để quét làm mới danh sách bài liên quan
+            renderSidebarContent('related');
+          });
+        }
+
+        if (btnTabRandom) {
+          btnTabRandom.addEventListener('click', function() {
+            btnTabRandom.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
+            if (btnTabRelated) btnTabRelated.className = "flex-1 py-3 text-sm font-semibold text-slate-400 hover:text-slate-600 transition-colors cursor-pointer";
+            
+            // Gọi lại để thuật toán Math.random() xáo trộn ra 5 bài viết ngẫu nhiên mới tinh
+            renderSidebarContent('random');
+          });
+        }
       });
   </script>
 
