@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="gfdgdfg">
+	<meta property="og:title" content="dfgfdg">
 	<meta property="og:description" content="dfgdfg">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/bb/42/04/bb4204c19d43b475467cb9a01aab59b3.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/bb/42/04/bb4204c19d43b475467cb9a01aab59b3.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/b5/20/11/b520110e93d828916ab0af0de6963485.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/b5/20/11/b520110e93d828916ab0af0de6963485.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,13 +142,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_free" class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity">Miễn phí</a>
+              <a href="../index.html?cat=cat_tool" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f0f9ff; color: #0284c7;" title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>28/06/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            gfdgdfg
+            dfgfdg
           </h1>
 
           <div class="mb-5">
@@ -160,8 +160,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/bb/42/04/bb4204c19d43b475467cb9a01aab59b3.jpg" data-fancybox="gallery-post-gfdgdfg" data-caption="gfdgdfg" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/bb/42/04/bb4204c19d43b475467cb9a01aab59b3.jpg" alt="gfdgdfg" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/b5/20/11/b520110e93d828916ab0af0de6963485.jpg" data-fancybox="gallery-post-dfgfdg" data-caption="dfgfdg" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/b5/20/11/b520110e93d828916ab0af0de6963485.jpg" alt="dfgfdg" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -173,7 +173,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">dgfdg</div>
+                    <div class="mb-4">dgdfg</div>
 
           </div>
 
@@ -203,7 +203,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=dfgdfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dfgdfg</a>
+                            <a href="../index.html?search=dfgdfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfgdfg</a>
             </div>
           </div>
         </article>
@@ -319,7 +319,7 @@
     }
 
     const CURRENT_POST = {
-      title: "dfgfdgfdg",
+      title: "dfgdfg",
       tags: ["dfgdfg"]
     };
 
@@ -749,7 +749,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const commentTotalCount = document.getElementById('comment-total-count');
   const adminStatusText = document.getElementById('admin-status-text');
 
-// 🎯 Mã băm bảo mật SHA-256 ẩn của chuỗi "hieubeo91@admin"
+  // 👑 KHAI BÁO BIẾN TRẠNG THÁI ADMIN (Bắt buộc phải có dòng này)
+  let isAdminActive = false;
+
+  // 🎯 Mã băm bảo mật SHA-256 ẩn của chuỗi "hieubeo91@admin"
   const ADMIN_HASH_CODE = "8fa45dc33a39150005708b792ff48ec42551ec46820ef0ff1806385cfcf47225";
 
   // Hàm băm SHA-256 đồng bộ gọn nhẹ, không lỗi bất đồng bộ hay môi trường
