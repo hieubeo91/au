@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="dfdsf">
-	<meta property="og:description" content="dfgdfg">
+	<meta property="og:title" content="fsdf">
+	<meta property="og:description" content="sdf">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/25/63/4d/25634d0441749d9b7c341cb9382b1b3e.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/25/63/4d/25634d0441749d9b7c341cb9382b1b3e.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/77/b9/ae/77b9ae67bc1c0e390def8f7d7719cbb6.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/77/b9/ae/77b9ae67bc1c0e390def8f7d7719cbb6.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,7 +148,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            dfdsf
+            fsdf
           </h1>
 
           <div class="mb-5">
@@ -160,8 +160,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/25/63/4d/25634d0441749d9b7c341cb9382b1b3e.jpg" data-fancybox="gallery-post-dfdsf" data-caption="dfdsf" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/25/63/4d/25634d0441749d9b7c341cb9382b1b3e.jpg" alt="dfdsf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/77/b9/ae/77b9ae67bc1c0e390def8f7d7719cbb6.jpg" data-fancybox="gallery-post-fsdf" data-caption="fsdf" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/77/b9/ae/77b9ae67bc1c0e390def8f7d7719cbb6.jpg" alt="fsdf" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -173,7 +173,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">dsfdsf</div>
+                    <div class="mb-4">sđsf</div>
 
           </div>
 
@@ -203,7 +203,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=fdg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#fdg</a>
+                            <a href="../index.html?search=fsdf" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#fsdf</a>
             </div>
           </div>
         </article>
@@ -318,8 +318,8 @@
     }
 
     const CURRENT_POST = {
-      title: "dfdsf",
-      tags: ["fdg"]
+      title: "fsdf",
+      tags: ["fsdf"]
     };
 
     async function loadPosts() {
@@ -757,6 +757,9 @@
     var commentContentInput = document.getElementById('comment-content');
     var submitCommentBtn = document.getElementById('submit-comment-btn');
 
+    // Biến toàn cục lưu trữ ID của bình luận đang được trả lời
+    var currentReplyToId = null;
+
     // Kết nối Firebase Realtime Database
     var commentRef;
     if (typeof firebase !== 'undefined' && firebase.database) {
@@ -774,7 +777,6 @@
           e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
           e.target.blur();
           
-          // Sau khi kích hoạt Admin, quét hiển thị tất cả các nút xóa bình luận đang ẩn ẩn trên màn hình
           document.querySelectorAll('.admin-delete-btn').forEach(function(btn) {
             btn.classList.remove('hidden');
           });
@@ -782,7 +784,7 @@
       });
     }
 
-    // 3. Tải danh sách bình luận thời gian thực từ Cloud Firebase
+    // 3. Tải danh sách bình luận thời gian thực từ Cloud Firebase và Xử lý phân cấp
     if (commentRef) {
       commentRef.on('value', function(snapshot) {
         if (!commentsWrapper) return;
@@ -790,37 +792,48 @@
         var data = snapshot.val() || {};
         var commentKeys = Object.keys(data);
         
-        var comments = commentKeys.map(function(key) {
+        var allComments = commentKeys.map(function(key) {
           var item = data[key];
-          item._fbKey = key; // Lưu lại ID key trên Firebase để dùng cho chức năng xóa dữ liệu
+          item._fbKey = key;
           return item;
         });
 
-        if (commentCountSpan) commentCountSpan.textContent = comments.length;
+        if (commentCountSpan) commentCountSpan.textContent = allComments.length;
 
-        if (comments.length === 0) {
+        if (allComments.length === 0) {
           commentsWrapper.innerHTML = '<p class="text-xs text-slate-400 italic text-center py-4">Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ cảm nghĩ!</p>';
           return;
         }
 
-        // Sắp xếp bình luận: Cũ hiển thị trước, Mới hiển thị sau
-        comments.sort(function(a, b) {
+        // Sắp xếp theo trình tự thời gian (cũ trước, mới sau)
+        allComments.sort(function(a, b) {
           return (a.timestamp || 0) - (b.timestamp || 0);
         });
 
-        comments.forEach(function(cmt) {
+        // Tách biệt bình luận gốc (cha) và bình luận phản hồi (con)
+        var rootComments = allComments.filter(function(c) { return !c.replyTo; });
+        var replyComments = allComments.filter(function(c) { return c.replyTo; });
+
+        // Hàm helper dựng HTML cho từng mục bình luận (dùng chung cho cả cha và con)
+        function generateCommentHTML(cmt, isChild) {
           var date = new Date(cmt.timestamp);
           var timeStr = date.toLocaleDateString('vi-VN') + ' ' + date.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'});
           
           var adminBadge = cmt.isAdmin ? '<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Tác giả</span>' : '';
-          var borderClass = cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : 'border-slate-100 bg-slate-50/40';
-          var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
           
-          // Kiểm tra xem trạng thái Admin hiện tại có đang bật không để quyết định ẩn/hiện nút Xóa
+          // Định dạng khung giao diện: Nếu là con thì thụt lề trái (ml-8), đổi màu nền nhẹ
+          var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
+          var borderClass = cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : '';
+          var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
           var deleteBtnHiddenClass = isAdminActive ? '' : 'hidden';
 
-          // Tạo chuỗi HTML giao diện hiển thị cho từng bình luận cấu trúc mới
-          commentsWrapper.innerHTML += '<div class="p-3 border rounded-xl flex gap-3 transition-all relative group/item ' + borderClass + '">' +
+          // Biến đổi highlight từ khóa nhắc tên @user bằng RegEx
+          var processedContent = (cmt.content || "").replace(/(@[^\s:]+)/g, '<span class="text-indigo-600 font-semibold">$1</span>');
+
+          // Sử dụng ID gốc của cha làm điểm neo phản hồi để KHÔNG thụt lề cấp 3, cấp 4
+          var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
+
+          return '<div class="flex gap-3 transition-all relative group/item ' + layoutClass + ' ' + borderClass + '">' +
             '<div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs flex-shrink-0">' +
               (cmt.name ? cmt.name.charAt(0).toUpperCase() : '?') +
             '</div>' +
@@ -830,44 +843,70 @@
                 adminBadge +
                 '<span class="text-[10px] text-slate-400 ml-auto">' + timeStr + '</span>' +
               '</div>' +
-              '<p class="text-xs text-slate-600 mt-1 leading-relaxed whitespace-pre-line">' + (cmt.content || "") + '</p>' +
+              '<p class="text-xs text-slate-600 mt-1 leading-relaxed whitespace-pre-line">' + processedContent + '</p>' +
               
-              // Khối công cụ tương tác: Trả lời nhanh
-              '<div class="flex items-center gap-3 mt-2 pt-1 border-t border-slate-100/40">' +
-                '<button onclick="window._replyToComment(\'' + (cmt.name || "Nặc danh").replace(/'/g, "\\'") + '\')" class="text-[11px] text-indigo-500 hover:text-indigo-700 font-bold flex items-center gap-1 cursor-pointer">' +
+              '<div class="flex items-center gap-3 mt-1.5 pt-1 border-t border-slate-100/40">' +
+                '<button onclick="window._replyToComment(\'' + replyTargetId + '\', \'' + (cmt.name || "Nặc danh").replace(/'/g, "\\'") + '\')" class="text-[10px] text-indigo-500 hover:text-indigo-700 font-bold flex items-center gap-1 cursor-pointer">' +
                   '<i class="fa-solid fa-reply"></i> Trả lời' +
-                '</button>' +
-                // Nút Xóa bình luận dành riêng cho quyền quản trị Admin
-                '<button onclick="window._deleteComment(\'' + cmt._fbKey + '\')" class="admin-delete-btn ' + deleteBtnHiddenClass + ' text-[11px] text-rose-500 hover:text-rose-700 font-bold flex items-center gap-1 cursor-pointer ml-auto transition-colors" title="Xóa bình luận này khỏi hệ thống">' +
+                </button>' +
+                '<button onclick="window._deleteComment(\'' + cmt._fbKey + '\')" class="admin-delete-btn ' + deleteBtnHiddenClass + ' text-[10px] text-rose-500 hover:text-rose-700 font-bold flex items-center gap-1 cursor-pointer ml-auto transition-colors">' +
                   '<i class="fa-regular fa-trash-can"></i> Xóa' +
-                '</button>' +
+                </button>' +
               '</div>' +
             '</div>' +
           '</div>';
+        }
+
+        // Lắp ráp lồng ghép phân cấp trực tiếp dưới bình luận cha tương ứng
+        rootComments.forEach(function(root) {
+          // Tạo một cụm (cluster) bao bọc cha và các con của nó
+          var clusterWrapper = document.createElement('div');
+          clusterWrapper.className = 'space-y-2 border-b border-slate-100/60 pb-3 last:border-0';
+          
+          // Thêm HTML của cha vào trước
+          var clusterHTML = generateCommentHTML(root, false);
+
+          // Tìm và lập tức chèn tất cả bình luận con có replyTo trùng với ID của cha này
+          var subReplies = replyComments.filter(function(r) { return r.replyTo === root._fbKey; });
+          subReplies.forEach(function(reply) {
+            clusterHTML += generateCommentHTML(reply, true);
+          });
+
+          clusterWrapper.innerHTML = clusterHTML;
+          commentsWrapper.appendChild(clusterWrapper);
         });
       });
     }
 
-    // 4. Định nghĩa các hàm tương tác toàn cục (gán vào đối tượng window để nút gọi onclick nhận diện được)
-    window._replyToComment = function(targetName) {
+    // 4. Định nghĩa các hàm tương tác toàn cục nhận diện ID cha để định hướng lưu trữ
+    window._replyToComment = function(commentId, targetName) {
       if (!commentContentInput) return;
-      // Điền sẵn tag tên và trỏ con chuột vào ô nhập bình luận để viết tiếp phản hồi ngay lập tức
-      commentContentInput.value = "@" + targetName + " " + commentContentInput.value;
+      currentReplyToId = commentId; // Lưu lại ID cha
+      commentContentInput.value = "@" + targetName.replace(/ /g, "") + ": "; 
       commentContentInput.focus();
+      commentContentInput.scrollIntoView({ behavior: "smooth", block: "center" });
     };
 
     window._deleteComment = function(fbKey) {
       if (!commentRef) return;
       if (confirm("Bạn có chắc chắn muốn xóa vĩnh viễn bình luận này khỏi hệ thống không?")) {
         commentRef.child(fbKey).remove().then(function() {
-          console.log("Đã xóa thành công bình luận: " + fbKey);
+          // Đồng thời quét xóa các bình luận con gắn liền với nó nếu có
+          commentRef.once('value', function(snap) {
+            var data = snap.val() || {};
+            Object.keys(data).forEach(function(key) {
+              if (data[key].replyTo === fbKey) {
+                commentRef.child(key).remove();
+              }
+            });
+          });
         }).catch(function(err) {
           alert("Lỗi không thể xóa: " + err.message);
         });
       }
     };
 
-    // 5. Sự kiện bấm nút gửi bình luận lên mây Firebase
+    // 5. Sự kiện bấm nút gửi bình luận (Tự động nhận diện bình luận cha hoặc bình luận mới)
     if (submitCommentBtn) {
       submitCommentBtn.addEventListener('click', function() {
         var name = commentNameInput ? commentNameInput.value.trim() : '';
@@ -883,12 +922,18 @@
           timestamp: firebase.database.ServerValue.TIMESTAMP
         };
 
+        // Nếu đang trong trạng thái trả lời, đính kèm ID của cha vào bản ghi dữ liệu
+        if (currentReplyToId) {
+          newComment.replyTo = currentReplyToId;
+        }
+
         submitCommentBtn.disabled = true;
         submitCommentBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang gửi...';
 
         if (commentRef) {
           commentRef.push(newComment).then(function() {
             if (commentContentInput) commentContentInput.value = "";
+            currentReplyToId = null; // Reset trạng thái reply về ban đầu sau khi gửi xong
             submitCommentBtn.disabled = false;
             submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
           }).catch(function(err) {
