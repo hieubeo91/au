@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="dsfdsfdsf">
-	<meta property="og:description" content="sdfdsf">
+	<meta property="og:title" content="dfgdfg">
+	<meta property="og:description" content="dfgfdg">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/8d/75/f0/8d75f01e3c60924c4773ed1f1e4f71c6.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/8d/75/f0/8d75f01e3c60924c4773ed1f1e4f71c6.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/9c/5b/ad/9c5bad05feca2a53d3dda8e7f525d29f.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/9c/5b/ad/9c5bad05feca2a53d3dda8e7f525d29f.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,7 +148,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            dsfdsfdsf
+            dfgdfg
           </h1>
 
           <div class="mb-5">
@@ -160,8 +160,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/8d/75/f0/8d75f01e3c60924c4773ed1f1e4f71c6.jpg" data-fancybox="gallery-post-dsfdsfdsf" data-caption="dsfdsfdsf" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/8d/75/f0/8d75f01e3c60924c4773ed1f1e4f71c6.jpg" alt="dsfdsfdsf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/9c/5b/ad/9c5bad05feca2a53d3dda8e7f525d29f.jpg" data-fancybox="gallery-post-dfgdfg" data-caption="dfgdfg" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/9c/5b/ad/9c5bad05feca2a53d3dda8e7f525d29f.jpg" alt="dfgdfg" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -173,12 +173,12 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">sdfdsf</div>
+                    <div class="mb-4">gdfg</div>
 
           </div>
 
           <!-- Bộ nút tương tác -->
-          <div class="mt-8 pt-6 border-t border-slate-100 relative mb-2">
+          <div class="mt-8 pt-6 border-t border-slate-100 relative mb-4">
             <div class="flex flex-wrap items-center justify-between gap-4">
               <div class="flex items-center gap-2">
                 <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Chia sẻ</span>
@@ -201,9 +201,9 @@
 
           <!-- Hashtags -->
           <div class="pt-6 border-t border-slate-100">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Hashtags</span>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=sfdf" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#sfdf</a>
+                            <a href="../index.html?search=dgdfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dgdfg</a>
             </div>
           </div>
         </article>
@@ -221,7 +221,7 @@
                 <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">
                   Tên của bạn
                 </label>
-                <input type="text" id="comment-name" class="w-full px-3 py-1.5 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 transition-colors" placeholder="Nhập tên của bạn tại đây">
+                <input type="text" id="comment-name" class="w-full px-3 py-1.5 text-xs bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 transition-colors" placeholder="Nhập tên... (Nhập mã Admin để kích hoạt)">
               </div>
             </div>
             <div>
@@ -236,6 +236,15 @@
           </div>
 
           <div id="comments-wrapper" class="space-y-4 w-full"></div>
+		  
+		<div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-4">
+		  <span class="text-xs font-semibold text-slate-700">Thảo luận (<span id="comment-total-count">0</span>)</span>
+		  <select id="comment-sort-select" class="text-xs bg-white border border-slate-200 rounded px-2 py-1 text-slate-600 outline-none cursor-pointer">
+			<option value="newest">Mới nhất lên trước</option>
+			<option value="oldest">Cũ nhất lên trước</option>
+		  </select>
+		</div>
+		  
         </div>
 
         <!-- Nút quay lại trang chủ -->
@@ -318,8 +327,8 @@
     }
 
     const CURRENT_POST = {
-      title: "dsfsdf",
-      tags: ["sfdf"]
+      title: "sdggdfg",
+      tags: ["dgdfg"]
     };
 
     async function loadPosts() {
@@ -743,7 +752,7 @@
  <!-- aGlldWJlbzkxQGFkbWlu -->
 <script>
   window.addEventListener('DOMContentLoaded', function() {
-    // 1. Hàm băm SHA-256 mã hóa 1 chiều độc lập - Không thể dịch ngược bằng mắt thường
+    // 1. Hàm băm SHA-256 mã hóa 1 chiều bảo mật chuỗi ẩn "hieubeo91@admin"
     function _sha256(ascii) {
       function rightRotate(value, amount) { return (value>>>amount) | (value<<(32-amount)); };
       var mathPow = Math.pow; var maxWord = mathPow(2, 32); var lengthProperty = 'length'; var i, j;
@@ -795,133 +804,207 @@
     var commentNameInput = document.getElementById('comment-name');
     var commentContentInput = document.getElementById('comment-content');
     var submitCommentBtn = document.getElementById('submit-comment-btn');
+    var sortSelect = document.getElementById('comment-sort-select');
 
     var currentReplyToId = null;
+    var cachedSnapshotData = null; // Lưu trữ tạm data từ Firebase để tái sắp xếp không cần tải lại mạng
 
+    // Kết nối Firebase Realtime Database
     var commentRef;
     if (typeof firebase !== 'undefined' && firebase.database) {
       commentRef = firebase.database().ref('blog_comments/' + postDataId);
     }
 
-    // 2. Kích hoạt quyền Admin
+    // 2. Kích hoạt quyền Admin bằng mã hóa SHA-256
     var isAdminActive = false;
     if (commentNameInput) {
       commentNameInput.addEventListener('input', function(e) {
         var val = e.target.value.trim();
-        var secureTargetHash = "57a81a4801bb04e890c8414a2ff4b6ea30dcdf25b5eec1c0e4eec8fbf3bd5181";
+        var secureTargetHash = "422db74591741ca69d6b24cb4767be0da7c653fde69bf88b394156bf9fdc9c04";
         
         if (_sha256(val) === secureTargetHash && !isAdminActive) {
           isAdminActive = true;
-          e.target.value = 'Hieubeo 👑';
+          e.target.value = 'Hieubeo (Admin) 👑';
           e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
           e.target.blur();
           
-          document.querySelectorAll('.admin-delete-btn').forEach(function(btn) {
+          // Hiển thị ngay các nút tính năng phân quyền Admin
+          document.querySelectorAll('.admin-action-btn').forEach(function(btn) {
             btn.classList.remove('hidden');
           });
+          // Thực hiện render lại danh sách hiện tại để cập nhật giao diện Admin hoàn chỉnh
+          if (cachedSnapshotData) renderComments(cachedSnapshotData);
         }
       });
     }
 
-    // 3. Tải danh sách bình luận thời gian thực từ Cloud Firebase và Xử lý phân cấp lồng nhau
-    if (commentRef) {
-      commentRef.on('value', function(snapshot) {
-        if (!commentsWrapper) return;
-        commentsWrapper.innerHTML = '';
-        var data = snapshot.val() || {};
-        var commentKeys = Object.keys(data);
-        
-        var allComments = commentKeys.map(function(key) {
-          var item = data[key];
-          item._fbKey = key;
-          return item;
-        });
-
-        if (commentCountSpan) commentCountSpan.textContent = allComments.length;
-
-        if (allComments.length === 0) {
-          commentsWrapper.innerHTML = '<p class="text-xs text-slate-400 italic text-center py-4">Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ cảm nghĩ!</p>';
-          return;
+    // 3. Lắng nghe thay đổi bộ lọc Sắp xếp
+    if (sortSelect) {
+      sortSelect.addEventListener('change', function() {
+        if (cachedSnapshotData) {
+          renderComments(cachedSnapshotData);
         }
+      });
+    }
 
-        allComments.sort(function(a, b) {
+    // 4. Hàm xử lý logic chính: Đọc dữ liệu, Phân loại Ghim, Sắp xếp và Dựng HTML
+    function renderComments(dataObj) {
+      if (!commentsWrapper) return;
+      commentsWrapper.innerHTML = '';
+      
+      var commentKeys = Object.keys(dataObj);
+      var allComments = commentKeys.map(function(key) {
+        var item = dataObj[key];
+        item._fbKey = key;
+        return item;
+      });
+
+      if (commentCountSpan) commentCountSpan.textContent = allComments.length;
+
+      if (allComments.length === 0) {
+        commentsWrapper.innerHTML = '<p class="text-xs text-slate-400 italic text-center py-4">Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ cảm nghĩ!</p>';
+        return;
+      }
+
+      // Lấy tùy chọn sắp xếp hiện tại (Mặc định là 'newest' - mới nhất)
+      var currentSortOrder = sortSelect ? sortSelect.value : 'newest';
+
+      // Tách biệt bình luận gốc (cha) và bình luận phản hồi (con)
+      var rootComments = allComments.filter(function(c) { return !c.replyTo; });
+      var replyComments = allComments.filter(function(c) { return c.replyTo; });
+
+      // SẮP XẾP BÌNH LUẬN CHA (Gốc): Phân rã nhóm Ghim và nhóm Thường
+      var pinnedRoots = rootComments.filter(function(c) { return c.isPinned === true; });
+      var normalRoots = rootComments.filter(function(c) { return !c.isPinned; });
+
+      // Thực hiện sắp xếp theo thời gian cho các bình luận gốc không được ghim
+      normalRoots.sort(function(a, b) {
+        if (currentSortOrder === 'newest') {
+          return (b.timestamp || 0) - (a.timestamp || 0); // Mới lên trước
+        } else {
+          return (a.timestamp || 0) - (b.timestamp || 0); // Cũ lên trước
+        }
+      });
+
+      // Đối với bình luận đã ghim: Luôn xếp theo thời gian tăng dần để phân cấp thứ tự ghim trước sau
+      pinnedRoots.sort(function(a, b) {
+        return (a.timestamp || 0) - (b.timestamp || 0);
+      });
+
+      // Gộp mảng: Các bài ghim luôn đứng đầu danh sách gốc, không bị ảnh hưởng bởi bộ lọc sắp xếp
+      var finalOrderedRoots = pinnedRoots.concat(normalRoots);
+
+      // SẮP XẾP BÌNH LUẬN CON (Trả lời): Sắp xếp trực tiếp theo dòng thời gian đồng bộ
+      replyComments.sort(function(a, b) {
+        if (currentSortOrder === 'newest') {
+          return (b.timestamp || 0) - (a.timestamp || 0);
+        } else {
           return (a.timestamp || 0) - (b.timestamp || 0);
-        });
+        }
+      });
 
-        var rootComments = allComments.filter(function(c) { return !c.replyTo; });
-        var replyComments = allComments.filter(function(c) { return c.replyTo; });
+      // Hàm sinh cấu trúc HTML cho từng thẻ bình luận
+      function generateCommentHTML(cmt, isChild) {
+        var date = new Date(cmt.timestamp);
+        var timeStr = date.toLocaleDateString('vi-VN') + ' ' + date.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'});
+        
+        var adminBadge = cmt.isAdmin ? `<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Admin</span>` : '';
+        // Nhãn ghim trực quan
+        var pinBadge = cmt.isPinned ? `<span class="px-1.5 py-0.5 bg-amber-100 text-amber-700 font-bold rounded text-[9px] uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-thumbtack text-[8px]"></i> Đã ghim</span>` : '';
+        
+        var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
+        // Đổi màu khung nếu được ghim hoặc là admin
+        var borderClass = cmt.isPinned ? 'border-amber-200 bg-amber-50/10' : (cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : '');
+        var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
+        
+        var adminBtnClass = isAdminActive ? '' : 'hidden';
 
-	function generateCommentHTML(cmt, isChild) {
-          var date = new Date(cmt.timestamp);
-          var timeStr = date.toLocaleDateString('vi-VN') + ' ' + date.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'});
-          
-          // 1. Xác định tên hiển thị: Nếu không có cmt.name hoặc chỉ toàn dấu cách thì gán là "Nặc danh"
-          var isAnonymous = !cmt.name || cmt.name.trim() === "";
-          var displayName = isAnonymous ? "Nặc danh" : cmt.name.trim();
-          
-          // 2. Thiết lập các nhãn hỗ trợ trực quan
-          var adminBadge = cmt.isAdmin ? `<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Admin</span>` : '';
-          
-          // Kích hoạt nhãn Nặc danh nếu tài khoản không phải admin và trạng thái là ẩn danh (isAnonymous)
-          var anonymousBadge = (!cmt.isAdmin && isAnonymous) ? `<span class="px-1.5 py-0.5 bg-slate-200 text-slate-600 font-medium rounded text-[9px] uppercase tracking-wider">Ẩn danh</span>` : '';
-          
-          var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
-          var borderClass = cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : '';
-          var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
-          var deleteBtnHiddenClass = isAdminActive ? '' : 'hidden';
+        // Đổi text trạng thái nút Ghim
+        var pinActionText = cmt.isPinned ? 'Bỏ ghim' : 'Ghim bài';
+        var pinIconClass = cmt.isPinned ? 'fa-solid fa-unlink' : 'fa-solid fa-thumbtack';
 
-          // Tạo highlight đổi màu cho chuỗi tag tên bắt đầu bằng kí tự @
-          var processedContent = (cmt.content || "").replace(/(@[^\s:]+)/g, '<span class="text-indigo-600 font-semibold">$1</span>');
+        // Xử lý đếm lượng cảm xúc (Reactions) an toàn tránh lỗi dữ liệu rỗng
+        var rx = cmt.reactions || {};
+        var favCount = rx.favorite || 0;
+        var hahaCount = rx.haha || 0;
+        var wowCount = rx.wow || 0;
+        var sadCount = rx.sad || 0;
+        var angryCount = rx.angry || 0;
 
-          // Đảm bảo bình luận con khi bấm trả lời tiếp thì đích đến vẫn bám vào ID gốc cha (Thụt lề duy nhất 1 lần)
-          var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
-          var safeName = displayName.replace(/'/g, "\\'");
+        // Quét highlight đổi màu chữ Indigo đối với chuỗi tag tên bắt đầu bằng @
+        var processedContent = (cmt.content || "").replace(/(@[^\s:]+)/g, '<span class="text-indigo-600 font-semibold">$1</span>');
 
-          return `
-            <div class="flex gap-3 transition-all relative group/item ${layoutClass} ${borderClass}">
-              <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs flex-shrink-0">
-                ${cmt.name ? cmt.name.charAt(0).toUpperCase() : '?'}
+        var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
+        var safeName = (cmt.name || "Nặc danh").replace(/'/g, "\\'");
+
+        return `
+          <div class="flex gap-3 transition-all relative group/item ${layoutClass} ${borderClass}">
+            <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs flex-shrink-0">
+              ${cmt.name ? cmt.name.charAt(0).toUpperCase() : '?'}
+            </div>
+            <div class="min-w-0 flex-grow">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-xs ${nameColor}">${cmt.name || "Nặc danh"}</span>
+                ${adminBadge}
+                ${pinBadge}
+                <span class="text-[10px] text-slate-400 ml-auto">${timeStr}</span>
               </div>
-              <div class="min-w-0 flex-grow">
-                <div class="flex items-center gap-1.5 flex-wrap">
-                  <span class="text-xs ${nameColor}">${displayName}</span>
-                  ${adminBadge}
-                  ${anonymousBadge}
-                  <span class="text-[10px] text-slate-400 ml-auto">${timeStr}</span>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed whitespace-pre-line">${processedContent}</p>
+              
+              <div class="flex flex-wrap items-center gap-y-2 gap-x-4 mt-2 pt-1.5 border-t border-slate-100/60">
+                <button onclick="window._replyToComment('${replyTargetId}', '${safeName}')" class="text-[10px] text-indigo-500 hover:text-indigo-700 font-bold flex items-center gap-1 cursor-pointer">
+                  <i class="fa-solid fa-reply"></i> Trả lời
+                </button>
+
+                <div class="flex items-center gap-2 bg-slate-100/60 px-2 py-0.5 rounded-full">
+                  <button onclick="window._reactComment('${cmt._fbKey}', 'favorite')" class="text-[11px] hover:scale-125 transition-transform flex items-center gap-0.5" title="Yêu thích">❤️<span class="text-[9px] font-medium text-slate-500">${favCount}</span></button>
+                  <button onclick="window._reactComment('${cmt._fbKey}', 'haha')" class="text-[11px] hover:scale-125 transition-transform flex items-center gap-0.5" title="Haha">😆<span class="text-[9px] font-medium text-slate-500">${hahaCount}</span></button>
+                  <button onclick="window._reactComment('${cmt._fbKey}', 'wow')" class="text-[11px] hover:scale-125 transition-transform flex items-center gap-0.5" title="Wow">😮<span class="text-[9px] font-medium text-slate-500">${wowCount}</span></button>
+                  <button onclick="window._reactComment('${cmt._fbKey}', 'sad')" class="text-[11px] hover:scale-125 transition-transform flex items-center gap-0.5" title="Buồn">😢<span class="text-[9px] font-medium text-slate-500">${sadCount}</span></button>
+                  <button onclick="window._reactComment('${cmt._fbKey}', 'angry')" class="text-[11px] hover:scale-125 transition-transform flex items-center gap-0.5" title="Phẫn nộ">😡<span class="text-[9px] font-medium text-slate-500">${angryCount}</span></button>
                 </div>
-                <p class="text-xs text-slate-600 mt-1 leading-relaxed whitespace-pre-line">${processedContent}</p>
-                
-                <div class="flex items-center gap-3 mt-1.5 pt-1 border-t border-slate-100/40">
-                  <button onclick="window._replyToComment('${replyTargetId}', '${safeName}')" class="text-[10px] text-indigo-500 hover:text-indigo-700 font-bold flex items-center gap-1 cursor-pointer">
-                    <i class="fa-solid fa-reply"></i> Trả lời
+
+                <div class="ml-auto flex items-center gap-3">
+                  <button onclick="window._togglePinComment('${cmt._fbKey}', ${cmt.isPinned || false})" class="admin-action-btn ${adminBtnClass} ${isChild ? 'hidden' : ''} text-[10px] text-amber-600 hover:text-amber-800 font-bold flex items-center gap-1 cursor-pointer transition-colors">
+                    <i class="${pinIconClass}"></i> ${pinActionText}
                   </button>
-                  <button onclick="window._deleteComment('${cmt._fbKey}')" class="admin-delete-btn ${deleteBtnHiddenClass} text-[10px] text-rose-500 hover:text-rose-700 font-bold flex items-center gap-1 cursor-pointer ml-auto transition-colors">
+                  <button onclick="window._deleteComment('${cmt._fbKey}')" class="admin-action-btn ${adminBtnClass} text-[10px] text-rose-500 hover:text-rose-700 font-bold flex items-center gap-1 cursor-pointer transition-colors">
                     <i class="fa-regular fa-trash-can"></i> Xóa
                   </button>
                 </div>
               </div>
             </div>
-          `;
-        }
+          </div>
+        `;
+      }
 
-        rootComments.forEach(function(root) {
-          var clusterWrapper = document.createElement('div');
-          clusterWrapper.className = 'space-y-2 border-b border-slate-100/60 pb-3 last:border-0';
-          
-          var clusterHTML = generateCommentHTML(root, false);
+      // Liên kết phân cấp cha - con và chèn vào DOM
+      finalOrderedRoots.forEach(function(root) {
+        var clusterWrapper = document.createElement('div');
+        clusterWrapper.className = 'space-y-2 border-b border-slate-100/60 pb-3 last:border-0';
+        
+        var clusterHTML = generateCommentHTML(root, false);
 
-          var subReplies = replyComments.filter(function(r) { return r.replyTo === root._fbKey; });
-          subReplies.forEach(function(reply) {
-            clusterHTML += generateCommentHTML(reply, true);
-          });
-
-          clusterWrapper.innerHTML = clusterHTML;
-          commentsWrapper.appendChild(clusterWrapper);
+        // Lọc toàn bộ bình luận con phản hồi trực tiếp cho khối cha này
+        var subReplies = replyComments.filter(function(r) { return r.replyTo === root._fbKey; });
+        subReplies.forEach(function(reply) {
+          clusterHTML += generateCommentHTML(reply, true);
         });
+
+        clusterWrapper.innerHTML = clusterHTML;
+        commentsWrapper.appendChild(clusterWrapper);
       });
     }
 
-    // 4. Các hàm tương tác toàn cục gắn với thẻ onclick
+    // Tải danh sách đồng bộ thời gian thực từ Cloud Firebase
+    if (commentRef) {
+      commentRef.on('value', function(snapshot) {
+        cachedSnapshotData = snapshot.val() || {};
+        renderComments(cachedSnapshotData);
+      });
+    }
+
+    // 5. Định nghĩa các hàm tương tác toàn cục liên thông Firebase
     window._replyToComment = function(commentId, targetName) {
       if (!commentContentInput) return;
       currentReplyToId = commentId;
@@ -930,10 +1013,30 @@
       commentContentInput.scrollIntoView({ behavior: "smooth", block: "center" });
     };
 
+    // Hàm đếm tăng tương tác cảm xúc (Transaction an toàn)
+    window._reactComment = function(fbKey, type) {
+      if (!commentRef) return;
+      var reactionPath = commentRef.child(fbKey + '/reactions/' + type);
+      reactionPath.transaction(function(currentCount) {
+        return (currentCount || 0) + 1;
+      });
+    };
+
+    // Hàm đảo trạng thái ghim bình luận (Chỉ khả dụng cho Admin)
+    window._togglePinComment = function(fbKey, currentPinnedStatus) {
+      if (!commentRef) return;
+      commentRef.child(fbKey).update({
+        isPinned: !currentPinnedStatus
+      }).catch(function(err) {
+        alert("Lỗi thực thi ghim: " + err.message);
+      });
+    };
+
     window._deleteComment = function(fbKey) {
       if (!commentRef) return;
       if (confirm("Bạn có chắc chắn muốn xóa vĩnh viễn bình luận này khỏi hệ thống không?")) {
         commentRef.child(fbKey).remove().then(function() {
+          // Xóa đồng loạt bình luận con gắn liền với id cha vừa xóa
           commentRef.once('value', function(snap) {
             var data = snap.val() || {};
             Object.keys(data).forEach(function(key) {
@@ -948,7 +1051,7 @@
       }
     };
 
-    // 5. Sự kiện bấm nút gửi bình luận
+    // 6. Sự kiện click nút gửi bình luận
     if (submitCommentBtn) {
       submitCommentBtn.addEventListener('click', function() {
         var name = commentNameInput ? commentNameInput.value.trim() : '';
@@ -958,10 +1061,12 @@
         if (!content) { alert("Vui lòng nhập nội dung bình luận!"); return; }
 
         var newComment = {
-          name: isAdminActive ? "Hieubeo 👑" : name,
+          name: isAdminActive ? "Hieubeo (Admin)" : name,
           content: content,
           isAdmin: isAdminActive,
-          timestamp: firebase.database.ServerValue.TIMESTAMP
+          timestamp: firebase.database.ServerValue.TIMESTAMP,
+          isPinned: false, // Mặc định tạo mới không ghim
+          reactions: { favorite: 0, haha: 0, wow: 0, sad: 0, angry: 0 } // Khởi tạo bộ đếm
         };
 
         if (currentReplyToId) {
@@ -974,24 +1079,20 @@
         if (commentRef) {
           commentRef.push(newComment).then(function() {
             if (commentContentInput) commentContentInput.value = "";
-            currentReplyToId = null;
+            currentReplyToId = null; // Trả trạng thái reply về ban đầu
             submitCommentBtn.disabled = false;
             submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
           }).catch(function(err) {
             console.error("Lỗi gửi bình luận:", err);
-            alert("Có lỗi xảy ra khi gửi bình luận, vui lòng thử lại!");
+            alert("Có lỗi xảy ra khi gửi bình luận!");
             submitCommentBtn.disabled = false;
             submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
           });
-        } else {
-          alert("Lỗi: Hệ thống cơ sở dữ liệu bình luận chưa sẵn sàng.");
-          submitCommentBtn.disabled = false;
-          submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
         }
       });
     }
 
-    // 6. Cấu hình hành động chia sẻ MXH nhanh
+    // 7. Cấu hình hành động chia sẻ bài viết nhanh
     var shareFbBtn = document.getElementById('share-fb-btn');
     if (shareFbBtn) {
       shareFbBtn.addEventListener('click', function() {
