@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="sdfsdf">
-	<meta property="og:description" content="sdf">
+	<meta property="og:title" content="sfsdf">
+	<meta property="og:description" content="dfgfd">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/79/79/d3/7979d3cd84a2ed0cc0be1fa000d5ae59.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/79/79/d3/7979d3cd84a2ed0cc0be1fa000d5ae59.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/3d/63/d6/3d63d613ce8dfd37b53aa3781ce32c89.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/3d/63/d6/3d63d613ce8dfd37b53aa3781ce32c89.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,7 +148,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            sdfsdf
+            sfsdf
           </h1>
 
           <div class="mb-5">
@@ -160,8 +160,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/79/79/d3/7979d3cd84a2ed0cc0be1fa000d5ae59.jpg" data-fancybox="gallery-post-sdfsdf" data-caption="sdfsdf" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/79/79/d3/7979d3cd84a2ed0cc0be1fa000d5ae59.jpg" alt="sdfsdf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/3d/63/d6/3d63d613ce8dfd37b53aa3781ce32c89.jpg" data-fancybox="gallery-post-sfsdf" data-caption="sfsdf" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/3d/63/d6/3d63d613ce8dfd37b53aa3781ce32c89.jpg" alt="sfsdf" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -173,7 +173,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">dfdsf</div>
+                    <div class="mb-4">sfdsg</div>
 
           </div>
 
@@ -203,7 +203,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=sdfdsf" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#sdfdsf</a>
+                            <a href="../index.html?search=dfgdfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfgdfg</a>
             </div>
           </div>
         </article>
@@ -327,8 +327,8 @@
     }
 
     const CURRENT_POST = {
-      title: "sdfsdf",
-      tags: ["sdfdsf"]
+      title: "dfgdfg",
+      tags: ["dfgdfg"]
     };
 
     async function loadPosts() {
@@ -904,79 +904,117 @@
       });
 
       // Hàm sinh cấu trúc HTML cho từng thẻ bình luận
-      function generateCommentHTML(cmt, isChild) {
-        var date = new Date(cmt.timestamp);
-        var timeStr = date.toLocaleDateString('vi-VN') + ' ' + date.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'});
-        
-        var adminBadge = cmt.isAdmin ? `<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Admin</span>` : '';
-        // Nhãn ghim trực quan
-        var pinBadge = cmt.isPinned ? `<span class="px-1.5 py-0.5 bg-amber-100 text-amber-700 font-bold rounded text-[9px] uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-thumbtack text-[8px]"></i> Đã ghim</span>` : '';
-        
-        var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
-        // Đổi màu khung nếu được ghim hoặc là admin
-        var borderClass = cmt.isPinned ? 'border-amber-200 bg-amber-50/10' : (cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : '');
-        var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
-        
-        var adminBtnClass = isAdminActive ? '' : 'hidden';
+function generateCommentHTML(cmt, isChild) {
+          var date = new Date(cmt.timestamp);
+          var timeStr = date.toLocaleDateString('vi-VN') + ' ' + date.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'});
+          
+          var displayName = cmt.name && cmt.name.trim() !== "" ? cmt.name.trim() : "Nặc danh";
+          var adminBadge = cmt.isAdmin ? `<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Admin</span>` : '';
+          var pinBadge = cmt.isPinned ? `<span class="px-1.5 py-0.5 bg-amber-100 text-amber-700 font-bold rounded text-[9px] uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-thumbtack text-[8px]"></i> Đã ghim</span>` : '';
+          
+          var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
+          var borderClass = cmt.isPinned ? 'border-amber-200 bg-amber-50/10' : (cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : '');
+          var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
+          var adminBtnClass = isAdminActive ? '' : 'hidden';
 
-        // Đổi text trạng thái nút Ghim
-        var pinActionText = cmt.isPinned ? 'Bỏ ghim' : 'Ghim bài';
-        var pinIconClass = cmt.isPinned ? 'fa-solid fa-unlink' : 'fa-solid fa-thumbtack';
+          var pinActionText = cmt.isPinned ? 'Bỏ ghim' : 'Ghim bài';
+          var pinIconClass = cmt.isPinned ? 'fa-solid fa-unlink' : 'fa-solid fa-thumbtack';
 
-        // Xử lý đếm lượng cảm xúc (Reactions) an toàn tránh lỗi dữ liệu rỗng
-        var rx = cmt.reactions || {};
-        var favCount = rx.favorite || 0;
-        var hahaCount = rx.haha || 0;
-        var wowCount = rx.wow || 0;
-        var sadCount = rx.sad || 0;
-        var angryCount = rx.angry || 0;
+          // --- XỬ LÝ LOGIC CẢM XÚC PHONG CÁCH FACEBOOK ---
+          var rx = cmt.reactions || {};
+          var favCount = rx.favorite || 0;
+          var hahaCount = rx.haha || 0;
+          var wowCount = rx.wow || 0;
+          var sadCount = rx.sad || 0;
+          var angryCount = rx.angry || 0;
+          
+          // 1. Tính tổng số lượng tất cả cảm xúc
+          var totalReactions = favCount + hahaCount + wowCount + sadCount + angryCount;
 
-        // Quét highlight đổi màu chữ Indigo đối với chuỗi tag tên bắt đầu bằng @
-        var processedContent = (cmt.content || "").replace(/(@[^\s:]+)/g, '<span class="text-indigo-600 font-semibold">$1</span>');
+          // 2. Chỉ hiển thị các biểu tượng có lượt tương tác > 0
+          var reactionIconsHTML = '';
+          if (favCount > 0) reactionIconsHTML += '<span class="hover:scale-110 transition-transform">❤️</span>';
+          if (hahaCount > 0) reactionIconsHTML += '<span class="hover:scale-110 transition-transform">😆</span>';
+          if (wowCount > 0) reactionIconsHTML += '<span class="hover:scale-110 transition-transform">😮</span>';
+          if (sadCount > 0) reactionIconsHTML += '<span class="hover:scale-110 transition-transform">😢</span>';
+          if (angryCount > 0) reactionIconsHTML += '<span class="hover:scale-110 transition-transform">😡</span>';
 
-        var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
-        var safeName = (cmt.name || "Nặc danh").replace(/'/g, "\\'");
+          // 3. Tạo nội dung văn bản chi tiết xuất hiện khi rê chuột (Tooltip)
+          var tooltipText = `Yêu thích: ${favCount} | Haha: ${hahaCount} | Wow: ${wowCount} | Buồn: ${sadCount} | Phẫn nộ: ${angryCount}`;
 
-        return `
-          <div class="flex gap-3 transition-all relative group/item ${layoutClass} ${borderClass}">
-            <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs flex-shrink-0">
-              ${cmt.name ? cmt.name.charAt(0).toUpperCase() : '?'}
-            </div>
-            <div class="min-w-0 flex-grow">
-              <div class="flex items-center gap-1.5 flex-wrap">
-                <span class="text-xs ${nameColor}">${cmt.name || "Nặc danh"}</span>
-                ${adminBadge}
-                ${pinBadge}
-                <span class="text-[10px] text-slate-400 ml-auto">${timeStr}</span>
-              </div>
-              <p class="text-xs text-slate-600 mt-1 leading-relaxed whitespace-pre-line">${processedContent}</p>
-              
-              <div class="flex flex-wrap items-center gap-y-2 gap-x-4 mt-2 pt-1.5 border-t border-slate-100/60">
-                <button onclick="window._replyToComment('${replyTargetId}', '${safeName}')" class="text-[10px] text-indigo-500 hover:text-indigo-700 font-bold flex items-center gap-1 cursor-pointer">
-                  <i class="fa-solid fa-reply"></i> Trả lời
-                </button>
-
-                <div class="flex items-center gap-2 bg-slate-100/60 px-2 py-0.5 rounded-full">
-                  <button onclick="window._reactComment('${cmt._fbKey}', 'favorite')" class="text-[11px] hover:scale-125 transition-transform flex items-center gap-0.5" title="Yêu thích">❤️<span class="text-[9px] font-medium text-slate-500">${favCount}</span></button>
-                  <button onclick="window._reactComment('${cmt._fbKey}', 'haha')" class="text-[11px] hover:scale-125 transition-transform flex items-center gap-0.5" title="Haha">😆<span class="text-[9px] font-medium text-slate-500">${hahaCount}</span></button>
-                  <button onclick="window._reactComment('${cmt._fbKey}', 'wow')" class="text-[11px] hover:scale-125 transition-transform flex items-center gap-0.5" title="Wow">😮<span class="text-[9px] font-medium text-slate-500">${wowCount}</span></button>
-                  <button onclick="window._reactComment('${cmt._fbKey}', 'sad')" class="text-[11px] hover:scale-125 transition-transform flex items-center gap-0.5" title="Buồn">😢<span class="text-[9px] font-medium text-slate-500">${sadCount}</span></button>
-                  <button onclick="window._reactComment('${cmt._fbKey}', 'angry')" class="text-[11px] hover:scale-125 transition-transform flex items-center gap-0.5" title="Phẫn nộ">😡<span class="text-[9px] font-medium text-slate-500">${angryCount}</span></button>
+          // Khối hiển thị tổng hợp (Chỉ xuất hiện khi tổng số tương tác lớn hơn 0)
+          var reactionResultBox = '';
+          if (totalReactions > 0) {
+            reactionResultBox = `
+              <div class="relative group/tooltip flex items-center gap-1 bg-white border border-slate-100 shadow-sm px-2 py-0.5 rounded-full cursor-default select-none ml-1">
+                <div class="flex items-center -space-x-1 text-xs">
+                  ${reactionIconsHTML}
                 </div>
-
-                <div class="ml-auto flex items-center gap-3">
-                  <button onclick="window._togglePinComment('${cmt._fbKey}', ${cmt.isPinned || false})" class="admin-action-btn ${adminBtnClass} ${isChild ? 'hidden' : ''} text-[10px] text-amber-600 hover:text-amber-800 font-bold flex items-center gap-1 cursor-pointer transition-colors">
-                    <i class="${pinIconClass}"></i> ${pinActionText}
-                  </button>
-                  <button onclick="window._deleteComment('${cmt._fbKey}')" class="admin-action-btn ${adminBtnClass} text-[10px] text-rose-500 hover:text-rose-700 font-bold flex items-center gap-1 cursor-pointer transition-colors">
-                    <i class="fa-regular fa-trash-can"></i> Xóa
-                  </button>
+                <span class="text-[10px] font-bold text-slate-500">${totalReactions}</span>
+                
+                <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover/tooltip:block bg-slate-800 text-white text-[10px] rounded px-2 py-1 whitespace-nowrap z-30 shadow-md">
+                  ${tooltipText}
+                  <div class="w-1.5 h-1.5 bg-slate-800 rotate-45 absolute top-full left-1/2 -translate-x-1/2 -mt-0.5"></div>
                 </div>
               </div>
+            `;
+          }
+          // ------------------------------------------------
+
+          var processedContent = (cmt.content || "").replace(/(@[^\s:]+)/g, '<span class="text-indigo-600 font-semibold">$1</span>');
+          var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
+          var safeName = displayName.replace(/'/g, "\\'");
+
+          return `
+            <div class="flex gap-3 transition-all relative group/item ${layoutClass} ${borderClass}">
+              <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs flex-shrink-0">
+                ${cmt.name ? cmt.name.charAt(0).toUpperCase() : '?'}
+              </div>
+              <div class="min-w-0 flex-grow">
+                <div class="flex items-center gap-1.5 flex-wrap">
+                  <span class="text-xs ${nameColor}">${displayName}</span>
+                  ${adminBadge}
+                  ${pinBadge}
+                  <span class="text-[10px] text-slate-400 ml-auto">${timeStr}</span>
+                </div>
+                <p class="text-xs text-slate-600 mt-1 leading-relaxed whitespace-pre-line">${processedContent}</p>
+                
+                <div class="flex flex-wrap items-center gap-y-2 gap-x-3 mt-2 pt-1.5 border-t border-slate-100/60">
+                  
+                  <button onclick="window._replyToComment('${replyTargetId}', '${safeName}')" class="text-[10px] text-slate-500 hover:text-indigo-600 font-bold flex items-center gap-1 cursor-pointer transition-colors">
+                    <i class="fa-solid fa-reply text-[9px]"></i> Trả lời
+                  </button>
+
+                  <div class="relative group/reaction">
+                    <button class="text-[10px] text-slate-500 hover:text-amber-500 font-bold flex items-center gap-1 cursor-pointer transition-colors py-0.5">
+                      <i class="fa-regular fa-face-smile text-[10px]"></i> Cảm xúc
+                    </button>
+                    
+                    <div class="absolute bottom-full left-0 mb-1 hidden group-hover/reaction:flex items-center gap-2 bg-white shadow-lg border border-slate-100 px-2.5 py-1.5 rounded-full animate-bounce-short z-20">
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'favorite')" class="text-xl hover:scale-125 transition-transform" title="Yêu thích">❤️</button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'haha')" class="text-xl hover:scale-125 transition-transform" title="Haha">😆</button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'wow')" class="text-xl hover:scale-125 transition-transform" title="Wow">😮</button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'sad')" class="text-xl hover:scale-125 transition-transform" title="Buồn">😢</button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'angry')" class="text-xl hover:scale-125 transition-transform" title="Phẫn nộ">😡</button>
+                    </div>
+                  </div>
+
+                  ${reactionResultBox}
+
+                  <div class="ml-auto flex items-center gap-3">
+                    <button onclick="window._togglePinComment('${cmt._fbKey}', ${cmt.isPinned || false})" class="admin-action-btn ${adminBtnClass} ${isChild ? 'hidden' : ''} text-[10px] text-amber-600 hover:text-amber-800 font-bold flex items-center gap-1 cursor-pointer transition-colors">
+                      <i class="${pinIconClass}"></i> ${pinActionText}
+                    </button>
+                    <button onclick="window._deleteComment('${cmt._fbKey}')" class="admin-action-btn ${adminBtnClass} text-[10px] text-rose-500 hover:text-rose-700 font-bold flex items-center gap-1 cursor-pointer transition-colors">
+                      <i class="fa-regular fa-trash-can"></i> Xóa
+                    </button>
+                  </div>
+                </div>
+
+              </div>
             </div>
-          </div>
-        `;
-      }
+          `;
+        }
 
       // Liên kết phân cấp cha - con và chèn vào DOM
       finalOrderedRoots.forEach(function(root) {
