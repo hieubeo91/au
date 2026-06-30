@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="sdfsdf">
-	<meta property="og:description" content="sdfdsf">
+	<meta property="og:title" content="sdf">
+	<meta property="og:description" content="sdf">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/d7/93/0b/d7930b757121f04080399fa18fced1dc.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/d7/93/0b/d7930b757121f04080399fa18fced1dc.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/40/26/31/4026317920fcc515a87b4261c1b3015b.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/40/26/31/4026317920fcc515a87b4261c1b3015b.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,13 +142,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_paid" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
+              <a href="../index.html?cat=cat_tool" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f0f9ff; color: #0284c7;" title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>30/06/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            sdfsdf
+            sdf
           </h1>
 
           <div class="mb-5">
@@ -160,8 +160,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/d7/93/0b/d7930b757121f04080399fa18fced1dc.jpg" data-fancybox="gallery-post-sdfsdf" data-caption="sdfsdf" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/d7/93/0b/d7930b757121f04080399fa18fced1dc.jpg" alt="sdfsdf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/40/26/31/4026317920fcc515a87b4261c1b3015b.jpg" data-fancybox="gallery-post-sdf" data-caption="sdf" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/40/26/31/4026317920fcc515a87b4261c1b3015b.jpg" alt="sdf" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -173,7 +173,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">sdfsdf</div>
+                    <div class="mb-4">sdf</div>
 
           </div>
 
@@ -203,7 +203,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=sdf" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#sdf</a>
+                            <a href="../index.html?search=sf" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#sf</a>
             </div>
           </div>
         </article>
@@ -327,8 +327,8 @@
     }
 
     const CURRENT_POST = {
-      title: "sdfsdf",
-      tags: ["sdf"]
+      title: "sdf",
+      tags: ["sf"]
     };
 
     async function loadPosts() {
@@ -749,10 +749,10 @@
 
 
   </script>
- <!-- aGlldWJlbzkxQGFkbWlu -->
+
 <script>
   window.addEventListener('DOMContentLoaded', function() {
-    // 1. Hàm băm SHA-256 mã hóa 1 chiều bảo mật chuỗi ẩn "hieubeo91@admin"
+    // 1. secret
     function _sha256(ascii) {
       function rightRotate(value, amount) { return (value>>>amount) | (value<<(32-amount)); };
       var mathPow = Math.pow; var maxWord = mathPow(2, 32); var lengthProperty = 'length'; var i, j;
@@ -815,7 +815,7 @@
       commentRef = firebase.database().ref('blog_comments/' + postDataId);
     }
 
-    // 2. Kích hoạt quyền Admin bằng mã hóa SHA-256
+    // 2. Kích hoạt quyền Admin
     var isAdminActive = false;
     if (commentNameInput) {
       commentNameInput.addEventListener('input', function(e) {
@@ -824,7 +824,7 @@
         
         if (_sha256(val) === secureTargetHash && !isAdminActive) {
           isAdminActive = true;
-          e.target.value = 'Hieubeo (Admin) 👑';
+          e.target.value = 'Hieubeo 👑';
           e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
           e.target.blur();
           
@@ -972,12 +972,12 @@ function generateCommentHTML(cmt, isChild) {
               </div>
               <div class="min-w-0 flex-grow">
                 <div class="flex items-center gap-1.5 flex-wrap">
-                  <span class="text-xs ${nameColor}">${displayName}</span>
+                  <span class="text-[12px] ${nameColor}">${displayName}</span>
                   ${adminBadge}
                   ${pinBadge}
                   <span class="text-[12px] text-slate-400 ml-auto">${timeStr}</span>
                 </div>
-                <p class="text-xs text-slate-600 mt-1 leading-relaxed whitespace-pre-line">${processedContent}</p>
+                <p class="text-[12px] text-slate-600 mt-1 leading-relaxed whitespace-pre-line">${processedContent}</p>
                 
                 <div class="flex flex-wrap items-center gap-y-2 gap-x-3 mt-2 pt-1.5 border-t border-slate-100/60">
                   
