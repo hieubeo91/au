@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="sfsdf">
-	<meta property="og:description" content="dfgfd">
+	<meta property="og:title" content="dfgd">
+	<meta property="og:description" content="gdfg">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/3d/63/d6/3d63d613ce8dfd37b53aa3781ce32c89.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/3d/63/d6/3d63d613ce8dfd37b53aa3781ce32c89.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/47/7e/7a/477e7a802bdcfcc92a14cb26e1619f40.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/47/7e/7a/477e7a802bdcfcc92a14cb26e1619f40.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,13 +142,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_paid" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
+              <a href="../index.html?cat=cat_mod" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>30/06/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            sfsdf
+            dfgd
           </h1>
 
           <div class="mb-5">
@@ -160,8 +160,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/3d/63/d6/3d63d613ce8dfd37b53aa3781ce32c89.jpg" data-fancybox="gallery-post-sfsdf" data-caption="sfsdf" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/3d/63/d6/3d63d613ce8dfd37b53aa3781ce32c89.jpg" alt="sfsdf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/47/7e/7a/477e7a802bdcfcc92a14cb26e1619f40.jpg" data-fancybox="gallery-post-dfgd" data-caption="dfgd" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/47/7e/7a/477e7a802bdcfcc92a14cb26e1619f40.jpg" alt="dfgd" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -173,7 +173,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">sfdsg</div>
+                    <div class="mb-4">dgfdg</div>
 
           </div>
 
@@ -203,7 +203,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=dfgdfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfgdfg</a>
+                            <a href="../index.html?search=fgdfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#fgdfg</a>
             </div>
           </div>
         </article>
@@ -327,8 +327,8 @@
     }
 
     const CURRENT_POST = {
-      title: "dfgdfg",
-      tags: ["dfgdfg"]
+      title: "gdfgd",
+      tags: ["fgdfg"]
     };
 
     async function loadPosts() {
@@ -985,17 +985,19 @@ function generateCommentHTML(cmt, isChild) {
                     <i class="fa-solid fa-reply text-[9px]"></i> Trả lời
                   </button>
 
-                  <div class="relative group/reaction">
-                    <button class="text-[10px] text-slate-500 hover:text-amber-500 font-bold flex items-center gap-1 cursor-pointer transition-colors py-0.5">
+					<div class="relative group/reaction py-1">
+                    <button class="text-[10px] text-slate-500 group-hover/reaction:text-amber-500 font-bold flex items-center gap-1 cursor-pointer transition-colors py-0.5">
                       <i class="fa-regular fa-face-smile text-[10px]"></i> Cảm xúc
                     </button>
                     
-                    <div class="absolute bottom-full left-0 mb-1 hidden group-hover/reaction:flex items-center gap-2 bg-white shadow-lg border border-slate-100 px-2.5 py-1.5 rounded-full animate-bounce-short z-20">
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'favorite')" class="text-xl hover:scale-125 transition-transform" title="Yêu thích">❤️</button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'haha')" class="text-xl hover:scale-125 transition-transform" title="Haha">😆</button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'wow')" class="text-xl hover:scale-125 transition-transform" title="Wow">😮</button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'sad')" class="text-xl hover:scale-125 transition-transform" title="Buồn">😢</button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'angry')" class="text-xl hover:scale-125 transition-transform" title="Phẫn nộ">😡</button>
+                    <div class="absolute bottom-full left-0 w-full h-3 hidden group-hover/reaction:block bg-transparent z-10"></div>
+                    
+                    <div class="absolute bottom-[calc(100%+6px)] left-0 mb-0 hidden group-hover/reaction:flex items-center gap-2 bg-white shadow-xl border border-slate-100 px-3 py-2 rounded-full animate-bounce-short z-20 whitespace-nowrap">
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'favorite')" class="text-4xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Yêu thích">❤️</button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'haha')" class="text-4xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Haha">😆</button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'wow')" class="text-4xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Wow">😮</button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'sad')" class="text-4xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Buồn">😢</button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'angry')" class="text-4xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Phẫn nộ">😡</button>
                     </div>
                   </div>
 
