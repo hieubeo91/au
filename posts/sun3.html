@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="fsdfdsf">
-	<meta property="og:description" content="sdfsdf">
+	<meta property="og:title" content="dfg">
+	<meta property="og:description" content="sdfdsf">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/4e/6e/84/4e6e84f004ff3a26c7fabf31261547a8.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/4e/6e/84/4e6e84f004ff3a26c7fabf31261547a8.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/57/84/4c/57844c5f8a8e2b7a85494a327892ba6d.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/57/84/4c/57844c5f8a8e2b7a85494a327892ba6d.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,13 +142,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_paid" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
+              <a href="../index.html?cat=cat_tool" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f0f9ff; color: #0284c7;" title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>30/06/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            fsdfdsf
+            dfg
           </h1>
 
           <div class="mb-5">
@@ -160,8 +160,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/4e/6e/84/4e6e84f004ff3a26c7fabf31261547a8.jpg" data-fancybox="gallery-post-fsdfdsf" data-caption="fsdfdsf" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/4e/6e/84/4e6e84f004ff3a26c7fabf31261547a8.jpg" alt="fsdfdsf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/57/84/4c/57844c5f8a8e2b7a85494a327892ba6d.jpg" data-fancybox="gallery-post-dfg" data-caption="dfg" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/57/84/4c/57844c5f8a8e2b7a85494a327892ba6d.jpg" alt="dfg" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -173,12 +173,12 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">dfdsf</div>
+                    <div class="mb-4">dg</div>
 
           </div>
 
           <!-- Bộ nút tương tác -->
-          <div class="mt-8 pt-6 border-t border-slate-100 relative mb-1">
+          <div class="mt-8 pt-6 border-t border-slate-100 relative mb-2">
             <div class="flex flex-wrap items-center justify-between gap-4">
               <div class="flex items-center gap-2">
                 <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Chia sẻ</span>
@@ -201,7 +201,7 @@
 
           <!-- Hashtags -->
           <div class="pt-6 border-t border-slate-100">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Hashtags</span>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
                             <a href="../index.html?search=Tool" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#Tool</a>
             </div>
@@ -318,7 +318,7 @@
     }
 
     const CURRENT_POST = {
-      title: "sdfsdf",
+      title: "dfg",
       tags: ["Tool"]
     };
 
@@ -851,11 +851,15 @@
         var rootComments = allComments.filter(function(c) { return !c.replyTo; });
         var replyComments = allComments.filter(function(c) { return c.replyTo; });
 
-        function generateCommentHTML(cmt, isChild) {
+	function generateCommentHTML(cmt, isChild) {
           var date = new Date(cmt.timestamp);
           var timeStr = date.toLocaleDateString('vi-VN') + ' ' + date.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'});
           
+          // 1. Tên hiển thị dạng text và nhãn bổ trợ
+          var displayName = cmt.name && cmt.name.trim() !== "" ? cmt.name.trim() : "Nặc danh";
+          
           var adminBadge = cmt.isAdmin ? `<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Admin</span>` : '';
+          var anonymousBadge = (!cmt.isAdmin && displayName === "Nặc danh") ? `<span class="px-1.5 py-0.5 bg-slate-200 text-slate-600 font-medium rounded text-[9px] uppercase tracking-wider">Ẩn danh</span>` : '';
           
           var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
           var borderClass = cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : '';
@@ -867,17 +871,19 @@
 
           // Đảm bảo bình luận con khi bấm trả lời tiếp thì đích đến vẫn bám vào ID gốc cha (Thụt lề duy nhất 1 lần)
           var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
-          var safeName = (cmt.name || "Nặc danh").replace(/'/g, "\\'");
+          var safeName = displayName.replace(/'/g, "\\'");
 
           return `
             <div class="flex gap-3 transition-all relative group/item ${layoutClass} ${borderClass}">
+              {/* Giữ nguyên logic lấy ký tự đầu tiên của tên gốc (cmt.name), nếu trống sẽ ra dấu ? như cũ */}
               <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs flex-shrink-0">
                 ${cmt.name ? cmt.name.charAt(0).toUpperCase() : '?'}
               </div>
               <div class="min-w-0 flex-grow">
                 <div class="flex items-center gap-1.5 flex-wrap">
-                  <span class="text-xs ${nameColor}">${cmt.name || "Nặc danh"}</span>
+                  <span class="text-xs ${nameColor}">${displayName}</span>
                   ${adminBadge}
+                  ${anonymousBadge}
                   <span class="text-[10px] text-slate-400 ml-auto">${timeStr}</span>
                 </div>
                 <p class="text-xs text-slate-600 mt-1 leading-relaxed whitespace-pre-line">${processedContent}</p>
@@ -949,7 +955,7 @@
         if (!content) { alert("Vui lòng nhập nội dung bình luận!"); return; }
 
         var newComment = {
-          name: isAdminActive ? "Hieubeo" : name,
+          name: isAdminActive ? "Hieubeo 👑" : name,
           content: content,
           isAdmin: isAdminActive,
           timestamp: firebase.database.ServerValue.TIMESTAMP
