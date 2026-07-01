@@ -578,26 +578,148 @@
               </div>
             </div>
           </div>
-          <div
-            class="bg-gradient-to-br from-indigo-50/50 to-purple-50/50 border border-indigo-100/40 rounded-2xl p-6 shadow-sm">
-            <h4 class="font-bold text-slate-800 mb-2 flex items-center gap-2">
-              <i class="fa-regular fa-paper-plane text-indigo-600"></i> Nhận bài viết mới
-            </h4>
-            <p class="text-xs text-slate-500 leading-relaxed mb-4">Điền email của bạn để không bỏ lỡ các bài viết mới
-              nhất.</p>
-            <form id="newsletter-form" class="space-y-2">
-              <input type="email" placeholder="Địa chỉ email của bạn"
-                class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
-                required>
-              <button type="submit"
-                class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-xl text-xs transition-colors shadow-sm">Đăng
-                ký ngay</button>
-            </form>
-            <div id="newsletter-success"
-              class="text-xs text-emerald-600 font-medium mt-2 hidden flex items-center gap-1.5">
-              <i class="fa-solid fa-circle-check"></i> Đăng ký thành công! Cảm ơn bạn nhé.
-            </div>
-          </div>
+
+			<!-- BANNER -->
+			<div class="w-full max-w-md mx-auto my-6 bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+			  
+			  <div class="px-4 pt-3 pb-2 flex items-center gap-1.5 border-b border-slate-50">
+			    <span class="flex h-2 w-2 relative">
+			      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+			      <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+			    </span>
+			    <h3 class="text-[12px] font-bold text-slate-700 uppercase tracking-wider">Bài viết mới cập nhật</h3>
+			  </div>
+			
+			  <div class="relative w-full aspect-[16/9] group overflow-hidden bg-slate-900">
+			    
+			    <div id="banner-slides-container" class="flex w-full h-full transition-transform duration-500 ease-out">
+			      
+			      <a href="https://hieubeo91.github.io/au/posts/sun3.html" class="w-full h-full flex-shrink-0 relative block">
+			        <img src="https://lh3.googleusercontent.com/d/18-TpyUz6uPU2YZOClxlHwnzKTFXwtujH" class="w-full h-full object-cover" alt="Bài viết mới 1">
+			        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+			          <p class="text-[13px] font-semibold text-white leading-snug line-clamp-2">Thang cấp độ nhẫn trong Audition</p>
+			        </div>
+			      </a>
+			
+			      <a href="https://hieubeo91.github.io/au/posts/sun3.html" class="w-full h-full flex-shrink-0 relative block">
+			        <img src="https://lh3.googleusercontent.com/d/1BKluvvJ1YrQS3FqGu8jV3Qn8zqkr_QAD" class="w-full h-full object-cover" alt="Bài viết mới 2">
+			        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+			          <p class="text-[13px] font-semibold text-white leading-snug line-clamp-2">Thang cấp độ level trong Audition</p>
+			        </div>
+			      </a>
+			
+			      <a href="https://hieubeo91.github.io/au/posts/sun3.html" class="w-full h-full flex-shrink-0 relative block">
+			        <img src="https://lh3.googleusercontent.com/d/1luXtV6Aq4_PszysrMwWfH27VZ6jlb0Ki" class="w-full h-full object-cover" alt="Bài viết mới 3">
+			        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+			          <p class="text-[13px] font-semibold text-white leading-snug line-clamp-2">Hướng dẫn viết tiếng Việt trong Audition</p>
+			        </div>
+			      </a>
+			
+			    </div>
+			
+			    <button id="prev-slide-btn" class="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/80 hover:bg-white text-slate-800 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-sm z-10 text-xs">
+			      <i class="fa-solid fa-chevron-left"></i>
+			    </button>
+			    <button id="next-slide-btn" class="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/80 hover:bg-white text-slate-800 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-sm z-10 text-xs">
+			      <i class="fa-solid fa-chevron-right"></i>
+			    </button>
+			
+			    <div id="slide-dots-container" class="absolute bottom-2 right-4 flex gap-1.5 z-10">
+			      </div>
+			
+			  </div>
+			</div>
+			
+			<script>
+			document.addEventListener('DOMContentLoaded', function() {
+			  var container = document.getElementById('banner-slides-container');
+			  var prevBtn = document.getElementById('prev-slide-btn');
+			  var nextBtn = document.getElementById('next-slide-btn');
+			  var dotsContainer = document.getElementById('slide-dots-container');
+			  
+			  if (!container) return;
+			  
+			  var slides = container.children;
+			  var totalSlides = slides.length;
+			  var currentIndex = 0;
+			  var slideInterval;
+			
+			  // 1. Tự động sinh ra các chấm tròn điều hướng bám theo số lượng Slide thực tế
+			  for (var i = 0; i < totalSlides; i++) {
+			    var dot = document.createElement('div');
+			    dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
+			    if (i === 0) dot.className += ' bg-white w-3'; // Chấm đầu tiên active sẽ dài hơn
+			    dot.setAttribute('data-index', i);
+			    dotsContainer.appendChild(dot);
+			  }
+			  
+			  var dots = dotsContainer.children;
+			
+			  // 2. Hàm dịch chuyển Slide sang vị trí tương ứng
+			  function goToSlide(index) {
+			    if (index < 0) index = totalSlides - 1;
+			    if (index >= totalSlides) index = 0;
+			    
+			    currentIndex = index;
+			    // Dịch chuyển mảng theo phần trăm chiều rộng
+			    container.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+			    
+			    // Cập nhật lại màu sắc của các chấm tròn điều hướng
+			    for (var j = 0; j < dots.length; j++) {
+			      if (j === currentIndex) {
+			        dots[j].className = 'w-1.5 h-1.5 rounded-full bg-white transition-all cursor-pointer w-3';
+			      } else {
+			        dots[j].className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
+			      }
+			    }
+			  }
+			
+			  // 3. Cơ chế tự động chạy Slide sau mỗi 4 giây
+			  function startAutoSlide() {
+			    stopAutoSlide();
+			    slideInterval = setInterval(function() {
+			      goToSlide(currentIndex + 1);
+			    }, 4000); // 4000ms = 4 giây
+			  }
+			
+			  function stopAutoSlide() {
+			    if (slideInterval) clearInterval(slideInterval);
+			  }
+			
+			  // 4. Lắng nghe sự kiện click nút điều hướng Thủ công
+			  if (nextBtn) {
+			    nextBtn.addEventListener('click', function() {
+			      goToSlide(currentIndex + 1);
+			      startAutoSlide(); // Khởi động lại bộ đếm để không bị chuyển ảnh quá nhanh
+			    });
+			  }
+			
+			  if (prevBtn) {
+			    prevBtn.addEventListener('click', function() {
+			      goToSlide(currentIndex - 1);
+			      startAutoSlide();
+			    });
+			  }
+			
+			  // Lắng nghe click trực tiếp vào từng chấm tròn nhỏ
+			  dotsContainer.addEventListener('click', function(e) {
+			    if (e.target.hasAttribute('data-index')) {
+			      var targetIdx = parseInt(e.target.getAttribute('data-index'));
+			      goToSlide(targetIdx);
+			      startAutoSlide();
+			    }
+			  });
+			
+			  // Khi di chuột vào slide thì tạm dừng chạy tự động, di chuột ra ngoài lại chạy tiếp
+			  container.parentElement.addEventListener('mouseenter', stopAutoSlide);
+			  container.parentElement.addEventListener('mouseleave', startAutoSlide);
+			
+			  // Kích hoạt chạy slide vòng lặp ban đầu
+			  startAutoSlide();
+			});
+			</script>
+
+			
         </aside>
       </div>
     </div>
