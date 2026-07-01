@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="sdf">
+	<meta property="og:title" content="aaaaaaaaaaaâ">
 	<meta property="og:description" content="sdf">
 
-	<meta property="og:image" content="https://lh3.googleusercontent.com/d/18-TpyUz6uPU2YZOClxlHwnzKTFXwtujH">
-	<meta property="og:image:secure_url" content="https://lh3.googleusercontent.com/d/18-TpyUz6uPU2YZOClxlHwnzKTFXwtujH">
+	<meta property="og:image" content="https://lh3.googleusercontent.com/d/1luXtV6Aq4_PszysrMwWfH27VZ6jlb0Ki">
+	<meta property="og:image:secure_url" content="https://lh3.googleusercontent.com/d/1luXtV6Aq4_PszysrMwWfH27VZ6jlb0Ki">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -143,14 +143,12 @@
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
               <a href="../index.html?cat=cat_paid" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
-              <a href="../index.html?cat=cat_mod" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
-              <a href="../index.html?cat=cat_tool" class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f0f9ff; color: #0284c7;" title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>02/07/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            sdf
+            aaaaaaaaaaaâ
           </h1>
 
           <div class="mb-5">
@@ -162,8 +160,8 @@
           <div class="swiper mySwiper mb-5">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://lh3.googleusercontent.com/d/18-TpyUz6uPU2YZOClxlHwnzKTFXwtujH" data-fancybox="gallery-post-sdf" data-caption="sdf" class="block w-full h-full relative group">
-                  <img src="https://lh3.googleusercontent.com/d/18-TpyUz6uPU2YZOClxlHwnzKTFXwtujH" alt="sdf" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://lh3.googleusercontent.com/d/1luXtV6Aq4_PszysrMwWfH27VZ6jlb0Ki" data-fancybox="gallery-post-aaaaaaaaaaaa" data-caption="aaaaaaaaaaaâ" class="block w-full h-full relative group">
+                  <img src="https://lh3.googleusercontent.com/d/1luXtV6Aq4_PszysrMwWfH27VZ6jlb0Ki" alt="aaaaaaaaaaaâ" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -175,7 +173,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">sdf</div>
+                    <div class="mb-4">sdfsd</div>
 
           </div>
 
@@ -205,7 +203,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=tool" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#tool</a>
+                            <a href="../index.html?search=sdfsdf" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#sdfsdf</a>
             </div>
           </div>
         </article>
@@ -263,6 +261,9 @@
       <!-- 🎯 CỘT PHẢI (SIDEBAR CHIẾM CỐ ĐỊNH 1 CỘT: lg:col-span-1) -->
       <!-- ========================================== -->
       <aside class="w-full lg:col-span-1 lg:sticky lg:top-24 space-y-6">
+	  
+		<div id="auto-injected-slide-container"></div>
+	  
         <div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden w-full">
           <div class="flex border-b border-slate-100 bg-slate-50/50">
             <button id="related-btn" class="flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer">
@@ -329,8 +330,8 @@
     }
 
     const CURRENT_POST = {
-      title: "sdf",
-      tags: ["tool"]
+      title: "fdsf",
+      tags: ["sdfsdf"]
     };
 
     async function loadPosts() {
@@ -744,11 +745,103 @@
       }
     });
 	
-// =========================================================================
-// 🎯 HỆ THỐNG BÌNH LUẬN ĐÁM MÂY FIREBASE & ĐỘC QUYỀN ADMIN
-// =========================================================================
+	// Sự kiện tự động bắt slide ở index
+	document.addEventListener('DOMContentLoaded', function() {
+	  const slideContainer = document.getElementById('auto-injected-slide-container');
+	  if (!slideContainer) return;
 
+	  // 1. Tự động tải nội dung từ trang index.html (đảm bảo đường dẫn ../index.html chính xác với cấu trúc thư mục của bạn)
+	  fetch('../index.html')
+		.then(response => {
+		  if (!response.ok) throw new Error('Không thể tải trang index');
+		  return response.text();
+		})
+		.then(htmlText => {
+		  // 2. Chuyển đổi chuỗi text thành DOM để dễ dàng bóc tách
+		  const parser = new DOMParser();
+		  const doc = parser.parseFromString(htmlText, 'text/html');
+		  
+		  // 3. Tìm khối slide theo ID đã đánh dấu ở bước 1
+		  const indexSlide = doc.getElementById('shared-banner-slide');
+		  
+		  if (indexSlide) {
+			// Chèn khối slide vào khung chờ trong bài viết con
+			slideContainer.innerHTML = indexSlide.outerHTML;
+			
+			// 4. KHỞI CHẠY LOGIC ĐIỀU KHIỂN SLIDE (Giống hệt bên index)
+			initInjectedSlide();
+		  }
+		})
+		.catch(err => console.error('Lỗi tự động lấy Slide từ trang index:', err));
 
+	  // Hàm khởi chạy hiệu ứng slide sau khi đã chèn thành công vào HTML
+	  function initInjectedSlide() {
+		// Để tránh trùng lặp biến với trang index, chúng ta tìm các element trực tiếp trong container mới chèn
+		const container = slideContainer.querySelector('#banner-slides-container');
+		const prevBtn = slideContainer.querySelector('#prev-slide-btn');
+		const nextBtn = slideContainer.querySelector('#next-slide-btn');
+		const dotsContainer = slideContainer.querySelector('#slide-dots-container');
+		
+		if (!container) return;
+		
+		const slides = container.children;
+		const totalSlides = slides.length;
+		let currentIndex = 0;
+		let slideInterval;
+
+		// Sinh các chấm tròn điều hướng
+		dotsContainer.innerHTML = ''; // Xóa chấm cũ nếu có
+		for (let i = 0; i < totalSlides; i++) {
+		  const dot = document.createElement('div');
+		  dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
+		  if (i === 0) dot.className += ' bg-white w-3';
+		  dot.setAttribute('data-index', i);
+		  dotsContainer.appendChild(dot);
+		}
+		
+		const dots = dotsContainer.children;
+
+		function goToSlide(index) {
+		  if (index < 0) index = totalSlides - 1;
+		  if (index >= totalSlides) index = 0;
+		  currentIndex = index;
+		  container.style.transform = `translateX(-${currentIndex * 100}%)`;
+		  
+		  for (let j = 0; j < dots.length; j++) {
+			if (j === currentIndex) {
+			  dots[j].className = 'w-1.5 h-1.5 rounded-full bg-white transition-all cursor-pointer w-3';
+			} else {
+			  dots[j].className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
+			}
+		  }
+		}
+
+		function startAutoSlide() {
+		  stopAutoSlide();
+		  slideInterval = setInterval(() => goToSlide(currentIndex + 1), 4000);
+		}
+
+		function stopAutoSlide() {
+		  if (slideInterval) clearInterval(slideInterval);
+		}
+
+		if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); startAutoSlide(); });
+		if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); startAutoSlide(); });
+
+		dotsContainer.addEventListener('click', (e) => {
+		  if (e.target.hasAttribute('data-index')) {
+			const targetIdx = parseInt(e.target.getAttribute('data-index'));
+			goToSlide(targetIdx);
+			startAutoSlide();
+		  }
+		});
+
+		container.parentElement.addEventListener('mouseenter', stopAutoSlide);
+		container.parentElement.addEventListener('mouseleave', startAutoSlide);
+
+		startAutoSlide();
+	  }
+	});
 
   </script>
 
