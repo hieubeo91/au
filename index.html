@@ -4584,7 +4584,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 1. Thu thập TẤT CẢ các bài viết bạn đã dán thủ công
     const allPosts = Array.from(postsContainer.querySelectorAll('article.post-card'));
-    const postsPerPage = 10; // Giới hạn 10 bài/trang theo yêu cầu cũ của bạn
+    const postsPerPage = 2; // Giới hạn 10 bài/trang
     let currentPage = 1;
 
     const totalPages = Math.ceil(allPosts.length / postsPerPage);
