@@ -1,8 +1,21 @@
 
 
 
-    
-<meta property="og:type" content="article">   
+
+<style>
+  :root {
+    --body-bg-image: url('https://hieubeo91.github.io/au/config.js');
+  }
+  body {
+    background-image: var(--body-bg-image);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+</style>
+
+<meta property="og:type" content="article">
     <meta property="og:title" content="' + title + '">
     <meta property="og:image" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
     <meta property="og:image:secure_url" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
@@ -14,10 +27,10 @@
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="dfgdfg">
-	<meta property="og:description" content="dfgdf">
+	<meta property="og:description" content="dgfg">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/d0/50/8e/d0508e38a340ed005e864af5f91c4261.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/d0/50/8e/d0508e38a340ed005e864af5f91c4261.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/9d/86/24/9d8624a51bdbe2338252852f31074d9f.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/9d/86/24/9d8624a51bdbe2338252852f31074d9f.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,7 +155,7 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_mod" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
+              <a href="../index.html?cat=cat_free" class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity">Miễn phí</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>05/07/2026</span>
             </div>
           </div>
@@ -160,8 +173,8 @@
           <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/d0/50/8e/d0508e38a340ed005e864af5f91c4261.jpg" data-fancybox="gallery-post-dfgdfg" data-caption="dfgdfg" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/d0/50/8e/d0508e38a340ed005e864af5f91c4261.jpg" alt="dfgdfg" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/9d/86/24/9d8624a51bdbe2338252852f31074d9f.jpg" data-fancybox="gallery-post-dfgdfg" data-caption="dfgdfg" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/9d/86/24/9d8624a51bdbe2338252852f31074d9f.jpg" alt="dfgdfg" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -173,7 +186,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">dfgfdg</div>
+                    <div class="mb-4">dgdg</div>
 
           </div>
 
@@ -203,7 +216,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=gdfgfdg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#gdfgfdg</a>
+                            <a href="../index.html?search=gdfgd" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#gdfgd</a>
             </div>
           </div>
         </article>
@@ -331,8 +344,8 @@
     }
 
     const CURRENT_POST = {
-      title: "dfgdfg",
-      tags: ["gdfgfdg"]
+      title: "dgdf",
+      tags: ["gdfgd"]
     };
 
     async function loadPosts() {
@@ -1269,7 +1282,7 @@
 		
 		if (!commentContainer || !paginationContainer) return;
 
-		const commentsPerPage = 2; // Hiển thị tối đa 20 bình luậnn
+		const commentsPerPage = 20; // Hiển thị tối đa 20 bình luận
 		let currentPage = 1;
 
 		// Hàm xử lý phân trang chính
@@ -1308,80 +1321,80 @@
 
 		// Hàm vẽ nút bấm chuyển trang
 		function renderCommentControls(totalPages) {
-		    paginationContainer.innerHTML = "";
-		    let html = `<div class="flex items-center justify-center gap-1.5 pt-4 border-t border-slate-100 w-full">`;
-		
-		    // 1. NÚT TRƯỚC
-		    html += `
-		        <button id="prev-comment-btn" 
-		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer ${currentPage === 1 ? 'opacity-40 pointer-events-none' : ''}">
-		            <i class="fa-solid fa-angle-left"></i>
-		        </button>
-		    `;
-		
-		    // 🎯 THUẬT TOÁN ĐỊNH VỊ DẤU BA CHẤM ĐỘNG CHO BÌNH LUẬN
-		    const range = 2; // Số lượng trang hiển thị lân cận 2 bên trang hiện tại
-		    let hasLeftDot = false;
-		    let hasRightDot = false;
-		
-		    for (let i = 1; i <= totalPages; i++) {
-		        // Luôn hiển thị trang đầu, trang cuối và các trang trong khoảng lân cận
-		        if (i === 1 || i === totalPages || (i >= currentPage - range && i <= currentPage + range)) {
-		            const isCurrent = i === currentPage;
-		            html += `
-		                <button data-cpage="${i}" 
-		                        class="comment-page-btn w-7 h-7 text-xs font-bold rounded-lg transition-all cursor-pointer ${isCurrent ? 'bg-indigo-600 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}">
-		                    ${i}
-		                </button>
-		            `;
-		        } 
-		        // Vẽ dấu ba chấm bên trái
-		        else if (i < currentPage - range && !hasLeftDot) {
-		            html += `<span class="px-1 text-slate-400 text-xs font-bold select-none">...</span>`;
-		            hasLeftDot = true;
-		        } 
-		        // Vẽ dấu ba chấm bên phải
-		        else if (i > currentPage + range && !hasRightDot) {
-		            html += `<span class="px-1 text-slate-400 text-xs font-bold select-none">...</span>`;
-		            hasRightDot = true;
-		        }
-		    }
-		
-		    // 2. NÚT SAU
-		    html += `
-		        <button id="next-comment-btn" 
-		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer ${currentPage === totalPages ? 'opacity-40 pointer-events-none' : ''}">
-		            <i class="fa-solid fa-angle-right"></i>
-		        </button>
-		    `;
-		
-		    html += `</div>`;
-		    paginationContainer.innerHTML = html;
-		
-		    // 3. GÁN SỰ KIỆN CLICK CHO CÁC NÚT SỐ (Đã sửa lỗi không cập nhật dấu ...)
-		    paginationContainer.querySelectorAll('.comment-page-btn').forEach(btn => {
-		        btn.addEventListener('click', function() {
-		            const targetPage = parseInt(this.getAttribute('data-cpage'));
-		            currentPage = targetPage;
-		            
-		            // Gọi lại hàm khởi tạo để ẩn/hiện comment và vẽ lại thanh điều hướng có dấu ... mới
-		            initCommentPagination();
-		        });
-		    });
-		
-		    // 4. GÁN SỰ KIỆN CLICK CHO NÚT TRƯỚC / SAU
-		    paginationContainer.querySelector('#prev-comment-btn').addEventListener('click', function() {
-		        if (currentPage > 1) {
-		            currentPage--;
-		            initCommentPagination();
-		        }
-		    });
-		    paginationContainer.querySelector('#next-comment-btn').addEventListener('click', function() {
-		        if (currentPage < totalPages) {
-		            currentPage++;
-		            initCommentPagination();
-		        }
-		    });
+			paginationContainer.innerHTML = "";
+			let html = `<div class="flex items-center justify-center gap-1.5 pt-4 border-t border-slate-100 w-full">`;
+
+			// 1. NÚT TRƯỚC
+			html += `
+				<button id="prev-comment-btn" 
+						class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer ${currentPage === 1 ? 'opacity-40 pointer-events-none' : ''}">
+					<i class="fa-solid fa-angle-left"></i>
+				</button>
+			`;
+
+			// 🎯 THUẬT TOÁN ĐỊNH VỊ DẤU BA CHẤM ĐỘNG CHO BÌNH LUẬN
+			const range = 2; // Số lượng trang hiển thị lân cận 2 bên trang hiện tại
+			let hasLeftDot = false;
+			let hasRightDot = false;
+
+			for (let i = 1; i <= totalPages; i++) {
+				// Luôn hiển thị trang đầu, trang cuối và các trang trong khoảng lân cận
+				if (i === 1 || i === totalPages || (i >= currentPage - range && i <= currentPage + range)) {
+					const isCurrent = i === currentPage;
+					html += `
+						<button data-cpage="${i}" 
+								class="comment-page-btn w-7 h-7 text-xs font-bold rounded-lg transition-all cursor-pointer ${isCurrent ? 'bg-indigo-600 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}">
+							${i}
+						</button>
+					`;
+				} 
+				// Vẽ dấu ba chấm bên trái
+				else if (i < currentPage - range && !hasLeftDot) {
+					html += `<span class="px-1 text-slate-400 text-xs font-bold select-none">...</span>`;
+					hasLeftDot = true;
+				} 
+				// Vẽ dấu ba chấm bên phải
+				else if (i > currentPage + range && !hasRightDot) {
+					html += `<span class="px-1 text-slate-400 text-xs font-bold select-none">...</span>`;
+					hasRightDot = true;
+				}
+			}
+
+			// 2. NÚT SAU
+			html += `
+				<button id="next-comment-btn" 
+						class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer ${currentPage === totalPages ? 'opacity-40 pointer-events-none' : ''}">
+					<i class="fa-solid fa-angle-right"></i>
+				</button>
+			`;
+
+			html += `</div>`;
+			paginationContainer.innerHTML = html;
+
+			// 3. GÁN SỰ KIỆN CLICK CHO CÁC NÚT SỐ (Đã sửa lỗi không cập nhật dấu ...)
+			paginationContainer.querySelectorAll('.comment-page-btn').forEach(btn => {
+				btn.addEventListener('click', function() {
+					const targetPage = parseInt(this.getAttribute('data-cpage'));
+					currentPage = targetPage;
+					
+					// Gọi lại hàm khởi tạo để ẩn/hiện comment và vẽ lại thanh điều hướng có dấu ... mới
+					initCommentPagination();
+				});
+			});
+
+			// 4. GÁN SỰ KIỆN CLICK CHO NÚT TRƯỚC / SAU
+			paginationContainer.querySelector('#prev-comment-btn').addEventListener('click', function() {
+				if (currentPage > 1) {
+					currentPage--;
+					initCommentPagination();
+				}
+			});
+			paginationContainer.querySelector('#next-comment-btn').addEventListener('click', function() {
+				if (currentPage < totalPages) {
+					currentPage++;
+					initCommentPagination();
+				}
+			});
 		}
 
 		// 🎯 GIẢI PHÁP CỐT LÕI: Theo dõi khi nào bình luận thực sự xuất hiện trong khung chứa
