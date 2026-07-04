@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head> 
-<style>
-  :root {
-    --body-bg-image: url('https://lh3.googleusercontent.com/d/1LFsk3iGkeZAOZ0cQ16hx0WsmAhpxdh2C');
-  }
 
-  body {
-    background-image: var(--body-bg-image);
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+<script src="https://hieubeo91.github.io/au/config.js"></script> 
+<script>
+  if (typeof GLOBAL_BG_IMAGE !== 'undefined' && GLOBAL_BG_IMAGE) {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        body {
+          background-image: url('${GLOBAL_BG_IMAGE}') !important;
+          background-attachment: fixed;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      `;
+      document.head.appendChild(style);
   }
-</style>
+</script>
 	
   <meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc" />
   <script data-goatcounter="https://vetraitim.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
