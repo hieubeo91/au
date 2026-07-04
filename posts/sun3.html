@@ -13,11 +13,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="fgdfgg">
-	<meta property="og:description" content="dgfdg">
+	<meta property="og:title" content="dgdfg">
+	<meta property="og:description" content="dgdfg">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/8c/dd/d8/8cddd8f046201245e19499bc3260183f.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/8c/dd/d8/8cddd8f046201245e19499bc3260183f.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/42/59/b1/4259b126d9f25143fabf3d0a67c34b01.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/42/59/b1/4259b126d9f25143fabf3d0a67c34b01.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,13 +142,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_free" class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity">Miễn phí</a>
+              <a href="../index.html?cat=cat_paid" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>04/07/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            fgdfgg
+            dgdfg
           </h1>
 
           <div class="mb-5">
@@ -160,8 +160,8 @@
           <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/8c/dd/d8/8cddd8f046201245e19499bc3260183f.jpg" data-fancybox="gallery-post-fgdfgg" data-caption="fgdfgg" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/8c/dd/d8/8cddd8f046201245e19499bc3260183f.jpg" alt="fgdfgg" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/42/59/b1/4259b126d9f25143fabf3d0a67c34b01.jpg" data-fancybox="gallery-post-dgdfg" data-caption="dgdfg" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/42/59/b1/4259b126d9f25143fabf3d0a67c34b01.jpg" alt="dgdfg" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -173,7 +173,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">dfgdfg</div>
+                    <div class="mb-4">dsgdfg</div>
 
           </div>
 
@@ -203,11 +203,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=gfdgd" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#gfdgd</a>
-              <a href="../index.html?search=gdhgfh" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#gdhgfh</a>
-              <a href="../index.html?search=gfh" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#gfh</a>
-              <a href="../index.html?search=fghfgh" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#fghfgh</a>
-              <a href="../index.html?search=tool" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#tool</a>
+                            <a href="../index.html?search=dgdfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dgdfg</a>
             </div>
           </div>
         </article>
@@ -335,8 +331,8 @@
     }
 
     const CURRENT_POST = {
-      title: "dfgfdgfdg",
-      tags: ["gfdgd", "gdhgfh", "gfh", "fghfgh", "tool"]
+      title: "dfgdfg",
+      tags: ["dgdfg"]
     };
 
     async function loadPosts() {
@@ -1284,7 +1280,7 @@
 		const totalPages = Math.ceil(allComments.length / commentsPerPage);
 
 		// Nếu tổng số bình luận ít hơn hoặc bằng 20 thì ẩn thanh phân trang
-		// if (totalPages <= 1) return;
+		if (totalPages <= 1) return;
 
 		// 3. Hàm xử lý ẩn/hiện đúng 20 bình luận của trang được chọn
 		function showCommentPage(page) {
