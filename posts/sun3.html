@@ -1308,68 +1308,80 @@
 
 		// Hàm vẽ nút bấm chuyển trang
 		function renderCommentControls(totalPages) {
-			paginationContainer.innerHTML = "";
-			let html = `<div class="flex items-center justify-center gap-1.5 pt-4 border-t border-slate-100 w-full">`;
-
-			// Nút Trước
-			html += `
-				<button id="prev-comment-btn" 
-						class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer ${currentPage === 1 ? 'opacity-40 pointer-events-none' : ''}">
-					<i class="fa-solid fa-angle-left"></i>
-				</button>
-			`;
-
-			// Vòng lặp in số trang
-			for (let i = 1; i <= totalPages; i++) {
-				const isCurrent = i === currentPage;
-				html += `
-					<button data-cpage="${i}" 
-							class="comment-page-btn w-7 h-7 text-xs font-bold rounded-lg transition-all cursor-pointer ${isCurrent ? 'bg-indigo-600 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}">
-						${i}
-					</button>
-				`;
-			}
-
-			// Nút Sau
-			html += `
-				<button id="next-comment-btn" 
-						class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer ${currentPage === totalPages ? 'opacity-40 pointer-events-none' : ''}">
-					<i class="fa-solid fa-angle-right"></i>
-				</button>
-			`;
-
-			html += `</div>`;
-			paginationContainer.innerHTML = html;
-
-			// Sự kiện bấm số trang
-			paginationContainer.querySelectorAll('.comment-page-btn').forEach(btn => {
-				btn.addEventListener('click', function() {
-					const targetPage = parseInt(this.getAttribute('data-cpage'));
-					// Tìm lại tập hợp comment và chạy lại trang đó
-					const allComments = Array.from(commentContainer.children);
-					currentPage = targetPage;
-					const startIndex = (targetPage - 1) * commentsPerPage;
-					const endIndex = startIndex + commentsPerPage;
-					allComments.forEach((comment, index) => {
-						comment.style.display = (index >= startIndex && index < endIndex) ? "block" : "none";
-					});
-					renderCommentControls(totalPages);
-				});
-			});
-
-			// Sự kiện Trước/Sau
-			paginationContainer.querySelector('#prev-comment-btn').addEventListener('click', function() {
-				if (currentPage > 1) {
-					currentPage--;
-					initCommentPagination();
-				}
-			});
-			paginationContainer.querySelector('#next-comment-btn').addEventListener('click', function() {
-				if (currentPage < totalPages) {
-					currentPage++;
-					initCommentPagination();
-				}
-			});
+		    paginationContainer.innerHTML = "";
+		    let html = `<div class="flex items-center justify-center gap-1.5 pt-4 border-t border-slate-100 w-full">`;
+		
+		    // 1. NÚT TRƯỚC
+		    html += `
+		        <button id="prev-comment-btn" 
+		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer ${currentPage === 1 ? 'opacity-40 pointer-events-none' : ''}">
+		            <i class="fa-solid fa-angle-left"></i>
+		        </button>
+		    `;
+		
+		    // 🎯 THUẬT TOÁN ĐỊNH VỊ DẤU BA CHẤM ĐỘNG CHO BÌNH LUẬN
+		    const range = 2; // Số lượng trang hiển thị lân cận 2 bên trang hiện tại
+		    let hasLeftDot = false;
+		    let hasRightDot = false;
+		
+		    for (let i = 1; i <= totalPages; i++) {
+		        // Luôn hiển thị trang đầu, trang cuối và các trang trong khoảng lân cận
+		        if (i === 1 || i === totalPages || (i >= currentPage - range && i <= currentPage + range)) {
+		            const isCurrent = i === currentPage;
+		            html += `
+		                <button data-cpage="${i}" 
+		                        class="comment-page-btn w-7 h-7 text-xs font-bold rounded-lg transition-all cursor-pointer ${isCurrent ? 'bg-indigo-600 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}">
+		                    ${i}
+		                </button>
+		            `;
+		        } 
+		        // Vẽ dấu ba chấm bên trái
+		        else if (i < currentPage - range && !hasLeftDot) {
+		            html += `<span class="px-1 text-slate-400 text-xs font-bold select-none">...</span>`;
+		            hasLeftDot = true;
+		        } 
+		        // Vẽ dấu ba chấm bên phải
+		        else if (i > currentPage + range && !hasRightDot) {
+		            html += `<span class="px-1 text-slate-400 text-xs font-bold select-none">...</span>`;
+		            hasRightDot = true;
+		        }
+		    }
+		
+		    // 2. NÚT SAU
+		    html += `
+		        <button id="next-comment-btn" 
+		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer ${currentPage === totalPages ? 'opacity-40 pointer-events-none' : ''}">
+		            <i class="fa-solid fa-angle-right"></i>
+		        </button>
+		    `;
+		
+		    html += `</div>`;
+		    paginationContainer.innerHTML = html;
+		
+		    // 3. GÁN SỰ KIỆN CLICK CHO CÁC NÚT SỐ (Đã sửa lỗi không cập nhật dấu ...)
+		    paginationContainer.querySelectorAll('.comment-page-btn').forEach(btn => {
+		        btn.addEventListener('click', function() {
+		            const targetPage = parseInt(this.getAttribute('data-cpage'));
+		            currentPage = targetPage;
+		            
+		            // Gọi lại hàm khởi tạo để ẩn/hiện comment và vẽ lại thanh điều hướng có dấu ... mới
+		            initCommentPagination();
+		        });
+		    });
+		
+		    // 4. GÁN SỰ KIỆN CLICK CHO NÚT TRƯỚC / SAU
+		    paginationContainer.querySelector('#prev-comment-btn').addEventListener('click', function() {
+		        if (currentPage > 1) {
+		            currentPage--;
+		            initCommentPagination();
+		        }
+		    });
+		    paginationContainer.querySelector('#next-comment-btn').addEventListener('click', function() {
+		        if (currentPage < totalPages) {
+		            currentPage++;
+		            initCommentPagination();
+		        }
+		    });
 		}
 
 		// 🎯 GIẢI PHÁP CỐT LÕI: Theo dõi khi nào bình luận thực sự xuất hiện trong khung chứa
