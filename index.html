@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+
+<!-- BACKGROUND -->
+const WEBSITE_BACKGROUND_IMAGE = "https://lh3.googleusercontent.com/d/1LFsk3iGkeZAOZ0cQ16hx0WsmAhpxdh2C";
+document.addEventListener("DOMContentLoaded", function () {
+    if (WEBSITE_BACKGROUND_IMAGE) {
+        document.body.style.backgroundImage = `url('${WEBSITE_BACKGROUND_IMAGE}')`;
+        document.body.style.backgroundAttachment = "fixed";
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundRepeat = "no-repeat";
+    }
+});
+	
   <meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc" />
   <script data-goatcounter="https://vetraitim.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <meta charset="UTF-8">
