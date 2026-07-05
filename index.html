@@ -4120,22 +4120,45 @@
 			  var dotsContainer = document.getElementById('slide-dots-container');
 			  
 			  if (!container) return;
+			
+			  // 🎯 BƯỚC MỚI: TỰ ĐỘNG ĐỌC CONFIG.JS VÀ VẼ HTML RA SLIDE
+			  if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.bannerSlides) {
+			    var slidesHTML = '';
+			    
+			    MY_SITE_CONFIG.bannerSlides.forEach(function(slide) {
+			      slidesHTML += `
+			        <a href="${slide.link}" class="w-full h-full flex-shrink-0 relative block">
+			          <img src="${slide.image}" class="w-full h-full object-cover" alt="${slide.altText || 'Banner'}">
+			          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+			            <p class="text-[13px] font-semibold text-white leading-snug line-clamp-2">${slide.title}</p>
+			          </div>
+			        </a>
+			      `;
+			    });
+			    
+			    // Đổ toàn bộ thẻ <a> vào container trống trong index.html
+			    container.innerHTML = slidesHTML;
+			  }
 			  
+			  // Các biến tính toán số lượng lúc này sẽ đọc chính xác số thẻ <a> vừa được sinh ra ở trên
 			  var slides = container.children;
 			  var totalSlides = slides.length;
 			  var currentIndex = 0;
 			  var slideInterval;
 			
 			  // 1. Tự động sinh ra các chấm tròn điều hướng bám theo số lượng Slide thực tế
-			  for (var i = 0; i < totalSlides; i++) {
-			    var dot = document.createElement('div');
-			    dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
-			    if (i === 0) dot.className += ' bg-white w-3'; // Chấm đầu tiên active sẽ dài hơn
-			    dot.setAttribute('data-index', i);
-			    dotsContainer.appendChild(dot);
+			  if (dotsContainer) {
+			    dotsContainer.innerHTML = ''; // Xóa sạch dấu vết cũ phòng hờ cache
+			    for (var i = 0; i < totalSlides; i++) {
+			      var dot = document.createElement('div');
+			      dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
+			      if (i === 0) dot.className += ' bg-white w-3'; // Chấm đầu tiên active sẽ dài hơn
+			      dot.setAttribute('data-index', i);
+			      dotsContainer.appendChild(dot);
+			    }
 			  }
 			  
-			  var dots = dotsContainer.children;
+			  var dots = dotsContainer ? dotsContainer.children : [];
 			
 			  // 2. Hàm dịch chuyển Slide sang vị trí tương ứng
 			  function goToSlide(index) {
@@ -4159,6 +4182,7 @@
 			  // 3. Cơ chế tự động chạy Slide sau mỗi 4 giây
 			  function startAutoSlide() {
 			    stopAutoSlide();
+			    if (totalSlides <= 1) return; // Nếu chỉ có 1 bài viết nổi bật thì không cần tự chạy làm gì
 			    slideInterval = setInterval(function() {
 			      goToSlide(currentIndex + 1);
 			    }, 4000); // 4000ms = 4 giây
@@ -4184,23 +4208,26 @@
 			  }
 			
 			  // Lắng nghe click trực tiếp vào từng chấm tròn nhỏ
-			  dotsContainer.addEventListener('click', function(e) {
-			    if (e.target.hasAttribute('data-index')) {
-			      var targetIdx = parseInt(e.target.getAttribute('data-index'));
-			      goToSlide(targetIdx);
-			      startAutoSlide();
-			    }
-			  });
+			  if (dotsContainer) {
+			    dotsContainer.addEventListener('click', function(e) {
+			      if (e.target.hasAttribute('data-index')) {
+			        var targetIdx = parseInt(e.target.getAttribute('data-index'));
+			        goToSlide(targetIdx);
+			        startAutoSlide();
+			      }
+			    });
+			  }
 			
 			  // Khi di chuột vào slide thì tạm dừng chạy tự động, di chuột ra ngoài lại chạy tiếp
-			  container.parentElement.addEventListener('mouseenter', stopAutoSlide);
-			  container.parentElement.addEventListener('mouseleave', startAutoSlide);
+			  if (container.parentElement) {
+			    container.parentElement.addEventListener('mouseenter', stopAutoSlide);
+			    container.parentElement.addEventListener('mouseleave', startAutoSlide);
+			  }
 			
 			  // Kích hoạt chạy slide vòng lặp ban đầu
 			  startAutoSlide();
 			});
 			</script>
-
 			
         </aside>
       </div> 
