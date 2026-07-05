@@ -1,7 +1,7 @@
 
 
 
-<script src="https://hieubeo91.github.io/au/config.js"></script>   
+<script src="https://hieubeo91.github.io/au/config.js"></script> 
 <script>
 (function() {
   // 🎯 KIỂM TRA AN TOÀN: Xác minh đối tượng MY_SITE_CONFIG tồn tại trước, rồi mới check thuộc tính globalBgImage
@@ -32,11 +32,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="444444444444">
-	<meta property="og:description" content="dfg">
+	<meta property="og:title" content="zzzzzzzzzz">
+	<meta property="og:description" content="dfgdfg">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/23/05/85/230585203796101707e6ffa7a5185951.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/23/05/85/230585203796101707e6ffa7a5185951.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/b0/66/f6/b066f60c8a5ed5cedf3016fa03fc6954.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/b0/66/f6/b066f60c8a5ed5cedf3016fa03fc6954.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -161,13 +161,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_guide" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f5f3ff; color: #7c3aed;" title="Xem thêm bài viết thuộc chủ đề Hướng dẫn">Hướng dẫn</a>
+              <a href="../index.html?cat=cat_free" class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity">Miễn phí</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>06/07/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            444444444444
+            zzzzzzzzzz
           </h1>
 
           <div class="mb-5">
@@ -179,8 +179,8 @@
           <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/23/05/85/230585203796101707e6ffa7a5185951.jpg" data-fancybox="gallery-post-444444444444" data-caption="444444444444" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/23/05/85/230585203796101707e6ffa7a5185951.jpg" alt="444444444444" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/b0/66/f6/b066f60c8a5ed5cedf3016fa03fc6954.jpg" data-fancybox="gallery-post-zzzzzzzzzz" data-caption="zzzzzzzzzz" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/b0/66/f6/b066f60c8a5ed5cedf3016fa03fc6954.jpg" alt="zzzzzzzzzz" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -192,7 +192,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">dfgdfg</div>
+                    <div class="mb-4">gdfg</div>
 
           </div>
 
@@ -221,7 +221,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=dfgdfg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfgdfg</a>
+                            <a href="../index.html?search=dgdf" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dgdf</a>
             </div>
           </div>
         </article>
@@ -349,8 +349,8 @@
     }
 
     const CURRENT_POST = {
-      title: "sun3.html",
-      tags: ["dfgdfg"]
+      title: "ggg",
+      tags: ["dgdf"]
     };
 
     async function loadPosts() {
@@ -975,19 +975,9 @@ document.addEventListener('DOMContentLoaded', function() {
             isAdminActive = true;
             
             // Lấy tên hiển thị trực tiếp từ file config.js
-            e.target.value = MY_SITE_CONFIG.admin.displayName || 'Admin';
+            e.target.value = MY_SITE_CONFIG.admin.displayName || 'Quản trị viên';
             
-            // 🎯 GIẢI PHÁP AN TOÀN 100%: Duyệt mảng class bằng vòng lặp thay vì dùng dấu ba chấm (...)
-            var adminClasses = MY_SITE_CONFIG.admin.classes;
-            if (Array.isArray(adminClasses)) {
-              for (var i = 0; i < adminClasses.length; i++) {
-                e.target.classList.add(adminClasses[i]);
-              }
-            } else {
-              // Dự phòng nếu file config.js gặp sự cố không đọc được mảng
-              e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
-            }
-            
+            e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
             e.target.blur();
             
             // Hiển thị ngay các nút tính năng phân quyền Admin
