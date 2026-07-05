@@ -31,11 +31,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="sd">
-	<meta property="og:description" content="sdf">
+	<meta property="og:title" content="sdfsdf">
+	<meta property="og:description" content="sdfsd">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/98/b4/30/98b4300771113b599658b0a82bb588ca.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/98/b4/30/98b4300771113b599658b0a82bb588ca.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/f1/e4/67/f1e467ce692d54994fd9654afd77e4e9.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/f1/e4/67/f1e467ce692d54994fd9654afd77e4e9.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -160,13 +160,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_free" class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity">Miễn phí</a>
+              <a href="../index.html?cat=cat_paid" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>05/07/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            sd
+            sdfsdf
           </h1>
 
           <div class="mb-5">
@@ -178,8 +178,8 @@
           <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/98/b4/30/98b4300771113b599658b0a82bb588ca.jpg" data-fancybox="gallery-post-sd" data-caption="sd" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/98/b4/30/98b4300771113b599658b0a82bb588ca.jpg" alt="sd" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/f1/e4/67/f1e467ce692d54994fd9654afd77e4e9.jpg" data-fancybox="gallery-post-sdfsdf" data-caption="sdfsdf" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/f1/e4/67/f1e467ce692d54994fd9654afd77e4e9.jpg" alt="sdfsdf" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -191,7 +191,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">SDsdf</div>
+                    <div class="mb-4">sdfdsf</div>
 
           </div>
 
@@ -220,7 +220,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=sdf" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#sdf</a>
+                            <a href="../index.html?search=sdfsdf" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#sdfsdf</a>
             </div>
           </div>
         </article>
@@ -348,8 +348,8 @@
     }
 
     const CURRENT_POST = {
-      title: "sd",
-      tags: ["sdf"]
+      title: "sfsdf",
+      tags: ["sdfsdf"]
     };
 
     async function loadPosts() {
@@ -1231,22 +1231,27 @@
 		let currentPage = 1;
 
 		// Biến cờ để kiểm tra xem đã tách bài ghim ra hộp riêng chưa
+		// Biến cờ để kiểm tra xem đã tách bài ghim ra hộp riêng chưa
 		function initCommentPagination() {
 			// 1. Tìm hộp chứa bình luận gốc của bạn
 			const container = document.getElementById('comments-wrapper');
 			if (!container) return;
 
-			// 2. Lấy chính xác danh sách bình luận đang có TẠI THỜI ĐIỂM HIỆN TẠI (đã được sắp xếp)
+			// 2. Lấy chính xác danh sách bình luận đang có TẠI THỜI ĐIỂM HIỆN TẠI
 			const allComments = Array.from(container.children);
 			
-			// 3. Phân loại bằng bộ lọc ảo (không di chuyển thẻ HTML)
-			const pinnedComments = allComments.filter(comment => comment.classList.contains('comment-pinned'));
-			const regularComments = allComments.filter(comment => !comment.classList.contains('comment-pinned'));
-
-			// 4. LUÔN HIỆN các bài ghim trên mọi trang
-			pinnedComments.forEach(comment => {
-				comment.style.display = "block";
-			});
+			// 3. 🎯 SỬA BỘ LỌC CHUẨN: Kiểm tra xem cụm này có chứa bài ghim bên trong hay không
+			const pinnedComments = allComments.filter(comment => 
+				comment.classList.contains('is-pinned-cluster') || 
+				comment.querySelector('.comment-is-pinned') !== null || 
+				comment.querySelector('.comment-pinned') !== null
+			);
+			
+			const regularComments = allComments.filter(comment => 
+				!comment.classList.contains('is-pinned-cluster') && 
+				comment.querySelector('.comment-is-pinned') === null && 
+				comment.querySelector('.comment-pinned') === null
+			);
 
 			// 5. Tính toán phân trang CHỈ dựa trên số lượng bài bình thường
 			const totalPages = Math.ceil(regularComments.length / commentsPerPage);
@@ -1262,8 +1267,12 @@
 				}
 			});
 
+			// 4. 🎯 ÉP HIỂN THỊ TUYỆT ĐỐI: Đặt nhóm ghim xuống dưới cùng để luôn hiển thị trên mọi trang
+			pinnedComments.forEach(comment => {
+				comment.style.setProperty('display', 'block', 'important');
+			});
+
 			// 7. Vẽ lại thanh điều hướng số trang
-			// Đảm bảo bạn đã khai báo biến paginationContainer ở đầu file js nhé
 			if (totalPages > 1) {
 				paginationContainer.style.display = "flex";
 				renderCommentControls(totalPages);
