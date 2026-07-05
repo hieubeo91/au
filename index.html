@@ -4,11 +4,11 @@
 
 <script src="https://hieubeo91.github.io/au/config.js"></script>  
 <script>
-  if (typeof GLOBAL_BG_IMAGE !== 'undefined' && GLOBAL_BG_IMAGE) {
+  if (typeof MY_SITE_CONFIG.globalBgImage !== 'undefined' && MY_SITE_CONFIG.globalBgImage) {
       const style = document.createElement('style');
       style.innerHTML = `
         body {
-          background-image: url('${GLOBAL_BG_IMAGE}') !important;
+          background-image: url('${MY_SITE_CONFIG.globalBgImage}') !important;
           background-attachment: fixed;
           background-size: cover;
           background-position: center;
