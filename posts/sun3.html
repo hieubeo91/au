@@ -1,13 +1,14 @@
 
+        
+        
 
-
-<script src="https://hieubeo91.github.io/au/config.js"></script> 
-<script>
-(function() {
-  // 🎯 KIỂM TRA AN TOÀN: Xác minh đối tượng MY_SITE_CONFIG tồn tại trước, rồi mới check thuộc tính globalBgImage
-  if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.globalBgImage && MY_SITE_CONFIG.globalBgImage !== 'none') {
-    const style = document.createElement('style');
-    style.innerHTML = `
+        
+            <script src="https://hieubeo91.github.io/au/config.js"></script>
+            <script>
+                (function () {
+                    if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.globalBgImage && MY_SITE_CONFIG.globalBgImage !== 'none') {
+                        const style = document.createElement('style');
+                        style.innerHTML = `
       body {
         background-image: url('${MY_SITE_CONFIG.globalBgImage}') !important;
         background-attachment: fixed !important;
@@ -16,482 +17,484 @@
         background-repeat: no-repeat !important;
       }
     `;
-    (document.head || document.body || document.documentElement).appendChild(style);
-  }
-})();
-</script>
+                        (document.head || document.body || document.documentElement).appendChild(style);
+                    }
+                })();
+            </script>
 
-<meta property="og:type" content="article">
-    <meta property="og:title" content="' + title + '">
-    <meta property="og:image" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
-    <meta property="og:image:secure_url" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
-    <meta property="og:url" content="' + window.location.href + '">
+            <meta property="og:type" content="article">
+            <meta property="og:title" content="' + title + '">
+            <meta property="og:image" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
+            <meta property="og:image:secure_url" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
+            <meta property="og:url" content="' + window.location.href + '">
 
-  <meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc">
-  <script data-goatcounter="https://vetraitim.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
-  <meta charset="UTF-8">
+            <meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc">
+            <script data-goatcounter="https://vetraitim.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+            <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="zzzzzzzzzz">
-	<meta property="og:description" content="dfgdfg">
+	<meta property="og:title" content="dgdfsgdf">
+	<meta property="og:description" content="dfgdf">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/b0/66/f6/b066f60c8a5ed5cedf3016fa03fc6954.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/b0/66/f6/b066f60c8a5ed5cedf3016fa03fc6954.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/80/bc/80/80bc809acd8131db7e58c1d0a2c1d9a2.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/80/bc/80/80bc809acd8131db7e58c1d0a2c1d9a2.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hieubeo's Audition Studio</title>
-  
- <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
- <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
-  
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #f8fafc;
-      scroll-behavior: smooth;
-    }
-    .swiper {
-      width: 100%;
-      height: 400px;
-      border-radius: 12px;
-    }
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: #ffffff !important;
-      background: rgba(0, 0, 0, 0.4);
-      width: 40px !important;
-      height: 40px !important;
-      border-radius: 50%;
-      transition: all 0.2s ease;
-    }
-    .swiper-button-next:hover,
-    .swiper-button-prev:hover {
-      background: rgba(99, 102, 241, 0.9);
-      transform: scale(1.05);
-    }
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-      font-size: 14px !important;
-      font-weight: bold;
-    }
-    .swiper-pagination-bullet-active {
-      background: #6366f1 !important;
-      width: 24px !important;
-      border-radius: 4px !important;
-    }
-    #back-to-top {
-      transition: all 0.3s ease;
-      opacity: 0;
-      visibility: hidden;
-    }
-    #back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-	
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Hieubeo's Audition Studio</title>
 
-	@keyframes heartFlyUp {
-		0% {
-		  transform: translateY(0) translateX(0) scale(0.6) rotate(0deg);
-		  opacity: 1;
-		}
-		50% {
-		  /* Giữa đường bay sẽ tự động dạt nhẹ sang hai bên */
-		  opacity: 0.9;
-		}
-		100% {
-		  /* Bay vút lên cao 140px và tản rộng ngẫu nhiên theo biến CSS được gán bằng JS */
-		  transform: translateY(-140px) translateX(var(--drift-x)) scale(1.3) rotate(var(--rotate-deg));
-		  opacity: 0;
-		}
-	  }
-	.floating-heart {
-    position: absolute;
-    color: #f43f5e; /* Màu đỏ hồng rose-500 */
-    pointer-events: none; /* Không cản trở việc click chuột */
-    animation: heartFlyUp 1.2s ease-out forwards;
-    z-index: 50;
-	}
-  </style>
+            <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 
+            <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
+            <script src="https://cdn.tailwindcss.com"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
-<div id="fb-root"></div>
-<script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;version=v18.0"></script>
-  <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <a href="https://hieubeo91.github.io/au/" class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
-        <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true" alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
-        <span>Hieubeo's Audition Studio</span>
-      </a>
-      <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
-    </div>
-  </header>
+                body {
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                    background-color: #f8fafc;
+                    scroll-behavior: smooth;
+                }
 
-  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
-    <!-- Đổi từ Flexbox sang CSS Grid cố định 3 cột trên màn hình lớn -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start w-full">
-      
-      <!-- ========================================== -->
-      <!-- 🎯 CỘT TRÁI (CHIẾM CỐ ĐỊNH 2 CỘT: lg:col-span-2) -->
-      <!-- ========================================== -->
-      <div class="w-full lg:col-span-2 space-y-6">
+                .swiper {
+                    width: 100%;
+                    height: 400px;
+                    border-radius: 12px;
+                }
+
+                .swiper-slide img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .swiper-button-next,
+                .swiper-button-prev {
+                    color: #ffffff !important;
+                    background: rgba(0, 0, 0, 0.4);
+                    width: 40px !important;
+                    height: 40px !important;
+                    border-radius: 50%;
+                    transition: all 0.2s ease;
+                }
+
+                .swiper-button-next:hover,
+                .swiper-button-prev:hover {
+                    background: rgba(99, 102, 241, 0.9);
+                    transform: scale(1.05);
+                }
+
+                .swiper-button-next::after,
+                .swiper-button-prev::after {
+                    font-size: 14px !important;
+                    font-weight: bold;
+                }
+
+                .swiper-pagination-bullet-active {
+                    background: #6366f1 !important;
+                    width: 24px !important;
+                    border-radius: 4px !important;
+                }
+
+                #back-to-top {
+                    transition: all 0.3s ease;
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                #back-to-top.show {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                @keyframes gradient {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+
+                    50% {
+                        background-position: 100% 50%;
+                    }
+
+                    100% {
+                        background-position: 0% 50%;
+                    }
+                }
+
+                @keyframes heartFlyUp {
+                    0% {
+                        transform: translateY(0) translateX(0) scale(0.6) rotate(0deg);
+                        opacity: 1;
+                    }
+
+                    50% {
+                        opacity: 0.9;
+                    }
+
+                    100% {
+                        transform: translateY(-140px) translateX(var(--drift-x)) scale(1.3) rotate(var(--rotate-deg));
+                        opacity: 0;
+                    }
+                }
+
+                .floating-heart {
+                    position: absolute;
+                    color: #f43f5e;
+                    pointer-events: none;
+                    animation: heartFlyUp 1.2s ease-out forwards;
+                    z-index: 50;
+                }
+            </style>
         
-        <!-- Khối bài viết chính -->
-        <article class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm w-full">
-          <a href="../index.html" class="mb-6 inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
-            <i class="fa-solid fa-arrow-left"></i> Quay lại trang chủ
-          </a>
-          
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-            <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_free" class="text-xs font-bold px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity">Miễn phí</a>
-              <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>06/07/2026</span>
-            </div>
-          </div>
 
-          <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            zzzzzzzzzz
-          </h1>
+        
+            <div id="fb-root"></div>
+            <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;version=v18.0"></script>
+            <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
+                <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <a href="https://hieubeo91.github.io/au/" class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
+                        <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true" alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
+                        <span>Hieubeo's Audition Studio</span>
+                    </a>
+                    <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho
+                        game Audition (PC)</p>
+                </div>
+            </header>
 
-          <div class="mb-5">
-            <span class="text-sm text-slate-500 font-medium">
-              <i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span>
-            </span>
-          </div>
+            <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start w-full">
 
-          <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
-            <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/b0/66/f6/b066f60c8a5ed5cedf3016fa03fc6954.jpg" data-fancybox="gallery-post-zzzzzzzzzz" data-caption="zzzzzzzzzz" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/b0/66/f6/b066f60c8a5ed5cedf3016fa03fc6954.jpg" alt="zzzzzzzzzz" class="hover:scale-105 transition-transform duration-300">
+                    <div class="w-full lg:col-span-2 space-y-6">
+
+                        <article class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm w-full">
+                            <a href="../index.html" class="mb-6 inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
+                                <i class="fa-solid fa-arrow-left"></i> Quay lại trang chủ
+                            </a>
+
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                                <div class="flex items-center gap-3">
+                                    <a href="../index.html?cat=cat_mod" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
+                                    <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>06/07/2026</span>
+                                </div>
+                            </div>
+
+                            <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
+                                dgdfsgdf
+                            </h1>
+
+                            <div class="mb-5">
+                                <span class="text-sm text-slate-500 font-medium">
+                                    <i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span>
+                                </span>
+                            </div>
+
+                            <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
+                                <div class="swiper-wrapper">
+                                                  <div class="swiper-slide">
+                <a href="https://i.pinimg.com/736x/80/bc/80/80bc809acd8131db7e58c1d0a2c1d9a2.jpg" data-fancybox="gallery-post-dgdfsgdf" data-caption="dgdfsgdf" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/80/bc/80/80bc809acd8131db7e58c1d0a2c1d9a2.jpg" alt="dgdfsgdf" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
-            </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
-          </div>
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
 
-          <!-- Nội dung văn bản của bài viết -->
-          <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">gdfg</div>
+                            <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
+                                        <div class="mb-4">
+                </div>
 
-          </div>
+                            </div>
 
-          <!-- Bộ nút tương tác -->
-          <div class="mt-8 pt-6 border-t border-slate-100 relative mb-4">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Chia sẻ</span>
-              </div>
-              <div class="flex flex-wrap items-center gap-3">
-                <button id="custom-heart-btn" class="flex items-center gap-2 px-3 py-1.5 bg-rose-50 hover:bg-rose-500 text-rose-500 hover:text-white text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm border border-rose-100 group active:scale-95 h-[32px]">
-                  <i class="fa-solid fa-heart text-sm transition-transform" id="heart-icon"></i> 
-                  <span id="heart-count">0</span>
-                </button>
-                <button id="share-facebook-btn" class="flex items-center gap-1.5 px-3 py-1.5 bg-[#1877F2] hover:bg-[#166FE5] text-white text-xs font-medium rounded-lg transition-colors cursor-pointer shadow-sm h-[32px]">
-                  <i class="fab fa-facebook-f text-[11px]"></i> Chia sẻ
-                </button>
-				<button id="copy-link-btn" class="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm h-[32px] min-w-[120px]">
-                  <i class="fa-regular fa-copy text-[11px] flex-shrink-0"></i> 
-                  <span id="copy-text" class="block text-center w-full">Sao chép Link</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Hashtags -->
-          <div class="pt-6 border-t border-slate-100">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
-            <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=dgdf" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dgdf</a>
-            </div>
-          </div>
-        </article>
+                            <div class="mt-8 pt-6 border-t border-slate-100 relative mb-4">
+                                <div class="flex flex-wrap items-center justify-between gap-4">
+                                    <div class="flex items-center gap-2">
+                                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Chia
+                                            sẻ</span>
+                                    </div>
+                                    <div class="flex flex-wrap items-center gap-3">
+                                        <button id="custom-heart-btn" class="flex items-center gap-2 px-3 py-1.5 bg-rose-50 hover:bg-rose-500 text-rose-500 hover:text-white text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm border border-rose-100 group active:scale-95 h-[32px]">
+                                            <i class="fa-solid fa-heart text-sm transition-transform" id="heart-icon"></i>
+                                            <span id="heart-count">0</span>
+                                        </button>
+                                        <button id="share-facebook-btn" class="flex items-center gap-1.5 px-3 py-1.5 bg-[#1877F2] hover:bg-[#166FE5] text-white text-xs font-medium rounded-lg transition-colors cursor-pointer shadow-sm h-[32px]">
+                                            <i class="fab fa-facebook-f text-[11px]"></i> Chia sẻ
+                                        </button>
+                                        <button id="copy-link-btn" class="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm h-[32px] min-w-[120px]">
+                                            <i class="fa-regular fa-copy text-[11px] flex-shrink-0"></i>
+                                            <span id="copy-text" class="block text-center w-full">Sao chép Link</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-6 border-t border-slate-100">
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
+                                <div class="flex flex-wrap gap-2 text-sm">
+                                                  <a href="../index.html?search=dfgdfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfgdfg</a>
+                                </div>
+                            </div>
+                        </article>
 
-        <!-- Khối Bình luận độc lập hoàn toàn -->
-		<div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm mt-6 space-y-6 w-full">
-          <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
-            <i class="fa-regular fa-comments text-indigo-500"></i>
-            Bình luận (<span id="comment-total-count">0</span>)
-          </h3>
+                        <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm mt-6 space-y-6 w-full">
+                            <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
+                                <i class="fa-regular fa-comments text-indigo-500"></i>
+                                Bình luận (<span id="comment-total-count">0</span>)
+                            </h3>
 
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-3">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">
-                  Tên của bạn
-                </label>
-                <input type="text" id="comment-name" class="w-full px-3 py-1.5 text-[12px] bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 transition-colors" placeholder="Nhập tên của bạn tại đây.">
-              </div>
-            </div>
-            <div>
-              <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">Nội dung bình luận</label>
-              <textarea id="comment-content" rows="3" class="w-full px-3 py-1.5 text-[12px] bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 resize-none" placeholder="Viết bình luận của bạn tại đây."></textarea>
-            </div>
-            <div class="flex justify-end">
-              <button id="submit-comment-btn" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition active:scale-95 flex items-center gap-1.5 cursor-pointer">
-                <i class="fa-solid fa-paper-plane"></i>Gửi bình luận
-              </button>
-            </div>
-          </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-3">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">
+                                            Tên của bạn
+                                        </label>
+                                        <input type="text" id="comment-name" class="w-full px-3 py-1.5 text-[12px] bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 transition-colors" placeholder="Nhập tên của bạn tại đây.">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">Nội dung
+                                        bình luận</label>
+                                    <textarea id="comment-content" rows="3" class="w-full px-3 py-1.5 text-[12px] bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 resize-none" placeholder="Viết bình luận của bạn tại đây."></textarea>
+                                </div>
+                                <div class="flex justify-end">
+                                    <button id="submit-comment-btn" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition active:scale-95 flex items-center gap-1.5 cursor-pointer">
+                                        <i class="fa-solid fa-paper-plane"></i>Gửi bình luận
+                                    </button>
+                                </div>
+                            </div>
 
-			<div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-4">
-			  <span class="text-[11px] font-semibold text-slate-700">Sắp xếp bình luận</span>
-			  <select id="comment-sort-select" class="text-xs bg-white border border-slate-200 rounded px-2 py-1 text-slate-600 outline-none cursor-pointer">
-				<option value="newest">Mới nhất lên trước</option>
-				<option value="oldest">Cũ nhất lên trước</option>
-			  </select>
-			</div>
+                            <div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-4">
+                                <span class="text-[11px] font-semibold text-slate-700">Sắp xếp bình luận</span>
+                                <select id="comment-sort-select" class="text-xs bg-white border border-slate-200 rounded px-2 py-1 text-slate-600 outline-none cursor-pointer">
+                                    <option value="newest">Mới nhất lên trước</option>
+                                    <option value="oldest">Cũ nhất lên trước</option>
+                                </select>
+                            </div>
 
-          <div id="comments-wrapper" class="space-y-4 w-full"></div>
-		  
-		  <!-- Next page -->
-		  <div id="comment-pagination-container" class="flex justify-center w-full mt-8"></div>
-        </div>
+                            <div id="comments-wrapper" class="space-y-4 w-full"></div>
 
-        <!-- Nút quay lại trang chủ -->
-        <div class="flex justify-center pt-4 w-full">
-          <a href="../index.html" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
-            <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
-          </a>
-        </div>
+                            <div id="comment-pagination-container" class="flex justify-center w-full mt-8"></div>
+                        </div>
 
-      </div> <!-- 💡 KẾT THÚC CỘT TRÁI -->
+                        <div class="flex justify-center pt-4 w-full">
+                            <a href="../index.html" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
+                                <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
+                            </a>
+                        </div>
+
+                    </div>
 
 
-      <!-- ========================================== -->
-      <!-- 🎯 CỘT PHẢI (SIDEBAR CHIẾM CỐ ĐỊNH 1 CỘT: lg:col-span-1) -->
-      <!-- ========================================== -->
-      <aside class="w-full lg:col-span-1 lg:sticky lg:top-0 space-y-6">
-		<div id="auto-injected-slide-container" class="w-full [&amp;&gt;div]:mt-0"></div>
-		
-        <div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden w-full">
-          <div class="flex border-b border-slate-100 bg-slate-50/50">
-            <button id="related-btn" class="flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer">
-              <i class="fa-solid fa-link mr-1.5"></i>Cùng chủ đề
+                    <aside class="w-full lg:col-span-1 lg:sticky lg:top-0 space-y-6">
+                        <div id="auto-injected-slide-container" class="w-full [&amp;&gt;div]:mt-0"></div>
+
+                        <div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden w-full">
+                            <div class="flex border-b border-slate-100 bg-slate-50/50">
+                                <button id="related-btn" class="flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer">
+                                    <i class="fa-solid fa-link mr-1.5"></i>Cùng chủ đề
+                                </button>
+                                <button id="random-btn" class="flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer">
+                                    <i class="fa-solid fa-shuffle mr-1.5"></i>Ngẫu nhiên
+                                </button>
+                            </div>
+
+                            <div id="detail-sidebar-list" class="p-4 space-y-4 max-h-[450px] overflow-y-auto w-full">
+                            </div>
+                        </div>
+                    </aside>
+
+                </div>
+            </main>
+
+            <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
+                <div class="max-w-6xl mx-auto px-4 text-center">
+                    <p class="text-sm">© 2026 Hieubeo's Audition Studio ♫ Rhythm of Life</p>
+                </div>
+            </footer>
+
+            <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto" title="Quay lên đầu trang">
+                <i class="fa-solid fa-arrow-up text-lg"></i>
             </button>
-            <button id="random-btn" class="flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer">
-              <i class="fa-solid fa-shuffle mr-1.5"></i>Ngẫu nhiên
-            </button>
-          </div>
-          
-          <div id="detail-sidebar-list" class="p-4 space-y-4 max-h-[450px] overflow-y-auto w-full"></div>
-        </div>
-      </aside>
 
-    </div>
-  </main>
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+            <script>
+                function initAllSwipers() {
+                    document.querySelectorAll('.mySwiper').forEach((el) => {
+                        if (el.swiper) { el.swiper.destroy(true, true); }
+                        new Swiper(el, {
+                            loop: true,
+                            spaceBetween: 10,
+                            observer: true,
+                            observeParents: true,
+                            pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
+                            navigation: { nextEl: el.querySelector('.swiper-button-next'), prevEl: el.querySelector('.swiper-button-prev') },
+                            autoplay: { delay: 4500, disableOnInteraction: true },
+                        });
+                    });
+                }
+                initAllSwipers();
 
-  <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <p class="text-sm">© 2026 Hieubeo's Audition Studio ♫ Rhythm of Life</p>
-    </div>
-  </footer>
+                Fancybox.bind("[data-fancybox^='gallery-']", { Thumbs: { autoStart: true } });
 
-  <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto" title="Quay lên đầu trang">
-    <i class="fa-solid fa-arrow-up text-lg"></i>
-  </button>
+                const backToTopBtn = document.getElementById('back-to-top');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 400) { backToTopBtn.classList.add('show'); }
+                    else { backToTopBtn.classList.remove('show'); }
+                });
+                backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-  <script>
-    function initAllSwipers() {
-      document.querySelectorAll('.mySwiper').forEach((el) => {
-        if (el.swiper) { el.swiper.destroy(true, true); }
-        new Swiper(el, {
-          loop: true,
-          spaceBetween: 10,
-          observer: true,
-          observeParents: true,
-          pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
-          navigation: { nextEl: el.querySelector('.swiper-button-next'), prevEl: el.querySelector('.swiper-button-prev') },
-          autoplay: { delay: 4500, disableOnInteraction: true },
-        });
-      });
-    }
-    initAllSwipers();
+                const newsletterForm = document.getElementById('newsletter-form');
+                const newsletterSuccess = document.getElementById('newsletter-success');
+                if (newsletterForm) {
+                    newsletterForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        newsletterForm.classList.add('hidden');
+                        newsletterSuccess.classList.remove('hidden');
+                    });
+                }
 
-    Fancybox.bind("[data-fancybox^='gallery-']", { Thumbs: { autoStart: true } });
-
-    const backToTopBtn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) { backToTopBtn.classList.add('show'); }
-      else { backToTopBtn.classList.remove('show'); }
-    });
-    backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-
-    const newsletterForm = document.getElementById('newsletter-form');
-    const newsletterSuccess = document.getElementById('newsletter-success');
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        newsletterForm.classList.add('hidden');
-        newsletterSuccess.classList.remove('hidden');
-      });
-    }
-
-    const CURRENT_POST = {
-      title: "ggg",
-      tags: ["dgdf"]
+                const CURRENT_POST = {
+                    title: "gfdg",
+                    tags: [{{ tags_js_array }}]
     };
 
-    async function loadPosts() {
-      try {
-        const response = await fetch("../index.html");
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
-        const cards = doc.querySelectorAll(".post-card");
-        const posts = [];
-        cards.forEach(card => {
-          posts.push({
-            title: card.dataset.title,
-            url: card.dataset.url,
-            image: card.dataset.image,
-            tags: (card.dataset.tags || "").split(",").map(tag => tag.trim()).filter(Boolean)
-          });
-        });
-        return posts;
-      } catch (e) {
-        console.error("Lỗi khi tải danh sách bài viết:", e);
-        return [];
-      }
-    }
+                async function loadPosts() {
+                    try {
+                        const response = await fetch("../index.html");
+                        const html = await response.text();
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, "text/html");
+                        const cards = doc.querySelectorAll(".post-card");
+                        const posts = [];
+                        cards.forEach(card => {
+                            posts.push({
+                                title: card.dataset.title,
+                                url: card.dataset.url,
+                                image: card.dataset.image,
+                                tags: (card.dataset.tags || "").split(",").map(tag => tag.trim()).filter(Boolean)
+                            });
+                        });
+                        return posts;
+                    } catch (e) {
+                        console.error("Lỗi khi tải danh sách bài viết:", e);
+                        return [];
+                    }
+                }
 
-	function renderPosts(posts) {
-      const container = document.getElementById("suggested-posts");
-      if(!container) return;
-      
-      // 🎯 NÂNG CẤP 1: Giới hạn chỉ lấy tối đa đúng 5 bài viết
-      const displayPosts = (posts || []).slice(0, 5);
-      
-      container.innerHTML = "";
-      if(displayPosts.length === 0) {
-        container.innerHTML = '<div class="text-xs text-slate-400 text-center py-4">Không có bài viết gợi ý phù hợp.</div>';
-        return;
-      }
-      
-      // 🎯 NÂNG CẤP 2: Chạy vòng lặp trên displayPosts và dùng chuỗi nối (+) để loại bỏ 100% lỗi đơ nút
-      displayPosts.forEach(post => {
-        let correctUrl = post.url || '#';
-        if (!correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
-          correctUrl = '../' + correctUrl;
-        }
-        const imgUrl = post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png';
+                function renderPosts(posts) {
+                    const container = document.getElementById("suggested-posts");
+                    if (!container) return;
 
-        container.innerHTML += '<a href="' + correctUrl + '" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-all duration-200">';
-        container.innerHTML += '  <img src="' + imgUrl + '" class="w-14 h-14 rounded-lg object-cover flex-shrink-0 border border-slate-100 shadow-sm group-hover:scale-105 transition-transform">';
-        container.innerHTML += '  <div class="space-y-1 flex-grow">';
-        container.innerHTML += '    <h4 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">' + post.title + '</h4>';
-        container.innerHTML += '    <span class="text-[10px] text-slate-400 block mt-1">Xem bài viết →</span>';
-        container.innerHTML += '  </div>';
-        container.innerHTML += '</a>';
-      });
-    }
+                    const displayPosts = (posts || []).slice(0, 5);
 
-    function getRelatedPosts(posts) {
-      if (!posts || !Array.isArray(posts)) return [];
-      return [...posts]
-        .filter(post => {
-          if (!post || !CURRENT_POST) return false;
-          // 1. Loại bỏ bài viết hiện tại khỏi danh sách hiển thị
-          if (post.title === CURRENT_POST.title) return false;
-          if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
-          
-          // 2. Chuyển đổi dữ liệu Danh mục (categories) thành mảng để so sánh
-          const postCats = (post.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
-          const currentCats = (CURRENT_POST.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
-          const hasCommonCategory = currentCats.some(cat => postCats.includes(cat));
-          
-          // 3. Chuyển đổi dữ liệu Từ khóa (tags) thành mảng để so sánh
-          const postTagsStr = Array.isArray(post.tags) ? post.tags.join(',') : (post.tags || '');
-          const postTags = postTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
-          
-          const currentTagsStr = Array.isArray(CURRENT_POST.tags) ? CURRENT_POST.tags.join(',') : (CURRENT_POST.tags || '');
-          const currentTags = currentTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
-          
-          const hasCommonTag = currentTags.some(tag => postTags.includes(tag));
-          
-          return hasCommonCategory || hasCommonTag;
-        })
-        .slice(0, 3);
-    }
+                    container.innerHTML = "";
+                    if (displayPosts.length === 0) {
+                        container.innerHTML = '<div class="text-xs text-slate-400 text-center py-4">Không có bài viết gợi ý phù hợp.</div>';
+                        return;
+                    }
 
-    function getRandomPosts(posts) {
-      if (!posts || !Array.isArray(posts)) return [];
-      return [...posts]
-        .filter(post => {
-          if (!post) return false;
-          if (post.title === CURRENT_POST.title) return false;
-          if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
-          return true;
-        })
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 3);
-    }
+                    displayPosts.forEach(post => {
+                        let correctUrl = post.url || '#';
+                        if (!correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
+                            correctUrl = '../' + correctUrl;
+                        }
+                        const imgUrl = post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png';
 
-// Hàm dựng giao diện với bộ Dò Tìm Vùng Chứa thông minh (Tự động sửa lỗi thiếu excerpt)
-// Hàm dựng giao diện chuẩn xác trỏ thẳng vào ID của Sidebar
-	function renderPosts(postsList) {
-	  // Sửa lại: Ưu tiên tìm đúng ID "detail-sidebar-list" ở cột bên phải trước
-	  let container = document.getElementById("detail-sidebar-list") || 
-					  document.querySelector('#sidebar-posts') || 
-					  document.querySelector('.space-y-4.mt-4');
-					  
-	  if (!container) {
-		const btn = document.getElementById("related-btn");
-		if (btn && btn.parentElement && btn.parentElement.nextElementSibling) {
-		  container = btn.parentElement.nextElementSibling;
-		}
-	  }
+                        container.innerHTML += '<a href="' + correctUrl + '" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-all duration-200">';
+                        container.innerHTML += '  <img src="' + imgUrl + '" class="w-14 h-14 rounded-lg object-cover flex-shrink-0 border border-slate-100 shadow-sm group-hover:scale-105 transition-transform">';
+                        container.innerHTML += '  <div class="space-y-1 flex-grow">';
+                        container.innerHTML += '    <h4 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">' + post.title + '</h4>';
+                        container.innerHTML += '    <span class="text-[10px] text-slate-400 block mt-1">Xem bài viết →</span>';
+                        container.innerHTML += '  </div>';
+                        container.innerHTML += '</a>';
+                    });
+                }
 
-	  if (!container) {
-		console.error("Không tìm thấy phân vùng Sidebar hiển thị bài viết trên trang!");
-		return;
-	  }
+                function getRelatedPosts(posts) {
+                    if (!posts || !Array.isArray(posts)) return [];
+                    return [...posts]
+                        .filter(post => {
+                            if (!post || !CURRENT_POST) return false;
+                            if (post.title === CURRENT_POST.title) return false;
+                            if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
 
-	  if (!postsList || postsList.length === 0) {
-		container.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-4">Không có bài viết nào phù hợp.</p>`;
-		return;
-	  }
+                            const postCats = (post.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
+                            const currentCats = (CURRENT_POST.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
+                            const hasCommonCategory = currentCats.some(cat => postCats.includes(cat));
 
-	  let listHTML = '';
-	  postsList.forEach(post => {
-		if (!post) return;
-		let correctUrl = post.url || '';
-		if (correctUrl && !correctUrl.startsWith('http') && !correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
-		  correctUrl = `../${correctUrl}`;
-		}
-		
-		let excerptText = post.excerpt ? post.excerpt.trim() : '';
-		if (!excerptText) {
-		  const cleanTags = Array.isArray(post.tags) ? post.tags.join(', ') : (post.tags || '');
-		  if (cleanTags) {
-			excerptText = `Hashtag: ${cleanTags}`;
-		  } else {
-			excerptText = `Xem chi tiết nội dung bài viết ${post.title}`;
-		  }
-		}
-		
-		listHTML += `
+                            const postTagsStr = Array.isArray(post.tags) ? post.tags.join(',') : (post.tags || '');
+                            const postTags = postTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+
+                            const currentTagsStr = Array.isArray(CURRENT_POST.tags) ? CURRENT_POST.tags.join(',') : (CURRENT_POST.tags || '');
+                            const currentTags = currentTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+
+                            const hasCommonTag = currentTags.some(tag => postTags.includes(tag));
+
+                            return hasCommonCategory || hasCommonTag;
+                        })
+                        .slice(0, 3);
+                }
+
+                function getRandomPosts(posts) {
+                    if (!posts || !Array.isArray(posts)) return [];
+                    return [...posts]
+                        .filter(post => {
+                            if (!post) return false;
+                            if (post.title === CURRENT_POST.title) return false;
+                            if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
+                            return true;
+                        })
+                        .sort(() => Math.random() - 0.5)
+                        .slice(0, 3);
+                }
+
+                function renderPosts(postsList) {
+                    let container = document.getElementById("detail-sidebar-list") ||
+                        document.querySelector('#sidebar-posts') ||
+                        document.querySelector('.space-y-4.mt-4');
+
+                    if (!container) {
+                        const btn = document.getElementById("related-btn");
+                        if (btn && btn.parentElement && btn.parentElement.nextElementSibling) {
+                            container = btn.parentElement.nextElementSibling;
+                        }
+                    }
+
+                    if (!container) {
+                        console.error("Không tìm thấy phân vùng Sidebar hiển thị bài viết trên trang!");
+                        return;
+                    }
+
+                    if (!postsList || postsList.length === 0) {
+                        container.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-4">Không có bài viết nào phù hợp.</p>`;
+                        return;
+                    }
+
+                    let listHTML = '';
+                    postsList.forEach(post => {
+                        if (!post) return;
+                        let correctUrl = post.url || '';
+                        if (correctUrl && !correctUrl.startsWith('http') && !correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
+                            correctUrl = `../${correctUrl}`;
+                        }
+
+                        let excerptText = post.excerpt ? post.excerpt.trim() : '';
+                        if (!excerptText) {
+                            const cleanTags = Array.isArray(post.tags) ? post.tags.join(', ') : (post.tags || '');
+                            if (cleanTags) {
+                                excerptText = `Hashtag: ${cleanTags}`;
+                            } else {
+                                excerptText = `Xem chi tiết nội dung bài viết ${post.title}`;
+                            }
+                        }
+
+                        listHTML += `
 		  <a href="${correctUrl}" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-colors">
 			<img src="${post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'}" class="w-24 aspect-[16/9] object-cover rounded-lg border border-slate-100 flex-shrink-0" onerror="this.src='https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'">
 			<div class="min-w-0 flex-grow" style="margin-top: -2px;">
@@ -501,276 +504,225 @@
 			</div>
 		  </a>
 		`;
-	  });
-	  
-	  container.innerHTML = listHTML;
-	}
+                    });
 
-    // LUỒNG KHỞI CHẠY & GẮN SỰ KIỆN CLICK TAB AN TOÀN
-    let ALL_POSTS = [];
-    if (typeof loadPosts === "function") {
-      loadPosts().then(posts => {
-        ALL_POSTS = posts || [];
-        const related = getRelatedPosts(ALL_POSTS);
-        if (related.length === 0) {
-          renderPosts(getRandomPosts(ALL_POSTS));
-          setActiveButton(document.getElementById("random-btn"));
-        } else {
-          renderPosts(related);
-          setActiveButton(document.getElementById("related-btn"));
-        }
-      }).catch(err => {
-        console.error("Lỗi khi tải danh sách bài viết bằng loadPosts():", err);
-      });
-    }
+                    container.innerHTML = listHTML;
+                }
 
-    const rBtn = document.getElementById("related-btn");
-    const mBtn = document.getElementById("random-btn");
+                let ALL_POSTS = [];
+                if (typeof loadPosts === "function") {
+                    loadPosts().then(posts => {
+                        ALL_POSTS = posts || [];
+                        const related = getRelatedPosts(ALL_POSTS);
+                        if (related.length === 0) {
+                            renderPosts(getRandomPosts(ALL_POSTS));
+                            setActiveButton(document.getElementById("random-btn"));
+                        } else {
+                            renderPosts(related);
+                            setActiveButton(document.getElementById("related-btn"));
+                        }
+                    }).catch(err => {
+                        console.error("Lỗi khi tải danh sách bài viết bằng loadPosts():", err);
+                    });
+                }
 
-    if (rBtn) {
-      rBtn.addEventListener("click", () => {
-        renderPosts(getRelatedPosts(ALL_POSTS));
-        setActiveButton(rBtn);
-      });
-    }
+                const rBtn = document.getElementById("related-btn");
+                const mBtn = document.getElementById("random-btn");
 
-    if (mBtn) {
-      mBtn.addEventListener("click", () => {
-        renderPosts(getRandomPosts(ALL_POSTS));
-        setActiveButton(mBtn);
-      });
-    }
+                if (rBtn) {
+                    rBtn.addEventListener("click", () => {
+                        renderPosts(getRelatedPosts(ALL_POSTS));
+                        setActiveButton(rBtn);
+                    });
+                }
 
-	
-	function setActiveButton(activeBtn) {
-      const relatedBtn = document.getElementById("related-btn");
-      const randomBtn = document.getElementById("random-btn");
-      if(!relatedBtn || !randomBtn || !activeBtn) return;
-      
-      // 1. Reset cả 2 nút về trạng thái bình thường (Chữ xám, viền dưới trong suốt)
-      [relatedBtn, randomBtn].forEach(btn => {
-        btn.className = "flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer";
-      });
-      
-      // 2. Kích hoạt nút được chọn: Đổi chữ sang màu xanh Indigo, viền dưới dày có màu xanh Indigo bừng sáng
-      activeBtn.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
-    }
-	
-	
-	
-	// =========================================================================
-    // 🎯 TỰ ĐỘNG ĐIỀN THÔNG TIN BÀI VIẾT VÀO THẺ META CHIA SẺ (OPEN GRAPH)
-    // =========================================================================
-    if (typeof CURRENT_POST !== 'undefined') {
-      // 1. Cập nhật tiêu đề trang web
-      if (CURRENT_POST.title) {
-        document.title = CURRENT_POST.title;
-      }
+                if (mBtn) {
+                    mBtn.addEventListener("click", () => {
+                        renderPosts(getRandomPosts(ALL_POSTS));
+                        setActiveButton(mBtn);
+                    });
+                }
 
-      // 2. Tìm và gán dữ liệu thật vào các thẻ Meta Open Graph để chia sẻ Facebook, Zalo đẹp hơn
-      const ogTitle = document.getElementById('meta-og-title');
-      const ogDesc = document.getElementById('meta-og-description');
-      const ogImage = document.getElementById('meta-og-image');
-      const ogUrl = document.getElementById('meta-og-url');
 
-      if (ogTitle) ogTitle.setAttribute('content', CURRENT_POST.title || document.title);
-      
-      // Sử dụng excerpt (mô tả ngắn), nếu trống sẽ lấy mặc định
-      const cleanExcerpt = CURRENT_POST.excerpt ? CURRENT_POST.excerpt.trim() : '';
-      if (ogDesc) ogDesc.setAttribute('content', cleanExcerpt || 'Xem chi tiết nội dung bài viết tại https://hieubeo91.github.io/au');
-      
-      if (ogImage) ogImage.setAttribute('content', CURRENT_POST.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png');
-      if (ogUrl) ogUrl.setAttribute('content', window.location.href);
-    }
-	
-// =========================================================================
-    // 🎯 KẾT NỐI FIREBASE - LƯU TRỮ LƯỢT TIM VĨNH VIỄN TOÀN MẠNG
-    // =========================================================================
-    
-    // 1. Cấu hình Firebase (DÁN ĐOẠN CONFIG BẠN LẤY ĐƯỢC Ở BƯỚC 1 VÀO ĐÂY)
-	const firebaseConfig = {
-	  apiKey: "AIzaSyCsc84GUdMK5zethbCibY1oSXpeXA9YlSo",
-	  authDomain: "myblog-heart.firebaseapp.com",
-	  databaseURL: "https://myblog-heart-default-rtdb.firebaseio.com",
-	  projectId: "myblog-heart",
-	  storageBucket: "myblog-heart.firebasestorage.app",
-	  messagingSenderId: "424150915416",
-	  appId: "1:424150915416:web:1e6c9bbdf99a5da7642d2d",
-	  measurementId: "G-4570E7XHL4"
-	};
+                function setActiveButton(activeBtn) {
+                    const relatedBtn = document.getElementById("related-btn");
+                    const randomBtn = document.getElementById("random-btn");
+                    if (!relatedBtn || !randomBtn || !activeBtn) return;
 
-    // Khởi tạo Firebase kết nối lên đám mây
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-    }
-    const database = firebase.database();
+                    [relatedBtn, randomBtn].forEach(btn => {
+                        btn.className = "flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer";
+                    });
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const currentUrl = window.location.href;
-      const encodedUrl = encodeURIComponent(currentUrl);
-      
-      // Định danh bài viết bằng tên file sạch để làm thư mục lưu trữ trên Firebase
-      const pageId = (window.location.pathname.split('/').pop() || 'index').replace(/\./g, '_');
-      const dbRef = database.ref('heart_counts/' + pageId);
-      const localClickedKey = `heart_voted_${pageId}`;
+                    activeBtn.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
+                }
 
-      const heartBtn = document.getElementById('custom-heart-btn');
-      const heartCountEl = document.getElementById('heart-count');
 
-      // --- ĐỒNG BỘ SỐ TIM TỪ TRÊN MẠNG XUỐNG GIAO DIỆN (Thời gian thực) ---
-      dbRef.on('value', (snapshot) => {
-        const votes = snapshot.val();
-        // Nếu bài viết mới tinh chưa có tim trên đám mây, tự nạp 1 con số ngẫu nhiên ban đầu cho đẹp
-        if (votes === null) {
-          const initialHearts = Math.floor(Math.random() * 25) + 15;
-          dbRef.set(initialHearts);
-          heartCountEl.textContent = initialHearts;
-        } else {
-          heartCountEl.textContent = votes;
-        }
-      });
+                if (typeof CURRENT_POST !== 'undefined') {
+                    if (CURRENT_POST.title) {
+                        document.title = CURRENT_POST.title;
+                    }
 
-      // Kiểm tra xem máy khách hiện tại đã từng nhấn tim chưa để giữ màu nút đỏ
-      if (localStorage.getItem(localClickedKey) === 'true' && heartBtn) {
-        heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
-        heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
-      }
+                    const ogTitle = document.getElementById('meta-og-title');
+                    const ogDesc = document.getElementById('meta-og-description');
+                    const ogImage = document.getElementById('meta-og-image');
+                    const ogUrl = document.getElementById('meta-og-url');
 
-	if (heartBtn) {
-        heartBtn.addEventListener('click', (e) => {
-          
-          // Mở khóa giới hạn: Cứ mỗi lần click là tăng vĩnh viễn 1 tim lên Firebase
-          dbRef.transaction((currentValue) => {
-            return (currentValue || 0) + 1;
-          });
+                    if (ogTitle) ogTitle.setAttribute('content', CURRENT_POST.title || document.title);
 
-          heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
-          heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
+                    const cleanExcerpt = CURRENT_POST.excerpt ? CURRENT_POST.excerpt.trim() : '';
+                    if (ogDesc) ogDesc.setAttribute('content', cleanExcerpt || 'Xem chi tiết nội dung bài viết tại https://hieubeo91.github.io/au');
 
-          // KHU VỰC TẠO HIỆU ỨNG NHIỀU TIM & TẢN RỘNG HƠN
-          let effectContainer = heartBtn.querySelector('.heart-effect-zone');
-          if (!effectContainer) {
-            effectContainer = document.createElement('div');
-            effectContainer.className = 'heart-effect-zone';
-            effectContainer.style.position = 'absolute';
-            effectContainer.style.top = '0';
-            effectContainer.style.left = '0';
-            effectContainer.style.width = '100%';
-            effectContainer.style.height = '100%';
-            effectContainer.style.pointerEvents = 'none';
-            heartBtn.style.position = 'relative';
-            heartBtn.appendChild(effectContainer);
-          }
+                    if (ogImage) ogImage.setAttribute('content', CURRENT_POST.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png');
+                    if (ogUrl) ogUrl.setAttribute('content', window.location.href);
+                }
 
-          // 🎯 TĂNG LÊN 9 TRÁI TIM CHO MỖI CÚ CLICK
-          for (let i = 0; i < 9; i++) {
-            const heart = document.createElement('i');
-            heart.className = 'fa-solid fa-heart floating-heart';
-            heart.style.position = 'absolute';
-            heart.style.color = '#f43f5e'; 
-            heart.style.pointerEvents = 'none';
-            heart.style.zIndex = '100';
-            
-            // 🎯 Khoảng cách xuất hiện ban đầu lệch nhau một chút dưới chân nút
-            heart.style.left = `${15 + (Math.random() * 40 - 20)}px`;
-            heart.style.top = `-5px`;
-            
-            // Kích thước to nhỏ so le ngẫu nhiên từ 10px đến 18px nhìn rất sinh động
-            heart.style.fontSize = `${Math.floor(Math.random() * 8) + 10}px`;
-            
-            // 🎯 THUẬT TOÁN TẢN RỘNG: Tạo biến CSS để mỗi trái tim bay dạt sang trái/phải ngẫu nhiên lên tới 60px
-            const randomDriftX = `${Math.floor(Math.random() * 120) - 60}px`; // Tản sang trái hoặc phải từ -60px đến +60px
-            const randomRotate = `${Math.floor(Math.random() * 80) - 40}deg`; // Xoay nghiêng từ -40 độ đến +40 độ
-            
-            heart.style.setProperty('--drift-x', randomDriftX);
-            heart.style.setProperty('--rotate-deg', randomRotate);
-            
-            // Tốc độ bay của từng hạt tim nhanh chậm lệch nhau một chút (từ 0.8s đến 1.2s) để tạo chiều sâu
-            heart.style.animation = `heartFlyUp ${0.8 + Math.random() * 0.4}s ease-out forwards`;
-            
-            effectContainer.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 1200);
-          }
-        });
-      }
+                const firebaseConfig = {
+                    apiKey: "AIzaSyCsc84GUdMK5zethbCibY1oSXpeXA9YlSo",
+                    authDomain: "myblog-heart.firebaseapp.com",
+                    databaseURL: "https://myblog-heart-default-rtdb.firebaseio.com",
+                    projectId: "myblog-heart",
+                    storageBucket: "myblog-heart.firebasestorage.app",
+                    messagingSenderId: "424150915416",
+                    appId: "1:424150915416:web:1e6c9bbdf99a5da7642d2d",
+                    measurementId: "G-4570E7XHL4"
+                };
 
-	// Tự động nạp ảnh đại diện thật của bài viết vào thẻ Meta OG:Image trước khi Facebook quét
-    //  const metaOgImage = document.getElementById('meta-og-image');
-    //  const postThumbnail = document.querySelector('#post-content img'); // Tìm bức ảnh đầu tiên trong bài viết
-      
-    //  if (metaOgImage && postThumbnail) {
-    //    metaOgImage.setAttribute('content', postThumbnail.src);
-    //  }
+                if (!firebase.apps.length) {
+                    firebase.initializeApp(firebaseConfig);
+                }
+                const database = firebase.database();
 
-	// --- 2. HÀNH ĐỘNG CHIA SẺ LÊN FACEBOOK CHUẨN ĐA NỀN TẢNG ---
-      const fbBtn = document.getElementById('share-facebook-btn');
-      if (fbBtn) {
-        fbBtn.addEventListener('click', () => {
-          const isAndroid = /Android/i.test(navigator.userAgent);
-          const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-          
-          // Đường link chia sẻ chuẩn hóa, Facebook App bắt buộc phải nhận diện được
-          const targetUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+                document.addEventListener('DOMContentLoaded', () => {
+                    const currentUrl = window.location.href;
+                    const encodedUrl = encodeURIComponent(currentUrl);
 
-          if (isAndroid) {
-            // Sử dụng cấu trúc Android Intent chuẩn để ép hệ điều hành gọi App Facebook
-            // Nếu có App, nó sẽ mở thẳng luồng chia sẻ của App. Nếu không có, nó sẽ mở bằng trình duyệt.
-            const androidIntent = `intent://www.facebook.com/sharer/sharer.php?u=${encodedUrl}#Intent;scheme=https;package=com.facebook.katana;end`;
-            window.location.href = androidIntent;
-          } 
-          else if (isIOS) {
-            // Đối với iOS (Safari/Chrome), sử dụng liên kết trực tiếp. 
-            // Hệ điều hành iOS sẽ tự động hỏi "Mở trong Facebook?" nếu cấu hình Universal Links trên máy hoạt động.
-            // Sử dụng window.open trên iOS để không làm mất trang hiện tại của blog
-            window.open(targetUrl, '_blank');
-          } 
-          else {
-            // Nếu dùng máy tính (PC/Laptop), giữ nguyên cửa sổ popup nhỏ chuyên nghiệp
-            window.open(targetUrl, '_blank', 'width=600,height=400,resizable=yes,scrollbars=yes');
-          }
-        });
-      }
+                    const pageId = (window.location.pathname.split('/').pop() || 'index').replace(/\./g, '_');
+                    const dbRef = database.ref('heart_counts/' + pageId);
+                    const localClickedKey = `heart_voted_${pageId}`;
 
-	// --- 3. HÀNH ĐỘNG SAO CHÉP LINK NHANH (ĐÃ KHÓA CHẶT ĐỘ RỘNG BẰNG JS CHỐNG CO GIÃN) ---
-      const copyBtn = document.getElementById('copy-link-btn');
-      const copyText = document.getElementById('copy-text');
-      if (copyBtn && copyText) {
-        copyBtn.addEventListener('click', () => {
-          navigator.clipboard.writeText(currentUrl).then(() => {
-            
-            // 🎯 BƯỚC THẦN KỲ: Đo độ rộng thực tế hiện tại của nút (tính bằng pixel)
-            const currentWidth = copyBtn.offsetWidth;
-            // Ép độ rộng cố định bằng inline-style để nút đứng im băng, không bị giật hay co lại
-            copyBtn.style.width = `${currentWidth}px`;
+                    const heartBtn = document.getElementById('custom-heart-btn');
+                    const heartCountEl = document.getElementById('heart-count');
 
-            // Tiến hành đổi chữ và đổi màu như bình thường
-            copyText.textContent = 'Đã sao chép!';
-            copyBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-            copyBtn.classList.add('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
+                    dbRef.on('value', (snapshot) => {
+                        const votes = snapshot.val();
+                        if (votes === null) {
+                            const initialHearts = Math.floor(Math.random() * 25) + 15;
+                            dbRef.set(initialHearts);
+                            heartCountEl.textContent = initialHearts;
+                        } else {
+                            heartCountEl.textContent = votes;
+                        }
+                    });
 
-            // Trả về trạng thái ban đầu sau 2 giây
-            setTimeout(() => {
-              copyText.textContent = 'Sao chép Link';
-              copyBtn.classList.remove('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-              copyBtn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-              
-              // 🎯 Giải phóng thuộc tính width để nút tự do co dãn theo giao diện gốc khi cần
-              copyBtn.style.width = '';
-            }, 2000);
-          }).catch(err => {
-            console.error('Không thể sao chép Link: ', err);
-          });
-        });
-      }
-    });
+                    if (localStorage.getItem(localClickedKey) === 'true' && heartBtn) {
+                        heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
+                        heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
+                    }
 
-document.addEventListener('DOMContentLoaded', function() {
-  const slideContainer = document.getElementById('auto-injected-slide-container');
-  if (!slideContainer) return;
+                    if (heartBtn) {
+                        heartBtn.addEventListener('click', (e) => {
 
-  // 1. TỰ DỰNG KHUNG SƯỜN HTML (Thay thế cho việc fetch từ index.html)
-  // Giữ nguyên chính xác 100% các class Tailwind và cấu trúc giao diện của bạn
-  slideContainer.innerHTML = `
+                            dbRef.transaction((currentValue) => {
+                                return (currentValue || 0) + 1;
+                            });
+
+                            heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
+                            heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
+
+                            let effectContainer = heartBtn.querySelector('.heart-effect-zone');
+                            if (!effectContainer) {
+                                effectContainer = document.createElement('div');
+                                effectContainer.className = 'heart-effect-zone';
+                                effectContainer.style.position = 'absolute';
+                                effectContainer.style.top = '0';
+                                effectContainer.style.left = '0';
+                                effectContainer.style.width = '100%';
+                                effectContainer.style.height = '100%';
+                                effectContainer.style.pointerEvents = 'none';
+                                heartBtn.style.position = 'relative';
+                                heartBtn.appendChild(effectContainer);
+                            }
+
+                            for (let i = 0; i < 9; i++) {
+                                const heart = document.createElement('i');
+                                heart.className = 'fa-solid fa-heart floating-heart';
+                                heart.style.position = 'absolute';
+                                heart.style.color = '#f43f5e';
+                                heart.style.pointerEvents = 'none';
+                                heart.style.zIndex = '100';
+
+                                heart.style.left = `${15 + (Math.random() * 40 - 20)}px`;
+                                heart.style.top = `-5px`;
+
+                                heart.style.fontSize = `${Math.floor(Math.random() * 8) + 10}px`;
+
+                                const randomDriftX = `${Math.floor(Math.random() * 120) - 60}px`;
+                                const randomRotate = `${Math.floor(Math.random() * 80) - 40}deg`;
+
+                                heart.style.setProperty('--drift-x', randomDriftX);
+                                heart.style.setProperty('--rotate-deg', randomRotate);
+
+                                heart.style.animation = `heartFlyUp ${0.8 + Math.random() * 0.4}s ease-out forwards`;
+
+                                effectContainer.appendChild(heart);
+                                setTimeout(() => { heart.remove(); }, 1200);
+                            }
+                        });
+                    }
+
+                    const fbBtn = document.getElementById('share-facebook-btn');
+                    if (fbBtn) {
+                        fbBtn.addEventListener('click', () => {
+                            const isAndroid = /Android/i.test(navigator.userAgent);
+                            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+                            const targetUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+
+                            if (isAndroid) {
+                                const androidIntent = `intent://www.facebook.com/sharer/sharer.php?u=${encodedUrl}#Intent;scheme=https;package=com.facebook.katana;end`;
+                                window.location.href = androidIntent;
+                            }
+                            else if (isIOS) {
+                                window.open(targetUrl, '_blank');
+                            }
+                            else {
+                                window.open(targetUrl, '_blank', 'width=600,height=400,resizable=yes,scrollbars=yes');
+                            }
+                        });
+                    }
+
+                    const copyBtn = document.getElementById('copy-link-btn');
+                    const copyText = document.getElementById('copy-text');
+                    if (copyBtn && copyText) {
+                        copyBtn.addEventListener('click', () => {
+                            navigator.clipboard.writeText(currentUrl).then(() => {
+
+                                const currentWidth = copyBtn.offsetWidth;
+                                copyBtn.style.width = `${currentWidth}px`;
+
+                                copyText.textContent = 'Đã sao chép!';
+                                copyBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+                                copyBtn.classList.add('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
+
+                                setTimeout(() => {
+                                    copyText.textContent = 'Sao chép Link';
+                                    copyBtn.classList.remove('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
+                                    copyBtn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+
+                                    copyBtn.style.width = '';
+                                }, 2000);
+                            }).catch(err => {
+                                console.error('Không thể sao chép Link: ', err);
+                            });
+                        });
+                    }
+                });
+
+                document.addEventListener('DOMContentLoaded', function () {
+                    const slideContainer = document.getElementById('auto-injected-slide-container');
+                    if (!slideContainer) return;
+
+                    slideContainer.innerHTML = `
     <div id="shared-banner-slide" class="w-full max-w-md mx-auto my-6 bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
       <div class="px-4 pt-3 pb-2 flex items-center gap-1.5 border-b border-slate-50">
         <span class="flex h-2 w-2 relative">
@@ -792,14 +744,13 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   `;
 
-	  // 2. ĐỌC DỮ LIỆU TỪ MY_SITE_CONFIG VÀ ĐỔ VÀO CONTAINER
-	  const container = slideContainer.querySelector('#banner-slides-container');
-	  
-	  if (container && typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.bannerSlides) {
-		let slidesHTML = '';
-		
-		MY_SITE_CONFIG.bannerSlides.forEach(slide => {
-		  slidesHTML += `
+                    const container = slideContainer.querySelector('#banner-slides-container');
+
+                    if (container && typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.bannerSlides) {
+                        let slidesHTML = '';
+
+                        MY_SITE_CONFIG.bannerSlides.forEach(slide => {
+                            slidesHTML += `
 			<a href="${slide.link}" class="w-full h-full flex-shrink-0 relative block">
 			  <img src="${slide.image}" class="w-full h-full object-cover" alt="${slide.altText || 'Banner'}">
 			  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
@@ -807,279 +758,267 @@ document.addEventListener('DOMContentLoaded', function() {
 			  </div>
 			</a>
 		  `;
-		});
-		
-		container.innerHTML = slidesHTML;
-		
-		// 3. KHỞI CHẠY LOGIC HIỆU ỨNG ĐIỀU KHIỂN SLIDE
-		initInjectedSlide();
-	  }
+                        });
 
-	  // Hàm khởi chạy hiệu ứng slide sau khi đã nạp data thành công
-	  function initInjectedSlide() {
-		const prevBtn = slideContainer.querySelector('#prev-slide-btn');
-		const nextBtn = slideContainer.querySelector('#next-slide-btn');
-		const dotsContainer = slideContainer.querySelector('#slide-dots-container');
-		
-		const slides = container.children;
-		const totalSlides = slides.length;
-		let currentIndex = 0;
-		let slideInterval;
+                        container.innerHTML = slidesHTML;
 
-		// Sinh các chấm tròn điều hướng dựa theo số lượng thực tế trong config
-		if (dotsContainer) {
-		  dotsContainer.innerHTML = ''; 
-		  for (let i = 0; i < totalSlides; i++) {
-			const dot = document.createElement('div');
-			dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
-			if (i === 0) dot.className += ' bg-white w-3';
-			dot.setAttribute('data-index', i);
-			dotsContainer.appendChild(dot);
-		  }
-		}
-		
-		const dots = dotsContainer ? dotsContainer.children : [];
+                        initInjectedSlide();
+                    }
 
-		function goToSlide(index) {
-		  if (index < 0) index = totalSlides - 1;
-		  if (index >= totalSlides) index = 0;
-		  currentIndex = index;
-		  container.style.transform = `translateX(-${currentIndex * 100}%)`;
-		  
-		  for (let j = 0; j < dots.length; j++) {
-			if (j === currentIndex) {
-			  dots[j].className = 'w-1.5 h-1.5 rounded-full bg-white transition-all cursor-pointer w-3';
-			} else {
-			  dots[j].className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
-			}
-		  }
-		}
+                    function initInjectedSlide() {
+                        const prevBtn = slideContainer.querySelector('#prev-slide-btn');
+                        const nextBtn = slideContainer.querySelector('#next-slide-btn');
+                        const dotsContainer = slideContainer.querySelector('#slide-dots-container');
 
-		function startAutoSlide() {
-		  stopAutoSlide();
-		  if (totalSlides <= 1) return; // Nếu chỉ có 1 slide thì không tự động chạy
-		  slideInterval = setInterval(() => goToSlide(currentIndex + 1), 4000);
-		}
+                        const slides = container.children;
+                        const totalSlides = slides.length;
+                        let currentIndex = 0;
+                        let slideInterval;
 
-		function stopAutoSlide() {
-		  if (slideInterval) clearInterval(slideInterval);
-		}
+                        if (dotsContainer) {
+                            dotsContainer.innerHTML = '';
+                            for (let i = 0; i < totalSlides; i++) {
+                                const dot = document.createElement('div');
+                                dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
+                                if (i === 0) dot.className += ' bg-white w-3';
+                                dot.setAttribute('data-index', i);
+                                dotsContainer.appendChild(dot);
+                            }
+                        }
 
-		if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); startAutoSlide(); });
-		if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); startAutoSlide(); });
+                        const dots = dotsContainer ? dotsContainer.children : [];
 
-		if (dotsContainer) {
-		  dotsContainer.addEventListener('click', (e) => {
-			if (e.target.hasAttribute('data-index')) {
-			  const targetIdx = parseInt(e.target.getAttribute('data-index'));
-			  goToSlide(targetIdx);
-			  startAutoSlide();
-			}
-		  });
-		}
+                        function goToSlide(index) {
+                            if (index < 0) index = totalSlides - 1;
+                            if (index >= totalSlides) index = 0;
+                            currentIndex = index;
+                            container.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-		if (container.parentElement) {
-		  container.parentElement.addEventListener('mouseenter', stopAutoSlide);
-		  container.parentElement.addEventListener('mouseleave', startAutoSlide);
-		}
+                            for (let j = 0; j < dots.length; j++) {
+                                if (j === currentIndex) {
+                                    dots[j].className = 'w-1.5 h-1.5 rounded-full bg-white transition-all cursor-pointer w-3';
+                                } else {
+                                    dots[j].className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
+                                }
+                            }
+                        }
 
-		startAutoSlide();
-	  }
-	});
+                        function startAutoSlide() {
+                            stopAutoSlide();
+                            if (totalSlides <= 1) return;
+                            slideInterval = setInterval(() => goToSlide(currentIndex + 1), 4000);
+                        }
 
-  </script>
+                        function stopAutoSlide() {
+                            if (slideInterval) clearInterval(slideInterval);
+                        }
 
-<script>
-  window.addEventListener('DOMContentLoaded', function() {
-    // 1. secret
-    function _sha256(ascii) {
-      function rightRotate(value, amount) { return (value>>>amount) | (value<<(32-amount)); };
-      var mathPow = Math.pow; var maxWord = mathPow(2, 32); var lengthProperty = 'length'; var i, j;
-      var result = ''; var words = []; var asciiLength = ascii[lengthProperty]; var hash = []; var k = [];
-      var primeCounter = 0; var isPrime = function(n) {
-        for (var factor = 2; factor * factor <= n; factor++) { if (n % factor === 0) return false; } return true;
-      };
-      while (primeCounter < 64) {
-        if (isPrime(j = j ? j + 1 : 2)) {
-          if (primeCounter < 8) hash[primeCounter] = (mathPow(j, .5)*maxWord)|0;
-          k[primeCounter++] = (mathPow(j, 1/3)*maxWord)|0;
-        }
-      }
-      ascii += '\x80';
-      while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
-      for (i = 0; i < ascii[lengthProperty]; i++) {
-        j = ascii.charCodeAt(i); if (j >> 8) return; words[i >> 2] |= j << ((3 - i % 4) * 8);
-      }
-      words[words[lengthProperty]] = ((asciiLength * 8) / maxWord) | 0; words[words[lengthProperty]] = (asciiLength * 8);
-      for (j = 0; j < words[lengthProperty]; j += 16) {
-        var w = words.slice(j, j + 16); var oldHash = hash.slice(0);
-        for (i = 0; i < 64; i++) {
-          var wItem = w[i];
-          if (i >= 16) {
-            var s0 = rightRotate(w[i-15], 7) ^ rightRotate(w[i-15], 18) ^ (w[i-15] >>> 3);
-            var s1 = rightRotate(w[i-2], 17) ^ rightRotate(w[i-2], 19) ^ (w[i-2] >>> 10);
-            wItem = w[i] = (w[i-16] + s0 + w[i-7] + s1) | 0;
-          }
-          var ch = (hash[4] & hash[5]) ^ (~hash[4] & hash[6]);
-          var maj = (hash[0] & hash[1]) ^ (hash[0] & hash[2]) ^ (hash[1] & hash[2]);
-          var sigma0 = rightRotate(hash[0], 2) ^ rightRotate(hash[0], 13) ^ rightRotate(hash[0], 22);
-          var sigma1 = rightRotate(hash[4], 6) ^ rightRotate(hash[4], 11) ^ rightRotate(hash[4], 25);
-          var t1 = (hash[7] + sigma1 + ch + k[i] + (wItem || 0)) | 0; var t2 = (sigma0 + maj) | 0;
-          hash = [(t1 + t2) | 0].concat(hash); hash[4] = (hash[4] + t1) | 0; hash = hash.slice(0, 8);
-        }
-        for (i = 0; i < 8; i++) hash[i] = (hash[i] + oldHash[i]) | 0;
-      }
-      for (i = 0; i < 8; i++) {
-        for (j = 3; j >= 0; j--) { var b = (hash[i] >> (j * 8)) & 255; result += ((b < 16) ? '0' : '') + b.toString(16); }
-      }
-      return result;
-    }
+                        if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); startAutoSlide(); });
+                        if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); startAutoSlide(); });
 
-    var currentUrl = window.location.href;
-    var postDataId = document.getElementById('main-article-element') ? document.getElementById('main-article-element').getAttribute('data-id') : 'post-default';
-    
-    var commentsWrapper = document.getElementById('comments-wrapper'); 
-    var commentCountSpan = document.getElementById('comment-total-count');
-    var commentNameInput = document.getElementById('comment-name');
-    var commentContentInput = document.getElementById('comment-content');
-    var submitCommentBtn = document.getElementById('submit-comment-btn');
-    var sortSelect = document.getElementById('comment-sort-select');
+                        if (dotsContainer) {
+                            dotsContainer.addEventListener('click', (e) => {
+                                if (e.target.hasAttribute('data-index')) {
+                                    const targetIdx = parseInt(e.target.getAttribute('data-index'));
+                                    goToSlide(targetIdx);
+                                    startAutoSlide();
+                                }
+                            });
+                        }
 
-	var sortSelect = document.getElementById('comment-sort-select');
+                        if (container.parentElement) {
+                            container.parentElement.addEventListener('mouseenter', stopAutoSlide);
+                            container.parentElement.addEventListener('mouseleave', startAutoSlide);
+                        }
 
-    // 🎯 ĐẢM BẢO CÓ ĐỦ 3 DÒNG NÀY Ở ĐẦU FILE JS CỦA BẠN:
-    var currentPage = 1; 
-    var commentsPerPage = 20; // Hoặc số lượng tùy bạn (ví dụ: 5, 10, 15 bình luận/trang)
-    var paginationContainer = document.getElementById('comment-pagination-container');
+                        startAutoSlide();
+                    }
+                });
 
-    var currentReplyToId = null;
-    var cachedSnapshotData = null; // Lưu trữ tạm data từ Firebase để tái sắp xếp không cần tải lại mạng
+            </script>
 
-    // Kết nối Firebase Realtime Database
-    var commentRef;
-    if (typeof firebase !== 'undefined' && firebase.database) {
-      commentRef = firebase.database().ref('blog_comments/' + postDataId);
-    }
+            <script>
+                window.addEventListener('DOMContentLoaded', function () {
+                    function _sha256(ascii) {
+                        function rightRotate(value, amount) { return (value >>> amount) | (value << (32 - amount)); };
+                        var mathPow = Math.pow; var maxWord = mathPow(2, 32); var lengthProperty = 'length'; var i, j;
+                        var result = ''; var words = []; var asciiLength = ascii[lengthProperty]; var hash = []; var k = [];
+                        var primeCounter = 0; var isPrime = function (n) {
+                            for (var factor = 2; factor * factor <= n; factor++) { if (n % factor === 0) return false; } return true;
+                        };
+                        while (primeCounter < 64) {
+                            if (isPrime(j = j ? j + 1 : 2)) {
+                                if (primeCounter < 8) hash[primeCounter] = (mathPow(j, .5) * maxWord) | 0;
+                                k[primeCounter++] = (mathPow(j, 1 / 3) * maxWord) | 0;
+                            }
+                        }
+                        ascii += '\x80';
+                        while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
+                        for (i = 0; i < ascii[lengthProperty]; i++) {
+                            j = ascii.charCodeAt(i); if (j >> 8) return; words[i >> 2] |= j << ((3 - i % 4) * 8);
+                        }
+                        words[words[lengthProperty]] = ((asciiLength * 8) / maxWord) | 0; words[words[lengthProperty]] = (asciiLength * 8);
+                        for (j = 0; j < words[lengthProperty]; j += 16) {
+                            var w = words.slice(j, j + 16); var oldHash = hash.slice(0);
+                            for (i = 0; i < 64; i++) {
+                                var wItem = w[i];
+                                if (i >= 16) {
+                                    var s0 = rightRotate(w[i - 15], 7) ^ rightRotate(w[i - 15], 18) ^ (w[i - 15] >>> 3);
+                                    var s1 = rightRotate(w[i - 2], 17) ^ rightRotate(w[i - 2], 19) ^ (w[i - 2] >>> 10);
+                                    wItem = w[i] = (w[i - 16] + s0 + w[i - 7] + s1) | 0;
+                                }
+                                var ch = (hash[4] & hash[5]) ^ (~hash[4] & hash[6]);
+                                var maj = (hash[0] & hash[1]) ^ (hash[0] & hash[2]) ^ (hash[1] & hash[2]);
+                                var sigma0 = rightRotate(hash[0], 2) ^ rightRotate(hash[0], 13) ^ rightRotate(hash[0], 22);
+                                var sigma1 = rightRotate(hash[4], 6) ^ rightRotate(hash[4], 11) ^ rightRotate(hash[4], 25);
+                                var t1 = (hash[7] + sigma1 + ch + k[i] + (wItem || 0)) | 0; var t2 = (sigma0 + maj) | 0;
+                                hash = [(t1 + t2) | 0].concat(hash); hash[4] = (hash[4] + t1) | 0; hash = hash.slice(0, 8);
+                            }
+                            for (i = 0; i < 8; i++) hash[i] = (hash[i] + oldHash[i]) | 0;
+                        }
+                        for (i = 0; i < 8; i++) {
+                            for (j = 3; j >= 0; j--) { var b = (hash[i] >> (j * 8)) & 255; result += ((b < 16) ? '0' : '') + b.toString(16); }
+                        }
+                        return result;
+                    }
 
-    // 2. Kích hoạt quyền Admin
-	var isAdminActive = false;
-    if (commentNameInput) {
-      commentNameInput.addEventListener('input', function(e) {
-        var val = e.target.value.trim();
-        
-        // 🎯 KIỂM TRA AN TOÀN: Xác minh cấu hình admin có tồn tại trong config.js không
-        if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin) {
-          var secureTargetHash = MY_SITE_CONFIG.admin.secureTargetHash;
-          
-          if (_sha256(val) === secureTargetHash && !isAdminActive) {
-            isAdminActive = true;
-            
-            // Lấy tên hiển thị trực tiếp từ file config.js
-            e.target.value = MY_SITE_CONFIG.admin.displayName || 'Quản trị viên';
-            
-            e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
-            e.target.blur();
-            
-            // Hiển thị ngay các nút tính năng phân quyền Admin
-            document.querySelectorAll('.admin-action-btn').forEach(function(btn) {
-              btn.classList.remove('hidden');
-            });
-            // Thực hiện render lại danh sách hiện tại để cập nhật giao diện Admin hoàn chỉnh
-            if (cachedSnapshotData) renderComments(cachedSnapshotData);
-          }
-        }
-      });
-    }
+                    var currentUrl = window.location.href;
+                    var postDataId = document.getElementById('main-article-element') ? document.getElementById('main-article-element').getAttribute('data-id') : 'post-default';
 
-    // 3. Lắng nghe thay đổi bộ lọc Sắp xếp
-    if (sortSelect) {
-      sortSelect.addEventListener('change', function() {
-        if (cachedSnapshotData) {
-          renderComments(cachedSnapshotData);
-        }
-      });
-    }
+                    var commentsWrapper = document.getElementById('comments-wrapper');
+                    var commentCountSpan = document.getElementById('comment-total-count');
+                    var commentNameInput = document.getElementById('comment-name');
+                    var commentContentInput = document.getElementById('comment-content');
+                    var submitCommentBtn = document.getElementById('submit-comment-btn');
+                    var sortSelect = document.getElementById('comment-sort-select');
 
-	function renderComments(dataObj) {
-		  if (!commentsWrapper) return;
-		  commentsWrapper.innerHTML = '';
-		  
-		  var commentKeys = Object.keys(dataObj);
-		  var allComments = commentKeys.map(function(key) {
-			var item = dataObj[key];
-			item._fbKey = key;
-			return item;
-		  });
+                    var sortSelect = document.getElementById('comment-sort-select');
 
-		  if (commentCountSpan) commentCountSpan.textContent = allComments.length;
+                    var currentPage = 1;
+                    var commentsPerPage = 10;
+                    var paginationContainer = document.getElementById('comment-pagination-container');
 
-		  if (allComments.length === 0) {
-			commentsWrapper.innerHTML = '<p class="text-xs text-slate-400 italic text-center py-4">Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ cảm nghĩ!</p>';
-			return;
-		  }
+                    var currentReplyToId = null;
+                    var cachedSnapshotData = null;
 
-		  var currentSortOrder = sortSelect ? sortSelect.value : 'newest';
+                    var commentRef;
+                    if (typeof firebase !== 'undefined' && firebase.database) {
+                        commentRef = firebase.database().ref('blog_comments/' + postDataId);
+                    }
 
-		  var rootComments = allComments.filter(function(c) { return !c.replyTo; });
-		  var replyComments = allComments.filter(function(c) { return c.replyTo; });
+                    var isAdminActive = false;
+                    if (commentNameInput) {
+                        commentNameInput.addEventListener('input', function (e) {
+                            var val = e.target.value.trim();
 
-		  var pinnedRoots = rootComments.filter(function(c) { return c.isPinned === true; });
-		  var normalRoots = rootComments.filter(function(c) { return !c.isPinned; });
+                            if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin) {
+                                var secureTargetHash = MY_SITE_CONFIG.admin.secureTargetHash;
 
-		  normalRoots.sort(function(a, b) {
-			if (currentSortOrder === 'newest') {
-			  return (b.timestamp || 0) - (a.timestamp || 0);
-			} else {
-			  return (a.timestamp || 0) - (b.timestamp || 0);
-			}
-		  });
+                                if (_sha256(val) === secureTargetHash && !isAdminActive) {
+                                    isAdminActive = true;
 
-		  pinnedRoots.sort(function(a, b) {
-			return (a.timestamp || 0) - (b.timestamp || 0);
-		  });
+                                    e.target.value = MY_SITE_CONFIG.admin.displayName || 'Quản trị viên';
 
-		  var finalOrderedRoots = pinnedRoots.concat(normalRoots);
+                                    e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
+                                    e.target.blur();
 
-		  replyComments.sort(function(a, b) {
-			if (currentSortOrder === 'newest') {
-			  return (b.timestamp || 0) - (a.timestamp || 0);
-			} else {
-			  return (a.timestamp || 0) - (b.timestamp || 0);
-			}
-		  });
+                                    document.querySelectorAll('.admin-action-btn').forEach(function (btn) {
+                                        btn.classList.remove('hidden');
+                                    });
+                                    if (cachedSnapshotData) renderComments(cachedSnapshotData);
+                                }
+                            }
+                        });
+                    }
 
-		  function generateCommentHTML(cmt, isChild) {
-			var date = new Date(cmt.timestamp);
-			var timeStr = date.toLocaleDateString('vi-VN') + ' ' + date.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'});
-			var displayName = cmt.name && cmt.name.trim() !== "" ? cmt.name.trim() : "Ẩn danh";
-			var adminBadge = cmt.isAdmin ? `<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Admin</span>` : '';
-			var pinBadge = cmt.isPinned ? `<span class="px-1.5 py-0.5 bg-amber-100 text-amber-700 font-bold rounded text-[9px] uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-thumbtack text-[8px]"></i> Đã ghim</span>` : '';
-			var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
-			var borderClass = cmt.isPinned ? 'border-amber-200 bg-amber-50/10 comment-is-pinned' : (cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : ''); // 🎯 THÊM class comment-is-pinned ở đây
-			var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
-			var adminBtnClass = isAdminActive ? '' : 'hidden';
-			var pinActionText = cmt.isPinned ? 'Bỏ ghim' : 'Ghim bài';
-			var pinIconClass = cmt.isPinned ? 'fa-solid fa-unlink' : 'fa-solid fa-thumbtack';
+                    if (sortSelect) {
+                        sortSelect.addEventListener('change', function () {
+                            if (cachedSnapshotData) {
+                                renderComments(cachedSnapshotData);
+                            }
+                        });
+                    }
 
-			var rx = cmt.reactions || {};
-			var totalReactions = (rx.favorite||0) + (rx.haha||0) + (rx.wow||0) + (rx.sad||0) + (rx.angry||0);
-			var reactionIconsHTML = '';
-			if (rx.favorite > 0) reactionIconsHTML += '<span class="text-[15px]">❤️</span>';
-			if (rx.haha > 0) reactionIconsHTML += '<span class="text-[15px]">😆</span>';
-			if (rx.wow > 0) reactionIconsHTML += '<span class="text-[15px]">😮</span>';
-			if (rx.sad > 0) reactionIconsHTML += '<span class="text-[15px]">😢</span>';
-			if (rx.angry > 0) reactionIconsHTML += '<span class="text-[15px]">😡</span>';
+                    function renderComments(dataObj) {
+                        if (!commentsWrapper) return;
+                        commentsWrapper.innerHTML = '';
 
-			var reactionResultBox = '';
-			if (totalReactions > 0) {
-			  reactionResultBox = `<div class="flex items-center gap-1 bg-white border border-slate-100 shadow-sm px-2 py-0.5 rounded-full ml-1"><div class="flex items-center -space-x-1 text-xs">${reactionIconsHTML}</div><span class="text-[10px] font-bold text-slate-500">${totalReactions}</span></div>`;
-			}
+                        var commentKeys = Object.keys(dataObj);
+                        var allComments = commentKeys.map(function (key) {
+                            var item = dataObj[key];
+                            item._fbKey = key;
+                            return item;
+                        });
 
-			var processedContent = (cmt.content || "").replace(/(@[^\s:]+)/g, '<span class="text-indigo-600 font-semibold">$1</span>');
-			var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
-			var safeName = displayName.replace(/'/g, "\\'");
+                        if (commentCountSpan) commentCountSpan.textContent = allComments.length;
 
-			return `
+                        if (allComments.length === 0) {
+                            commentsWrapper.innerHTML = '<p class="text-xs text-slate-400 italic text-center py-4">Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ cảm nghĩ!</p>';
+                            return;
+                        }
+
+                        var currentSortOrder = sortSelect ? sortSelect.value : 'newest';
+
+                        var rootComments = allComments.filter(function (c) { return !c.replyTo; });
+                        var replyComments = allComments.filter(function (c) { return c.replyTo; });
+
+                        var pinnedRoots = rootComments.filter(function (c) { return c.isPinned === true; });
+                        var normalRoots = rootComments.filter(function (c) { return !c.isPinned; });
+
+                        normalRoots.sort(function (a, b) {
+                            if (currentSortOrder === 'newest') {
+                                return (b.timestamp || 0) - (a.timestamp || 0);
+                            } else {
+                                return (a.timestamp || 0) - (b.timestamp || 0);
+                            }
+                        });
+
+                        pinnedRoots.sort(function (a, b) {
+                            return (a.timestamp || 0) - (b.timestamp || 0);
+                        });
+
+                        var finalOrderedRoots = pinnedRoots.concat(normalRoots);
+
+                        replyComments.sort(function (a, b) {
+                            if (currentSortOrder === 'newest') {
+                                return (b.timestamp || 0) - (a.timestamp || 0);
+                            } else {
+                                return (a.timestamp || 0) - (b.timestamp || 0);
+                            }
+                        });
+
+                        function generateCommentHTML(cmt, isChild) {
+                            var date = new Date(cmt.timestamp);
+                            var timeStr = date.toLocaleDateString('vi-VN') + ' ' + date.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+                            var displayName = cmt.name && cmt.name.trim() !== "" ? cmt.name.trim() : "Ẩn danh";
+                            var adminBadge = cmt.isAdmin ? `<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Admin</span>` : '';
+                            var pinBadge = cmt.isPinned ? `<span class="px-1.5 py-0.5 bg-amber-100 text-amber-700 font-bold rounded text-[9px] uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-thumbtack text-[8px]"></i> Đã ghim</span>` : '';
+                            var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
+                            var borderClass = cmt.isPinned ? 'border-amber-200 bg-amber-50/10 comment-is-pinned' : (cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : '');
+                            var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
+                            var adminBtnClass = isAdminActive ? '' : 'hidden';
+                            var pinActionText = cmt.isPinned ? 'Bỏ ghim' : 'Ghim bài';
+                            var pinIconClass = cmt.isPinned ? 'fa-solid fa-unlink' : 'fa-solid fa-thumbtack';
+
+                            var rx = cmt.reactions || {};
+                            var totalReactions = (rx.favorite || 0) + (rx.haha || 0) + (rx.wow || 0) + (rx.sad || 0) + (rx.angry || 0);
+                            var reactionIconsHTML = '';
+                            if (rx.favorite > 0) reactionIconsHTML += '<span class="text-[15px]">❤️</span>';
+                            if (rx.haha > 0) reactionIconsHTML += '<span class="text-[15px]">😆</span>';
+                            if (rx.wow > 0) reactionIconsHTML += '<span class="text-[15px]">😮</span>';
+                            if (rx.sad > 0) reactionIconsHTML += '<span class="text-[15px]">😢</span>';
+                            if (rx.angry > 0) reactionIconsHTML += '<span class="text-[15px]">😡</span>';
+
+                            var reactionResultBox = '';
+                            if (totalReactions > 0) {
+                                reactionResultBox = `<div class="flex items-center gap-1 bg-white border border-slate-100 shadow-sm px-2 py-0.5 rounded-full ml-1"><div class="flex items-center -space-x-1 text-xs">${reactionIconsHTML}</div><span class="text-[10px] font-bold text-slate-500">${totalReactions}</span></div>`;
+                            }
+
+                            var processedContent = (cmt.content || "").replace(/(@[^\s:]+)/g, '<span class="text-indigo-600 font-semibold">$1</span>');
+                            var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
+                            var safeName = displayName.replace(/'/g, "\\'");
+
+                            return `
 			  <div class="flex gap-3 transition-all relative group/item ${layoutClass} ${borderClass}">
 				<div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs flex-shrink-0">${cmt.name ? cmt.name.charAt(0).toUpperCase() : '?'}</div>
 				<div class="min-w-0 flex-grow">
@@ -1099,371 +1038,338 @@ document.addEventListener('DOMContentLoaded', function() {
 				</div>
 			  </div>
 			`;
-		  }
+                        }
 
-		  finalOrderedRoots.forEach(function(root) {
-			var clusterWrapper = document.createElement('div');
-			// 🎯 QUAN TRỌNG: Gắn class nhận diện cụm bình luận thường hoặc ghim bài
-			clusterWrapper.className = 'comment-cluster space-y-2 border-b border-slate-100/60 pb-3 last:border-0';
-			if (root.isPinned) {
-				clusterWrapper.classList.add('is-pinned-cluster');
-			}
-			
-			var clusterHTML = generateCommentHTML(root, false);
-			var subReplies = replyComments.filter(function(r) { return r.replyTo === root._fbKey; });
-			subReplies.forEach(function(reply) {
-			  clusterHTML += generateCommentHTML(reply, true);
-			});
+                        finalOrderedRoots.forEach(function (root) {
+                            var clusterWrapper = document.createElement('div');
+                            clusterWrapper.className = 'comment-cluster space-y-2 border-b border-slate-100/60 pb-3 last:border-0';
+                            if (root.isPinned) {
+                                clusterWrapper.classList.add('is-pinned-cluster');
+                            }
 
-			clusterWrapper.innerHTML = clusterHTML;
-			commentsWrapper.appendChild(clusterWrapper);
-		  });
+                            var clusterHTML = generateCommentHTML(root, false);
+                            var subReplies = replyComments.filter(function (r) { return r.replyTo === root._fbKey; });
+                            subReplies.forEach(function (reply) {
+                                clusterHTML += generateCommentHTML(reply, true);
+                            });
 
-		  // 🎯 KÍCH HOẠT HÀM PHÂN TRANG ẢO TỰ ĐỘNG NGAY SAU KHI DỰNG XONG DOM
-		  executeClientPagination();
-		}
+                            clusterWrapper.innerHTML = clusterHTML;
+                            commentsWrapper.appendChild(clusterWrapper);
+                        });
 
-		// Tải danh sách đồng bộ thời gian thực từ Cloud Firebase
-		if (commentRef) {
-		  commentRef.on('value', function(snapshot) {
-			cachedSnapshotData = snapshot.val() || {};
-			renderComments(cachedSnapshotData);
-		  });
-		}
+                        executeClientPagination();
+                    }
 
-		// 5. Định nghĩa các hàm tương tác toàn cục liên thông Firebase
-		window._replyToComment = function(commentId, targetName) {
-		  if (!commentContentInput) return;
-		  currentReplyToId = commentId;
-		  commentContentInput.value = "@" + targetName.replace(/ /g, "") + " "; 
-		  commentContentInput.focus();
-		  commentContentInput.scrollIntoView({ behavior: "smooth", block: "center" });
-		};
+                    if (commentRef) {
+                        commentRef.on('value', function (snapshot) {
+                            cachedSnapshotData = snapshot.val() || {};
+                            renderComments(cachedSnapshotData);
+                        });
+                    }
 
-		// Hàm đếm tăng tương tác cảm xúc (Transaction an toàn)
-		window._reactComment = function(fbKey, type) {
-		  if (!commentRef) return;
-		  var reactionPath = commentRef.child(fbKey + '/reactions/' + type);
-		  reactionPath.transaction(function(currentCount) {
-			return (currentCount || 0) + 1;
-		  });
-		};
+                    window._replyToComment = function (commentId, targetName) {
+                        if (!commentContentInput) return;
+                        currentReplyToId = commentId;
+                        commentContentInput.value = "@" + targetName.replace(/ /g, "") + " ";
+                        commentContentInput.focus();
+                        commentContentInput.scrollIntoView({ behavior: "smooth", block: "center" });
+                    };
 
-		// Hàm đảo trạng thái ghim bình luận (Chỉ khả dụng cho Admin)
-		window._togglePinComment = function(fbKey, currentPinnedStatus) {
-		  if (!commentRef) return;
-		  commentRef.child(fbKey).update({
-			isPinned: !currentPinnedStatus
-		  }).catch(function(err) {
-			alert("Lỗi thực thi ghim: " + err.message);
-		  });
-		};
+                    window._reactComment = function (fbKey, type) {
+                        if (!commentRef) return;
+                        var reactionPath = commentRef.child(fbKey + '/reactions/' + type);
+                        reactionPath.transaction(function (currentCount) {
+                            return (currentCount || 0) + 1;
+                        });
+                    };
 
-		window._deleteComment = function(fbKey) {
-		  if (!commentRef) return;
-		  if (confirm("Bạn có chắc chắn muốn xóa vĩnh viễn bình luận này khỏi hệ thống không?")) {
-			commentRef.child(fbKey).remove().then(function() {
-			  // Xóa đồng loạt bình luận con gắn liền với id cha vừa xóa
-			  commentRef.once('value', function(snap) {
-				var data = snap.val() || {};
-				Object.keys(data).forEach(function(key) {
-				  if (data[key].replyTo === fbKey) {
-					commentRef.child(key).remove();
-				  }
-				});
-			  });
-			}).catch(function(err) {
-			  alert("Lỗi không thể xóa: " + err.message);
-			});
-		  }
-		};
+                    window._togglePinComment = function (fbKey, currentPinnedStatus) {
+                        if (!commentRef) return;
+                        commentRef.child(fbKey).update({
+                            isPinned: !currentPinnedStatus
+                        }).catch(function (err) {
+                            alert("Lỗi thực thi ghim: " + err.message);
+                        });
+                    };
 
-		// 6. Sự kiện click nút gửi bình luận
-		if (submitCommentBtn) {
-		  submitCommentBtn.addEventListener('click', function() {
-			var name = commentNameInput ? commentNameInput.value.trim() : '';
-			var content = commentContentInput ? commentContentInput.value.trim() : '';
+                    window._deleteComment = function (fbKey) {
+                        if (!commentRef) return;
+                        if (confirm("Bạn có chắc chắn muốn xóa vĩnh viễn bình luận này khỏi hệ thống không?")) {
+                            commentRef.child(fbKey).remove().then(function () {
+                                commentRef.once('value', function (snap) {
+                                    var data = snap.val() || {};
+                                    Object.keys(data).forEach(function (key) {
+                                        if (data[key].replyTo === fbKey) {
+                                            commentRef.child(key).remove();
+                                        }
+                                    });
+                                });
+                            }).catch(function (err) {
+                                alert("Lỗi không thể xóa: " + err.message);
+                            });
+                        }
+                    };
 
-			if (!name) { alert("Vui lòng nhập tên của bạn!"); return; }
-			if (!content) { alert("Vui lòng nhập nội dung bình luận!"); return; }
+                    if (submitCommentBtn) {
+                        submitCommentBtn.addEventListener('click', function () {
+                            var name = commentNameInput ? commentNameInput.value.trim() : '';
+                            var content = commentContentInput ? commentContentInput.value.trim() : '';
 
-			var newComment = {
-			  name: isAdminActive ? "Hiệu Béo 👑" : name,
-			  content: content,
-			  isAdmin: isAdminActive,
-			  timestamp: firebase.database.ServerValue.TIMESTAMP,
-			  isPinned: false, // Mặc định tạo mới không ghim
-			  reactions: { favorite: 0, haha: 0, wow: 0, sad: 0, angry: 0 } // Khởi tạo bộ đếm
-			};
+                            if (!name) { alert("Vui lòng nhập tên của bạn!"); return; }
+                            if (!content) { alert("Vui lòng nhập nội dung bình luận!"); return; }
 
-			if (currentReplyToId) {
-			  newComment.replyTo = currentReplyToId;
-			}
+                            var newComment = {
+                                name: isAdminActive ? "Hiệu Béo 👑" : name,
+                                content: content,
+                                isAdmin: isAdminActive,
+                                timestamp: firebase.database.ServerValue.TIMESTAMP,
+                                isPinned: false,
+                                reactions: { favorite: 0, haha: 0, wow: 0, sad: 0, angry: 0 }
+                            };
 
-			submitCommentBtn.disabled = true;
-			submitCommentBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang gửi...';
+                            if (currentReplyToId) {
+                                newComment.replyTo = currentReplyToId;
+                            }
 
-			if (commentRef) {
-			  commentRef.push(newComment).then(function() {
-				if (commentContentInput) commentContentInput.value = "";
-				currentReplyToId = null; // Trả trạng thái reply về ban đầu
-				submitCommentBtn.disabled = false;
-				submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
-			  }).catch(function(err) {
-				console.error("Lỗi gửi bình luận:", err);
-				alert("Có lỗi xảy ra khi gửi bình luận!");
-				submitCommentBtn.disabled = false;
-				submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
-			  });
-			}
-		  });
-		}
+                            submitCommentBtn.disabled = true;
+                            submitCommentBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang gửi...';
 
-		// 7. Cấu hình hành động chia sẻ bài viết nhanh
-		var shareFbBtn = document.getElementById('share-fb-btn');
-		if (shareFbBtn) {
-		  shareFbBtn.addEventListener('click', function() {
-			var targetUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(currentUrl);
-			if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-			  window.open(targetUrl, '_blank');
-			} else {
-			  window.open(targetUrl, '_blank', 'width=600,height=400,resizable=yes,scrollbars=yes');
-			}
-		  });
-		}
+                            if (commentRef) {
+                                commentRef.push(newComment).then(function () {
+                                    if (commentContentInput) commentContentInput.value = "";
+                                    currentReplyToId = null;
+                                    submitCommentBtn.disabled = false;
+                                    submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
+                                }).catch(function (err) {
+                                    console.error("Lỗi gửi bình luận:", err);
+                                    alert("Có lỗi xảy ra khi gửi bình luận!");
+                                    submitCommentBtn.disabled = false;
+                                    submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
+                                });
+                            }
+                        });
+                    }
 
-		var copyBtn = document.getElementById('copy-link-btn');
-		var copyText = document.getElementById('copy-text');
-		if (copyBtn && copyText) {
-		  copyBtn.addEventListener('click', function() {
-			navigator.clipboard.writeText(currentUrl).then(function() {
-			  var currentWidth = copyBtn.offsetWidth;
-			  copyBtn.style.width = currentWidth + 'px';
-			  copyText.textContent = 'Đã sao chép!';
-			  copyBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-			  copyBtn.classList.add('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-			  setTimeout(function() {
-				copyText.textContent = 'Sao chép Link';
-				copyBtn.classList.remove('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-				copyBtn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-				copyBtn.style.width = '';
-			  }, 2000);
-			});
-		  });
-		}
-	  });
-  
-	// Next page
-	document.addEventListener("DOMContentLoaded", function () {
-		const commentContainer = document.getElementById('comments-wrapper');
-		const paginationContainer = document.getElementById('comment-pagination-container');
-		
-		if (!commentContainer || !paginationContainer) return;
+                    var shareFbBtn = document.getElementById('share-fb-btn');
+                    if (shareFbBtn) {
+                        shareFbBtn.addEventListener('click', function () {
+                            var targetUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(currentUrl);
+                            if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+                                window.open(targetUrl, '_blank');
+                            } else {
+                                window.open(targetUrl, '_blank', 'width=600,height=400,resizable=yes,scrollbars=yes');
+                            }
+                        });
+                    }
 
-		const commentsPerPage = 20; // Hiển thị tối đa 20 bình luận
-		let currentPage = 1;
+                    var copyBtn = document.getElementById('copy-link-btn');
+                    var copyText = document.getElementById('copy-text');
+                    if (copyBtn && copyText) {
+                        copyBtn.addEventListener('click', function () {
+                            navigator.clipboard.writeText(currentUrl).then(function () {
+                                var currentWidth = copyBtn.offsetWidth;
+                                copyBtn.style.width = currentWidth + 'px';
+                                copyText.textContent = 'Đã sao chép!';
+                                copyBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+                                copyBtn.classList.add('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
+                                setTimeout(function () {
+                                    copyText.textContent = 'Sao chép Link';
+                                    copyBtn.classList.remove('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
+                                    copyBtn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
+                                    copyBtn.style.width = '';
+                                }, 2000);
+                            });
+                        });
+                    }
+                });
 
-		// Biến cờ để kiểm tra xem đã tách bài ghim ra hộp riêng chưa
-		// Biến cờ để kiểm tra xem đã tách bài ghim ra hộp riêng chưa
-		function initCommentPagination() {
-			// 1. Tìm hộp chứa bình luận gốc của bạn
-			const container = document.getElementById('comments-wrapper');
-			if (!container) return;
+                document.addEventListener("DOMContentLoaded", function () {
+                    const commentContainer = document.getElementById('comments-wrapper');
+                    const paginationContainer = document.getElementById('comment-pagination-container');
 
-			// 2. Lấy chính xác danh sách bình luận đang có TẠI THỜI ĐIỂM HIỆN TẠI
-			const allComments = Array.from(container.children);
-			
-			// 3. 🎯 SỬA BỘ LỌC CHUẨN: Kiểm tra xem cụm này có chứa bài ghim bên trong hay không
-			const pinnedComments = allComments.filter(comment => 
-				comment.classList.contains('is-pinned-cluster') || 
-				comment.querySelector('.comment-is-pinned') !== null || 
-				comment.querySelector('.comment-pinned') !== null
-			);
-			
-			const regularComments = allComments.filter(comment => 
-				!comment.classList.contains('is-pinned-cluster') && 
-				comment.querySelector('.comment-is-pinned') === null && 
-				comment.querySelector('.comment-pinned') === null
-			);
+                    if (!commentContainer || !paginationContainer) return;
 
-			// 5. Tính toán phân trang CHỈ dựa trên số lượng bài bình thường
-			const totalPages = Math.ceil(regularComments.length / commentsPerPage);
-			const startIndex = (currentPage - 1) * commentsPerPage;
-			const endIndex = startIndex + commentsPerPage;
+                    const commentsPerPage = 10;
+                    let currentPage = 1;
 
-			// 6. Ẩn/Hiện bài thường dựa theo trang hiện tại
-			regularComments.forEach((comment, index) => {
-				if (index >= startIndex && index < endIndex) {
-					comment.style.display = "block"; // Thuộc trang hiện tại -> Hiện
-				} else {
-					comment.style.display = "none";  // Thuộc trang khác -> Ẩn
-				}
-			});
+                    function initCommentPagination() {
+                        const container = document.getElementById('comments-wrapper');
+                        if (!container) return;
 
-			// 4. 🎯 ÉP HIỂN THỊ TUYỆT ĐỐI: Đặt nhóm ghim xuống dưới cùng để luôn hiển thị trên mọi trang
-			pinnedComments.forEach(comment => {
-				comment.style.setProperty('display', 'block', 'important');
-			});
+                        const allComments = Array.from(container.children);
 
-			// 7. Vẽ lại thanh điều hướng số trang
-			if (totalPages > 1) {
-				paginationContainer.style.display = "flex";
-				renderCommentControls(totalPages);
-			} else {
-				paginationContainer.style.display = "none";
-			}
-		}
+                        const pinnedComments = allComments.filter(comment =>
+                            comment.classList.contains('is-pinned-cluster') ||
+                            comment.querySelector('.comment-is-pinned') !== null ||
+                            comment.querySelector('.comment-pinned') !== null
+                        );
 
-		// Hàm vẽ nút bấm chuyển trang
-		function renderCommentControls(totalPages) {
-		    paginationContainer.innerHTML = "";
-		    
-		    // Cấu trúc khung flex justify-between căng ngang
-		    let html = `<div class="flex items-center justify-between w-full max-w-md mx-auto pt-4 border-t border-slate-100 select-none">`;
-		
-		    // Nút Trước
-		    html += `
+                        const regularComments = allComments.filter(comment =>
+                            !comment.classList.contains('is-pinned-cluster') &&
+                            comment.querySelector('.comment-is-pinned') === null &&
+                            comment.querySelector('.comment-pinned') === null
+                        );
+
+                        const totalPages = Math.ceil(regularComments.length / commentsPerPage);
+                        const startIndex = (currentPage - 1) * commentsPerPage;
+                        const endIndex = startIndex + commentsPerPage;
+
+                        regularComments.forEach((comment, index) => {
+                            if (index >= startIndex && index < endIndex) {
+                                comment.style.display = "block";
+                            } else {
+                                comment.style.display = "none";
+                            }
+                        });
+
+                        pinnedComments.forEach(comment => {
+                            comment.style.setProperty('display', 'block', 'important');
+                        });
+
+                        if (totalPages > 1) {
+                            paginationContainer.style.display = "flex";
+                            renderCommentControls(totalPages);
+                        } else {
+                            paginationContainer.style.display = "none";
+                        }
+                    }
+
+                    function renderCommentControls(totalPages) {
+                        paginationContainer.innerHTML = "";
+
+                        let html = `<div class="flex items-center justify-between w-full max-w-md mx-auto pt-4 border-t border-slate-100 select-none">`;
+
+                        html += `
 		        <button id="prev-comment-btn" 
 		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer flex-shrink-0 ${currentPage === 1 ? 'opacity-40 pointer-events-none' : ''}">
 		            <i class="fa-solid fa-angle-left"></i> Trước
 		        </button>
 		    `;
-		
-		    // Khung số ở giữa
-		    html += `<div class="flex items-center justify-center gap-1 flex-grow min-w-[180px] mx-2">`;
-		
-		    const range = 2; 
-		    let hasLeftDot = false;
-		    let hasRightDot = false;
-		
-		    for (let i = 1; i <= totalPages; i++) {
-		        if (i === 1 || i === totalPages || (i >= currentPage - range && i <= currentPage + range)) {
-		            const isCurrent = i === currentPage;
-		            html += `
+
+                        html += `<div class="flex items-center justify-center gap-1 flex-grow min-w-[180px] mx-2">`;
+
+                        const range = 2;
+                        let hasLeftDot = false;
+                        let hasRightDot = false;
+
+                        for (let i = 1; i <= totalPages; i++) {
+                            if (i === 1 || i === totalPages || (i >= currentPage - range && i <= currentPage + range)) {
+                                const isCurrent = i === currentPage;
+                                html += `
 		                <button data-cpage="${i}" 
 		                        class="comment-page-btn w-7 h-7 text-xs font-bold rounded-lg transition-all cursor-pointer ${isCurrent ? 'bg-indigo-600 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}">
 		                    ${i}
 		                </button>
 		            `;
-		        } else if (i < currentPage - range && !hasLeftDot) {
-		            html += `<span class="w-7 text-center text-slate-400 text-xs font-bold">...</span>`;
-		            hasLeftDot = true;
-		        } else if (i > currentPage + range && !hasRightDot) {
-		            html += `<span class="w-7 text-center text-slate-400 text-xs font-bold">...</span>`;
-		            hasRightDot = true;
-		        }
-		    }
-		
-		    html += `</div>`; // Đóng khung giữa
-		
-		    // Nút Sau
-		    html += `
+                            } else if (i < currentPage - range && !hasLeftDot) {
+                                html += `<span class="w-7 text-center text-slate-400 text-xs font-bold">...</span>`;
+                                hasLeftDot = true;
+                            } else if (i > currentPage + range && !hasRightDot) {
+                                html += `<span class="w-7 text-center text-slate-400 text-xs font-bold">...</span>`;
+                                hasRightDot = true;
+                            }
+                        }
+
+                        html += `</div>`;
+
+                        html += `
 		        <button id="next-comment-btn" 
 		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer flex-shrink-0 ${currentPage === totalPages ? 'opacity-40 pointer-events-none' : ''}">
 		            Sau <i class="fa-solid fa-angle-right"></i>
 		        </button>
 		    `;
-		
-		    html += `</div>`;
-		    paginationContainer.innerHTML = html;
-		
-		    // --- Phần gán addEventListener click của bình luận bên dưới giữ nguyên ---
-		    paginationContainer.querySelectorAll('.comment-page-btn').forEach(btn => {
-		        btn.addEventListener('click', function() {
-		            currentPage = parseInt(this.getAttribute('data-cpage'));
-		            initCommentPagination();
-		        });
-		    });
-		    paginationContainer.querySelector('#prev-comment-btn').addEventListener('click', function() { if (currentPage > 1) { currentPage--; initCommentPagination(); } });
-		    paginationContainer.querySelector('#next-comment-btn').addEventListener('click', function() { if (currentPage < totalPages) { currentPage++; initCommentPagination(); } });
-		}
 
-		// 🎯 GIẢI PHÁP CỐT LÕI: Theo dõi khi nào bình luận thực sự xuất hiện trong khung chứa
-		const observer = new MutationObserver(function (mutations) {
-			// Mỗi khi danh sách bình luận thay đổi (thêm mới, tải xong...), chạy lại hàm phân trang
-			observer.disconnect(); // Tạm dừng theo dõi để tránh lặp vô hạn khi ẩn/hiện
-			initCommentPagination();
-			observer.observe(commentContainer, { childList: true }); // Kích hoạt theo dõi lại
-		});
+                        html += `</div>`;
+                        paginationContainer.innerHTML = html;
 
-		// Bắt đầu theo dõi hộp chứa bình luận
-		observer.observe(commentContainer, { childList: true });
-		
-		// Chạy thử lần đầu phòng trường hợp có sẵn HTML tĩnh
-		initCommentPagination();
-	});
-  
-	var commentCurrentPage = 1;
-	var commentsPerPageConfig = 5; // Bạn cấu hình số lượng bình luận thường hiển thị ở đây
+                        paginationContainer.querySelectorAll('.comment-page-btn').forEach(btn => {
+                            btn.addEventListener('click', function () {
+                                currentPage = parseInt(this.getAttribute('data-cpage'));
+                                initCommentPagination();
+                            });
+                        });
+                        paginationContainer.querySelector('#prev-comment-btn').addEventListener('click', function () { if (currentPage > 1) { currentPage--; initCommentPagination(); } });
+                        paginationContainer.querySelector('#next-comment-btn').addEventListener('click', function () { if (currentPage < totalPages) { currentPage++; initCommentPagination(); } });
+                    }
 
-	function executeClientPagination() {
-		var wrapper = document.getElementById('comments-wrapper');
-		var pagContainer = document.getElementById('comment-pagination-container');
-		if (!wrapper || !pagContainer) return;
+                    const observer = new MutationObserver(function (mutations) {
+                        observer.disconnect();
+                        initCommentPagination();
+                        observer.observe(commentContainer, { childList: true });
+                    });
 
-		var allClusters = Array.from(wrapper.getElementsByClassName('comment-cluster'));
-		
-		// Tách nhóm cụm ghim và cụm thường dựa trên HTML thực tế
-		var pinnedClusters = allClusters.filter(function(el) { return el.classList.contains('is-pinned-cluster'); });
-		var normalClusters = allClusters.filter(function(el) { return !el.classList.contains('is-pinned-cluster'); });
+                    observer.observe(commentContainer, { childList: true });
 
-		// Luôn luôn hiện các cụm có chứa bài ghim
-		pinnedClusters.forEach(function(el) { el.style.display = 'block'; });
+                    initCommentPagination();
+                });
 
-		var totalPages = Math.ceil(normalClusters.length / commentsPerPageConfig);
-		if (commentCurrentPage > totalPages && totalPages > 0) commentCurrentPage = totalPages;
+                var commentCurrentPage = 1;
+                var commentsPerPageConfig = 5;
 
-		var startIndex = (commentCurrentPage - 1) * commentsPerPageConfig;
-		var endIndex = startIndex + commentsPerPageConfig;
+                function executeClientPagination() {
+                    var wrapper = document.getElementById('comments-wrapper');
+                    var pagContainer = document.getElementById('comment-pagination-container');
+                    if (!wrapper || !pagContainer) return;
 
-		// Ẩn hiện cụm thường dựa trên trang hiện tại
-		normalClusters.forEach(function(el, index) {
-			if (index >= startIndex && index < endIndex) {
-				el.style.display = 'block';
-			} else {
-				el.style.display = 'none';
-			}
-		});
+                    var allClusters = Array.from(wrapper.getElementsByClassName('comment-cluster'));
 
-		// Vẽ thanh điều hướng số trang
-		if (totalPages > 1) {
-			pagContainer.style.display = 'flex';
-			
-			// Đoạn vẽ HTML phân trang (Sử dụng cấu trúc max-w thích hợp của bạn)
-			let html = `<div class="flex items-center justify-between w-full max-w-[540px] mx-auto mt-4 select-none">`;
-			html += `<button id="prev-comment-btn" class="px-3 py-1 bg-white border border-slate-200 text-xs text-slate-600 rounded hover:bg-slate-50 transition cursor-pointer">Trước</button>`;
-			html += `<div class="flex items-center justify-center gap-1 flex-grow min-w-[180px] mx-2 text-xs font-semibold text-slate-500">Trang ${commentCurrentPage} / ${totalPages}</div>`;
-			html += `<button id="next-comment-btn" class="px-3 py-1 bg-white border border-slate-200 text-xs text-slate-600 rounded hover:bg-slate-50 transition cursor-pointer">Sau</button>`;
-			html += `</div>`;
-			
-			pagContainer.innerHTML = html;
+                    var pinnedClusters = allClusters.filter(function (el) { return el.classList.contains('is-pinned-cluster'); });
+                    var normalClusters = allClusters.filter(function (el) { return !el.classList.contains('is-pinned-cluster'); });
 
-			// Gán sự kiện click nút Trước
-			var prevBtn = pagContainer.querySelector('#prev-comment-btn');
-			if (prevBtn) {
-				prevBtn.addEventListener('click', function() {
-					if (commentCurrentPage > 1) {
-						commentCurrentPage--;
-						executeClientPagination();
-					}
-				});
-			}
+                    pinnedClusters.forEach(function (el) { el.style.display = 'block'; });
 
-			// Gán sự kiện click nút Sau
-			var nextBtn = pagContainer.querySelector('#next-comment-btn');
-			if (nextBtn) {
-				nextBtn.addEventListener('click', function() {
-					if (commentCurrentPage < totalPages) {
-						commentCurrentPage++;
-						executeClientPagination();
-					}
-				});
-			}
-		} else {
-			pagContainer.style.display = 'none';
-		}
-	}
-  
-  </script>
- 
+                    var totalPages = Math.ceil(normalClusters.length / commentsPerPageConfig);
+                    if (commentCurrentPage > totalPages && totalPages > 0) commentCurrentPage = totalPages;
 
+                    var startIndex = (commentCurrentPage - 1) * commentsPerPageConfig;
+                    var endIndex = startIndex + commentsPerPageConfig;
+
+                    normalClusters.forEach(function (el, index) {
+                        if (index >= startIndex && index < endIndex) {
+                            el.style.display = 'block';
+                        } else {
+                            el.style.display = 'none';
+                        }
+                    });
+
+                    if (totalPages > 1) {
+                        pagContainer.style.display = 'flex';
+
+                        let html = `<div class="flex items-center justify-between w-full max-w-[540px] mx-auto mt-4 select-none">`;
+                        html += `<button id="prev-comment-btn" class="px-3 py-1 bg-white border border-slate-200 text-xs text-slate-600 rounded hover:bg-slate-50 transition cursor-pointer">Trước</button>`;
+                        html += `<div class="flex items-center justify-center gap-1 flex-grow min-w-[180px] mx-2 text-xs font-semibold text-slate-500">Trang ${commentCurrentPage} / ${totalPages}</div>`;
+                        html += `<button id="next-comment-btn" class="px-3 py-1 bg-white border border-slate-200 text-xs text-slate-600 rounded hover:bg-slate-50 transition cursor-pointer">Sau</button>`;
+                        html += `</div>`;
+
+                        pagContainer.innerHTML = html;
+
+                        var prevBtn = pagContainer.querySelector('#prev-comment-btn');
+                        if (prevBtn) {
+                            prevBtn.addEventListener('click', function () {
+                                if (commentCurrentPage > 1) {
+                                    commentCurrentPage--;
+                                    executeClientPagination();
+                                }
+                            });
+                        }
+
+                        var nextBtn = pagContainer.querySelector('#next-comment-btn');
+                        if (nextBtn) {
+                            nextBtn.addEventListener('click', function () {
+                                if (commentCurrentPage < totalPages) {
+                                    commentCurrentPage++;
+                                    executeClientPagination();
+                                }
+                            });
+                        }
+                    } else {
+                        pagContainer.style.display = 'none';
+                    }
+                }
+
+            </script>
+
+        
+
+        
+    
