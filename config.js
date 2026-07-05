@@ -6,7 +6,7 @@ const BANNER_SLIDES_CONFIG = [
     {
         link: "https://hieubeo91.github.io/au/posts/sun3.html",
         image: "https://lh3.googleusercontent.com/d/18-TpyUz6uPU2YZOClxlHwnzKTFXwtujH",
-        title: "Thang cấp độ nhẫn trong Audition",
+        title: "Thang cấp độ nhẫn trong Audition2",
         altText: "Bài viết mới 1"
     },
     {
