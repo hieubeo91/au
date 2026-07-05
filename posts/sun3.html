@@ -1327,80 +1327,66 @@
 
 		// Hàm vẽ nút bấm chuyển trang
 		function renderCommentControls(totalPages) {
-			paginationContainer.innerHTML = "";
-			let html = `<div class="flex items-center justify-center gap-1.5 pt-4 border-t border-slate-100 w-full">`;
-
-			// 1. NÚT TRƯỚC
-			html += `
-				<button id="prev-comment-btn" 
-						class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer ${currentPage === 1 ? 'opacity-40 pointer-events-none' : ''}">
-					<i class="fa-solid fa-angle-left"></i>
-				</button>
-			`;
-
-			// 🎯 THUẬT TOÁN ĐỊNH VỊ DẤU BA CHẤM ĐỘNG CHO BÌNH LUẬN
-			const range = 2; // Số lượng trang hiển thị lân cận 2 bên trang hiện tại
-			let hasLeftDot = false;
-			let hasRightDot = false;
-
-			for (let i = 1; i <= totalPages; i++) {
-				// Luôn hiển thị trang đầu, trang cuối và các trang trong khoảng lân cận
-				if (i === 1 || i === totalPages || (i >= currentPage - range && i <= currentPage + range)) {
-					const isCurrent = i === currentPage;
-					html += `
-						<button data-cpage="${i}" 
-								class="comment-page-btn w-7 h-7 text-xs font-bold rounded-lg transition-all cursor-pointer ${isCurrent ? 'bg-indigo-600 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}">
-							${i}
-						</button>
-					`;
-				} 
-				// Vẽ dấu ba chấm bên trái
-				else if (i < currentPage - range && !hasLeftDot) {
-					html += `<span class="px-1 text-slate-400 text-xs font-bold select-none">...</span>`;
-					hasLeftDot = true;
-				} 
-				// Vẽ dấu ba chấm bên phải
-				else if (i > currentPage + range && !hasRightDot) {
-					html += `<span class="px-1 text-slate-400 text-xs font-bold select-none">...</span>`;
-					hasRightDot = true;
-				}
-			}
-
-			// 2. NÚT SAU
-			html += `
-				<button id="next-comment-btn" 
-						class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer ${currentPage === totalPages ? 'opacity-40 pointer-events-none' : ''}">
-					<i class="fa-solid fa-angle-right"></i>
-				</button>
-			`;
-
-			html += `</div>`;
-			paginationContainer.innerHTML = html;
-
-			// 3. GÁN SỰ KIỆN CLICK CHO CÁC NÚT SỐ (Đã sửa lỗi không cập nhật dấu ...)
-			paginationContainer.querySelectorAll('.comment-page-btn').forEach(btn => {
-				btn.addEventListener('click', function() {
-					const targetPage = parseInt(this.getAttribute('data-cpage'));
-					currentPage = targetPage;
-					
-					// Gọi lại hàm khởi tạo để ẩn/hiện comment và vẽ lại thanh điều hướng có dấu ... mới
-					initCommentPagination();
-				});
-			});
-
-			// 4. GÁN SỰ KIỆN CLICK CHO NÚT TRƯỚC / SAU
-			paginationContainer.querySelector('#prev-comment-btn').addEventListener('click', function() {
-				if (currentPage > 1) {
-					currentPage--;
-					initCommentPagination();
-				}
-			});
-			paginationContainer.querySelector('#next-comment-btn').addEventListener('click', function() {
-				if (currentPage < totalPages) {
-					currentPage++;
-					initCommentPagination();
-				}
-			});
+		    paginationContainer.innerHTML = "";
+		    
+		    // Cấu trúc khung flex justify-between căng ngang
+		    let html = `<div class="flex items-center justify-between w-full max-w-sm mx-auto pt-4 border-t border-slate-100 select-none">`;
+		
+		    // Nút Trước
+		    html += `
+		        <button id="prev-comment-btn" 
+		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer flex-shrink-0 ${currentPage === 1 ? 'opacity-40 pointer-events-none' : ''}">
+		            <i class="fa-solid fa-angle-left"></i> Trước
+		        </button>
+		    `;
+		
+		    // Khung số ở giữa
+		    html += `<div class="flex items-center justify-center gap-1 flex-grow mx-2">`;
+		
+		    const range = 2; 
+		    let hasLeftDot = false;
+		    let hasRightDot = false;
+		
+		    for (let i = 1; i <= totalPages; i++) {
+		        if (i === 1 || i === totalPages || (i >= currentPage - range && i <= currentPage + range)) {
+		            const isCurrent = i === currentPage;
+		            html += `
+		                <button data-cpage="${i}" 
+		                        class="comment-page-btn w-7 h-7 text-xs font-bold rounded-lg transition-all cursor-pointer ${isCurrent ? 'bg-indigo-600 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}">
+		                    ${i}
+		                </button>
+		            `;
+		        } else if (i < currentPage - range && !hasLeftDot) {
+		            html += `<span class="w-7 text-center text-slate-400 text-xs font-bold">...</span>`;
+		            hasLeftDot = true;
+		        } else if (i > currentPage + range && !hasRightDot) {
+		            html += `<span class="w-7 text-center text-slate-400 text-xs font-bold">...</span>`;
+		            hasRightDot = true;
+		        }
+		    }
+		
+		    html += `</div>`; // Đóng khung giữa
+		
+		    // Nút Sau
+		    html += `
+		        <button id="next-comment-btn" 
+		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer flex-shrink-0 ${currentPage === totalPages ? 'opacity-40 pointer-events-none' : ''}">
+		            Sau <i class="fa-solid fa-angle-right"></i>
+		        </button>
+		    `;
+		
+		    html += `</div>`;
+		    paginationContainer.innerHTML = html;
+		
+		    // --- Phần gán addEventListener click của bình luận bên dưới giữ nguyên ---
+		    paginationContainer.querySelectorAll('.comment-page-btn').forEach(btn => {
+		        btn.addEventListener('click', function() {
+		            currentPage = parseInt(this.getAttribute('data-cpage'));
+		            initCommentPagination();
+		        });
+		    });
+		    paginationContainer.querySelector('#prev-comment-btn').addEventListener('click', function() { if (currentPage > 1) { currentPage--; initCommentPagination(); } });
+		    paginationContainer.querySelector('#next-comment-btn').addEventListener('click', function() { if (currentPage < totalPages) { currentPage++; initCommentPagination(); } });
 		}
 
 		// 🎯 GIẢI PHÁP CỐT LÕI: Theo dõi khi nào bình luận thực sự xuất hiện trong khung chứa
