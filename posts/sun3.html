@@ -32,10 +32,10 @@
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="dfg">
-	<meta property="og:description" content="df">
+	<meta property="og:description" content="dfg">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/47/71/c8/4771c8f78850cb2c411209ddc1d2798a.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/47/71/c8/4771c8f78850cb2c411209ddc1d2798a.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/03/36/25/033625735cd27140ada9f72a09baa525.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/03/36/25/033625735cd27140ada9f72a09baa525.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -160,7 +160,7 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_paid" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
+              <a href="../index.html?cat=cat_tool" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f0f9ff; color: #0284c7;" title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>05/07/2026</span>
             </div>
           </div>
@@ -178,8 +178,8 @@
           <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/47/71/c8/4771c8f78850cb2c411209ddc1d2798a.jpg" data-fancybox="gallery-post-dfg" data-caption="dfg" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/47/71/c8/4771c8f78850cb2c411209ddc1d2798a.jpg" alt="dfg" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/03/36/25/033625735cd27140ada9f72a09baa525.jpg" data-fancybox="gallery-post-dfg" data-caption="dfg" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/03/36/25/033625735cd27140ada9f72a09baa525.jpg" alt="dfg" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -191,7 +191,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">dgfdg</div>
+                    <div class="mb-4">ds</div>
 
           </div>
 
@@ -220,7 +220,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=dfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dfg</a>
+                            <a href="../index.html?search=dfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfg</a>
             </div>
           </div>
         </article>
@@ -259,6 +259,20 @@
 				<option value="oldest">Cũ nhất lên trước</option>
 			  </select>
 			</div>
+				
+			<!-- 🎯 BƯỚC 1: THÊM HỘP CHỨA BÀI GHIM NÀY VÀO TRÊN ĐẦU -->
+			<div id="pinned-comment-container" class="space-y-4 mb-4">
+				<!-- Các bài ghim sẽ tự động được Javascript bốc vào đây -->
+			</div>
+
+			<!-- Hộp chứa bình luận thường gốc của bạn (Giữ nguyên id cũ của bạn) -->
+			<div id="comment-container" class="space-y-4">
+				<!-- Tất cả bình luận (bao gồm cả bài thường và bài ghim lúc ban đầu) -->
+				<div class="comment-item comment-pinned">Bài ghim 1...</div>
+				<div class="comment-item">Bình luận thường 1...</div>
+				<div class="comment-item">Bình luận thường 2...</div>
+			</div>
+			</div>
 
           <div id="comments-wrapper" class="space-y-4 w-full"></div>
 		  
@@ -296,7 +310,7 @@
         </div>
       </aside>
 
-    </div>
+    
   </main>
 
   <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
@@ -1289,28 +1303,37 @@
 		const commentsPerPage = 20; // Hiển thị tối đa 20 bình luận
 		let currentPage = 1;
 
-		// Hàm xử lý phân trang chính
+		// Biến cờ để kiểm tra xem đã tách bài ghim ra hộp riêng chưa
+		let isPinnedSeparated = false;
+
 		function initCommentPagination() {
-			const allComments = Array.from(commentContainer.children);
+			const pinnedContainer = document.getElementById('pinned-comment-container');
+			// 🎯 Đảm bảo trỏ đúng vào id "comments-wrapper" của bạn
+			const regularContainer = document.getElementById('comments-wrapper'); 
 			
-			// 1. Lọc riêng bài ghim và bài thường
-			const pinnedComments = allComments.filter(comment => comment.classList.contains('comment-pinned'));
-			const regularComments = allComments.filter(comment => !comment.classList.contains('comment-pinned'));
+			if (!pinnedContainer || !regularContainer) return;
 
-			// 🎯 CHÈN ĐOẠN MÃ CỦA BẠN VÀO ĐÂY:
-			// Ngay sau khi lọc xong, ta dùng lệnh này để bốc các bài ghim thảy lên trên đầu khung chứa
-			pinnedComments.forEach(comment => {
-				commentContainer.prepend(comment); 
-				comment.style.display = "block"; // Luôn hiển thị bài ghim
-			});
+			// 1. CHẠY 1 LẦN DUY NHẤT KHI TẢI TRANG: Bốc bài ghim sang hộp riêng
+			if (!isPinnedSeparated) {
+				const allComments = Array.from(regularContainer.children);
+				allComments.forEach(comment => {
+					// Thay 'comment-pinned' bằng class nhận diện bài ghim thực tế của bạn
+					if (comment.classList.contains('comment-pinned')) {
+						pinnedContainer.appendChild(comment); // Di chuyển bài ghim lên hộp trên
+						comment.style.display = "block";       // Luôn hiện
+					}
+				});
+				isPinnedSeparated = true; 
+			}
 
-			// 2. Tính toán tổng số trang dựa trên bài thường
+			// 2. LÚC NÀY khung 'comments-wrapper' chỉ còn bài thường, tính toán phân trang chuẩn 100%
+			const regularComments = Array.from(regularContainer.children);
 			const totalPages = Math.ceil(regularComments.length / commentsPerPage);
 
 			const startIndex = (currentPage - 1) * commentsPerPage;
 			const endIndex = startIndex + commentsPerPage;
 
-			// 3. Ẩn hiện bình luận thường theo trang
+			// 3. Ẩn hiện bài thường theo trang
 			regularComments.forEach((comment, index) => {
 				if (index >= startIndex && index < endIndex) {
 					comment.style.display = "block";
@@ -1319,7 +1342,7 @@
 				}
 			});
 
-			// 4. Vẽ thanh điều hướng số trang
+			// 4. Vẽ thanh số trang
 			if (totalPages > 1) {
 				paginationContainer.style.display = "flex";
 				renderCommentControls(totalPages);
