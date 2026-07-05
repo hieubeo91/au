@@ -2,12 +2,18 @@ const MY_SITE_CONFIG = {
     // Cấu hình Background
     globalBgImage: "",
 
+    // Cấu hình Admin bình luận
+    admin: {
+        secureTargetHash: "57a81a4801bb04e890c8414a2ff4b6ea30dcdf25b5eec1c0e4eec8fbf3bd5181",
+        displayName: "Hiệu Béo 👑"
+    }
+    
     // Cấu hình Slidebar
     bannerSlides: [
         {
             link: "https://hieubeo91.github.io/au/posts/sun3.html",
             image: "https://lh3.googleusercontent.com/d/18-TpyUz6uPU2YZOClxlHwnzKTFXwtujH",
-            title: "Thang cấp độ nhẫn trong Audition2",
+            title: "Thang cấp độ nhẫn trong Audition3",
             altText: "Bài viết mới 1"
         },
         {
