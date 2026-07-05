@@ -28,5 +28,6 @@ const MY_SITE_CONFIG = {
     admin: {
         secureTargetHash: "57a81a4801bb04e890c8414a2ff4b6ea30dcdf25b5eec1c0e4eec8fbf3bd5181",
         displayName: "Hiệu Béo 👑"
+        classes: ['border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold']
     }
 };
