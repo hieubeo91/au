@@ -31,3 +31,4 @@ const MY_SITE_CONFIG = {
         classes: ['border-red-500', 'bg-red-50/30', 'text-red-700', 'font-bold']
     }
 };
+ 
