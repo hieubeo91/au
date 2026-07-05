@@ -4632,7 +4632,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	    paginationContainer.innerHTML = "";
 	    
 	    // 🎯 Thay thế dòng này: Thêm class 'justify-between items-center' và đặt chiều rộng cố định (ví dụ max-w-md hoặc w-full)
-	    let html = `<div class="flex items-center justify-between w-full max-w-lg mx-auto mt-12 pt-6 border-t border-slate-100 select-none">`;
+	    let html = `<div class="flex items-center justify-between w-full max-w-xl mx-auto mt-12 pt-6 border-t border-slate-100 select-none">`;
 	
 	    // 1. NÚT TRƯỚC (Nằm cố định bên trái)
 	    html += `
@@ -4643,7 +4643,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	    `;
 	
 	    // 🎯 KHU VỰC SỐ TRANG Ở GIỮA: Dùng một thẻ div bọc lại với flex-grow và justify-center để nó luôn căn giữa khoảng trống còn lại
-	    html += `<div class="flex items-center justify-center gap-1.5 flex-grow mx-4">`;
+	    html += `<div class="flex items-center justify-center gap-1.5 flex-grow min-w-[240px] mx-4">`;
 	
 	    const range = 2; 
 	    let hasLeftDot = false;
