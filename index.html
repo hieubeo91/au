@@ -4626,70 +4626,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
         renderControls();
     }
-
-    // 3. Hàm tự động vẽ các nút bấm có DẤU BA CHẤM ĐỘNG (...)
-    function renderControls() {
-        paginationContainer.innerHTML = "";
-        // Giữ nguyên class flex justify-center w-full để căn giữa theo cột trái của bạn
-        let html = `<div class="flex items-center justify-center gap-1.5 mt-12 pt-6 border-t border-slate-100 w-full">`;
-
-        // Nút Trước
-        html += `
-            <button id="prev-page-btn" 
-                    class="px-3 py-1.5 text-xs font-semibold rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors cursor-pointer ${currentPage === 1 ? 'opacity-40 pointer-events-none' : ''}">
-                <i class="fa-solid fa-chevron-left mr-1"></i> Trước
-            </button>
-        `;
-
-        // Thuật toán hiển thị dấu ba chấm động cho bài viết
-        const range = 2; // Số nút hiển thị quanh trang hiện tại
-        let hasLeftDot = false;
-        let hasRightDot = false;
-
-        for (let i = 1; i <= totalPages; i++) {
-            if (i === 1 || i === totalPages || (i >= currentPage - range && i <= currentPage + range)) {
-                const isCurrent = i === currentPage;
-                html += `
-                    <button data-page="${i}" 
-                            class="page-number-btn w-8 h-8 text-xs font-bold rounded-xl transition-all cursor-pointer ${isCurrent ? 'bg-indigo-600 text-white shadow-md shadow-indigo-100' : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}">
-                        ${i}
-                    </button>
-                `;
-            } else if (i < currentPage - range && !hasLeftDot) {
-                html += `<span class="px-1 text-slate-400 text-xs font-bold select-none">...</span>`;
-                hasLeftDot = true;
-            } else if (i > currentPage - range && !hasRightDot) {
-                html += `<span class="px-1 text-slate-400 text-xs font-bold select-none">...</span>`;
-                hasRightDot = true;
-            }
-        }
-
-        // Nút Sau
-        html += `
-            <button id="next-page-btn" 
-                    class="px-3 py-1.5 text-xs font-semibold rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors cursor-pointer ${currentPage === totalPages ? 'opacity-40 pointer-events-none' : ''}">
-                Sau <i class="fa-solid fa-chevron-right ml-1"></i>
-            </button>
-        `;
-
-        html += `</div>`;
-        paginationContainer.innerHTML = html;
-
-        // Gán sự kiện click cho các nút số
-        paginationContainer.querySelectorAll('.page-number-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                showPage(parseInt(this.getAttribute('data-page')));
-            });
-        });
-
-        // Gán sự kiện nút Trước/Sau
-        paginationContainer.querySelector('#prev-page-btn').addEventListener('click', function() {
-            if (currentPage > 1) showPage(currentPage - 1);
-        });
-        paginationContainer.querySelector('#next-page-btn').addEventListener('click', function() {
-            if (currentPage < totalPages) showPage(currentPage + 1);
-        });
-    }
+	
+	// 3. Hàm tự động vẽ các nút bấm có DẤU BA CHẤM ĐỘNG (...)
+	function renderControls() {
+	    paginationContainer.innerHTML = "";
+	    
+	    // 🎯 Thay thế dòng này: Thêm class 'justify-between items-center' và đặt chiều rộng cố định (ví dụ max-w-md hoặc w-full)
+	    let html = `<div class="flex items-center justify-between w-full max-w-lg mx-auto mt-12 pt-6 border-t border-slate-100 select-none">`;
+	
+	    // 1. NÚT TRƯỚC (Nằm cố định bên trái)
+	    html += `
+	        <button id="prev-page-btn" 
+	                class="px-3 py-1.5 text-xs font-semibold rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors cursor-pointer flex-shrink-0 ${currentPage === 1 ? 'opacity-40 pointer-events-none' : ''}">
+	            <i class="fa-solid fa-chevron-left mr-1"></i> Trước
+	        </button>
+	    `;
+	
+	    // 🎯 KHU VỰC SỐ TRANG Ở GIỮA: Dùng một thẻ div bọc lại với flex-grow và justify-center để nó luôn căn giữa khoảng trống còn lại
+	    html += `<div class="flex items-center justify-center gap-1.5 flex-grow mx-4">`;
+	
+	    const range = 2; 
+	    let hasLeftDot = false;
+	    let hasRightDot = false;
+	
+	    for (let i = 1; i <= totalPages; i++) {
+	        if (i === 1 || i === totalPages || (i >= currentPage - range && i <= currentPage + range)) {
+	            const isCurrent = i === currentPage;
+	            html += `
+	                <button data-page="${i}" 
+	                        class="page-number-btn w-8 h-8 text-xs font-bold rounded-xl transition-all cursor-pointer ${isCurrent ? 'bg-indigo-600 text-white shadow-md shadow-indigo-100' : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}">
+	                    ${i}
+	                </button>
+	            `;
+	        } else if (i < currentPage - range && !hasLeftDot) {
+	            html += `<span class="w-8 text-center text-slate-400 text-xs font-bold">...</span>`;
+	            hasLeftDot = true;
+	        } else if (i > currentPage - range && !hasRightDot) {
+	            html += `<span class="w-8 text-center text-slate-400 text-xs font-bold">...</span>`;
+	            hasRightDot = true;
+	        }
+	    }
+	
+	    html += `</div>`; // Đóng thẻ div của khu vực ở giữa
+	
+	    // 2. NÚT SAU (Nằm cố định bên phải)
+	    html += `
+	        <button id="next-page-btn" 
+	                class="px-3 py-1.5 text-xs font-semibold rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors cursor-pointer flex-shrink-0 ${currentPage === totalPages ? 'opacity-40 pointer-events-none' : ''}">
+	            Sau <i class="fa-solid fa-chevron-right ml-1"></i>
+	        </button>
+	    `;
+	
+	    html += `</div>`;
+	    paginationContainer.innerHTML = html;
+	
+	    // --- Các đoạn gán sự kiện click bên dưới giữ nguyên 100% ---
+	    paginationContainer.querySelectorAll('.page-number-btn').forEach(btn => {
+	        btn.addEventListener('click', function() { showPage(parseInt(this.getAttribute('data-page'))); });
+	    });
+	    paginationContainer.querySelector('#prev-page-btn').addEventListener('click', function() { if (currentPage > 1) showPage(currentPage - 1); });
+	    paginationContainer.querySelector('#next-page-btn').addEventListener('click', function() { if (currentPage < totalPages) showPage(currentPage + 1); });
+	}
 
     // Chạy trang 1 đầu tiên
     showPage(1);
