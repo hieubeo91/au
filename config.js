@@ -22,8 +22,8 @@ const MY_SITE_CONFIG = {
             title: "Hướng dẫn viết tiếng Việt trong Audition",
             altText: "Bài viết mới 3"
         }
-    ]
-};,
+    ],
+
     // Cấu hình Quản trị viên
     admin: {
         secureTargetHash: "57a81a4801bb04e890c8414a2ff4b6ea30dcdf25b5eec1c0e4eec8fbf3bd5181",
