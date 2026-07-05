@@ -23,4 +23,4 @@ const MY_SITE_CONFIG = {
             altText: "Bài viết mới 3"
         }
     ]
-};
+}; 
