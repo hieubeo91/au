@@ -26,8 +26,14 @@ const MY_SITE_CONFIG = {
 
     // Cấu hình Quản trị viên
     admin: {
+        // Thông tin hiển thị quyền Admin
         secureTargetHash: "57a81a4801bb04e890c8414a2ff4b6ea30dcdf25b5eec1c0e4eec8fbf3bd5181",
-        displayName: "Hiệu Béo 👑"
+        displayName: "Hiệu Béo 👑",
+
+        // Thông báo khi có bình luận mới
+        telegram: {
+            token: "8635914876:AAEqk7b0HH6ygpTm5oN4-utvUn_YcZLgF2M",
+            chatId: "-5280914251"
+        }
     }
 };
- 
