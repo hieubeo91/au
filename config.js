@@ -1,6 +1,6 @@
 const MY_SITE_CONFIG = {
     // Cấu hình Background
-    globalBgImage: "",
+    globalBgImage: "https://lh3.googleusercontent.com/d/1LFsk3iGkeZAOZ0cQ16hx0WsmAhpxdh2C",
 
     // Cấu hình Slidebar
     bannerSlides: [
