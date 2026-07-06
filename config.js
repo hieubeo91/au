@@ -35,5 +35,14 @@ const MY_SITE_CONFIG = {
             token: "8635914876:AAEqk7b0HH6ygpTm5oN4-utvUn_YcZLgF2M",
             chatId: "-5280914251"
         }
+    },
+
+    // Cấu hình Group Facebook
+    facebookGroup: {
+        title: "Thư viện Audition Group",
+        description: "Chia sẻ kinh nghiệm, tài nguyên mod game Audition",
+        groupUrl: "https://www.facebook.com/groups/ThuvienAu",
+        imageUrl: "https://lh3.googleusercontent.com/d/1jNcrWoKc9YN3C8KiG1rT2LLUACaVl0LS",
+        appUrl: ""
     }
 };
