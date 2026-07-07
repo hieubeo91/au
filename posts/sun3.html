@@ -3,22 +3,21 @@
 
 <script src="https://hieubeo91.github.io/au/config.js"></script> 
 <script>
-(function() {
-  // 🎯 KIỂM TRA AN TOÀN: Xác minh đối tượng MY_SITE_CONFIG tồn tại trước, rồi mới check thuộc tính globalBgImage
-  if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.globalBgImage && MY_SITE_CONFIG.globalBgImage !== 'none') {
-    const style = document.createElement('style');
-    style.innerHTML = `
-      body {
-        background-image: url('${MY_SITE_CONFIG.globalBgImage}') !important;
-        background-attachment: fixed !important;
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-      }
-    `;
-    (document.head || document.body || document.documentElement).appendChild(style);
-  }
-})();
+  (function() {
+    if (typeof GLOBAL_BG_IMAGE !== 'undefined' && GLOBAL_BG_IMAGE && GLOBAL_BG_IMAGE !== 'none') {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        body {
+          background-image: url('${GLOBAL_BG_IMAGE}') !important;
+          background-attachment: fixed !important;
+          background-size: cover !important;
+          background-position: center !important;
+          background-repeat: no-repeat !important;
+        }
+      `;
+      (document.head || document.body || document.documentElement).appendChild(style);
+    }
+  })();
 </script>
 
 <meta property="og:type" content="article">
@@ -32,8 +31,8 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="v18">
-	<meta property="og:description" content="sdf">
+	<meta property="og:title" content="v16">
+	<meta property="og:description" content="dfgfdg">
 
 	<meta property="og:image" content="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/banner-sharing.png?raw=true">
 	<meta property="og:image:secure_url" content="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/banner-sharing.png?raw=true">
@@ -167,7 +166,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            v18
+            v16
           </h1>
 
           <div class="mb-5">
@@ -179,8 +178,8 @@
           <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" data-fancybox="gallery-post-v18" data-caption="v18" class="block w-full h-full relative group">
-                  <img src="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" alt="v18" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" data-fancybox="gallery-post-v16" data-caption="v16" class="block w-full h-full relative group">
+                  <img src="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" alt="v16" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -192,7 +191,7 @@
 
           <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">sdfd</div>
+                    <div class="mb-4">dfgfdg</div>
 
           </div>
 
@@ -221,7 +220,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=sdfsdf" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#sdfsdf</a>
+                            <a href="../index.html?search=dfgfd" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfgfd</a>
             </div>
           </div>
         </article>
@@ -349,8 +348,8 @@
     }
 
     const CURRENT_POST = {
-      title: "fsd",
-      tags: ["sdfsdf"]
+      title: "dgdfgdf",
+      tags: ["dfgfd"]
     };
 
     async function loadPosts() {
@@ -764,81 +763,61 @@
       }
     });
 
-document.addEventListener('DOMContentLoaded', function() {
-  const slideContainer = document.getElementById('auto-injected-slide-container');
-  if (!slideContainer) return;
+	// Sự kiện tự động bắt slide ở index
+	document.addEventListener('DOMContentLoaded', function() {
+	  const slideContainer = document.getElementById('auto-injected-slide-container');
+	  if (!slideContainer) return;
 
-  // 1. TỰ DỰNG KHUNG SƯỜN HTML (Thay thế cho việc fetch từ index.html)
-  // Giữ nguyên chính xác 100% các class Tailwind và cấu trúc giao diện của bạn
-  slideContainer.innerHTML = `
-    <div id="shared-banner-slide" class="w-full max-w-md mx-auto my-6 bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-      <div class="px-4 pt-3 pb-2 flex items-center gap-1.5 border-b border-slate-50">
-        <span class="flex h-2 w-2 relative">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
-        </span>
-        <h3 class="text-[12px] font-bold text-slate-700 uppercase tracking-wider">Bài viết nổi bật</h3>
-      </div>
-      <div class="relative w-full aspect-[16/9] group overflow-hidden bg-slate-900">
-        <div id="banner-slides-container" class="flex w-full h-full transition-transform duration-500 ease-out"></div>
-        <button id="prev-slide-btn" class="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/80 hover:bg-white text-slate-800 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-sm z-10 text-xs">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button id="next-slide-btn" class="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/80 hover:bg-white text-slate-800 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-sm z-10 text-xs">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-        <div id="slide-dots-container" class="absolute bottom-2 right-4 flex gap-1.5 z-10"></div>
-      </div>
-    </div>
-  `;
+	  // 1. Tự động tải nội dung từ trang index.html (đảm bảo đường dẫn ../index.html chính xác với cấu trúc thư mục của bạn)
+	  fetch('../index.html')
+		.then(response => {
+		  if (!response.ok) throw new Error('Không thể tải trang index');
+		  return response.text();
+		})
+		.then(htmlText => {
+		  // 2. Chuyển đổi chuỗi text thành DOM để dễ dàng bóc tách
+		  const parser = new DOMParser();
+		  const doc = parser.parseFromString(htmlText, 'text/html');
+		  
+		  // 3. Tìm khối slide theo ID đã đánh dấu ở bước 1
+		  const indexSlide = doc.getElementById('shared-banner-slide');
+		  
+		  if (indexSlide) {
+			// Chèn khối slide vào khung chờ trong bài viết con
+			slideContainer.innerHTML = indexSlide.outerHTML;
+			
+			// 4. KHỞI CHẠY LOGIC ĐIỀU KHIỂN SLIDE (Giống hệt bên index)
+			initInjectedSlide();
+		  }
+		})
+		.catch(err => console.error('Lỗi tự động lấy Slide từ trang index:', err));
 
-	  // 2. ĐỌC DỮ LIỆU TỪ MY_SITE_CONFIG VÀ ĐỔ VÀO CONTAINER
-	  const container = slideContainer.querySelector('#banner-slides-container');
-	  
-	  if (container && typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.bannerSlides) {
-		let slidesHTML = '';
-		
-		MY_SITE_CONFIG.bannerSlides.forEach(slide => {
-		  slidesHTML += `
-			<a href="${slide.link}" class="w-full h-full flex-shrink-0 relative block">
-			  <img src="${slide.image}" class="w-full h-full object-cover" alt="${slide.altText || 'Banner'}">
-			  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-				<p class="text-[13px] font-semibold text-white leading-snug line-clamp-2">${slide.title}</p>
-			  </div>
-			</a>
-		  `;
-		});
-		
-		container.innerHTML = slidesHTML;
-		
-		// 3. KHỞI CHẠY LOGIC HIỆU ỨNG ĐIỀU KHIỂN SLIDE
-		initInjectedSlide();
-	  }
-
-	  // Hàm khởi chạy hiệu ứng slide sau khi đã nạp data thành công
+	  // Hàm khởi chạy hiệu ứng slide sau khi đã chèn thành công vào HTML
 	  function initInjectedSlide() {
+		// Để tránh trùng lặp biến với trang index, chúng ta tìm các element trực tiếp trong container mới chèn
+		const container = slideContainer.querySelector('#banner-slides-container');
 		const prevBtn = slideContainer.querySelector('#prev-slide-btn');
 		const nextBtn = slideContainer.querySelector('#next-slide-btn');
 		const dotsContainer = slideContainer.querySelector('#slide-dots-container');
+		
+		if (!container) return;
 		
 		const slides = container.children;
 		const totalSlides = slides.length;
 		let currentIndex = 0;
 		let slideInterval;
 
-		// Sinh các chấm tròn điều hướng dựa theo số lượng thực tế trong config
-		if (dotsContainer) {
-		  dotsContainer.innerHTML = ''; 
-		  for (let i = 0; i < totalSlides; i++) {
-			const dot = document.createElement('div');
-			dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
-			if (i === 0) dot.className += ' bg-white w-3';
-			dot.setAttribute('data-index', i);
-			dotsContainer.appendChild(dot);
-		  }
+		// Sinh các chấm tròn điều hướng
+		dotsContainer.innerHTML = ''; // Xóa chấm cũ nếu có
+		for (let i = 0; i < totalSlides; i++) {
+		  const dot = document.createElement('div');
+		  dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
+		  if (i === 0) dot.className += ' bg-white w-3';
+		  dot.setAttribute('data-index', i);
+		  dotsContainer.appendChild(dot);
 		}
 		
-		const dots = dotsContainer ? dotsContainer.children : [];
+		const dots = dotsContainer.children;
 
 		function goToSlide(index) {
 		  if (index < 0) index = totalSlides - 1;
@@ -857,7 +836,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		function startAutoSlide() {
 		  stopAutoSlide();
-		  if (totalSlides <= 1) return; // Nếu chỉ có 1 slide thì không tự động chạy
 		  slideInterval = setInterval(() => goToSlide(currentIndex + 1), 4000);
 		}
 
@@ -868,20 +846,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); startAutoSlide(); });
 		if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); startAutoSlide(); });
 
-		if (dotsContainer) {
-		  dotsContainer.addEventListener('click', (e) => {
-			if (e.target.hasAttribute('data-index')) {
-			  const targetIdx = parseInt(e.target.getAttribute('data-index'));
-			  goToSlide(targetIdx);
-			  startAutoSlide();
-			}
-		  });
-		}
+		dotsContainer.addEventListener('click', (e) => {
+		  if (e.target.hasAttribute('data-index')) {
+			const targetIdx = parseInt(e.target.getAttribute('data-index'));
+			goToSlide(targetIdx);
+			startAutoSlide();
+		  }
+		});
 
-		if (container.parentElement) {
-		  container.parentElement.addEventListener('mouseenter', stopAutoSlide);
-		  container.parentElement.addEventListener('mouseleave', startAutoSlide);
-		}
+		container.parentElement.addEventListener('mouseenter', stopAutoSlide);
+		container.parentElement.addEventListener('mouseleave', startAutoSlide);
 
 		startAutoSlide();
 	  }
@@ -945,13 +919,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var submitCommentBtn = document.getElementById('submit-comment-btn');
     var sortSelect = document.getElementById('comment-sort-select');
 
-	var sortSelect = document.getElementById('comment-sort-select');
-
-    // 🎯 ĐẢM BẢO CÓ ĐỦ 3 DÒNG NÀY Ở ĐẦU FILE JS CỦA BẠN:
-    var currentPage = 1; 
-    var commentsPerPage = 20; // Hoặc số lượng tùy bạn (ví dụ: 5, 10, 15 bình luận/trang)
-    var paginationContainer = document.getElementById('comment-pagination-container');
-
     var currentReplyToId = null;
     var cachedSnapshotData = null; // Lưu trữ tạm data từ Firebase để tái sắp xếp không cần tải lại mạng
 
@@ -993,116 +960,185 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-	function renderComments(dataObj) {
-		  if (!commentsWrapper) return;
-		  commentsWrapper.innerHTML = '';
-		  
-		  var commentKeys = Object.keys(dataObj);
-		  var allComments = commentKeys.map(function(key) {
-			var item = dataObj[key];
-			item._fbKey = key;
-			return item;
-		  });
+    // 4. Hàm xử lý logic chính: Đọc dữ liệu, Phân loại Ghim, Sắp xếp và Dựng HTML
+    function renderComments(dataObj) {
+      if (!commentsWrapper) return;
+      commentsWrapper.innerHTML = '';
+      
+      var commentKeys = Object.keys(dataObj);
+      var allComments = commentKeys.map(function(key) {
+        var item = dataObj[key];
+        item._fbKey = key;
+        return item;
+      });
 
-		  if (commentCountSpan) commentCountSpan.textContent = allComments.length;
+      if (commentCountSpan) commentCountSpan.textContent = allComments.length;
 
-		  if (allComments.length === 0) {
-			commentsWrapper.innerHTML = '<p class="text-xs text-slate-400 italic text-center py-4">Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ cảm nghĩ!</p>';
-			return;
-		  }
+      if (allComments.length === 0) {
+        commentsWrapper.innerHTML = '<p class="text-xs text-slate-400 italic text-center py-4">Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ cảm nghĩ!</p>';
+        return;
+      }
 
-		  var currentSortOrder = sortSelect ? sortSelect.value : 'newest';
+      // Lấy tùy chọn sắp xếp hiện tại (Mặc định là 'newest' - mới nhất)
+      var currentSortOrder = sortSelect ? sortSelect.value : 'newest';
 
-		  var rootComments = allComments.filter(function(c) { return !c.replyTo; });
-		  var replyComments = allComments.filter(function(c) { return c.replyTo; });
+      // Tách biệt bình luận gốc (cha) và bình luận phản hồi (con)
+      var rootComments = allComments.filter(function(c) { return !c.replyTo; });
+      var replyComments = allComments.filter(function(c) { return c.replyTo; });
 
-		  var pinnedRoots = rootComments.filter(function(c) { return c.isPinned === true; });
-		  var normalRoots = rootComments.filter(function(c) { return !c.isPinned; });
+      // SẮP XẾP BÌNH LUẬN CHA (Gốc): Phân rã nhóm Ghim và nhóm Thường
+      var pinnedRoots = rootComments.filter(function(c) { return c.isPinned === true; });
+      var normalRoots = rootComments.filter(function(c) { return !c.isPinned; });
 
-		  normalRoots.sort(function(a, b) {
-			if (currentSortOrder === 'newest') {
-			  return (b.timestamp || 0) - (a.timestamp || 0);
-			} else {
-			  return (a.timestamp || 0) - (b.timestamp || 0);
-			}
-		  });
+      // Thực hiện sắp xếp theo thời gian cho các bình luận gốc không được ghim
+      normalRoots.sort(function(a, b) {
+        if (currentSortOrder === 'newest') {
+          return (b.timestamp || 0) - (a.timestamp || 0); // Mới lên trước
+        } else {
+          return (a.timestamp || 0) - (b.timestamp || 0); // Cũ lên trước
+        }
+      });
 
-		  pinnedRoots.sort(function(a, b) {
-			return (a.timestamp || 0) - (b.timestamp || 0);
-		  });
+      // Đối với bình luận đã ghim: Luôn xếp theo thời gian tăng dần để phân cấp thứ tự ghim trước sau
+      pinnedRoots.sort(function(a, b) {
+        return (a.timestamp || 0) - (b.timestamp || 0);
+      });
 
-		  var finalOrderedRoots = pinnedRoots.concat(normalRoots);
+      // Gộp mảng: Các bài ghim luôn đứng đầu danh sách gốc, không bị ảnh hưởng bởi bộ lọc sắp xếp
+      var finalOrderedRoots = pinnedRoots.concat(normalRoots);
 
-		  replyComments.sort(function(a, b) {
-			if (currentSortOrder === 'newest') {
-			  return (b.timestamp || 0) - (a.timestamp || 0);
-			} else {
-			  return (a.timestamp || 0) - (b.timestamp || 0);
-			}
-		  });
+      // SẮP XẾP BÌNH LUẬN CON (Trả lời): Sắp xếp trực tiếp theo dòng thời gian đồng bộ
+      replyComments.sort(function(a, b) {
+        if (currentSortOrder === 'newest') {
+          return (b.timestamp || 0) - (a.timestamp || 0);
+        } else {
+          return (a.timestamp || 0) - (b.timestamp || 0);
+        }
+      });
 
-		  function generateCommentHTML(cmt, isChild) {
-			var date = new Date(cmt.timestamp);
-			var timeStr = date.toLocaleDateString('vi-VN') + ' ' + date.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'});
-			var displayName = cmt.name && cmt.name.trim() !== "" ? cmt.name.trim() : "Ẩn danh";
-			var adminBadge = cmt.isAdmin ? `<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Admin</span>` : '';
-			var pinBadge = cmt.isPinned ? `<span class="px-1.5 py-0.5 bg-amber-100 text-amber-700 font-bold rounded text-[9px] uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-thumbtack text-[8px]"></i> Đã ghim</span>` : '';
-			var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
-			var borderClass = cmt.isPinned ? 'border-amber-200 bg-amber-50/10 comment-is-pinned' : (cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : ''); // 🎯 THÊM class comment-is-pinned ở đây
-			var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
-			var adminBtnClass = isAdminActive ? '' : 'hidden';
-			var pinActionText = cmt.isPinned ? 'Bỏ ghim' : 'Ghim bài';
-			var pinIconClass = cmt.isPinned ? 'fa-solid fa-unlink' : 'fa-solid fa-thumbtack';
+	// Hàm sinh cấu trúc HTML cho từng thẻ bình luận
+	function generateCommentHTML(cmt, isChild) {
+			  var date = new Date(cmt.timestamp);
+			  var timeStr = date.toLocaleDateString('vi-VN') + ' ' + date.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'});
+			  
+			  var displayName = cmt.name && cmt.name.trim() !== "" ? cmt.name.trim() : "Nặc danh";
+			  var adminBadge = cmt.isAdmin ? `<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Admin</span>` : '';
+			  var pinBadge = cmt.isPinned ? `<span class="px-1.5 py-0.5 bg-amber-100 text-amber-700 font-bold rounded text-[9px] uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-thumbtack text-[8px]"></i> Đã ghim</span>` : '';
+			  
+			  var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
+			  var borderClass = cmt.isPinned ? 'border-amber-200 bg-amber-50/10' : (cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : '');
+			  var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
+			  var adminBtnClass = isAdminActive ? '' : 'hidden';
 
-			var rx = cmt.reactions || {};
-			var totalReactions = (rx.favorite||0) + (rx.haha||0) + (rx.wow||0) + (rx.sad||0) + (rx.angry||0);
-			var reactionIconsHTML = '';
-			if (rx.favorite > 0) reactionIconsHTML += '<span class="text-[15px]">❤️</span>';
-			if (rx.haha > 0) reactionIconsHTML += '<span class="text-[15px]">😆</span>';
-			if (rx.wow > 0) reactionIconsHTML += '<span class="text-[15px]">😮</span>';
-			if (rx.sad > 0) reactionIconsHTML += '<span class="text-[15px]">😢</span>';
-			if (rx.angry > 0) reactionIconsHTML += '<span class="text-[15px]">😡</span>';
+			  var pinActionText = cmt.isPinned ? 'Bỏ ghim' : 'Ghim bài';
+			  var pinIconClass = cmt.isPinned ? 'fa-solid fa-unlink' : 'fa-solid fa-thumbtack';
 
-			var reactionResultBox = '';
-			if (totalReactions > 0) {
-			  reactionResultBox = `<div class="flex items-center gap-1 bg-white border border-slate-100 shadow-sm px-2 py-0.5 rounded-full ml-1"><div class="flex items-center -space-x-1 text-xs">${reactionIconsHTML}</div><span class="text-[10px] font-bold text-slate-500">${totalReactions}</span></div>`;
-			}
+			  // --- XỬ LÝ LOGIC CẢM XÚC PHONG CÁCH FACEBOOK ---
+			  var rx = cmt.reactions || {};
+			  var favCount = rx.favorite || 0;
+			  var hahaCount = rx.haha || 0;
+			  var wowCount = rx.wow || 0;
+			  var sadCount = rx.sad || 0;
+			  var angryCount = rx.angry || 0;
+			  
+			  // 1. Tính tổng số lượng tất cả cảm xúc
+			  var totalReactions = favCount + hahaCount + wowCount + sadCount + angryCount;
 
-			var processedContent = (cmt.content || "").replace(/(@[^\s:]+)/g, '<span class="text-indigo-600 font-semibold">$1</span>');
-			var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
-			var safeName = displayName.replace(/'/g, "\\'");
+			  // 2. Chỉ hiển thị các biểu tượng có lượt tương tác > 0
+			  var reactionIconsHTML = '';
+			  if (favCount > 0) reactionIconsHTML += '<span class="text-[15px] transition-transform">❤️</span>';
+			  if (hahaCount > 0) reactionIconsHTML += '<span class="text-[15px] transition-transform">😆</span>';
+			  if (wowCount > 0) reactionIconsHTML += '<span class="text-[15px] transition-transform">😮</span>';
+			  if (sadCount > 0) reactionIconsHTML += '<span class="text-[15px] transition-transform">😢</span>';
+			  if (angryCount > 0) reactionIconsHTML += '<span class="text-[15px] transition-transform">😡</span>';
 
-			return `
-			  <div class="flex gap-3 transition-all relative group/item ${layoutClass} ${borderClass}">
-				<div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs flex-shrink-0">${cmt.name ? cmt.name.charAt(0).toUpperCase() : '?'}</div>
-				<div class="min-w-0 flex-grow">
-				  <div class="flex items-center gap-1.5 flex-wrap">
-					<span class="text-[14px] ${nameColor}">${displayName}</span>${adminBadge}${pinBadge}
-					<span class="text-[12px] text-slate-400 ml-auto">${timeStr}</span>
-				  </div>
-				  <p class="text-[14px] text-slate-600 mt-1 leading-relaxed whitespace-pre-line">${processedContent}</p>
-				  <div class="flex flex-wrap items-center gap-y-2 gap-x-3 mt-2 pt-1.5 border-t border-slate-100/60">
-					<button onclick="window._replyToComment('${replyTargetId}', '${safeName}')" class="text-[12px] text-slate-500 hover:text-indigo-600 font-bold flex items-center gap-1 cursor-pointer"><i class="fa-solid fa-reply text-[10px]"></i> Trả lời</button>
-					${reactionResultBox}
-					<div class="ml-auto flex items-center gap-3">
-					  <button onclick="window._togglePinComment('${cmt._fbKey}', ${cmt.isPinned || false})" class="admin-action-btn ${adminBtnClass} ${isChild ? 'hidden' : ''} text-[12px] text-amber-600 hover:text-amber-800 font-bold flex items-center gap-1 cursor-pointer"><i class="${pinIconClass}"></i> ${pinActionText}</button>
-					  <button onclick="window._deleteComment('${cmt._fbKey}')" class="admin-action-btn ${adminBtnClass} text-[12px] text-rose-500 hover:text-rose-700 font-bold flex items-center gap-1 cursor-pointer"><i class="fa-regular fa-trash-can"></i> Xóa</button>
+			  // 3. Tạo nội dung văn bản chi tiết xuất hiện khi rê chuột (Tooltip)
+			  var tooltipText = `❤️ ${favCount}     😆 ${hahaCount}     😮 ${wowCount}     😢 ${sadCount}     😡 ${angryCount}`;
+
+			  // Khối hiển thị tổng hợp (Chỉ xuất hiện khi tổng số tương tác lớn hơn 0)
+			  var reactionResultBox = '';
+			  if (totalReactions > 0) {
+				reactionResultBox = `
+				  <div class="relative group/tooltip flex items-center gap-1 bg-white border border-slate-100 shadow-sm px-2 py-0.5 rounded-full cursor-default select-none ml-1">
+					<div class="flex items-center -space-x-1 text-xs">
+					  ${reactionIconsHTML}
+					</div>
+					<span class="text-[10px] font-bold text-slate-500">${totalReactions}</span>
+					
+					<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover/tooltip:block bg-slate-800 text-white text-[12px] rounded px-2 py-1 whitespace-nowrap z-30 shadow-md">
+					  ${tooltipText}
+					  <div class="w-1.5 h-1.5 bg-slate-800 rotate-45 absolute top-full left-1/2 -translate-x-1/2 -mt-0.5"></div>
 					</div>
 				  </div>
-				</div>
-			  </div>
-			`;
-		  }
+				`;
+			  }
+			  // ------------------------------------------------
 
+			  var processedContent = (cmt.content || "").replace(/(@[^\s:]+)/g, '<span class="text-indigo-600 font-semibold">$1</span>');
+			  var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
+			  var safeName = displayName.replace(/'/g, "\\'");
+
+			  return `
+				<div class="flex gap-3 transition-all relative group/item ${layoutClass} ${borderClass}">
+				  <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs flex-shrink-0">
+					${cmt.name ? cmt.name.charAt(0).toUpperCase() : '?'}
+				  </div>
+				  <div class="min-w-0 flex-grow">
+					<div class="flex items-center gap-1.5 flex-wrap">
+					  <span class="text-[14px] ${nameColor}">${displayName}</span>
+					  ${adminBadge}
+					  ${pinBadge}
+					  <span class="text-[12px] text-slate-400 ml-auto">${timeStr}</span>
+					</div>
+					<p class="text-[14px] text-slate-600 mt-1 leading-relaxed whitespace-pre-line">${processedContent}</p>
+					
+					<div class="flex flex-wrap items-center gap-y-2 gap-x-3 mt-2 pt-1.5 border-t border-slate-100/60">
+					  
+					  <button onclick="window._replyToComment('${replyTargetId}', '${safeName}')" class="text-[12px] text-slate-500 hover:text-indigo-600 font-bold flex items-center gap-1 cursor-pointer transition-colors">
+						<i class="fa-solid fa-reply text-[10px]"></i> Trả lời
+					  </button>
+
+						<div class="relative group/reaction py-1">
+						<button class="text-[12px] text-slate-500 group-hover/reaction:text-amber-500 font-bold flex items-center gap-1 cursor-pointer transition-colors py-0.5">
+						  <i class="fa-regular fa-face-smile text-[10px]"></i> Cảm xúc
+						</button>
+						
+						<div class="absolute bottom-full left-0 w-full h-3 hidden group-hover/reaction:block bg-transparent z-10"></div>
+						
+						<div class="absolute bottom-[calc(100%+6px)] left-0 mb-0 hidden group-hover/reaction:flex items-center gap-2 bg-white shadow-xl border border-slate-100 px-3 py-2 rounded-full animate-bounce-short z-20 whitespace-nowrap">
+						  <button onclick="window._reactComment('${cmt._fbKey}', 'favorite')" class="text-2xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Yêu thích">❤️</button>
+						  <button onclick="window._reactComment('${cmt._fbKey}', 'haha')" class="text-2xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Haha">😆</button>
+						  <button onclick="window._reactComment('${cmt._fbKey}', 'wow')" class="text-2xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Wow">😮</button>
+						  <button onclick="window._reactComment('${cmt._fbKey}', 'sad')" class="text-2xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Buồn">😢</button>
+						  <button onclick="window._reactComment('${cmt._fbKey}', 'angry')" class="text-2xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Phẫn nộ">😡</button>
+						</div>
+					  </div>
+
+					  ${reactionResultBox}
+
+					  <div class="ml-auto flex items-center gap-3">
+						<button onclick="window._togglePinComment('${cmt._fbKey}', ${cmt.isPinned || false})" class="admin-action-btn ${adminBtnClass} ${isChild ? 'hidden' : ''} text-[12px] text-amber-600 hover:text-amber-800 font-bold flex items-center gap-1 cursor-pointer transition-colors">
+						  <i class="${pinIconClass}"></i> ${pinActionText}
+						</button>
+						<button onclick="window._deleteComment('${cmt._fbKey}')" class="admin-action-btn ${adminBtnClass} text-[12px] text-rose-500 hover:text-rose-700 font-bold flex items-center gap-1 cursor-pointer transition-colors">
+						  <i class="fa-regular fa-trash-can"></i> Xóa
+						</button>
+					  </div>
+					</div>
+
+				  </div>
+				</div>
+			  `;
+			}
+
+		  // Liên kết phân cấp cha - con và chèn vào DOM
 		  finalOrderedRoots.forEach(function(root) {
 			var clusterWrapper = document.createElement('div');
-			// 🎯 QUAN TRỌNG: Gắn class nhận diện cụm bình luận thường hoặc ghim bài
-			clusterWrapper.className = 'comment-cluster space-y-2 border-b border-slate-100/60 pb-3 last:border-0';
-			if (root.isPinned) {
-				clusterWrapper.classList.add('is-pinned-cluster');
-			}
+			clusterWrapper.className = 'space-y-2 border-b border-slate-100/60 pb-3 last:border-0';
 			
 			var clusterHTML = generateCommentHTML(root, false);
+
+			// Lọc toàn bộ bình luận con phản hồi trực tiếp cho khối cha này
 			var subReplies = replyComments.filter(function(r) { return r.replyTo === root._fbKey; });
 			subReplies.forEach(function(reply) {
 			  clusterHTML += generateCommentHTML(reply, true);
@@ -1111,9 +1147,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			clusterWrapper.innerHTML = clusterHTML;
 			commentsWrapper.appendChild(clusterWrapper);
 		  });
-
-		  // 🎯 KÍCH HOẠT HÀM PHÂN TRANG ẢO TỰ ĐỘNG NGAY SAU KHI DỰNG XONG DOM
-		  executeClientPagination();
 		}
 
 		// Tải danh sách đồng bộ thời gian thực từ Cloud Firebase
@@ -1256,55 +1289,38 @@ document.addEventListener('DOMContentLoaded', function() {
 		const commentsPerPage = 20; // Hiển thị tối đa 20 bình luận
 		let currentPage = 1;
 
-		// Biến cờ để kiểm tra xem đã tách bài ghim ra hộp riêng chưa
-		// Biến cờ để kiểm tra xem đã tách bài ghim ra hộp riêng chưa
+		// Hàm xử lý phân trang chính
 		function initCommentPagination() {
-			// 1. Tìm hộp chứa bình luận gốc của bạn
-			const container = document.getElementById('comments-wrapper');
-			if (!container) return;
+			// Lấy toàn bộ bình luận hiện có tại thời điểm được gọi
+			const allComments = Array.from(commentContainer.children);
+			const totalPages = Math.ceil(allComments.length / commentsPerPage);
 
-			// 2. Lấy chính xác danh sách bình luận đang có TẠI THỜI ĐIỂM HIỆN TẠI
-			const allComments = Array.from(container.children);
-			
-			// 3. 🎯 SỬA BỘ LỌC CHUẨN: Kiểm tra xem cụm này có chứa bài ghim bên trong hay không
-			const pinnedComments = allComments.filter(comment => 
-				comment.classList.contains('is-pinned-cluster') || 
-				comment.querySelector('.comment-is-pinned') !== null || 
-				comment.querySelector('.comment-pinned') !== null
-			);
-			
-			const regularComments = allComments.filter(comment => 
-				!comment.classList.contains('is-pinned-cluster') && 
-				comment.querySelector('.comment-is-pinned') === null && 
-				comment.querySelector('.comment-pinned') === null
-			);
-
-			// 5. Tính toán phân trang CHỈ dựa trên số lượng bài bình thường
-			const totalPages = Math.ceil(regularComments.length / commentsPerPage);
-			const startIndex = (currentPage - 1) * commentsPerPage;
-			const endIndex = startIndex + commentsPerPage;
-
-			// 6. Ẩn/Hiện bài thường dựa theo trang hiện tại
-			regularComments.forEach((comment, index) => {
-				if (index >= startIndex && index < endIndex) {
-					comment.style.display = "block"; // Thuộc trang hiện tại -> Hiện
-				} else {
-					comment.style.display = "none";  // Thuộc trang khác -> Ẩn
-				}
-			});
-
-			// 4. 🎯 ÉP HIỂN THỊ TUYỆT ĐỐI: Đặt nhóm ghim xuống dưới cùng để luôn hiển thị trên mọi trang
-			pinnedComments.forEach(comment => {
-				comment.style.setProperty('display', 'block', 'important');
-			});
-
-			// 7. Vẽ lại thanh điều hướng số trang
-			if (totalPages > 1) {
-				paginationContainer.style.display = "flex";
-				renderCommentControls(totalPages);
-			} else {
-				paginationContainer.style.display = "none";
+			// Nếu có ít hơn hoặc bằng 20 bình luận, hiện hết và ẩn thanh phân trang đi
+			if (totalPages <= 1) {
+				allComments.forEach(comment => comment.style.display = "block");
+				paginationContainer.innerHTML = "";
+				return;
 			}
+
+			// Hàm ẩn/hiện bình luận theo trang
+			function showCommentPage(page) {
+				currentPage = page;
+				const startIndex = (page - 1) * commentsPerPage;
+				const endIndex = startIndex + commentsPerPage;
+
+				allComments.forEach((comment, index) => {
+					if (index >= startIndex && index < endIndex) {
+						comment.style.display = "block"; // Hoặc flex tùy CSS của bạn
+					} else {
+						comment.style.display = "none";
+					}
+				});
+
+				renderCommentControls(totalPages);
+			}
+
+			// Chạy hiển thị trang hiện tại
+			showCommentPage(currentPage);
 		}
 
 		// Hàm vẽ nút bấm chuyển trang
@@ -1385,77 +1401,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		// Chạy thử lần đầu phòng trường hợp có sẵn HTML tĩnh
 		initCommentPagination();
 	});
-  
-	var commentCurrentPage = 1;
-	var commentsPerPageConfig = 5; // Bạn cấu hình số lượng bình luận thường hiển thị ở đây
-
-	function executeClientPagination() {
-		var wrapper = document.getElementById('comments-wrapper');
-		var pagContainer = document.getElementById('comment-pagination-container');
-		if (!wrapper || !pagContainer) return;
-
-		var allClusters = Array.from(wrapper.getElementsByClassName('comment-cluster'));
-		
-		// Tách nhóm cụm ghim và cụm thường dựa trên HTML thực tế
-		var pinnedClusters = allClusters.filter(function(el) { return el.classList.contains('is-pinned-cluster'); });
-		var normalClusters = allClusters.filter(function(el) { return !el.classList.contains('is-pinned-cluster'); });
-
-		// Luôn luôn hiện các cụm có chứa bài ghim
-		pinnedClusters.forEach(function(el) { el.style.display = 'block'; });
-
-		var totalPages = Math.ceil(normalClusters.length / commentsPerPageConfig);
-		if (commentCurrentPage > totalPages && totalPages > 0) commentCurrentPage = totalPages;
-
-		var startIndex = (commentCurrentPage - 1) * commentsPerPageConfig;
-		var endIndex = startIndex + commentsPerPageConfig;
-
-		// Ẩn hiện cụm thường dựa trên trang hiện tại
-		normalClusters.forEach(function(el, index) {
-			if (index >= startIndex && index < endIndex) {
-				el.style.display = 'block';
-			} else {
-				el.style.display = 'none';
-			}
-		});
-
-		// Vẽ thanh điều hướng số trang
-		if (totalPages > 1) {
-			pagContainer.style.display = 'flex';
-			
-			// Đoạn vẽ HTML phân trang (Sử dụng cấu trúc max-w thích hợp của bạn)
-			let html = `<div class="flex items-center justify-between w-full max-w-[540px] mx-auto mt-4 select-none">`;
-			html += `<button id="prev-comment-btn" class="px-3 py-1 bg-white border border-slate-200 text-xs text-slate-600 rounded hover:bg-slate-50 transition cursor-pointer">Trước</button>`;
-			html += `<div class="flex items-center justify-center gap-1 flex-grow min-w-[180px] mx-2 text-xs font-semibold text-slate-500">Trang ${commentCurrentPage} / ${totalPages}</div>`;
-			html += `<button id="next-comment-btn" class="px-3 py-1 bg-white border border-slate-200 text-xs text-slate-600 rounded hover:bg-slate-50 transition cursor-pointer">Sau</button>`;
-			html += `</div>`;
-			
-			pagContainer.innerHTML = html;
-
-			// Gán sự kiện click nút Trước
-			var prevBtn = pagContainer.querySelector('#prev-comment-btn');
-			if (prevBtn) {
-				prevBtn.addEventListener('click', function() {
-					if (commentCurrentPage > 1) {
-						commentCurrentPage--;
-						executeClientPagination();
-					}
-				});
-			}
-
-			// Gán sự kiện click nút Sau
-			var nextBtn = pagContainer.querySelector('#next-comment-btn');
-			if (nextBtn) {
-				nextBtn.addEventListener('click', function() {
-					if (commentCurrentPage < totalPages) {
-						commentCurrentPage++;
-						executeClientPagination();
-					}
-				});
-			}
-		} else {
-			pagContainer.style.display = 'none';
-		}
-	}
   
   </script>
  
