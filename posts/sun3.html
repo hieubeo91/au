@@ -31,8 +31,8 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="v3 222">
-	<meta property="og:description" content="sdfdsf">
+	<meta property="og:title" content="v22">
+	<meta property="og:description" content="sdfds">
 
 	<meta property="og:image" content="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/banner-sharing.png?raw=true">
 	<meta property="og:image:secure_url" content="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/banner-sharing.png?raw=true">
@@ -152,15 +152,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_free" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fef2f2; color: #dc2626;" title="Xem thêm bài viết thuộc chủ đề Miễn phí">Miễn phí</a>
-              <a href="../index.html?cat=cat_tool" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f0f9ff; color: #0284c7;" title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
-              <a href="../index.html?cat=cat_guide" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f5f3ff; color: #7c3aed;" title="Xem thêm bài viết thuộc chủ đề Hướng dẫn">Hướng dẫn</a>
+              <a href="../index.html?cat=cat_paid" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>08/07/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            v3 222
+            v22
           </h1>
 
           <div class="mb-5">
@@ -172,8 +170,8 @@
           <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" data-fancybox="gallery-post-v3-222" data-caption="v3 222" class="block w-full h-full relative group">
-                  <img src="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" alt="v3 222" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" data-fancybox="gallery-post-v22" data-caption="v22" class="block w-full h-full relative group">
+                  <img src="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" alt="v22" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -184,7 +182,7 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">sdfds</div>
+                    <div class="mb-4">sdfsd</div>
 
           </div>
 
@@ -211,7 +209,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=fdsf" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#fdsf</a>
+                            <a href="../index.html?search=sdfds" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#sdfds</a>
             </div>
           </div>
         </article>
@@ -353,8 +351,8 @@
     }
 
     const CURRENT_POST = {
-      title: "dfdsf",
-      tags: ["fdsf"]
+      title: "fsdf",
+      tags: ["sdfds"]
     };
 
     async function loadPosts() {
@@ -995,7 +993,22 @@ function generateCommentHTML(cmt, isChild) {
           var pinActionText = cmt.isPinned ? 'Bỏ ghim' : 'Ghim bài';
           var pinIconClass = cmt.isPinned ? 'fa-solid fa-unlink' : 'fa-solid fa-thumbtack';
 
-          // --- XỬ LÝ LOGIC CẢM XÚC PHONG CÁCH FACEBOOK ---
+          // --- 🌟 XỬ LÝ LOGIC ĐỌC ICON TỪ FILE CẤU HÌNH (TỰ ĐỘNG CHECK TEXT/LINK ẢNH) ---
+          var rcConfig = (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.reactions) ? MY_SITE_CONFIG.reactions : {
+              favorite: "❤️", haha: "😆", wow: "😮", sad: "😢", angry: "😡"
+          };
+
+          // Hàm phụ trợ tự động chuyển chữ -> <span> hoặc link -> <img> với kích thước chuẩn
+          function renderIconHTML(iconData, extraClass) {
+              var cls = extraClass || "w-[16px] h-[16px]";
+              var isUrl = typeof iconData === 'string' && (iconData.indexOf('http') === 0 || iconData.indexOf('/') === 0);
+              if (isUrl) {
+                  return `<img src="${iconData}" class="${cls} object-contain inline-block transition-transform" alt="reaction" />`;
+              }
+              var fontSize = cls.includes('w-') ? '' : 'text-[15px]';
+              return `<span class="${fontSize} ${cls} transition-transform flex items-center justify-center">${iconData}</span>`;
+          }
+
           var rx = cmt.reactions || {};
           var favCount = rx.favorite || 0;
           var hahaCount = rx.haha || 0;
@@ -1003,21 +1016,33 @@ function generateCommentHTML(cmt, isChild) {
           var sadCount = rx.sad || 0;
           var angryCount = rx.angry || 0;
           
-          // 1. Tính tổng số lượng tất cả cảm xúc
           var totalReactions = favCount + hahaCount + wowCount + sadCount + angryCount;
 
-          // 2. Chỉ hiển thị các biểu tượng có lượt tương tác > 0
+          var reactionMap = [
+              { key: 'favorite', count: favCount, icon: rcConfig.favorite },
+              { key: 'haha',     count: hahaCount, icon: rcConfig.haha },
+              { key: 'wow',      count: wowCount,  icon: rcConfig.wow },
+              { key: 'sad',      count: sadCount,  icon: rcConfig.sad },
+              { key: 'angry',    count: angryCount, icon: rcConfig.angry }
+          ];
+
+          // Tạo chuỗi icon hiển thị động dựa trên số lượt tương tác > 0
           var reactionIconsHTML = '';
-          if (favCount > 0) reactionIconsHTML += '<span class="text-[15px] transition-transform">❤️</span>';
-          if (hahaCount > 0) reactionIconsHTML += '<span class="text-[15px] transition-transform">😆</span>';
-          if (wowCount > 0) reactionIconsHTML += '<span class="text-[15px] transition-transform">😮</span>';
-          if (sadCount > 0) reactionIconsHTML += '<span class="text-[15px] transition-transform">😢</span>';
-          if (angryCount > 0) reactionIconsHTML += '<span class="text-[15px] transition-transform">😡</span>';
+          reactionMap.forEach(function(item) {
+              if (item.count > 0) {
+                  reactionIconsHTML += renderIconHTML(item.icon, "w-[15px] h-[15px]");
+              }
+          });
 
-          // 3. Tạo nội dung văn bản chi tiết xuất hiện khi rê chuột (Tooltip)
-          var tooltipText = `❤️ ${favCount}     😆 ${hahaCount}     😮 ${wowCount}     😢 ${sadCount}     😡 ${angryCount}`;
+          // Tạo chuỗi text động dạng văn bản cho Tooltip (Nút rê chuột)
+          var tooltipParts = [];
+          reactionMap.forEach(function(item) {
+              var isUrl = typeof item.icon === 'string' && (item.icon.indexOf('http') === 0 || iconData.indexOf('/') === 0);
+              var label = isUrl ? `[${item.key.toUpperCase()}]` : item.icon;
+              tooltipParts.push(`${label} ${item.count}`);
+          });
+          var tooltipText = tooltipParts.join('      ');
 
-          // Khối hiển thị tổng hợp (Chỉ xuất hiện khi tổng số tương tác lớn hơn 0)
           var reactionResultBox = '';
           if (totalReactions > 0) {
             reactionResultBox = `
@@ -1034,7 +1059,7 @@ function generateCommentHTML(cmt, isChild) {
               </div>
             `;
           }
-          // ------------------------------------------------
+          // -----------------------------------------------------------------------------
 
           var processedContent = (cmt.content || "").replace(/(@[^\s:]+)/g, '<span class="text-indigo-600 font-semibold">$1</span>');
           var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
@@ -1060,19 +1085,30 @@ function generateCommentHTML(cmt, isChild) {
                     <i class="fa-solid fa-reply text-[10px]"></i> Trả lời
                   </button>
 
-					<div class="relative group/reaction py-1">
+                  <div class="relative group/reaction py-1">
                     <button class="text-[12px] text-slate-500 group-hover/reaction:text-amber-500 font-bold flex items-center gap-1 cursor-pointer transition-colors py-0.5">
                       <i class="fa-regular fa-face-smile text-[10px]"></i> Cảm xúc
                     </button>
                     
                     <div class="absolute bottom-full left-0 w-full h-3 hidden group-hover/reaction:block bg-transparent z-10"></div>
                     
+                    <!-- 🌟 THANH CHỌN BIỂU CẢM ĐÃ ĐƯỢC ĐỒNG BỘ THEO CONFIG (HỖ TRỢ CẢ LINK ẢNH) -->
                     <div class="absolute bottom-[calc(100%+6px)] left-0 mb-0 hidden group-hover/reaction:flex items-center gap-2 bg-white shadow-xl border border-slate-100 px-3 py-2 rounded-full animate-bounce-short z-20 whitespace-nowrap">
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'favorite')" class="text-2xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Yêu thích">❤️</button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'haha')" class="text-2xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Haha">😆</button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'wow')" class="text-2xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Wow">😮</button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'sad')" class="text-2xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Buồn">😢</button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'angry')" class="text-2xl hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Phẫn nộ">😡</button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'favorite')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Yêu thích">
+                        ${renderIconHTML(rcConfig.favorite, "w-6 h-6 text-2xl")}
+                      </button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'haha')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Haha">
+                        ${renderIconHTML(rcConfig.haha, "w-6 h-6 text-2xl")}
+                      </button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'wow')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Wow">
+                        ${renderIconHTML(rcConfig.wow, "w-6 h-6 text-2xl")}
+                      </button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'sad')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Buồn">
+                        ${renderIconHTML(rcConfig.sad, "w-6 h-6 text-2xl")}
+                      </button>
+                      <button onclick="window._reactComment('${cmt._fbKey}', 'angry')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Phẫn nộ">
+                        ${renderIconHTML(rcConfig.angry, "w-6 h-6 text-2xl")}
+                      </button>
                     </div>
                   </div>
 
@@ -1091,7 +1127,7 @@ function generateCommentHTML(cmt, isChild) {
               </div>
             </div>
           `;
-        }
+}
 
 		  finalOrderedRoots.forEach(function(root) {
 			var clusterWrapper = document.createElement('div');
