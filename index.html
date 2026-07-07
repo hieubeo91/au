@@ -1232,13 +1232,20 @@
                     const allBtn = document.querySelector('[data-filter="all"]');
                     if (allBtn) allBtn.click();
                     
-                    // 1. Chạy bộ lọc
+                    // 1. Chạy bộ lọc hệ thống
                     applyFilters();
                     
-                    // 🎯 2. ÉP LẠI TỶ LỆ 2/3 CHO CỘT TRÁI CHỐNG SẬP LAYOUT
+                    // 🎯 2. KHÓA CỨNG TOÀN DIỆN CHỐNG NHẢY DÒNG
                     const postsContainer = document.getElementById('posts-container');
                     if (postsContainer) {
+                        // Ép lại class tỷ lệ 2/3 cho cột bài viết
                         postsContainer.className = "w-full lg:w-2/3 space-y-6";
+                        
+                        // Tìm thẻ cha trực tiếp bọc ngoài nó để ép lại Flexbox chia cột
+                        const parentContainer = postsContainer.parentElement;
+                        if (parentContainer) {
+                            parentContainer.className = "flex flex-col lg:flex-row gap-6 items-start justify-center w-full";
+                        }
                     }
                     
                     window.scrollTo({ top: 180, behavior: 'smooth' });
@@ -1284,11 +1291,10 @@
             });
         }
         
-        // XỬ LÝ NHẬN THAM SỐ TỪ URL (BÀI VIẾT CON QUAY VỀ HOẶC CLICK DANH MỤC)
+        // XỬ LÝ NHẬN THAM SỐ TỪ URL
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
 
-            // 1. Xử lý nếu có tham số tìm kiếm (?search=...)
             const keyword = params.get('search');
             if (keyword) {
                 const searchInput = document.getElementById('search-input');
@@ -1298,7 +1304,6 @@
                 }
             }
 
-            // 2. XỬ LÝ DỨT ĐIỂM LỒI LỌC CHỦ ĐỀ (?cat=...)
             const catParam = params.get('cat');
             if (catParam) {
                 const targetBtn = document.querySelector(`.filter-btn[data-filter="${catParam}"]`);
@@ -1306,10 +1311,15 @@
                     setTimeout(() => {
                         targetBtn.click();
                         
-                        // 🎯 ÉP LẠI TỶ LỆ 2/3 SAU KHI CLICK GIẢ LẬP TỪ URL
+                        // 🎯 KHÓA CỨNG ĐỢT 2 KHI ĐI TỪ URL VỀ
                         const postsContainer = document.getElementById('posts-container');
                         if (postsContainer) {
                             postsContainer.className = "w-full lg:w-2/3 space-y-6";
+                            
+                            const parentContainer = postsContainer.parentElement;
+                            if (parentContainer) {
+                                parentContainer.className = "flex flex-col lg:flex-row gap-6 items-start justify-center w-full";
+                            }
                         }
                     }, 150); 
                 }
