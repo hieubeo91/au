@@ -44,5 +44,13 @@ const MY_SITE_CONFIG = {
         groupUrl: "https://www.facebook.com/groups/ThuvienAu",
         imageUrl: "https://lh3.googleusercontent.com/d/1jNcrWoKc9YN3C8KiG1rT2LLUACaVl0LS",
         appUrl: ""
+    },
+  
+    reactions: {
+        favorite: "😆", // Link hình ảnh
+        haha: "😆",                                        // Vẫn giữ emoji nếu thích
+        wow: "😆",       // Thậm chí là ảnh động GIF
+        sad: "😢",
+        angry: "😆"
     }
 };
