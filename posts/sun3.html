@@ -31,7 +31,7 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="v22">
+	<meta property="og:title" content="v22-2">
 	<meta property="og:description" content="sdfds">
 
 	<meta property="og:image" content="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/banner-sharing.png?raw=true">
@@ -152,13 +152,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_paid" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
+              <a href="../index.html?cat=cat_mod" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>08/07/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            v22
+            v22-2
           </h1>
 
           <div class="mb-5">
@@ -170,8 +170,8 @@
           <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" data-fancybox="gallery-post-v22" data-caption="v22" class="block w-full h-full relative group">
-                  <img src="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" alt="v22" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" data-fancybox="gallery-post-v22-2" data-caption="v22-2" class="block w-full h-full relative group">
+                  <img src="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png" alt="v22-2" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -182,7 +182,7 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">sdfsd</div>
+                    <div class="mb-4">sdfdsf</div>
 
           </div>
 
@@ -209,7 +209,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=sdfds" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#sdfds</a>
+                            <a href="../index.html?search=sdfds" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#sdfds</a>
             </div>
           </div>
         </article>
@@ -351,7 +351,7 @@
     }
 
     const CURRENT_POST = {
-      title: "fsdf",
+      title: "df",
       tags: ["sdfds"]
     };
 
@@ -1037,7 +1037,8 @@ function generateCommentHTML(cmt, isChild) {
           // Tạo chuỗi text động dạng văn bản cho Tooltip (Nút rê chuột)
           var tooltipParts = [];
           reactionMap.forEach(function(item) {
-              var isUrl = typeof item.icon === 'string' && (item.icon.indexOf('http') === 0 || iconData.indexOf('/') === 0);
+              // 🎯 ĐÃ SỬA TẠI ĐÂY: Thay thế iconData lỗi bằng item.icon chuẩn xác
+              var isUrl = typeof item.icon === 'string' && (item.icon.indexOf('http') === 0 || item.icon.indexOf('/') === 0);
               var label = isUrl ? `[${item.key.toUpperCase()}]` : item.icon;
               tooltipParts.push(`${label} ${item.count}`);
           });
@@ -1092,7 +1093,6 @@ function generateCommentHTML(cmt, isChild) {
                     
                     <div class="absolute bottom-full left-0 w-full h-3 hidden group-hover/reaction:block bg-transparent z-10"></div>
                     
-                    <!-- 🌟 THANH CHỌN BIỂU CẢM ĐÃ ĐƯỢC ĐỒNG BỘ THEO CONFIG (HỖ TRỢ CẢ LINK ẢNH) -->
                     <div class="absolute bottom-[calc(100%+6px)] left-0 mb-0 hidden group-hover/reaction:flex items-center gap-2 bg-white shadow-xl border border-slate-100 px-3 py-2 rounded-full animate-bounce-short z-20 whitespace-nowrap">
                       <button onclick="window._reactComment('${cmt._fbKey}', 'favorite')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Yêu thích">
                         ${renderIconHTML(rcConfig.favorite, "w-6 h-6 text-2xl")}
