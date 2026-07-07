@@ -262,41 +262,44 @@
                         <!-- 2. CỘT PHẢI: Được tăng lên 65% trên PC, khống chế dòng và chiều cao không vượt quá slide -->
                         <div class="flex-grow flex flex-col justify-between min-w-0 py-0.5 max-h-full">
                             <div class="overflow-hidden">
-                                <!-- Thể loại (Ép cứng trên 1 dòng, tự động ẩn nếu quá dài) & Ngày tháng -->
-                                <div class="flex items-center justify-between gap-4 mb-2 w-full">
-                                    <div
-                                        class="flex items-center gap-2 overflow-hidden whitespace-nowrap no-scrollbar flex-grow">
-                                        <div class="flex items-center gap-1.5 overflow-hidden text-ellipsis"><a
-                                                href="index.html?cat=cat_free"
-                                                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
-                                                style="background-color: #fef2f2; color: #dc2626;"
-                                                title="Xem thêm bài viết thuộc chủ đề Miễn phí">Miễn phí</a>
-                                            <a href="index.html?cat=cat_paid"
-                                                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
-                                                style="background-color: #fefce8; color: #ca8a04;"
-                                                title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
-                                            <a href="index.html?cat=cat_mod"
-                                                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
-                                                style="background-color: #ecfdf5; color: #059669;"
-                                                title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
-                                            <a href="index.html?cat=cat_tool"
-                                                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
-                                                style="background-color: #f0f9ff; color: #0284c7;"
-                                                title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
-                                            <a href="index.html?cat=cat_guide"
-                                                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
-                                                style="background-color: #f5f3ff; color: #7c3aed;"
-                                                title="Xem thêm bài viết thuộc chủ đề Hướng dẫn">Hướng dẫn</a>
-                                            <a href="index.html?cat=cat_misc"
-                                                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
-                                                style="background-color: #fdf2f8; color: #db2777;"
-                                                title="Xem thêm bài viết thuộc chủ đề Khác">Khác</a>
-                                        </div>
-                                    </div>
-                                    <span class="text-xs text-slate-400 flex-shrink-0 whitespace-nowrap"><i
-                                            class="fa-regular fa-calendar mr-1"></i><span
-                                            class="post-date">03/07/2026</span></span>
-                                </div>
+								
+								<!-- BẮT ĐẦU VÙNG SỬA: Thể loại (Ép cứng trên 1 dòng, tự động ẩn nếu quá dài) & Ngày tháng -->
+								<div class="flex items-center justify-between gap-4 mb-2 w-full">
+								    <div class="flex items-center gap-2 overflow-hidden whitespace-nowrap no-scrollbar flex-grow">
+								        <!-- 🎯 ĐÃ SỬA: Đổi text-ellipsis thành whitespace-nowrap và overflow-hidden để ép cứng tất cả tag nằm trên 1 dòng duy nhất -->
+								        <div class="flex items-center gap-1.5 overflow-hidden whitespace-nowrap">
+								            <a href="index.html?cat=cat_free"
+								                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity flex-shrink-0"
+								                style="background-color: #fef2f2; color: #dc2626;"
+								                title="Xem thêm bài viết thuộc chủ đề Miễn phí">Miễn phí</a>
+								            <a href="index.html?cat=cat_paid"
+								                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity flex-shrink-0"
+								                style="background-color: #fefce8; color: #ca8a04;"
+								                title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
+								            <a href="index.html?cat=cat_mod"
+								                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity flex-shrink-0"
+								                style="background-color: #ecfdf5; color: #059669;"
+								                title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
+								            <a href="index.html?cat=cat_tool"
+								                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity flex-shrink-0"
+								                style="background-color: #f0f9ff; color: #0284c7;"
+								                title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
+								            <a href="index.html?cat=cat_guide"
+								                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity flex-shrink-0"
+								                style="background-color: #f5f3ff; color: #7c3aed;"
+								                title="Xem thêm bài viết thuộc chủ đề Hướng dẫn">Hướng dẫn</a>
+								            <a href="index.html?cat=cat_misc"
+								                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity flex-shrink-0"
+								                style="background-color: #fdf2f8; color: #db2777;"
+								                title="Xem thêm bài viết thuộc chủ đề Khác">Khác</a>
+								        </div>
+								    </div>
+								    <span class="text-xs text-slate-400 flex-shrink-0 whitespace-nowrap">
+								        <i class="fa-regular fa-calendar mr-1"></i>
+								        <span class="post-date">03/07/2026</span>
+								    </span>
+								</div>
+								<!-- KẾT THÚC VÙNG SỬA -->
 
                                 <!-- Tiêu đề bài viết: Giới hạn tối đa đúng 2 dòng -->
                                 <h2
