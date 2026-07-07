@@ -1220,6 +1220,21 @@
             
             document.getElementById('detail-back-btn-top').addEventListener('click', backToHome);
             document.getElementById('detail-back-btn-bottom').addEventListener('click', backToHome);
+
+            // 🎯 HÀM SỬA LỖI GIA CỐ TOÀN DIỆN (Dùng chung cho các sự kiện)
+            const forceKeepLayout = () => {
+                const postsContainer = document.getElementById('posts-container');
+                if (postsContainer) {
+                    // Ép tỷ lệ 2/3 cho cột trái
+                    postsContainer.className = "w-full lg:w-2/3 space-y-6";
+                    
+                    // Ép cấu trúc flex chia cột cho thẻ cha bọc ngoài
+                    const parentContainer = postsContainer.parentElement;
+                    if (parentContainer) {
+                        parentContainer.className = "flex flex-col lg:flex-row gap-6 items-start justify-center w-full";
+                    }
+                }
+            };
             
             blogDetailView.querySelectorAll('.tag-badge').forEach(badge => {
                 badge.addEventListener('click', () => {
@@ -1235,18 +1250,9 @@
                     // 1. Chạy bộ lọc hệ thống
                     applyFilters();
                     
-                    // 🎯 2. KHÓA CỨNG TOÀN DIỆN CHỐNG NHẢY DÒNG
-                    const postsContainer = document.getElementById('posts-container');
-                    if (postsContainer) {
-                        // Ép lại class tỷ lệ 2/3 cho cột bài viết
-                        postsContainer.className = "w-full lg:w-2/3 space-y-6";
-                        
-                        // Tìm thẻ cha trực tiếp bọc ngoài nó để ép lại Flexbox chia cột
-                        const parentContainer = postsContainer.parentElement;
-                        if (parentContainer) {
-                            parentContainer.className = "flex flex-col lg:flex-row gap-6 items-start justify-center w-full";
-                        }
-                    }
+                    // 🎯 2. ĐỢI 50ms - 150ms ĐỂ HÀM APPLYFILTERS() VẼ XONG HTML RỒI MỚI ÉP CLASS VÀO
+                    setTimeout(forceKeepLayout, 50);
+                    setTimeout(forceKeepLayout, 150);
                     
                     window.scrollTo({ top: 180, behavior: 'smooth' });
                 });
@@ -1311,16 +1317,9 @@
                     setTimeout(() => {
                         targetBtn.click();
                         
-                        // 🎯 KHÓA CỨNG ĐỢT 2 KHI ĐI TỪ URL VỀ
-                        const postsContainer = document.getElementById('posts-container');
-                        if (postsContainer) {
-                            postsContainer.className = "w-full lg:w-2/3 space-y-6";
-                            
-                            const parentContainer = postsContainer.parentElement;
-                            if (parentContainer) {
-                                parentContainer.className = "flex flex-col lg:flex-row gap-6 items-start justify-center w-full";
-                            }
-                        }
+                        // 🎯 ĐỢI TIẾP KHI CHẠY QUA THAM SỐ URL
+                        setTimeout(forceKeepLayout, 50);
+                        setTimeout(forceKeepLayout, 200);
                     }, 150); 
                 }
             }
