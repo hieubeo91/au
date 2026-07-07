@@ -224,71 +224,203 @@
 				<!-- <div class="w-full lg:max-w-[800px] space-y-6" id="posts-container"> -->
 
 
-<!-- BÀI VIẾT: FSDFSD -->
-<!-- 🎯 SỬA 1: Đổi "flex-col md:flex-row" thành "flex-row" cố định, thêm items-center để căn giữa dọc -->
-<article
-    class="post-card bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300 w-full flex flex-row gap-6 items-center"
-    data-categories="cat_free, cat_paid, cat_mod, cat_tool, cat_guide, cat_misc"
-    data-id="post-sun3.html" data-title="sfdsf" data-url="posts/sun3.html"
-    data-image="https://i.pinimg.com/736x/50/ed/d1/50edd150638e83f61abc315a69cb120e.jpg"
-    data-tags="dfsdf">
+                    <!-- BÀI VIẾT: FSDFSD -->
 
-    <!-- 1. CỘT TRÁI (ẢNH): Thay "w-full md:w-[35%]" thành cố định "w-[35%]" -->
-    <div class="w-[35%] flex-shrink-0">
-        <div class="swiper postSwiper overflow-hidden rounded-xl w-full aspect-[16/9] h-auto relative border border-slate-50 shadow-sm [&_.swiper-wrapper]:h-full [&_.swiper-slide]:h-full [&_.swiper-slide_img]:w-full [&_.swiper-slide_img]:h-full [&_.swiper-slide_img]:aspect-[16/9] [&_.swiper-slide_img]:object-cover">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide w-full">
-                    <a href="https://i.pinimg.com/736x/50/ed/d1/50edd150638e83f61abc315a69cb120e.jpg"
-                        data-fancybox="gallery-post-sun3.html" data-caption="fsdfsd"
-                        class="block w-full aspect-[16/9] overflow-hidden relative group rounded-xl">
-                        <img src="https://i.pinimg.com/736x/50/ed/d1/50edd150638e83f61abc315a69cb120e.jpg" alt="fsdfsd" class="hover:scale-105 transition-transform duration-300 w-full h-full object-cover aspect-[16/9]">
-                    </a>
-                </div>
-            </div>
-            <div class="swiper-button-next !w-8 !h-8 bg-black/40 text-white rounded-full flex items-center justify-center hover:bg-indigo-600/90 hover:scale-105 active:scale-95 transition-all cursor-pointer after:!text-xs after:!content-['next']"></div>
-            <div class="swiper-button-prev !w-8 !h-8 bg-black/40 text-white rounded-full flex items-center justify-center hover:bg-indigo-600/90 hover:scale-105 active:scale-95 transition-all cursor-pointer after:!text-xs after:!content-['prev']"></div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
+                    <article
 
-    <!-- 2. CỘT PHẢI (CHỮ): Thay "w-full md:w-[65%]" thành cố định "w-[65%]" -->
-    <div class="w-[65%] flex-shrink-0 flex flex-col justify-between min-w-0 py-0.5">
-        <div class="overflow-hidden">
-            
-            <!-- Hàng danh mục và ngày tháng -->
-            <div class="post-tags flex items-center justify-between gap-4 mb-2 w-full">
-                <!-- 🎯 SỬA 2: Thêm overflow-x-auto để nếu tag dài quá, người dùng có thể vuốt ngang thay vì làm co cụm màn hình -->
-                <div class="flex items-center gap-2 overflow-x-auto whitespace-nowrap no-scrollbar flex-grow">
-                    <div class="flex items-center gap-1.5 whitespace-nowrap">
-                        <a href="index.html?cat=cat_free" class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity flex-shrink-0" style="background-color: #fef2f2; color: #dc2626;">Miễn phí</a>
-                        <a href="index.html?cat=cat_paid" class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity flex-shrink-0" style="background-color: #fefce8; color: #ca8a04;">Trả phí</a>
-                        <a href="index.html?cat=cat_mod" class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity flex-shrink-0" style="background-color: #ecfdf5; color: #059669;">Modding</a>
-                        <a href="index.html?cat=cat_tool" class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity flex-shrink-0" style="background-color: #f0f9ff; color: #0284c7;">Công cụ</a>
-                        <a href="index.html?cat=cat_guide" class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity flex-shrink-0" style="background-color: #f5f3ff; color: #7c3aed;">Hướng dẫn</a>
-                        <a href="index.html?cat=cat_misc" class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity flex-shrink-0" style="background-color: #fdf2f8; color: #db2777;">Khác</a>
-                    </div>
-                </div>
-                <span class="text-xs text-slate-400 flex-shrink-0 whitespace-nowrap"><i class="fa-regular fa-calendar mr-1"></i><span class="post-date">03/07/2026</span></span>
-            </div>
+                        class="post-card bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300 w-full flex flex-col md:flex-row gap-6 items-stretch"
 
-            <!-- Tiêu đề bài viết -->
-            <h2 class="text-base font-bold text-slate-900 mb-1.5 hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">
-                <a href="posts/sun3.html" class="post-title">fsdfsd</a>
-            </h2>
+                        data-categories="cat_free, cat_paid, cat_mod, cat_tool, cat_guide, cat_misc"
 
-            <!-- Đoạn mô tả ngắn -->
-            <p class="text-slate-500 text-xs leading-relaxed post-excerpt line-clamp-2">sdfsdfsd</p>
-        </div>
+                        data-id="post-sun3.html" data-title="sfdsf" data-url="posts/sun3.html"
 
-        <!-- Thanh Footer bám đáy bài viết -->
-        <div class="flex items-center justify-between pt-2.5 border-t border-slate-100 mt-3 flex-shrink-0">
-            <span class="text-xs text-slate-500 font-medium"><i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span></span>
-            <a href="posts/sun3.html" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">Xem chi tiết <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
-        </div>
-    </div>
+                        data-image="https://i.pinimg.com/736x/50/ed/d1/50edd150638e83f61abc315a69cb120e.jpg"
 
-</article>
-<!-- KẾT THÚC: FSDFSD -->
+                        data-tags="dfsdf">
+
+
+
+                        <!-- 1. CỘT TRÁI: Đã thu gọn xuống 35% trên PC để nhường chỗ cho cột chữ, ép chuẩn khung 16:9 không thừa vạch trắng -->
+
+                        <div class="w-full md:w-[35%] flex-shrink-0 flex items-center">
+
+                            <div
+
+                                class="swiper postSwiper overflow-hidden rounded-xl w-full aspect-[16/9] h-auto relative border border-slate-50 shadow-sm [&_.swiper-wrapper]:h-full [&_.swiper-slide]:h-full [&_.swiper-slide_img]:w-full [&_.swiper-slide_img]:h-full [&_.swiper-slide_img]:aspect-[16/9] [&_.swiper-slide_img]:object-cover">
+
+                                <div class="swiper-wrapper">
+
+
+
+                                    <div class="swiper-slide w-full">
+
+                                        <a href="https://i.pinimg.com/736x/50/ed/d1/50edd150638e83f61abc315a69cb120e.jpg"
+
+                                            data-fancybox="gallery-post-sun3.html" data-caption="fsdfsd"
+
+                                            class="block w-full aspect-[16/9] overflow-hidden relative group rounded-xl">
+
+                                            <img src="https://i.pinimg.com/736x/50/ed/d1/50edd150638e83f61abc315a69cb120e.jpg"
+
+                                                alt="fsdfsd"
+
+                                                class="hover:scale-105 transition-transform duration-300 w-full h-full object-cover aspect-[16/9]">
+
+
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+
+                                <div
+
+                                    class="swiper-button-next !w-8 !h-8 bg-black/40 text-white rounded-full flex items-center justify-center hover:bg-indigo-600/90 hover:scale-105 active:scale-95 transition-all cursor-pointer after:!text-xs after:!content-['next']">
+
+                                </div>
+
+                                <div
+
+                                    class="swiper-button-prev !w-8 !h-8 bg-black/40 text-white rounded-full flex items-center justify-center hover:bg-indigo-600/90 hover:scale-105 active:scale-95 transition-all cursor-pointer after:!text-xs after:!content-['prev']">
+
+                                </div>
+
+                                <div class="swiper-pagination"></div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- 2. CỘT PHẢI: Được tăng lên 65% trên PC, khống chế dòng và chiều cao không vượt quá slide -->
+
+                        <div class="flex-grow flex flex-col justify-between min-w-0 py-0.5 max-h-full">
+
+                            <div class="overflow-hidden">
+
+                                <!-- Thể loại (Ép cứng trên 1 dòng, tự động ẩn nếu quá dài) & Ngày tháng -->
+
+                                <div class="flex items-center justify-between gap-4 mb-2 w-full">
+
+                                    <div
+
+                                        class="flex items-center gap-2 overflow-hidden whitespace-nowrap no-scrollbar flex-grow">
+
+                                        <div class="flex items-center gap-1.5 overflow-hidden text-ellipsis"><a
+
+                                                href="index.html?cat=cat_free"
+
+                                                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
+
+                                                style="background-color: #fef2f2; color: #dc2626;"
+
+                                                title="Xem thêm bài viết thuộc chủ đề Miễn phí">Miễn phí</a>
+
+                                            <a href="index.html?cat=cat_paid"
+
+                                                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
+
+                                                style="background-color: #fefce8; color: #ca8a04;"
+
+                                                title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
+
+                                            <a href="index.html?cat=cat_mod"
+
+                                                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
+
+                                                style="background-color: #ecfdf5; color: #059669;"
+
+                                                title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
+
+                                            <a href="index.html?cat=cat_tool"
+
+                                                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
+
+                                                style="background-color: #f0f9ff; color: #0284c7;"
+
+                                                title="Xem thêm bài viết thuộc chủ đề Công cụ">Công cụ</a>
+
+                                            <a href="index.html?cat=cat_guide"
+
+                                                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
+
+                                                style="background-color: #f5f3ff; color: #7c3aed;"
+
+                                                title="Xem thêm bài viết thuộc chủ đề Hướng dẫn">Hướng dẫn</a>
+
+                                            <a href="index.html?cat=cat_misc"
+
+                                                class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity"
+
+                                                style="background-color: #fdf2f8; color: #db2777;"
+
+                                                title="Xem thêm bài viết thuộc chủ đề Khác">Khác</a>
+
+                                        </div>
+
+                                    </div>
+
+                                    <span class="text-xs text-slate-400 flex-shrink-0 whitespace-nowrap"><i
+
+                                            class="fa-regular fa-calendar mr-1"></i><span
+
+                                            class="post-date">03/07/2026</span></span>
+
+                                </div>
+
+
+
+                                <!-- Tiêu đề bài viết: Giới hạn tối đa đúng 2 dòng -->
+
+                                <h2
+
+                                    class="text-base font-bold text-slate-900 mb-1.5 hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">
+
+                                    <a href="posts/sun3.html">fsdfsd</a>
+
+                                </h2>
+
+
+
+                                <!-- Đoạn mô tả ngắn: Giới hạn tối đa đúng 2 dòng -->
+
+                                <p class="text-slate-500 text-xs leading-relaxed post-excerpt line-clamp-2">sdfsdfsd</p>
+
+                            </div>
+
+
+
+                            <!-- Thanh Footer bám đáy bài viết -->
+
+                            <div
+
+                                class="flex items-center justify-between pt-2.5 border-t border-slate-50 mt-3 flex-shrink-0">
+
+                                <span class="text-xs text-slate-500 font-medium"><i
+
+                                        class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span
+
+                                        class="post-author">Nguyễn Văn Hiệu</span></span>
+
+                                <a href="posts/sun3.html"
+
+                                    class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1">Xem
+
+                                    chi tiết <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </article>
+
+                    <!-- KẾT THÚC: FSDFSD --> 
+
+
 
 
                     <!-- BÀI VIẾT: DGDFG -->
