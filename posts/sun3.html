@@ -4,6 +4,7 @@
 <script src="https://hieubeo91.github.io/au/config.js"></script> 
 <script>
 (function() {
+  // 🎯 KIỂM TRA AN TOÀN: Xác minh đối tượng MY_SITE_CONFIG tồn tại trước, rồi mới check thuộc tính globalBgImage
   if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.globalBgImage && MY_SITE_CONFIG.globalBgImage !== 'none') {
     const style = document.createElement('style');
     style.innerHTML = `
@@ -31,11 +32,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="goc">
-	<meta property="og:description" content="goc">
+	<meta property="og:title" content="xxxxxxxxxx">
+	<meta property="og:description" content="fdgfdg">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/92/c9/81/92c981140fc0919fee163c10f9413813.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/92/c9/81/92c981140fc0919fee163c10f9413813.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/89/e2/68/89e2682fb7d7d1564806472caac913f4.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/89/e2/68/89e2682fb7d7d1564806472caac913f4.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -112,17 +113,19 @@
 		  opacity: 1;
 		}
 		50% {
+		  /* Giữa đường bay sẽ tự động dạt nhẹ sang hai bên */
 		  opacity: 0.9;
 		}
 		100% {
+		  /* Bay vút lên cao 140px và tản rộng ngẫu nhiên theo biến CSS được gán bằng JS */
 		  transform: translateY(-140px) translateX(var(--drift-x)) scale(1.3) rotate(var(--rotate-deg));
 		  opacity: 0;
 		}
 	  }
 	.floating-heart {
     position: absolute;
-    color: #f43f5e;
-    pointer-events: none;
+    color: #f43f5e; /* Màu đỏ hồng rose-500 */
+    pointer-events: none; /* Không cản trở việc click chuột */
     animation: heartFlyUp 1.2s ease-out forwards;
     z-index: 50;
 	}
@@ -142,10 +145,15 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+    <!-- Đổi từ Flexbox sang CSS Grid cố định 3 cột trên màn hình lớn -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start w-full">
       
+      <!-- ========================================== -->
+      <!-- 🎯 CỘT TRÁI (CHIẾM CỐ ĐỊNH 2 CỘT: lg:col-span-2) -->
+      <!-- ========================================== -->
       <div class="w-full lg:col-span-2 space-y-6">
         
+        <!-- Khối bài viết chính -->
         <article class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm w-full">
           <a href="../index.html" class="mb-6 inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
             <i class="fa-solid fa-arrow-left"></i> Quay lại trang chủ
@@ -164,7 +172,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            goc
+            xxxxxxxxxx
           </h1>
 
           <div class="mb-5">
@@ -176,8 +184,8 @@
           <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/92/c9/81/92c981140fc0919fee163c10f9413813.jpg" data-fancybox="gallery-post-goc" data-caption="goc" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/92/c9/81/92c981140fc0919fee163c10f9413813.jpg" alt="goc" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/89/e2/68/89e2682fb7d7d1564806472caac913f4.jpg" data-fancybox="gallery-post-xxxxxxxxxx" data-caption="xxxxxxxxxx" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/89/e2/68/89e2682fb7d7d1564806472caac913f4.jpg" alt="xxxxxxxxxx" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -187,11 +195,13 @@
             <div class="swiper-pagination"></div>
           </div>
 
+          <!-- Nội dung văn bản của bài viết -->
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">sdfdsf</div>
+                    <div class="mb-4"></div>
 
           </div>
 
+          <!-- Bộ nút tương tác -->
           <div class="mt-8 pt-6 border-t border-slate-100 relative mb-4">
             <div class="flex flex-wrap items-center justify-between gap-4">
               <div class="flex items-center gap-2">
@@ -212,14 +222,16 @@
               </div>
             </div>
           </div>
+          <!-- Hashtags -->
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=sdfsdf" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#sdfsdf</a>
+                            <a href="../index.html?search=dfdsf" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfdsf</a>
             </div>
           </div>
         </article>
 
+        <!-- Khối Bình luận độc lập hoàn toàn -->
 		<div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm mt-6 space-y-6 w-full">
           <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
             <i class="fa-regular fa-comments text-indigo-500"></i>
@@ -256,18 +268,23 @@
 
           <div id="comments-wrapper" class="space-y-4 w-full"></div>
 		  
+		  <!-- Next page -->
 		  <div id="comment-pagination-container" class="flex justify-center w-full mt-8"></div>
         </div>
 
+        <!-- Nút quay lại trang chủ -->
         <div class="flex justify-center pt-4 w-full">
           <a href="../index.html" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
             <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
           </a>
         </div>
 
-      </div>
+      </div> <!-- 💡 KẾT THÚC CỘT TRÁI -->
 
 
+      <!-- ========================================== -->
+      <!-- 🎯 CỘT PHẢI (SIDEBAR CHIẾM CỐ ĐỊNH 1 CỘT: lg:col-span-1) -->
+      <!-- ========================================== -->
       <aside class="w-full lg:col-span-1 lg:sticky lg:top-0 space-y-6">
 		<div id="auto-injected-slide-container" class="w-full [&amp;&gt;div]:mt-0"></div>
 		
@@ -337,8 +354,8 @@
     }
 
     const CURRENT_POST = {
-      title: "gdfg",
-      tags: ["sdfsdf"]
+      title: "fdsf",
+      tags: ["dfdsf"]
     };
 
     async function loadPosts() {
@@ -368,6 +385,7 @@
       const container = document.getElementById("suggested-posts");
       if(!container) return;
       
+      // 🎯 NÂNG CẤP 1: Giới hạn chỉ lấy tối đa đúng 5 bài viết
       const displayPosts = (posts || []).slice(0, 5);
       
       container.innerHTML = "";
@@ -376,6 +394,7 @@
         return;
       }
       
+      // 🎯 NÂNG CẤP 2: Chạy vòng lặp trên displayPosts và dùng chuỗi nối (+) để loại bỏ 100% lỗi đơ nút
       displayPosts.forEach(post => {
         let correctUrl = post.url || '#';
         if (!correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
@@ -398,13 +417,16 @@
       return [...posts]
         .filter(post => {
           if (!post || !CURRENT_POST) return false;
+          // 1. Loại bỏ bài viết hiện tại khỏi danh sách hiển thị
           if (post.title === CURRENT_POST.title) return false;
           if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
           
+          // 2. Chuyển đổi dữ liệu Danh mục (categories) thành mảng để so sánh
           const postCats = (post.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
           const currentCats = (CURRENT_POST.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
           const hasCommonCategory = currentCats.some(cat => postCats.includes(cat));
           
+          // 3. Chuyển đổi dữ liệu Từ khóa (tags) thành mảng để so sánh
           const postTagsStr = Array.isArray(post.tags) ? post.tags.join(',') : (post.tags || '');
           const postTags = postTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
           
@@ -431,7 +453,10 @@
         .slice(0, 3);
     }
 
+// Hàm dựng giao diện với bộ Dò Tìm Vùng Chứa thông minh (Tự động sửa lỗi thiếu excerpt)
+// Hàm dựng giao diện chuẩn xác trỏ thẳng vào ID của Sidebar
 	function renderPosts(postsList) {
+	  // Sửa lại: Ưu tiên tìm đúng ID "detail-sidebar-list" ở cột bên phải trước
 	  let container = document.getElementById("detail-sidebar-list") || 
 					  document.querySelector('#sidebar-posts') || 
 					  document.querySelector('.space-y-4.mt-4');
@@ -486,6 +511,7 @@
 	  container.innerHTML = listHTML;
 	}
 
+    // LUỒNG KHỞI CHẠY & GẮN SỰ KIỆN CLICK TAB AN TOÀN
     let ALL_POSTS = [];
     if (typeof loadPosts === "function") {
       loadPosts().then(posts => {
@@ -526,18 +552,27 @@
       const randomBtn = document.getElementById("random-btn");
       if(!relatedBtn || !randomBtn || !activeBtn) return;
       
+      // 1. Reset cả 2 nút về trạng thái bình thường (Chữ xám, viền dưới trong suốt)
       [relatedBtn, randomBtn].forEach(btn => {
         btn.className = "flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer";
       });
       
+      // 2. Kích hoạt nút được chọn: Đổi chữ sang màu xanh Indigo, viền dưới dày có màu xanh Indigo bừng sáng
       activeBtn.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
     }
 	
+	
+	
+	// =========================================================================
+    // 🎯 TỰ ĐỘNG ĐIỀN THÔNG TIN BÀI VIẾT VÀO THẺ META CHIA SẺ (OPEN GRAPH)
+    // =========================================================================
     if (typeof CURRENT_POST !== 'undefined') {
+      // 1. Cập nhật tiêu đề trang web
       if (CURRENT_POST.title) {
         document.title = CURRENT_POST.title;
       }
 
+      // 2. Tìm và gán dữ liệu thật vào các thẻ Meta Open Graph để chia sẻ Facebook, Zalo đẹp hơn
       const ogTitle = document.getElementById('meta-og-title');
       const ogDesc = document.getElementById('meta-og-description');
       const ogImage = document.getElementById('meta-og-image');
@@ -545,6 +580,7 @@
 
       if (ogTitle) ogTitle.setAttribute('content', CURRENT_POST.title || document.title);
       
+      // Sử dụng excerpt (mô tả ngắn), nếu trống sẽ lấy mặc định
       const cleanExcerpt = CURRENT_POST.excerpt ? CURRENT_POST.excerpt.trim() : '';
       if (ogDesc) ogDesc.setAttribute('content', cleanExcerpt || 'Xem chi tiết nội dung bài viết tại https://hieubeo91.github.io/au');
       
@@ -552,6 +588,11 @@
       if (ogUrl) ogUrl.setAttribute('content', window.location.href);
     }
 	
+// =========================================================================
+    // 🎯 KẾT NỐI FIREBASE - LƯU TRỮ LƯỢT TIM VĨNH VIỄN TOÀN MẠNG
+    // =========================================================================
+    
+    // 1. Cấu hình Firebase (DÁN ĐOẠN CONFIG BẠN LẤY ĐƯỢC Ở BƯỚC 1 VÀO ĐÂY)
 	const firebaseConfig = {
 	  apiKey: "AIzaSyCsc84GUdMK5zethbCibY1oSXpeXA9YlSo",
 	  authDomain: "myblog-heart.firebaseapp.com",
@@ -563,6 +604,7 @@
 	  measurementId: "G-4570E7XHL4"
 	};
 
+    // Khởi tạo Firebase kết nối lên đám mây
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
     }
@@ -572,6 +614,7 @@
       const currentUrl = window.location.href;
       const encodedUrl = encodeURIComponent(currentUrl);
       
+      // Định danh bài viết bằng tên file sạch để làm thư mục lưu trữ trên Firebase
       const pageId = (window.location.pathname.split('/').pop() || 'index').replace(/\./g, '_');
       const dbRef = database.ref('heart_counts/' + pageId);
       const localClickedKey = `heart_voted_${pageId}`;
@@ -579,8 +622,10 @@
       const heartBtn = document.getElementById('custom-heart-btn');
       const heartCountEl = document.getElementById('heart-count');
 
+      // --- ĐỒNG BỘ SỐ TIM TỪ TRÊN MẠNG XUỐNG GIAO DIỆN (Thời gian thực) ---
       dbRef.on('value', (snapshot) => {
         const votes = snapshot.val();
+        // Nếu bài viết mới tinh chưa có tim trên đám mây, tự nạp 1 con số ngẫu nhiên ban đầu cho đẹp
         if (votes === null) {
           const initialHearts = Math.floor(Math.random() * 25) + 15;
           dbRef.set(initialHearts);
@@ -590,6 +635,7 @@
         }
       });
 
+      // Kiểm tra xem máy khách hiện tại đã từng nhấn tim chưa để giữ màu nút đỏ
       if (localStorage.getItem(localClickedKey) === 'true' && heartBtn) {
         heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
         heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
@@ -598,6 +644,7 @@
 	if (heartBtn) {
         heartBtn.addEventListener('click', (e) => {
           
+          // Mở khóa giới hạn: Cứ mỗi lần click là tăng vĩnh viễn 1 tim lên Firebase
           dbRef.transaction((currentValue) => {
             return (currentValue || 0) + 1;
           });
@@ -605,6 +652,7 @@
           heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
           heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
 
+          // KHU VỰC TẠO HIỆU ỨNG NHIỀU TIM & TẢN RỘNG HƠN
           let effectContainer = heartBtn.querySelector('.heart-effect-zone');
           if (!effectContainer) {
             effectContainer = document.createElement('div');
@@ -619,6 +667,7 @@
             heartBtn.appendChild(effectContainer);
           }
 
+          // 🎯 TĂNG LÊN 9 TRÁI TIM CHO MỖI CÚ CLICK
           for (let i = 0; i < 9; i++) {
             const heart = document.createElement('i');
             heart.className = 'fa-solid fa-heart floating-heart';
@@ -627,17 +676,21 @@
             heart.style.pointerEvents = 'none';
             heart.style.zIndex = '100';
             
+            // 🎯 Khoảng cách xuất hiện ban đầu lệch nhau một chút dưới chân nút
             heart.style.left = `${15 + (Math.random() * 40 - 20)}px`;
             heart.style.top = `-5px`;
             
+            // Kích thước to nhỏ so le ngẫu nhiên từ 10px đến 18px nhìn rất sinh động
             heart.style.fontSize = `${Math.floor(Math.random() * 8) + 10}px`;
             
-            const randomDriftX = `${Math.floor(Math.random() * 120) - 60}px`;
-            const randomRotate = `${Math.floor(Math.random() * 80) - 40}deg`;
+            // 🎯 THUẬT TOÁN TẢN RỘNG: Tạo biến CSS để mỗi trái tim bay dạt sang trái/phải ngẫu nhiên lên tới 60px
+            const randomDriftX = `${Math.floor(Math.random() * 120) - 60}px`; // Tản sang trái hoặc phải từ -60px đến +60px
+            const randomRotate = `${Math.floor(Math.random() * 80) - 40}deg`; // Xoay nghiêng từ -40 độ đến +40 độ
             
             heart.style.setProperty('--drift-x', randomDriftX);
             heart.style.setProperty('--rotate-deg', randomRotate);
             
+            // Tốc độ bay của từng hạt tim nhanh chậm lệch nhau một chút (từ 0.8s đến 1.2s) để tạo chiều sâu
             heart.style.animation = `heartFlyUp ${0.8 + Math.random() * 0.4}s ease-out forwards`;
             
             effectContainer.appendChild(heart);
@@ -646,45 +699,67 @@
         });
       }
 
+	// Tự động nạp ảnh đại diện thật của bài viết vào thẻ Meta OG:Image trước khi Facebook quét
+    //  const metaOgImage = document.getElementById('meta-og-image');
+    //  const postThumbnail = document.querySelector('#post-content img'); // Tìm bức ảnh đầu tiên trong bài viết
+      
+    //  if (metaOgImage && postThumbnail) {
+    //    metaOgImage.setAttribute('content', postThumbnail.src);
+    //  }
+
+	// --- 2. HÀNH ĐỘNG CHIA SẺ LÊN FACEBOOK CHUẨN ĐA NỀN TẢNG ---
       const fbBtn = document.getElementById('share-facebook-btn');
       if (fbBtn) {
         fbBtn.addEventListener('click', () => {
           const isAndroid = /Android/i.test(navigator.userAgent);
           const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
           
+          // Đường link chia sẻ chuẩn hóa, Facebook App bắt buộc phải nhận diện được
           const targetUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
 
           if (isAndroid) {
+            // Sử dụng cấu trúc Android Intent chuẩn để ép hệ điều hành gọi App Facebook
+            // Nếu có App, nó sẽ mở thẳng luồng chia sẻ của App. Nếu không có, nó sẽ mở bằng trình duyệt.
             const androidIntent = `intent://www.facebook.com/sharer/sharer.php?u=${encodedUrl}#Intent;scheme=https;package=com.facebook.katana;end`;
             window.location.href = androidIntent;
           } 
           else if (isIOS) {
+            // Đối với iOS (Safari/Chrome), sử dụng liên kết trực tiếp. 
+            // Hệ điều hành iOS sẽ tự động hỏi "Mở trong Facebook?" nếu cấu hình Universal Links trên máy hoạt động.
+            // Sử dụng window.open trên iOS để không làm mất trang hiện tại của blog
             window.open(targetUrl, '_blank');
           } 
           else {
+            // Nếu dùng máy tính (PC/Laptop), giữ nguyên cửa sổ popup nhỏ chuyên nghiệp
             window.open(targetUrl, '_blank', 'width=600,height=400,resizable=yes,scrollbars=yes');
           }
         });
       }
 
+	// --- 3. HÀNH ĐỘNG SAO CHÉP LINK NHANH (ĐÃ KHÓA CHẶT ĐỘ RỘNG BẰNG JS CHỐNG CO GIÃN) ---
       const copyBtn = document.getElementById('copy-link-btn');
       const copyText = document.getElementById('copy-text');
       if (copyBtn && copyText) {
         copyBtn.addEventListener('click', () => {
           navigator.clipboard.writeText(currentUrl).then(() => {
             
+            // 🎯 BƯỚC THẦN KỲ: Đo độ rộng thực tế hiện tại của nút (tính bằng pixel)
             const currentWidth = copyBtn.offsetWidth;
+            // Ép độ rộng cố định bằng inline-style để nút đứng im băng, không bị giật hay co lại
             copyBtn.style.width = `${currentWidth}px`;
 
+            // Tiến hành đổi chữ và đổi màu như bình thường
             copyText.textContent = 'Đã sao chép!';
             copyBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
             copyBtn.classList.add('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
 
+            // Trả về trạng thái ban đầu sau 2 giây
             setTimeout(() => {
               copyText.textContent = 'Sao chép Link';
               copyBtn.classList.remove('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
               copyBtn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
               
+              // 🎯 Giải phóng thuộc tính width để nút tự do co dãn theo giao diện gốc khi cần
               copyBtn.style.width = '';
             }, 2000);
           }).catch(err => {
@@ -698,6 +773,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const slideContainer = document.getElementById('auto-injected-slide-container');
   if (!slideContainer) return;
 
+  // 1. TỰ DỰNG KHUNG SƯỜN HTML (Thay thế cho việc fetch từ index.html)
+  // Giữ nguyên chính xác 100% các class Tailwind và cấu trúc giao diện của bạn
   slideContainer.innerHTML = `
     <div id="shared-banner-slide" class="w-full max-w-md mx-auto my-6 bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
       <div class="px-4 pt-3 pb-2 flex items-center gap-1.5 border-b border-slate-50">
@@ -720,6 +797,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   `;
 
+	  // 2. ĐỌC DỮ LIỆU TỪ MY_SITE_CONFIG VÀ ĐỔ VÀO CONTAINER
 	  const container = slideContainer.querySelector('#banner-slides-container');
 	  
 	  if (container && typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.bannerSlides) {
@@ -738,9 +816,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 		container.innerHTML = slidesHTML;
 		
+		// 3. KHỞI CHẠY LOGIC HIỆU ỨNG ĐIỀU KHIỂN SLIDE
 		initInjectedSlide();
 	  }
 
+	  // Hàm khởi chạy hiệu ứng slide sau khi đã nạp data thành công
 	  function initInjectedSlide() {
 		const prevBtn = slideContainer.querySelector('#prev-slide-btn');
 		const nextBtn = slideContainer.querySelector('#next-slide-btn');
@@ -751,6 +831,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		let currentIndex = 0;
 		let slideInterval;
 
+		// Sinh các chấm tròn điều hướng dựa theo số lượng thực tế trong config
 		if (dotsContainer) {
 		  dotsContainer.innerHTML = ''; 
 		  for (let i = 0; i < totalSlides; i++) {
@@ -781,7 +862,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		function startAutoSlide() {
 		  stopAutoSlide();
-		  if (totalSlides <= 1) return;
+		  if (totalSlides <= 1) return; // Nếu chỉ có 1 slide thì không tự động chạy
 		  slideInterval = setInterval(() => goToSlide(currentIndex + 1), 4000);
 		}
 
@@ -815,6 +896,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <script>
   window.addEventListener('DOMContentLoaded', function() {
+    // 1. secret
     function _sha256(ascii) {
       function rightRotate(value, amount) { return (value>>>amount) | (value<<(32-amount)); };
       var mathPow = Math.pow; var maxWord = mathPow(2, 32); var lengthProperty = 'length'; var i, j;
@@ -870,43 +952,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	var sortSelect = document.getElementById('comment-sort-select');
 
+    // 🎯 ĐẢM BẢO CÓ ĐỦ 3 DÒNG NÀY Ở ĐẦU FILE JS CỦA BẠN:
     var currentPage = 1; 
-    var commentsPerPage = 10;
+    var commentsPerPage = 20; // Hoặc số lượng tùy bạn (ví dụ: 5, 10, 15 bình luận/trang)
     var paginationContainer = document.getElementById('comment-pagination-container');
 
     var currentReplyToId = null;
-    var cachedSnapshotData = null;
+    var cachedSnapshotData = null; // Lưu trữ tạm data từ Firebase để tái sắp xếp không cần tải lại mạng
 
+    // Kết nối Firebase Realtime Database
     var commentRef;
     if (typeof firebase !== 'undefined' && firebase.database) {
       commentRef = firebase.database().ref('blog_comments/' + postDataId);
     }
 
+    // 2. Kích hoạt quyền Admin
 	var isAdminActive = false;
     if (commentNameInput) {
       commentNameInput.addEventListener('input', function(e) {
         var val = e.target.value.trim();
         
+        // 🎯 KIỂM TRA AN TOÀN: Xác minh cấu hình admin có tồn tại trong config.js không
         if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin) {
           var secureTargetHash = MY_SITE_CONFIG.admin.secureTargetHash;
           
           if (_sha256(val) === secureTargetHash && !isAdminActive) {
             isAdminActive = true;
             
+            // Lấy tên hiển thị trực tiếp từ file config.js
             e.target.value = MY_SITE_CONFIG.admin.displayName || 'Quản trị viên';
             
             e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
             e.target.blur();
             
+            // Hiển thị ngay các nút tính năng phân quyền Admin
             document.querySelectorAll('.admin-action-btn').forEach(function(btn) {
               btn.classList.remove('hidden');
             });
+            // Thực hiện render lại danh sách hiện tại để cập nhật giao diện Admin hoàn chỉnh
             if (cachedSnapshotData) renderComments(cachedSnapshotData);
           }
         }
       });
     }
 
+    // 3. Lắng nghe thay đổi bộ lọc Sắp xếp
     if (sortSelect) {
       sortSelect.addEventListener('change', function() {
         if (cachedSnapshotData) {
@@ -970,7 +1060,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			var adminBadge = cmt.isAdmin ? `<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Admin</span>` : '';
 			var pinBadge = cmt.isPinned ? `<span class="px-1.5 py-0.5 bg-amber-100 text-amber-700 font-bold rounded text-[9px] uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-thumbtack text-[8px]"></i> Đã ghim</span>` : '';
 			var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
-			var borderClass = cmt.isPinned ? 'border-amber-200 bg-amber-50/10 comment-is-pinned' : (cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : '');
+			var borderClass = cmt.isPinned ? 'border-amber-200 bg-amber-50/10 comment-is-pinned' : (cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : ''); // 🎯 THÊM class comment-is-pinned ở đây
 			var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
 			var adminBtnClass = isAdminActive ? '' : 'hidden';
 			var pinActionText = cmt.isPinned ? 'Bỏ ghim' : 'Ghim bài';
@@ -1018,6 +1108,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		  finalOrderedRoots.forEach(function(root) {
 			var clusterWrapper = document.createElement('div');
+			// 🎯 QUAN TRỌNG: Gắn class nhận diện cụm bình luận thường hoặc ghim bài
 			clusterWrapper.className = 'comment-cluster space-y-2 border-b border-slate-100/60 pb-3 last:border-0';
 			if (root.isPinned) {
 				clusterWrapper.classList.add('is-pinned-cluster');
@@ -1033,9 +1124,11 @@ document.addEventListener('DOMContentLoaded', function() {
 			commentsWrapper.appendChild(clusterWrapper);
 		  });
 
+		  // 🎯 KÍCH HOẠT HÀM PHÂN TRANG ẢO TỰ ĐỘNG NGAY SAU KHI DỰNG XONG DOM
 		  executeClientPagination();
 		}
 
+		// Tải danh sách đồng bộ thời gian thực từ Cloud Firebase
 		if (commentRef) {
 		  commentRef.on('value', function(snapshot) {
 			cachedSnapshotData = snapshot.val() || {};
@@ -1043,6 +1136,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		  });
 		}
 
+		// 5. Định nghĩa các hàm tương tác toàn cục liên thông Firebase
 		window._replyToComment = function(commentId, targetName) {
 		  if (!commentContentInput) return;
 		  currentReplyToId = commentId;
@@ -1051,6 +1145,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		  commentContentInput.scrollIntoView({ behavior: "smooth", block: "center" });
 		};
 
+		// Hàm đếm tăng tương tác cảm xúc (Transaction an toàn)
 		window._reactComment = function(fbKey, type) {
 		  if (!commentRef) return;
 		  var reactionPath = commentRef.child(fbKey + '/reactions/' + type);
@@ -1059,6 +1154,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		  });
 		};
 
+		// Hàm đảo trạng thái ghim bình luận (Chỉ khả dụng cho Admin)
 		window._togglePinComment = function(fbKey, currentPinnedStatus) {
 		  if (!commentRef) return;
 		  commentRef.child(fbKey).update({
@@ -1072,6 +1168,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		  if (!commentRef) return;
 		  if (confirm("Bạn có chắc chắn muốn xóa vĩnh viễn bình luận này khỏi hệ thống không?")) {
 			commentRef.child(fbKey).remove().then(function() {
+			  // Xóa đồng loạt bình luận con gắn liền với id cha vừa xóa
 			  commentRef.once('value', function(snap) {
 				var data = snap.val() || {};
 				Object.keys(data).forEach(function(key) {
@@ -1086,6 +1183,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		  }
 		};
 
+		// 6. Sự kiện click nút gửi bình luận
 		if (submitCommentBtn) {
 		  submitCommentBtn.addEventListener('click', function() {
 			var name = commentNameInput ? commentNameInput.value.trim() : '';
@@ -1099,8 +1197,8 @@ document.addEventListener('DOMContentLoaded', function() {
 			  content: content,
 			  isAdmin: isAdminActive,
 			  timestamp: firebase.database.ServerValue.TIMESTAMP,
-			  isPinned: false,
-			  reactions: { favorite: 0, haha: 0, wow: 0, sad: 0, angry: 0 }
+			  isPinned: false, // Mặc định tạo mới không ghim
+			  reactions: { favorite: 0, haha: 0, wow: 0, sad: 0, angry: 0 } // Khởi tạo bộ đếm
 			};
 
 			if (currentReplyToId) {
@@ -1113,7 +1211,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (commentRef) {
 			  commentRef.push(newComment).then(function() {
 				if (commentContentInput) commentContentInput.value = "";
-				currentReplyToId = null;
+				currentReplyToId = null; // Trả trạng thái reply về ban đầu
 				submitCommentBtn.disabled = false;
 				submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
 			  }).catch(function(err) {
@@ -1126,6 +1224,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		  });
 		}
 
+		// 7. Cấu hình hành động chia sẻ bài viết nhanh
 		var shareFbBtn = document.getElementById('share-fb-btn');
 		if (shareFbBtn) {
 		  shareFbBtn.addEventListener('click', function() {
@@ -1159,21 +1258,27 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	  });
   
+	// Next page
 	document.addEventListener("DOMContentLoaded", function () {
 		const commentContainer = document.getElementById('comments-wrapper');
 		const paginationContainer = document.getElementById('comment-pagination-container');
 		
 		if (!commentContainer || !paginationContainer) return;
 
-		const commentsPerPage = 10;
+		const commentsPerPage = 20; // Hiển thị tối đa 20 bình luận
 		let currentPage = 1;
 
+		// Biến cờ để kiểm tra xem đã tách bài ghim ra hộp riêng chưa
+		// Biến cờ để kiểm tra xem đã tách bài ghim ra hộp riêng chưa
 		function initCommentPagination() {
+			// 1. Tìm hộp chứa bình luận gốc của bạn
 			const container = document.getElementById('comments-wrapper');
 			if (!container) return;
 
+			// 2. Lấy chính xác danh sách bình luận đang có TẠI THỜI ĐIỂM HIỆN TẠI
 			const allComments = Array.from(container.children);
 			
+			// 3. 🎯 SỬA BỘ LỌC CHUẨN: Kiểm tra xem cụm này có chứa bài ghim bên trong hay không
 			const pinnedComments = allComments.filter(comment => 
 				comment.classList.contains('is-pinned-cluster') || 
 				comment.querySelector('.comment-is-pinned') !== null || 
@@ -1186,22 +1291,26 @@ document.addEventListener('DOMContentLoaded', function() {
 				comment.querySelector('.comment-pinned') === null
 			);
 
+			// 5. Tính toán phân trang CHỈ dựa trên số lượng bài bình thường
 			const totalPages = Math.ceil(regularComments.length / commentsPerPage);
 			const startIndex = (currentPage - 1) * commentsPerPage;
 			const endIndex = startIndex + commentsPerPage;
 
+			// 6. Ẩn/Hiện bài thường dựa theo trang hiện tại
 			regularComments.forEach((comment, index) => {
 				if (index >= startIndex && index < endIndex) {
-					comment.style.display = "block";
+					comment.style.display = "block"; // Thuộc trang hiện tại -> Hiện
 				} else {
-					comment.style.display = "none";
+					comment.style.display = "none";  // Thuộc trang khác -> Ẩn
 				}
 			});
 
+			// 4. 🎯 ÉP HIỂN THỊ TUYỆT ĐỐI: Đặt nhóm ghim xuống dưới cùng để luôn hiển thị trên mọi trang
 			pinnedComments.forEach(comment => {
 				comment.style.setProperty('display', 'block', 'important');
 			});
 
+			// 7. Vẽ lại thanh điều hướng số trang
 			if (totalPages > 1) {
 				paginationContainer.style.display = "flex";
 				renderCommentControls(totalPages);
@@ -1210,11 +1319,14 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		}
 
+		// Hàm vẽ nút bấm chuyển trang
 		function renderCommentControls(totalPages) {
 		    paginationContainer.innerHTML = "";
 		    
+		    // Cấu trúc khung flex justify-between căng ngang
 		    let html = `<div class="flex items-center justify-between w-full max-w-md mx-auto pt-4 border-t border-slate-100 select-none">`;
 		
+		    // Nút Trước
 		    html += `
 		        <button id="prev-comment-btn" 
 		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer flex-shrink-0 ${currentPage === 1 ? 'opacity-40 pointer-events-none' : ''}">
@@ -1222,6 +1334,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		        </button>
 		    `;
 		
+		    // Khung số ở giữa
 		    html += `<div class="flex items-center justify-center gap-1 flex-grow min-w-[180px] mx-2">`;
 		
 		    const range = 2; 
@@ -1246,8 +1359,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		        }
 		    }
 		
-		    html += `</div>`;
+		    html += `</div>`; // Đóng khung giữa
 		
+		    // Nút Sau
 		    html += `
 		        <button id="next-comment-btn" 
 		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer flex-shrink-0 ${currentPage === totalPages ? 'opacity-40 pointer-events-none' : ''}">
@@ -1258,6 +1372,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		    html += `</div>`;
 		    paginationContainer.innerHTML = html;
 		
+		    // --- Phần gán addEventListener click của bình luận bên dưới giữ nguyên ---
 		    paginationContainer.querySelectorAll('.comment-page-btn').forEach(btn => {
 		        btn.addEventListener('click', function() {
 		            currentPage = parseInt(this.getAttribute('data-cpage'));
@@ -1268,19 +1383,23 @@ document.addEventListener('DOMContentLoaded', function() {
 		    paginationContainer.querySelector('#next-comment-btn').addEventListener('click', function() { if (currentPage < totalPages) { currentPage++; initCommentPagination(); } });
 		}
 
+		// 🎯 GIẢI PHÁP CỐT LÕI: Theo dõi khi nào bình luận thực sự xuất hiện trong khung chứa
 		const observer = new MutationObserver(function (mutations) {
-			observer.disconnect();
+			// Mỗi khi danh sách bình luận thay đổi (thêm mới, tải xong...), chạy lại hàm phân trang
+			observer.disconnect(); // Tạm dừng theo dõi để tránh lặp vô hạn khi ẩn/hiện
 			initCommentPagination();
-			observer.observe(commentContainer, { childList: true });
+			observer.observe(commentContainer, { childList: true }); // Kích hoạt theo dõi lại
 		});
 
+		// Bắt đầu theo dõi hộp chứa bình luận
 		observer.observe(commentContainer, { childList: true });
 		
+		// Chạy thử lần đầu phòng trường hợp có sẵn HTML tĩnh
 		initCommentPagination();
 	});
   
 	var commentCurrentPage = 1;
-	var commentsPerPageConfig = 5;
+	var commentsPerPageConfig = 5; // Bạn cấu hình số lượng bình luận thường hiển thị ở đây
 
 	function executeClientPagination() {
 		var wrapper = document.getElementById('comments-wrapper');
@@ -1289,9 +1408,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		var allClusters = Array.from(wrapper.getElementsByClassName('comment-cluster'));
 		
+		// Tách nhóm cụm ghim và cụm thường dựa trên HTML thực tế
 		var pinnedClusters = allClusters.filter(function(el) { return el.classList.contains('is-pinned-cluster'); });
 		var normalClusters = allClusters.filter(function(el) { return !el.classList.contains('is-pinned-cluster'); });
 
+		// Luôn luôn hiện các cụm có chứa bài ghim
 		pinnedClusters.forEach(function(el) { el.style.display = 'block'; });
 
 		var totalPages = Math.ceil(normalClusters.length / commentsPerPageConfig);
@@ -1300,6 +1421,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		var startIndex = (commentCurrentPage - 1) * commentsPerPageConfig;
 		var endIndex = startIndex + commentsPerPageConfig;
 
+		// Ẩn hiện cụm thường dựa trên trang hiện tại
 		normalClusters.forEach(function(el, index) {
 			if (index >= startIndex && index < endIndex) {
 				el.style.display = 'block';
@@ -1308,9 +1430,11 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 
+		// Vẽ thanh điều hướng số trang
 		if (totalPages > 1) {
 			pagContainer.style.display = 'flex';
 			
+			// Đoạn vẽ HTML phân trang (Sử dụng cấu trúc max-w thích hợp của bạn)
 			let html = `<div class="flex items-center justify-between w-full max-w-[540px] mx-auto mt-4 select-none">`;
 			html += `<button id="prev-comment-btn" class="px-3 py-1 bg-white border border-slate-200 text-xs text-slate-600 rounded hover:bg-slate-50 transition cursor-pointer">Trước</button>`;
 			html += `<div class="flex items-center justify-center gap-1 flex-grow min-w-[180px] mx-2 text-xs font-semibold text-slate-500">Trang ${commentCurrentPage} / ${totalPages}</div>`;
@@ -1319,6 +1443,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			
 			pagContainer.innerHTML = html;
 
+			// Gán sự kiện click nút Trước
 			var prevBtn = pagContainer.querySelector('#prev-comment-btn');
 			if (prevBtn) {
 				prevBtn.addEventListener('click', function() {
@@ -1329,6 +1454,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				});
 			}
 
+			// Gán sự kiện click nút Sau
 			var nextBtn = pagContainer.querySelector('#next-comment-btn');
 			if (nextBtn) {
 				nextBtn.addEventListener('click', function() {
