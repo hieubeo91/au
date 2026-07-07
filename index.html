@@ -1096,43 +1096,44 @@
             btn.addEventListener('click', () => {
                 const filterValue = btn.getAttribute('data-filter');
                 const allBtn = document.querySelector('[data-filter="all"]');
+                
                 // TRƯỜNG HỢP 1: Bấm nút "Tất cả bài viết"
                 if (filterValue === 'all') {
                     activeCategories = ['all'];
-                    // Reset giao diện: Bật nút Tất cả, Tắt toàn bộ các nút khác
+                    
+                    // Chỉ bật/tắt class active-tag, TUYỆT ĐỐI không ghi đè className để giữ class ép 1 dòng gốc
                     filterButtons.forEach(b => {
                         b.classList.remove('active-tag');
-                        if (b !== allBtn) {
-                            b.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer";
-                        }
                     });
-                    allBtn.classList.add('active-tag');
+                    if (allBtn) allBtn.classList.add('active-tag');
                 }
+                
                 // TRƯỜNG HỢP 2: Bấm vào các nút danh mục thường khác
                 else {
                     // Luôn luôn xóa bỏ lựa chọn 'all' khi bấm chọn một tag thường
                     if (activeCategories.includes('all')) {
                         activeCategories = activeCategories.filter(item => item !== 'all');
-                        allBtn.classList.remove('active-tag');
-                        allBtn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer";
+                        if (allBtn) allBtn.classList.remove('active-tag');
                     }
+                    
                     // Kiểm tra xem tag này đã được chọn trước đó chưa
                     if (btn.classList.contains('active-tag')) {
-                        // Đã chọn -> Bỏ chọn (Hủy kích hoạt)
+                        // Đã chọn -> Bỏ chọn (Chỉ xóa class active, giữ nguyên class gốc)
                         btn.classList.remove('active-tag');
-                        btn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer";
                         activeCategories = activeCategories.filter(item => item !== filterValue);
                     } else {
                         // Chưa chọn -> Thêm vào lựa chọn (Kích hoạt)
                         btn.classList.add('active-tag');
                         activeCategories.push(filterValue);
                     }
+                    
                     // Tự động thông minh: Nếu sau khi bấm bỏ chọn mà không còn danh mục thường nào được giữ, bật lại "Tất cả"
                     if (activeCategories.length === 0) {
                         activeCategories = ['all'];
-                        allBtn.classList.add('active-tag');
+                        if (allBtn) allBtn.classList.add('active-tag');
                     }
                 }
+                
                 // Thực thi bộ lọc sau khi cập nhật mảng lựa chọn
                 applyFilters();
             });
@@ -1205,125 +1206,94 @@
           </button>
         </div>
       `;
-blogListView.classList.add('hidden');
-            blogDetailView.classList.remove('hidden');
-            initAllSwipers();
-            Fancybox.bind("[data-fancybox^='gallery-']");
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            const backToHome = () => {
-                blogDetailView.classList.add('hidden');
-                blogListView.classList.remove('hidden');
-                initAllSwipers();
-                window.scrollTo({ top: lastScrollY, behavior: 'instant' });
-            };
-            
-            document.getElementById('detail-back-btn-top').addEventListener('click', backToHome);
-            document.getElementById('detail-back-btn-bottom').addEventListener('click', backToHome);
 
-            // 🎯 HÀM SỬA LỖI GIA CỐ TOÀN DIỆN (Dùng chung cho các sự kiện)
-            const forceKeepLayout = () => {
-                const postsContainer = document.getElementById('posts-container');
-                if (postsContainer) {
-                    // Ép tỷ lệ 2/3 cho cột trái
-                    postsContainer.className = "w-full lg:w-2/3 space-y-6";
-                    
-                    // Ép cấu trúc flex chia cột cho thẻ cha bọc ngoài
-                    const parentContainer = postsContainer.parentElement;
-                    if (parentContainer) {
-                        parentContainer.className = "flex flex-col lg:flex-row gap-6 items-start justify-center w-full";
-                    }
-                }
-            };
-            
-            blogDetailView.querySelectorAll('.tag-badge').forEach(badge => {
-                badge.addEventListener('click', () => {
-                    const tagName = badge.textContent.trim();
-                    backToHome();
-                    searchInput.value = tagName;
-                    searchQuery = tagName;
-                    clearSearchBtn.classList.remove('hidden');
-                    
-                    const allBtn = document.querySelector('[data-filter="all"]');
-                    if (allBtn) allBtn.click();
-                    
-                    // 1. Chạy bộ lọc hệ thống
-                    applyFilters();
-                    
-                    // 🎯 2. ĐỢI 50ms - 150ms ĐỂ HÀM APPLYFILTERS() VẼ XONG HTML RỒI MỚI ÉP CLASS VÀO
-                    setTimeout(forceKeepLayout, 50);
-                    setTimeout(forceKeepLayout, 150);
-                    
-                    window.scrollTo({ top: 180, behavior: 'smooth' });
-                });
-            });
-        }
-        
-        document.addEventListener('click', (e) => {
-            const viewBtn = e.target.closest('.view-detail-btn');
-            const titleClick = e.target.closest('.post-title');
-            if (viewBtn || titleClick) {
-                const card = e.target.closest('.post-card');
-                if (card) {
-                    openPostDetail(card);
-                }
-            }
+      blogListView.classList.add('hidden');
+      blogDetailView.classList.remove('hidden');
+      initAllSwipers();
+      Fancybox.bind("[data-fancybox^='gallery-']");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const backToHome = () => {
+        blogDetailView.classList.add('hidden');
+        blogListView.classList.remove('hidden');
+        initAllSwipers();
+        window.scrollTo({ top: lastScrollY, behavior: 'instant' });
+      };
+      document.getElementById('detail-back-btn-top').addEventListener('click', backToHome);
+      document.getElementById('detail-back-btn-bottom').addEventListener('click', backToHome);
+      blogDetailView.querySelectorAll('.tag-badge').forEach(badge => {
+        badge.addEventListener('click', () => {
+          const tagName = badge.textContent.trim();
+          backToHome();
+          searchInput.value = tagName;
+          searchQuery = tagName;
+          clearSearchBtn.classList.remove('hidden');
+          const allBtn = document.querySelector('[data-filter="all"]');
+          allBtn.click();
+          applyFilters();
+          window.scrollTo({ top: 180, behavior: 'smooth' });
         });
-        
-        const backToTopBtn = document.getElementById('back-to-top');
-        if (backToTopBtn) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 400) {
-                    backToTopBtn.classList.add('show');
-                } else {
-                    backToTopBtn.classList.remove('show');
-                }
-            });
-            backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
+      });
+    }
+    document.addEventListener('click', (e) => {
+      const viewBtn = e.target.closest('.view-detail-btn');
+      const titleClick = e.target.closest('.post-title');
+      if (viewBtn || titleClick) {
+        const card = e.target.closest('.post-card');
+        if (card) {
+          openPostDetail(card);
         }
-        
-        const newsletterForm = document.getElementById('newsletter-form');
-        const newsletterSuccess = document.getElementById('newsletter-success');
-        if (newsletterForm && newsletterSuccess) {
-            newsletterForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                newsletterForm.classList.add('hidden');
-                newsletterSuccess.classList.remove('hidden');
-            });
+      }
+    });
+    const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    const newsletterForm = document.getElementById('newsletter-form');
+    const newsletterSuccess = document.getElementById('newsletter-success');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        newsletterForm.classList.add('hidden');
+        newsletterSuccess.classList.remove('hidden');
+      });
+    }
+	// XỬ LÝ NHẬN THAM SỐ TỪ URL (BÀI VIẾT CON QUAY VỀ HOẶC CLICK DANH MỤC)
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      
+      // 1. Xử lý nếu có tham số tìm kiếm (?search=...)
+      const keyword = params.get('search');
+      if (keyword) {
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+          searchInput.value = keyword;
+          searchInput.dispatchEvent(new Event('input'));
         }
-        
-        // XỬ LÝ NHẬN THAM SỐ TỪ URL
-        document.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
+      }
 
-            const keyword = params.get('search');
-            if (keyword) {
-                const searchInput = document.getElementById('search-input');
-                if (searchInput) {
-                    searchInput.value = keyword;
-                    searchInput.dispatchEvent(new Event('input'));
-                }
-            }
-
-            const catParam = params.get('cat');
-            if (catParam) {
-                const targetBtn = document.querySelector(`.filter-btn[data-filter="${catParam}"]`);
-                if (targetBtn) {
-                    setTimeout(() => {
-                        targetBtn.click();
-                        
-                        // 🎯 ĐỢI TIẾP KHI CHẠY QUA THAM SỐ URL
-                        setTimeout(forceKeepLayout, 50);
-                        setTimeout(forceKeepLayout, 200);
-                    }, 150); 
-                }
-            }
-        });
+      // 2. XỬ LÝ DỨT ĐIỂM LỖI LỌC CHỦ ĐỀ (?cat=...)
+      const catParam = params.get('cat');
+      if (catParam) {
+        // Tìm đúng nút danh mục ngoài trang chủ có data-filter trùng khớp
+        const targetBtn = document.querySelector(`.filter-btn[data-filter="${catParam}"]`);
+        if (targetBtn) {
+          // Giả lập hành vi click của người dùng để kích hoạt hàm applyFilters() gốc
+          setTimeout(() => {
+            targetBtn.click();
+          }, 150); // Trì hoãn 150ms để đảm bảo DOM và Swiper đã sẵn sàng
+        }
+      }
+    });
 		
         // Next page  
         document.addEventListener("DOMContentLoaded", function () {
