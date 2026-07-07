@@ -1094,53 +1094,53 @@
             searchInput.focus();
             applyFilters();
         });
-        // Logic xử lý Click chọn nhiều danh mục kết hợp đồng bộ theo yêu cầu
+
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
                 const filterValue = btn.getAttribute('data-filter');
                 const allBtn = document.querySelector('[data-filter="all"]');
-                
                 // TRƯỜNG HỢP 1: Bấm nút "Tất cả bài viết"
                 if (filterValue === 'all') {
                     activeCategories = ['all'];
-                    
-                    // Chỉ bật/tắt class active-tag, TUYỆT ĐỐI không ghi đè className để giữ class ép 1 dòng gốc
+                    // Reset giao diện: Bật nút Tất cả, Tắt toàn bộ các nút khác
                     filterButtons.forEach(b => {
                         b.classList.remove('active-tag');
+                        if (b !== allBtn) {
+                            b.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer";
+                        }
                     });
-                    if (allBtn) allBtn.classList.add('active-tag');
+                    allBtn.classList.add('active-tag');
                 }
-                
                 // TRƯỜNG HỢP 2: Bấm vào các nút danh mục thường khác
                 else {
                     // Luôn luôn xóa bỏ lựa chọn 'all' khi bấm chọn một tag thường
                     if (activeCategories.includes('all')) {
                         activeCategories = activeCategories.filter(item => item !== 'all');
-                        if (allBtn) allBtn.classList.remove('active-tag');
+                        allBtn.classList.remove('active-tag');
+                        allBtn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer";
                     }
-                    
                     // Kiểm tra xem tag này đã được chọn trước đó chưa
                     if (btn.classList.contains('active-tag')) {
-                        // Đã chọn -> Bỏ chọn (Chỉ xóa class active, giữ nguyên class gốc)
+                        // Đã chọn -> Bỏ chọn (Hủy kích hoạt)
                         btn.classList.remove('active-tag');
+                        btn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer";
                         activeCategories = activeCategories.filter(item => item !== filterValue);
                     } else {
                         // Chưa chọn -> Thêm vào lựa chọn (Kích hoạt)
                         btn.classList.add('active-tag');
                         activeCategories.push(filterValue);
                     }
-                    
                     // Tự động thông minh: Nếu sau khi bấm bỏ chọn mà không còn danh mục thường nào được giữ, bật lại "Tất cả"
                     if (activeCategories.length === 0) {
                         activeCategories = ['all'];
-                        if (allBtn) allBtn.classList.add('active-tag');
+                        allBtn.classList.add('active-tag');
                     }
                 }
-                
                 // Thực thi bộ lọc sau khi cập nhật mảng lựa chọn
                 applyFilters();
             });
         });
+		
         document.querySelectorAll('.tag-badge').forEach(badge => {
             badge.addEventListener('click', (e) => {
                 e.stopPropagation(); // Ngăn sự kiện click lan ra ngoài thẻ card
