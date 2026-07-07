@@ -225,7 +225,6 @@
 
 
 <!-- BÀI VIẾT: FSDFSD -->
-<!-- 🎯 SỬA 1: Đổi items-stretch thành items-start để ngăn 2 cột kéo dãn làm vỡ khung hình -->
 <article
     class="post-card bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300 w-full flex flex-col md:flex-row gap-6 items-start"
     data-categories="cat_free, cat_paid, cat_mod, cat_tool, cat_guide, cat_misc"
@@ -233,8 +232,8 @@
     data-image="https://i.pinimg.com/736x/50/ed/d1/50edd150638e83f61abc315a69cb120e.jpg"
     data-tags="dfsdf">
 
-    <!-- 1. CỘT TRÁI: Giữ nguyên 35% -->
-    <div class="w-full md:w-[35%] flex-shrink-0 flex items-center">
+    <!-- 1. CỘT TRÁI (35%) -->
+    <div class="w-full md:w-[35%] flex-shrink-0">
         <div class="swiper postSwiper overflow-hidden rounded-xl w-full aspect-[16/9] h-auto relative border border-slate-50 shadow-sm [&_.swiper-wrapper]:h-full [&_.swiper-slide]:h-full [&_.swiper-slide_img]:w-full [&_.swiper-slide_img]:h-full [&_.swiper-slide_img]:aspect-[16/9] [&_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                 <div class="swiper-slide w-full">
@@ -251,12 +250,12 @@
         </div>
     </div>
 
-    <!-- 2. CỘT PHẢI -->
-    <!-- 🎯 SỬA 2: Ép cứng tỷ lệ md:w-[65%] và thêm h-full để khóa chặt không gian, không cho cột chữ tự ý phình to sang ngang -->
-    <div class="w-full md:w-[65%] flex-shrink-0 flex flex-col justify-between min-w-0 py-0.5 h-full">
+    <!-- 2. CỘT PHẢI (65%) -->
+    <div class="w-full md:w-[65%] flex-shrink-0 flex flex-col justify-between min-w-0 py-0.5">
         <div class="overflow-hidden">
-            <!-- Thể loại (Ép cứng trên 1 dòng, tự động ẩn nếu quá dài) & Ngày tháng -->
-            <div class="flex items-center justify-between gap-4 mb-2 w-full">
+            
+            <!-- 🎯 VÙNG SỬA CHÍ MẠNG: Thêm class "post-tags" vào đây để JavaScript tìm thấy đúng mục, không trả về null làm sập thẻ đóng mở -->
+            <div class="post-tags flex items-center justify-between gap-4 mb-2 w-full">
                 <div class="flex items-center gap-2 overflow-hidden whitespace-nowrap no-scrollbar flex-grow">
                     <div class="flex items-center gap-1.5 overflow-hidden whitespace-nowrap">
                         <a href="index.html?cat=cat_free" class="category-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fef2f2; color: #dc2626;">Miễn phí</a>
@@ -270,12 +269,12 @@
                 <span class="text-xs text-slate-400 flex-shrink-0 whitespace-nowrap"><i class="fa-regular fa-calendar mr-1"></i><span class="post-date">03/07/2026</span></span>
             </div>
 
-            <!-- Tiêu đề bài viết: Giới hạn tối đa đúng 2 dòng -->
+            <!-- Tiêu đề bài viết -->
             <h2 class="text-base font-bold text-slate-900 mb-1.5 hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">
-                <a href="posts/sun3.html">fsdfsd</a>
+                <a href="posts/sun3.html" class="post-title">fsdfsd</a>
             </h2>
 
-            <!-- Đoạn mô tả ngắn: Giới hạn tối đa đúng 2 dòng -->
+            <!-- Đoạn mô tả ngắn -->
             <p class="text-slate-500 text-xs leading-relaxed post-excerpt line-clamp-2">sdfsdfsd</p>
         </div>
 
