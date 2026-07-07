@@ -31,11 +31,11 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="aaaaaâ">
-	<meta property="og:description" content="dfg">
+	<meta property="og:title" content="goc">
+	<meta property="og:description" content="goc">
 
-	<meta property="og:image" content="https://i.pinimg.com/736x/b7/75/57/b775571077c1eb2dc0b42534d13e38d6.jpg">
-	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/b7/75/57/b775571077c1eb2dc0b42534d13e38d6.jpg">
+	<meta property="og:image" content="https://i.pinimg.com/736x/92/c9/81/92c981140fc0919fee163c10f9413813.jpg">
+	<meta property="og:image:secure_url" content="https://i.pinimg.com/736x/92/c9/81/92c981140fc0919fee163c10f9413813.jpg">
 	<meta property="og:url" content="${window.location.href}">
 		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -164,7 +164,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            aaaaaâ
+            goc
           </h1>
 
           <div class="mb-5">
@@ -176,8 +176,8 @@
           <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://i.pinimg.com/736x/b7/75/57/b775571077c1eb2dc0b42534d13e38d6.jpg" data-fancybox="gallery-post-aaaaaa" data-caption="aaaaaâ" class="block w-full h-full relative group">
-                  <img src="https://i.pinimg.com/736x/b7/75/57/b775571077c1eb2dc0b42534d13e38d6.jpg" alt="aaaaaâ" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://i.pinimg.com/736x/92/c9/81/92c981140fc0919fee163c10f9413813.jpg" data-fancybox="gallery-post-goc" data-caption="goc" class="block w-full h-full relative group">
+                  <img src="https://i.pinimg.com/736x/92/c9/81/92c981140fc0919fee163c10f9413813.jpg" alt="goc" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -188,7 +188,7 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">dfgfdg</div>
+                    <div class="mb-4">sdfdsf</div>
 
           </div>
 
@@ -215,7 +215,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=dfgdfgdfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfgdfgdfg</a>
+                            <a href="../index.html?search=sdfsdf" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#sdfsdf</a>
             </div>
           </div>
         </article>
@@ -337,8 +337,8 @@
     }
 
     const CURRENT_POST = {
-      title: "dsgfd",
-      tags: ["dfgdfgdfg"]
+      title: "gdfg",
+      tags: ["sdfsdf"]
     };
 
     async function loadPosts() {
@@ -1094,11 +1094,8 @@ document.addEventListener('DOMContentLoaded', function() {
 			if (!name) { alert("Vui lòng nhập tên của bạn!"); return; }
 			if (!content) { alert("Vui lòng nhập nội dung bình luận!"); return; }
 
-			// Xác định tên hiển thị chính thức của người gửi
-			var finalName = isAdminActive ? (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin ? MY_SITE_CONFIG.admin.displayName : "Hiệu Béo 👑") : name;
-
 			var newComment = {
-			  name: finalName,
+			  name: isAdminActive ? "Hiệu Béo 👑" : name,
 			  content: content,
 			  isAdmin: isAdminActive,
 			  timestamp: firebase.database.ServerValue.TIMESTAMP,
@@ -1115,34 +1112,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 			if (commentRef) {
 			  commentRef.push(newComment).then(function() {
-				
-				// 🎯 BẮT ĐẦU: ĐOẠN CODE GỬI THÔNG BÁO TELEGRAM ĐỌC TỪ CONFIG.JS
-				if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin && MY_SITE_CONFIG.admin.telegram) {
-				  var telConfig = MY_SITE_CONFIG.admin.telegram;
-				  
-				  // Chỉ gửi nếu trong config đã điền đầy đủ token và chatId
-				  if (telConfig.token && telConfig.chatId) {
-					var messageType = currentReplyToId ? "💬 CÓ PHẢN HỒI MỚI!" : "📝 CÓ BÌNH LUẬN MỚI!";
-					var postTitle = document.title;
-					var postUrl = window.location.href;
-
-					var textMsg = `${messageType}\n👤 Người gửi: ${finalName}\n📄 Bài viết: ${postTitle}\n🔗 Link: ${postUrl}\n💬 Nội dung:\n"${content}"`;
-
-					// Gọi API Telegram với thông tin lấy từ file cấu hình
-					fetch(`https://api.telegram.org/bot${telConfig.token}/sendMessage`, {
-					  method: 'POST',
-					  headers: { 'Content-Type': 'application/json' },
-					  body: JSON.stringify({
-						chat_id: telConfig.chatId,
-						text: textMsg
-					  })
-					}).catch(function(tErr) {
-					  console.error("Lỗi gửi Telegram:", tErr);
-					});
-				  }
-				}
-				// 🎯 KẾT THÚC ĐOẠN CODE TELEGRAM
-
 				if (commentContentInput) commentContentInput.value = "";
 				currentReplyToId = null;
 				submitCommentBtn.disabled = false;
