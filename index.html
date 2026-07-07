@@ -1204,19 +1204,22 @@
           </button>
         </div>
       `;
-            blogListView.classList.add('hidden');
+		blogListView.classList.add('hidden');
             blogDetailView.classList.remove('hidden');
             initAllSwipers();
             Fancybox.bind("[data-fancybox^='gallery-']");
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            
             const backToHome = () => {
                 blogDetailView.classList.add('hidden');
                 blogListView.classList.remove('hidden');
                 initAllSwipers();
                 window.scrollTo({ top: lastScrollY, behavior: 'instant' });
             };
+            
             document.getElementById('detail-back-btn-top').addEventListener('click', backToHome);
             document.getElementById('detail-back-btn-bottom').addEventListener('click', backToHome);
+            
             blogDetailView.querySelectorAll('.tag-badge').forEach(badge => {
                 badge.addEventListener('click', () => {
                     const tagName = badge.textContent.trim();
@@ -1224,13 +1227,24 @@
                     searchInput.value = tagName;
                     searchQuery = tagName;
                     clearSearchBtn.classList.remove('hidden');
+                    
                     const allBtn = document.querySelector('[data-filter="all"]');
-                    allBtn.click();
+                    if (allBtn) allBtn.click();
+                    
+                    // 1. Chạy bộ lọc
                     applyFilters();
+                    
+                    // 🎯 2. ÉP LẠI TỶ LỆ 2/3 CHO CỘT TRÁI CHỐNG SẬP LAYOUT
+                    const postsContainer = document.getElementById('posts-container');
+                    if (postsContainer) {
+                        postsContainer.className = "w-full lg:w-2/3 space-y-6";
+                    }
+                    
                     window.scrollTo({ top: 180, behavior: 'smooth' });
                 });
             });
         }
+        
         document.addEventListener('click', (e) => {
             const viewBtn = e.target.closest('.view-detail-btn');
             const titleClick = e.target.closest('.post-title');
@@ -1241,29 +1255,34 @@
                 }
             }
         });
+        
         const backToTopBtn = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-            }
-        });
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        if (backToTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
+                }
             });
-        });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
         const newsletterForm = document.getElementById('newsletter-form');
         const newsletterSuccess = document.getElementById('newsletter-success');
-        if (newsletterForm) {
+        if (newsletterForm && newsletterSuccess) {
             newsletterForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 newsletterForm.classList.add('hidden');
                 newsletterSuccess.classList.remove('hidden');
             });
         }
+        
         // XỬ LÝ NHẬN THAM SỐ TỪ URL (BÀI VIẾT CON QUAY VỀ HOẶC CLICK DANH MỤC)
         document.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
@@ -1278,16 +1297,20 @@
                 }
             }
 
-            // 2. XỬ LÝ DỨT ĐIỂM LỖI LỌC CHỦ ĐỀ (?cat=...)
+            // 2. XỬ LÝ DỨT ĐIỂM LỒI LỌC CHỦ ĐỀ (?cat=...)
             const catParam = params.get('cat');
             if (catParam) {
-                // Tìm đúng nút danh mục ngoài trang chủ có data-filter trùng khớp
                 const targetBtn = document.querySelector(`.filter-btn[data-filter="${catParam}"]`);
                 if (targetBtn) {
-                    // Giả lập hành vi click của người dùng để kích hoạt hàm applyFilters() gốc
                     setTimeout(() => {
                         targetBtn.click();
-                    }, 150); // Trì hoãn 150ms để đảm bảo DOM và Swiper đã sẵn sàng
+                        
+                        // 🎯 ÉP LẠI TỶ LỆ 2/3 SAU KHI CLICK GIẢ LẬP TỪ URL
+                        const postsContainer = document.getElementById('posts-container');
+                        if (postsContainer) {
+                            postsContainer.className = "w-full lg:w-2/3 space-y-6";
+                        }
+                    }, 150); 
                 }
             }
         });
