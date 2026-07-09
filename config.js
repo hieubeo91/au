@@ -65,7 +65,7 @@ const MY_SITE_CONFIG = {
                             alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
                         <span>Hieubeo's Audition Studio</span>
                     </a>
-                    <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
+                    <p class="text-sm text-slate-500 text-center sm:text-right">♥ Chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
                 </div>
             </header>
         `,
