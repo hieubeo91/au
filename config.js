@@ -65,14 +65,14 @@ const MY_SITE_CONFIG = {
                             alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
                         <span>Hieubeo's Audition Studio</span>
                     </a>
-                    <p class="text-sm text-slate-500 text-center sm:text-right">♥ Chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
+                    <p class="text-sm text-slate-500 text-center sm:text-right">Kênh chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
                 </div>
             </header>
         `,
         footerHTML: `
             <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
                 <div class="max-w-6xl mx-auto px-4 text-center">
-                    <p class="text-sm">© 2026 Hieubeo's Audition Studio ♫ Rhythm of Life</p>
+                    <p class="text-sm">© 2026-- Hieubeo's Audition Studio ♫ Rhythm of Life</p>
                 </div>
             </footer>
         `
