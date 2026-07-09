@@ -144,19 +144,9 @@
 </head>
 
 <body class="text-slate-800 flex flex-col min-h-screen">
-    <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <a href="https://hieubeo91.github.io/au/" id="header-logo"
-                class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
-                <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true"
-                    alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
-                <span>Hieubeo's Audition Studio</span>
-            </a>
-            <p class="text-sm text-slate-500 text-center sm:text-right">Chia sẻ và thương mại tài nguyên cho game
-                Audition
-                (PC)</p>
-        </div>
-    </header>
+	
+	<div id="site-header-container"></div>
+	
     <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
         <div id="blog-list-view" class="fade-in-up">
             <div class="mb-6 max-w-lg mx-auto relative">
@@ -892,11 +882,9 @@
             class="hidden max-w-4xl mx-auto bg-white border border-slate-100 rounded-3xl p-6 md:p-10 shadow-sm fade-in-up">
         </div>
     </main>
-    <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <p class="text-sm">© 2026 Hieubeo's Audition Studio ♫ Rhythm of Life</p>
-        </div>
-    </footer>
+
+	<div id="site-footer-container"></div>
+	
     <button id="back-to-top"
         class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto"
         title="Quay lên đầu trang">
@@ -906,7 +894,7 @@
     <script>
 
         // =========================================================================
-        // 🎯 BỘ LỌC HOÀN CHỈNH: SỬA LỖI HIỂN THỊ TẤT CẢ BÀI VIẾT KHI CLICK CHỦ ĐỀ
+        // BỘ LỌC HOÀN CHỈNH: SỬA LỖI HIỂN THỊ TẤT CẢ BÀI VIẾT KHI CLICK CHỦ ĐỀ
         // =========================================================================
         function initPostSwipers() {
             // Kích hoạt Swiper cho class .postSwiper trên toàn bộ các bài viết
@@ -1346,6 +1334,21 @@
             // Chạy trang 1 đầu tiên
             showPage(1);
         });
+
+		document.addEventListener('DOMContentLoaded', function() {
+		    // TỰ ĐỘNG CHÈN HEADER & FOOTER TỪ FILE CONFIG
+		    if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.layout) {
+		        var headerContainer = document.getElementById('site-header-container');
+		        var footerContainer = document.getElementById('site-footer-container');
+		
+		        if (headerContainer && MY_SITE_CONFIG.layout.headerHTML) {
+		            headerContainer.innerHTML = MY_SITE_CONFIG.layout.headerHTML;
+		        }
+		        if (footerContainer && MY_SITE_CONFIG.layout.footerHTML) {
+		            footerContainer.innerHTML = MY_SITE_CONFIG.layout.footerHTML;
+		        }
+		    }
+		});
     </script>
 </body>
 
