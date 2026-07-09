@@ -173,7 +173,7 @@
             </div>
             <div id="tag-container" class="flex flex-wrap items-center justify-center gap-2 mb-10">
                 <button data-filter="all"
-                    class="filter-btn active-tag px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 border border-indigo-600 cursor-pointer">
+                    class="filter-btn active-tag px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 border border-indigo-600 cursor-pointer">
                     Tất cả bài viết
                 </button>
                 <button data-filter="cat_free"
@@ -1057,7 +1057,7 @@
                     filterButtons.forEach(b => {
                         b.classList.remove('active-tag');
                         if (b !== allBtn) {
-                            b.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer";
+                            b.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-white text-indigo-600 hover:bg-slate-50 border border-indigo-600 cursor-pointer hover:scale-105 transform";
                         }
                     });
                     allBtn.classList.add('active-tag');
@@ -1068,13 +1068,13 @@
                     if (activeCategories.includes('all')) {
                         activeCategories = activeCategories.filter(item => item !== 'all');
                         allBtn.classList.remove('active-tag');
-                        allBtn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer";
+                        allBtn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-white text-indigo-600 hover:bg-slate-50 border border-indigo-600 cursor-pointer hover:scale-105 transform";
                     }
                     // Kiểm tra xem tag này đã được chọn trước đó chưa
                     if (btn.classList.contains('active-tag')) {
                         // Đã chọn -> Bỏ chọn (Hủy kích hoạt)
                         btn.classList.remove('active-tag');
-                        btn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 cursor-pointer";
+                        btn.className = "filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-white text-indigo-600 hover:bg-slate-50 border border-indigo-600 cursor-pointer hover:scale-105 transform";
                         activeCategories = activeCategories.filter(item => item !== filterValue);
                     } else {
                         // Chưa chọn -> Thêm vào lựa chọn (Kích hoạt)
