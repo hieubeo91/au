@@ -1,160 +1,162 @@
 const MY_SITE_CONFIG = {
 
-    // Cấu hình Background
+// Cấu hình Background
 
-    globalBgImage: "",
+globalBgImage: "",
 
 
 
-    // Cấu hình Slidebar
+// Cấu hình Slidebar
 
-    bannerSlides: [
+bannerSlides: [
 
-        {
+{
 
-            link: "https://hieubeo91.github.io/au/posts/sun3.html",
+link: "https://hieubeo91.github.io/au/posts/sun3.html",
 
-            image: "https://lh3.googleusercontent.com/d/18-TpyUz6uPU2YZOClxlHwnzKTFXwtujH",
+image: "https://lh3.googleusercontent.com/d/18-TpyUz6uPU2YZOClxlHwnzKTFXwtujH",
 
-            title: "Thang cấp độ nhẫn trong Audition3",
+title: "Thang cấp độ nhẫn trong Audition3",
 
-            altText: "Bài viết mới 1"
+altText: "Bài viết mới 1"
 
-        },
+},
 
-        {
+{
 
-            link: "https://hieubeo91.github.io/au/posts/sun3.html",
+link: "https://hieubeo91.github.io/au/posts/sun3.html",
 
-            image: "https://lh3.googleusercontent.com/d/1BKluvvJ1YrQS3FqGu8jV3Qn8zqkr_QAD",
+image: "https://lh3.googleusercontent.com/d/1BKluvvJ1YrQS3FqGu8jV3Qn8zqkr_QAD",
 
-            title: "Thang cấp độ level trong Audition",
+title: "Thang cấp độ level trong Audition",
 
-            altText: "Bài viết mới 2"
+altText: "Bài viết mới 2"
 
-        },
+},
 
-        {
+{
 
-            link: "https://hieubeo91.github.io/au/posts/sun3.html",
+link: "https://hieubeo91.github.io/au/posts/sun3.html",
 
-            image: "https://lh3.googleusercontent.com/d/1luXtV6Aq4_PszysrMwWfH27VZ6jlb0Ki",
+image: "https://lh3.googleusercontent.com/d/1luXtV6Aq4_PszysrMwWfH27VZ6jlb0Ki",
 
-            title: "Hướng dẫn viết tiếng Việt trong Audition",
+title: "Hướng dẫn viết tiếng Việt trong Audition",
 
-            altText: "Bài viết mới 3"
+altText: "Bài viết mới 3"
 
-        }
+}
 
-    ],
+],
 
 
 
-    // Cấu hình Quản trị viên
+// Cấu hình Quản trị viên
 
-    admin: {
+admin: {
 
-        // Thông tin hiển thị quyền Admin
+// Thông tin hiển thị quyền Admin
 
-        secureTargetHash: "57a81a4801bb04e890c8414a2ff4b6ea30dcdf25b5eec1c0e4eec8fbf3bd5181",
+secureTargetHash: "57a81a4801bb04e890c8414a2ff4b6ea30dcdf25b5eec1c0e4eec8fbf3bd5181",
 
-        displayName: "Hiệu Béo 👑",
+displayName: "Hiệu Béo 👑",
 
 
 
-        // Thông báo khi có bình luận mới
+// Thông báo khi có bình luận mới
 
-        telegram: {
+telegram: {
 
-            token: "8635914876:AAEqk7b0HH6ygpTm5oN4-utvUn_YcZLgF2M",
+token: "8635914876:AAEqk7b0HH6ygpTm5oN4-utvUn_YcZLgF2M",
 
-            chatId: "-5280914251"
+chatId: "-5280914251"
 
-        }
+}
 
-    },
+},
 
 
 
-    // Cấu hình Group Facebook
+// Cấu hình Group Facebook
 
-    facebookGroup: {
+facebookGroup: {
 
-        title: "Thư viện Audition Group",
+title: "Thư viện Audition Group",
 
-        description: "Chia sẻ kinh nghiệm, tài nguyên mod game Audition",
+description: "Chia sẻ kinh nghiệm, tài nguyên mod game Audition",
 
-        groupUrl: "https://www.facebook.com/groups/ThuvienAu",
+groupUrl: "https://www.facebook.com/groups/ThuvienAu",
 
-        imageUrl: "https://lh3.googleusercontent.com/d/1jNcrWoKc9YN3C8KiG1rT2LLUACaVl0LS",
+imageUrl: "https://lh3.googleusercontent.com/d/1jNcrWoKc9YN3C8KiG1rT2LLUACaVl0LS",
 
-        appUrl: ""
+appUrl: ""
 
-    },
+},
 
-  
 
-    reactions: {
 
-        favorite: "😆", // Link hình ảnh
+reactions: {
 
-        haha: "😆",                                        // Vẫn giữ emoji nếu thích
+favorite: "😆", // Link hình ảnh
 
-        wow: "😆",       // Thậm chí là ảnh động GIF
+haha: "😆", // Vẫn giữ emoji nếu thích
 
-        sad: "😢",
+wow: "😆", // Thậm chí là ảnh động GIF
 
-        angry: "😆"
+sad: "😢",
 
-    },
+angry: "😆"
 
+},
 
 
-    // Cấu hình Header và Footer
 
-    const config = {
+// Cấu hình Header và Footer
 
-        layout: {
+const config = {
 
-            headerHTML: `
+layout: {
 
-                <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
+headerHTML: `
 
-                    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+<header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
 
-                        <a href="https://hieubeo91.github.io/au/" id="header-logo" class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
 
-                            <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true" alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
+        <a href="https://hieubeo91.github.io/au/" id="header-logo"
+            class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
 
-                            <span>Hieubeo's Audition Studio</span>
+            <img src="https://github.com/hieubeo91/storage/blob/main/blog/icon.png?raw=true"
+                alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
 
-                        </a>
+            <span>Hieubeo's Audition Studio</span>
 
-                        <p class="text-sm text-slate-500 text-center sm:text-right">♥ Kênh chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
+        </a>
 
-                    </div>
+        <p class="text-sm text-slate-500 text-center sm:text-right">♥ Kênh chia sẻ và thương mại tài nguyên cho game
+            Audition (PC)</p>
 
-                </header>
+    </div>
 
-            `,
+</header>
 
-            footerHTML: `
+`,
 
-                <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
+footerHTML: `
 
-                    <div class="max-w-6xl mx-auto px-4 text-center">
+<footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
 
-                        <p class="text-sm">© 2026-- Hieubeo's Audition Studio ♫ Rhythm of Life</p>
+    <div class="max-w-6xl mx-auto px-4 text-center">
 
-                    </div>
+        <p class="text-sm">© 2026-- Hieubeo's Audition Studio ♫ Rhythm of Life</p>
 
-                </footer>
+    </div>
 
-            `
+</footer>
 
-        }
+`
 
-    };
+}
 
-}; 
+};
 
+};
