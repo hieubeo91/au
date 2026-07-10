@@ -1619,16 +1619,13 @@
         }
     });
 
-    // Kiểm tra xem MY_SITE_CONFIG đã được định nghĩa chưa
     if (typeof MY_SITE_CONFIG !== 'undefined') {
 
-        // 1. Vẽ Header
         const headerContainer = document.getElementById('header-container');
         if (headerContainer && MY_SITE_CONFIG.layout && MY_SITE_CONFIG.layout.headerHTML) {
             headerContainer.innerHTML = MY_SITE_CONFIG.layout.headerHTML;
         }
 
-        // 2. Vẽ Footer
         const footerContainer = document.getElementById('footer-container');
         if (footerContainer && MY_SITE_CONFIG.layout && MY_SITE_CONFIG.layout.footerHTML) {
             footerContainer.innerHTML = MY_SITE_CONFIG.layout.footerHTML;
@@ -1639,7 +1636,6 @@
         console.error("LỖI: Không tìm thấy biến MY_SITE_CONFIG. Kiểm tra lại việc nhúng file config.js");
     }
 
-    // 3. Vẫn thực hiện các replace cho nội dung bài viết như bình thường
     if (templateElement) {
         let tempRawHtml = templateElement.innerHTML;
         tempRawHtml = tempRawHtml.replace('{{theloai}}', detailCategoriesHTML);
