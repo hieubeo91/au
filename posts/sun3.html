@@ -31,8 +31,8 @@
   <meta charset="UTF-8">
 	<meta property="fb:app_id" content="966242223397117">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="zzzzzzz">
-	<meta property="og:description" content="dfg">
+	<meta property="og:title" content="xxxxxxxxxxx">
+	<meta property="og:description" content="sdf">
 
 	<meta property="og:image" content="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/banner-sharing.png?raw=true">
 	<meta property="og:image:secure_url" content="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/banner-sharing.png?raw=true">
@@ -145,13 +145,13 @@
           
           <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_paid" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fefce8; color: #ca8a04;" title="Xem thêm bài viết thuộc chủ đề Trả phí">Trả phí</a>
+              <a href="../index.html?cat=cat_mod" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
               <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>12/07/2026</span>
             </div>
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            zzzzzzz
+            xxxxxxxxxxx
           </h1>
 
           <div class="mb-5">
@@ -163,8 +163,8 @@
           <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://lh3.googleusercontent.com/d/1WymWT2sziCOP-r7Krj-g0vk59pA7x2Dx" data-fancybox="gallery-post-zzzzzzz" data-caption="zzzzzzz" class="block w-full h-full relative group">
-                  <img src="https://lh3.googleusercontent.com/d/1WymWT2sziCOP-r7Krj-g0vk59pA7x2Dx" alt="zzzzzzz" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://lh3.googleusercontent.com/d/1WymWT2sziCOP-r7Krj-g0vk59pA7x2Dx" data-fancybox="gallery-post-xxxxxxxxxxx" data-caption="xxxxxxxxxxx" class="block w-full h-full relative group">
+                  <img src="https://lh3.googleusercontent.com/d/1WymWT2sziCOP-r7Krj-g0vk59pA7x2Dx" alt="xxxxxxxxxxx" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -175,7 +175,7 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">dgfdg</div>
+                    <div class="mb-4">sdfsdf</div>
 
           </div>
 
@@ -202,7 +202,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=dfgdfg" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#dfgdfg</a>
+                            <a href="../index.html?search=sdfsd" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#sdfsd</a>
             </div>
           </div>
         </article>
@@ -340,8 +340,8 @@
     }
 
     const CURRENT_POST = {
-      title: "dfgdfg",
-      tags: ["dfgdfg"]
+      title: "sdfsdf",
+      tags: ["sdfsd"]
     };
 
     async function loadPosts() {
@@ -881,9 +881,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var cachedSnapshotData = null;
 
 	function getCommentRef() {
-		var id = document.getElementById('main-article-element') ? 
-				 document.getElementById('main-article-element').getAttribute('data-id') : 'post-default';
-		return firebase.database().ref('blog_comments/' + id);
+	  var id = document.getElementById('main-article-element') ? 
+			   document.getElementById('main-article-element').getAttribute('data-id') : 'post-default';
+	  return firebase.database().ref('blog_comments/' + id);
 	}
 
 	var isAdminActive = false;
@@ -1139,10 +1139,10 @@ function generateCommentHTML(cmt, isChild) {
 		  executeClientPagination();
 		}
 
-		var ref = getCommentRef();
-		if (ref) {
-			ref.push(newComment).then(function() { ... });
-		}
+		getCommentRef().on('value', function(snapshot) {
+			cachedSnapshotData = snapshot.val() || {};
+			renderComments(cachedSnapshotData);
+		});
 
 		window._replyToComment = function(commentId, targetName) {
 		  if (!commentContentInput) return;
@@ -1154,7 +1154,7 @@ function generateCommentHTML(cmt, isChild) {
 
 		window._reactComment = function(fbKey, type) {
 		  if (!commentRef) return;
-		  var reactionPath = commentRef.child(fbKey + '/reactions/' + type);
+		  var reactionPath = getCommentRef().child(fbKey + '/reactions/' + type);
 		  reactionPath.transaction(function(currentCount) {
 			return (currentCount || 0) + 1;
 		  });
@@ -1162,7 +1162,7 @@ function generateCommentHTML(cmt, isChild) {
 
 		window._togglePinComment = function(fbKey, currentPinnedStatus) {
 		  if (!commentRef) return;
-		  commentRef.child(fbKey).update({
+		  getCommentRef().child(fbKey).update({
 			isPinned: !currentPinnedStatus
 		  }).catch(function(err) {
 			alert("Lỗi thực thi ghim: " + err.message);
@@ -1172,8 +1172,8 @@ function generateCommentHTML(cmt, isChild) {
 		window._deleteComment = function(fbKey) {
 		  if (!commentRef) return;
 		  if (confirm("Bạn có chắc chắn muốn xóa vĩnh viễn bình luận này khỏi hệ thống không?")) {
-			commentRef.child(fbKey).remove().then(function() {
-			  commentRef.once('value', function(snap) {
+			getCommentRef().child(fbKey).remove().then(function() {
+			  getCommentRef().once('value', function(snap) {
 				var data = snap.val() || {};
 				Object.keys(data).forEach(function(key) {
 				  if (data[key].replyTo === fbKey) {
@@ -1186,6 +1186,7 @@ function generateCommentHTML(cmt, isChild) {
 			});
 		  }
 		};
+
 
 		if (submitCommentBtn) {
 		  submitCommentBtn.addEventListener('click', function() {
@@ -1214,8 +1215,9 @@ function generateCommentHTML(cmt, isChild) {
 			submitCommentBtn.disabled = true;
 			submitCommentBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang gửi...';
 
-			if (commentRef) {
-			  commentRef.push(newComment).then(function() {
+			var ref = getCommentRef();
+			if (ref) {
+			  ref.push(newComment).then(function() {
 				
 				// 🎯 BẮT ĐẦU: ĐOẠN CODE GỬI THÔNG BÁO TELEGRAM ĐỌC TỪ CONFIG.JS
 				if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin && MY_SITE_CONFIG.admin.telegram) {
