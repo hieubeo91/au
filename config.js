@@ -47,11 +47,11 @@ const MY_SITE_CONFIG = {
     },
 
     reactions: {
-        favorite: "😆", // Link hình ảnh
-        haha: "😆",                                        // Vẫn giữ emoji nếu thích
-        wow: "😆",       // Thậm chí là ảnh động GIF
-        sad: "😢",
-        angry: "😆"
+        favorite: "https://lh3.googleusercontent.com/d/18CoJA6e4Tdyks9C4_y5L1tAAxEtmgjk0",
+        haha: "https://lh3.googleusercontent.com/d/1gXbu-R3DkNuv7VfgUOixguQ7xW4aBSEm",
+        wow: "https://lh3.googleusercontent.com/d/1fMnLL9HMfi8MjdaHi03DjUtx8-3NmNde",
+        sad: "https://lh3.googleusercontent.com/d/1_JSSdG1tlmlA9a4DLGaEfD5nvgVvFPei",
+        angry: "https://lh3.googleusercontent.com/d/1TvcjeePrjbc8f0McZOsxQZDGbCSXvhdx"
     },
 
     // Cấu hình Header và Footer
