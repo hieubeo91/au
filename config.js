@@ -5,23 +5,11 @@ const MY_SITE_CONFIG = {
     // Cấu hình Slidebar
     bannerSlides: [
         {
-            link: "https://hieubeo91.github.io/au/posts/sun3.html",
-            image: "https://lh3.googleusercontent.com/d/18-TpyUz6uPU2YZOClxlHwnzKTFXwtujH",
-            title: "Thang cấp độ nhẫn trong Audition3",
-            altText: "Bài viết mới 1"
+            link: "https://hieubeo91.github.io/au/posts/couple.html",
+            image: "https://lh3.googleusercontent.com/d/1FvNmUmMYU5QQEODUCjUNJKqA0E76q0j9",
+            title: "Thang cấp độ nhẫn trong Audition",
+            altText: "Thang cấp độ nhẫn trong Audition"
         },
-        {
-            link: "https://hieubeo91.github.io/au/posts/sun3.html",
-            image: "https://lh3.googleusercontent.com/d/1BKluvvJ1YrQS3FqGu8jV3Qn8zqkr_QAD",
-            title: "Thang cấp độ level trong Audition",
-            altText: "Bài viết mới 2"
-        },
-        {
-            link: "https://hieubeo91.github.io/au/posts/sun3.html",
-            image: "https://lh3.googleusercontent.com/d/1luXtV6Aq4_PszysrMwWfH27VZ6jlb0Ki",
-            title: "Hướng dẫn viết tiếng Việt trong Audition",
-            altText: "Bài viết mới 3"
-        }
     ],
 
     // Cấu hình Quản trị viên
@@ -65,14 +53,14 @@ const MY_SITE_CONFIG = {
                             alt="Logo Hieubeo's Audition Studio" class="w-6 h-6 object-contain">
                         <span>Hieubeo's Audition Studio</span>
                     </a>
-                    <p class="text-sm text-slate-500 text-center sm:text-right">♥ Kênh chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
+                    <p class="text-sm text-slate-500 text-center sm:text-right">Kênh chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
                 </div>
             </header>
         `,
         footerHTML: `
             <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
                 <div class="max-w-6xl mx-auto px-4 text-center">
-                    <p class="text-sm">© 2026-- Hieubeo's Audition Studio ♫ Rhythm of Life</p>
+                    <p class="text-sm">© 2026 Hieubeo's Audition Studio ♫ Rhythm of Life</p>
                 </div>
             </footer>
         `
