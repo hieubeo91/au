@@ -29,15 +29,6 @@
   <meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc">
   <script data-goatcounter="https://vetraitim.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
   <meta charset="UTF-8">
-	<meta property="fb:app_id" content="966242223397117">
-	<meta property="og:type" content="article">
-	<meta property="og:title" content="vvvvvv">
-	<meta property="og:description" content="dfg">
-
-	<meta property="og:image" content="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/banner-sharing.png?raw=true">
-	<meta property="og:image:secure_url" content="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/banner-sharing.png?raw=true">
-	<meta property="og:url" content="${window.location.href}">
-		
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hieubeo's Audition Studio</title>
   
@@ -151,7 +142,7 @@
           </div>
 
           <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            vvvvvv
+            qqqqqqqqq
           </h1>
 
           <div class="mb-5">
@@ -163,8 +154,8 @@
           <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
             <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                <a href="https://lh3.googleusercontent.com/d/1WymWT2sziCOP-r7Krj-g0vk59pA7x2Dx" data-fancybox="gallery-post-vvvvvv" data-caption="vvvvvv" class="block w-full h-full relative group">
-                  <img src="https://lh3.googleusercontent.com/d/1WymWT2sziCOP-r7Krj-g0vk59pA7x2Dx" alt="vvvvvv" class="hover:scale-105 transition-transform duration-300">
+                <a href="https://lh3.googleusercontent.com/d/1WymWT2sziCOP-r7Krj-g0vk59pA7x2Dx" data-fancybox="gallery-post-qqqqqqqqq" data-caption="qqqqqqqqq" class="block w-full h-full relative group">
+                  <img src="https://lh3.googleusercontent.com/d/1WymWT2sziCOP-r7Krj-g0vk59pA7x2Dx" alt="qqqqqqqqq" class="hover:scale-105 transition-transform duration-300">
                   
                 </a>
               </div>
@@ -175,7 +166,7 @@
           </div>
 
           <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">dfgdfg</div>
+                    <div class="mb-4">dfgfdg</div>
 
           </div>
 
@@ -202,7 +193,7 @@
           <div class="pt-6 border-t border-slate-100">
             <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
             <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=dfgfdg" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#dfgfdg</a>
+                            <a href="../index.html?search=dfgdfg" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#dfgdfg</a>
             </div>
           </div>
         </article>
@@ -340,8 +331,8 @@
     }
 
     const CURRENT_POST = {
-      title: "dfgfdg",
-      tags: ["dfgfdg"]
+      title: "sdg",
+      tags: ["dfgdfg"]
     };
 
     async function loadPosts() {
@@ -365,35 +356,6 @@
         console.error("Lỗi khi tải danh sách bài viết:", e);
         return [];
       }
-    }
-
-	function renderPosts(posts) {
-      const container = document.getElementById("suggested-posts");
-      if(!container) return;
-      
-      const displayPosts = (posts || []).slice(0, 5);
-      
-      container.innerHTML = "";
-      if(displayPosts.length === 0) {
-        container.innerHTML = '<div class="text-xs text-slate-400 text-center py-4">Không có bài viết gợi ý phù hợp.</div>';
-        return;
-      }
-      
-      displayPosts.forEach(post => {
-        let correctUrl = post.url || '#';
-        if (!correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
-          correctUrl = '../' + correctUrl;
-        }
-        const imgUrl = post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png';
-
-        container.innerHTML += '<a href="' + correctUrl + '" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-all duration-200">';
-        container.innerHTML += '  <img src="' + imgUrl + '" class="w-14 h-14 rounded-lg object-cover flex-shrink-0 border border-slate-100 shadow-sm group-hover:scale-105 transition-transform">';
-        container.innerHTML += '  <div class="space-y-1 flex-grow">';
-        container.innerHTML += '    <h4 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">' + post.title + '</h4>';
-        container.innerHTML += '    <span class="text-[10px] text-slate-400 block mt-1">Xem bài viết →</span>';
-        container.innerHTML += '  </div>';
-        container.innerHTML += '</a>';
-      });
     }
 
     function getRelatedPosts(posts) {
@@ -871,8 +833,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var submitCommentBtn = document.getElementById('submit-comment-btn');
     var sortSelect = document.getElementById('comment-sort-select');
 
-	var sortSelect = document.getElementById('comment-sort-select');
-
     var currentPage = 1; 
     var commentsPerPage = 10;
     var paginationContainer = document.getElementById('comment-pagination-container');
@@ -880,11 +840,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var currentReplyToId = null;
     var cachedSnapshotData = null;
 
-	function getCommentRef() {
-	  var id = document.getElementById('main-article-element') ? 
-			   document.getElementById('main-article-element').getAttribute('data-id') : 'post-default';
-	  return firebase.database().ref('blog_comments/' + id);
-	}
+    var commentRef;
+    if (typeof firebase !== 'undefined' && firebase.database) {
+      commentRef = firebase.database().ref('blog_comments/' + postDataId);
+    }
 
 	var isAdminActive = false;
     if (commentNameInput) {
@@ -1139,10 +1098,12 @@ function generateCommentHTML(cmt, isChild) {
 		  executeClientPagination();
 		}
 
-		getCommentRef().on('value', function(snapshot) {
+		if (commentRef) {
+		  commentRef.on('value', function(snapshot) {
 			cachedSnapshotData = snapshot.val() || {};
 			renderComments(cachedSnapshotData);
-		});
+		  });
+		}
 
 		window._replyToComment = function(commentId, targetName) {
 		  if (!commentContentInput) return;
@@ -1154,7 +1115,7 @@ function generateCommentHTML(cmt, isChild) {
 
 		window._reactComment = function(fbKey, type) {
 		  if (!commentRef) return;
-		  var reactionPath = getCommentRef().child(fbKey + '/reactions/' + type);
+		  var reactionPath = commentRef.child(fbKey + '/reactions/' + type);
 		  reactionPath.transaction(function(currentCount) {
 			return (currentCount || 0) + 1;
 		  });
@@ -1162,7 +1123,7 @@ function generateCommentHTML(cmt, isChild) {
 
 		window._togglePinComment = function(fbKey, currentPinnedStatus) {
 		  if (!commentRef) return;
-		  getCommentRef().child(fbKey).update({
+		  commentRef.child(fbKey).update({
 			isPinned: !currentPinnedStatus
 		  }).catch(function(err) {
 			alert("Lỗi thực thi ghim: " + err.message);
@@ -1172,8 +1133,8 @@ function generateCommentHTML(cmt, isChild) {
 		window._deleteComment = function(fbKey) {
 		  if (!commentRef) return;
 		  if (confirm("Bạn có chắc chắn muốn xóa vĩnh viễn bình luận này khỏi hệ thống không?")) {
-			getCommentRef().child(fbKey).remove().then(function() {
-			  getCommentRef().once('value', function(snap) {
+			commentRef.child(fbKey).remove().then(function() {
+			  commentRef.once('value', function(snap) {
 				var data = snap.val() || {};
 				Object.keys(data).forEach(function(key) {
 				  if (data[key].replyTo === fbKey) {
@@ -1186,7 +1147,6 @@ function generateCommentHTML(cmt, isChild) {
 			});
 		  }
 		};
-
 
 		if (submitCommentBtn) {
 		  submitCommentBtn.addEventListener('click', function() {
@@ -1215,9 +1175,8 @@ function generateCommentHTML(cmt, isChild) {
 			submitCommentBtn.disabled = true;
 			submitCommentBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang gửi...';
 
-			var ref = getCommentRef();
-			if (ref) {
-			  ref.push(newComment).then(function() {
+			if (commentRef) {
+			  commentRef.push(newComment).then(function() {
 				
 				// 🎯 BẮT ĐẦU: ĐOẠN CODE GỬI THÔNG BÁO TELEGRAM ĐỌC TỪ CONFIG.JS
 				if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin && MY_SITE_CONFIG.admin.telegram) {
