@@ -45,7 +45,7 @@ const MY_SITE_CONFIG = {
     // Cấu hình Header và Footer
     layout: {
         headerHTML: `
-            <header class="bg-white border-b border-slate-100 sticky top-0 z-40 backdrop-blur-md bg-white/80">
+            <header class="fixed top-0 left-0 w-full bg-white border-b border-slate-100 z-50 backdrop-blur-md bg-white/80">
                 <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <a href="https://hieubeo91.github.io/au/" id="header-logo"
                         class="text-2xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
@@ -56,6 +56,7 @@ const MY_SITE_CONFIG = {
                     <p class="text-sm text-slate-500 text-center sm:text-right">Kênh chia sẻ và thương mại tài nguyên cho game Audition (PC)</p>
                 </div>
             </header>
+            <div style="height: 80px;"></div> 
         `,
         footerHTML: `
             <footer class="bg-slate-900 text-slate-400 py-8 mt-16 border-t border-slate-800">
