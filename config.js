@@ -7,8 +7,8 @@ const MY_SITE_CONFIG = {
         {
             link: "https://hieubeo91.github.io/au/posts/couple.html",
             image: "https://lh3.googleusercontent.com/d/1FvNmUmMYU5QQEODUCjUNJKqA0E76q0j9",
-            title: "Thang cấp độ nhẫn trong Audition",
-            altText: "Thang cấp độ nhẫn trong Audition"
+            title: "Thang cấp độ đôi trong Audition",
+            altText: "Thang cấp độ đôi trong Audition"
         },
     ],
 
