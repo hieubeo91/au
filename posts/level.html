@@ -47,7 +47,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: #f8fafc;
@@ -95,33 +95,6 @@
   #back-to-top.show {
     opacity: 1;
     visibility: visible;
-  }
-  
-  @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  @keyframes heartFlyUp {
-    0% {
-      transform: translateY(0) translateX(0) scale(0.6) rotate(0deg);
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.9;
-    }
-    100% {
-      transform: translateY(-140px) translateX(var(--drift-x)) scale(1.3) rotate(var(--rotate-deg));
-      opacity: 0;
-    }
-  }
-  .floating-heart {
-    position: absolute;
-    color: #f43f5e;
-    pointer-events: none;
-    animation: heartFlyUp 1.2s ease-out forwards;
-    z-index: 50;
   }
 </style>
 
@@ -185,1286 +158,375 @@
             Audition mới nhất để chuẩn bị sẵn sàng cho hành trình chinh phục những cột mốc danh hiệu huyền thoại nhé!
           </div>
 
-          <!-- BẢNG THANG CẤP ĐỘ LEVEL AUDITION -->
-          <div class="my-8 overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-white">
-            <div class="bg-indigo-600 px-4 py-3 text-white font-bold text-base flex items-center justify-between">
-              <span><i class="fa-solid fa-trophy mr-2"></i>Bảng Thang Cấp Độ & Danh Hiệu Audition</span>
-              <span class="text-xs bg-indigo-500 px-2.5 py-1 rounded-full font-normal">Mới nhất</span>
-            </div>
+          <!-- BẢNG CẤP ĐỘ AUDITION DẠNG KHỐI CARD THEO MẪU -->
+          <div class="my-8 bg-slate-900 rounded-2xl p-4 sm:p-6 shadow-xl border border-slate-800">
+            <h2 class="text-center text-lg sm:text-2xl font-black text-indigo-400 uppercase tracking-widest mb-6 border-b border-slate-800 pb-4">
+              <i class="fa-solid fa-trophy mr-2 text-amber-400"></i> Bảng Cấp Độ Audition
+            </h2>
 
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 1</td>
-                        <td class="exp-col">: 0</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 2</td>
-                        <td class="exp-col">: 220</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 3</td>
-                        <td class="exp-col">: 1,260</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 4</td>
-                        <td class="exp-col">: 3,480</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 5</td>
-                        <td class="exp-col">: 7,140</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 text-slate-300 font-mono text-[11px]">
+              
+              <!-- Block 1 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-blue-400 font-bold text-sm mb-2 uppercase tracking-wide">Vỡ lòng</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 1 : 0</div>
+                  <div>Lv. 2 : 220</div>
+                  <div>Lv. 3 : 1,260</div>
+                  <div>Lv. 4 : 3,480</div>
+                  <div>Lv. 5 : 7,140</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 2 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_2.png" alt="Header Title 2">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 6</td>
-                        <td class="exp-col">: 12,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 7</td>
-                        <td class="exp-col">: 19,695</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 8</td>
-                        <td class="exp-col">: 29,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 9</td>
-                        <td class="exp-col">: 40,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 10</td>
-                        <td class="exp-col">: 54,500</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 2 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-blue-400 font-bold text-sm mb-2 uppercase tracking-wide">Nâng cao</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 6 : 12,500</div>
+                  <div>Lv. 7 : 19,695</div>
+                  <div>Lv. 8 : 29,000</div>
+                  <div>Lv. 9 : 40,500</div>
+                  <div>Lv. 10 : 54,500</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 3 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_3.png" alt="Header Title 3">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 11</td>
-                        <td class="exp-col">: 71,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 12</td>
-                        <td class="exp-col">: 90,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 13</td>
-                        <td class="exp-col">: 112,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 14</td>
-                        <td class="exp-col">: 137,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 15</td>
-                        <td class="exp-col">: 165,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 3 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-cyan-400 font-bold text-sm mb-2 uppercase tracking-wide">Đường phố</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 11 : 71,000</div>
+                  <div>Lv. 12 : 90,000</div>
+                  <div>Lv. 13 : 112,000</div>
+                  <div>Lv. 14 : 137,000</div>
+                  <div>Lv. 15 : 165,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 4 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_4.png" alt="Header Title 4">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 16</td>
-                        <td class="exp-col">: 196,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 17</td>
-                        <td class="exp-col">: 230,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 18</td>
-                        <td class="exp-col">: 268,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 19</td>
-                        <td class="exp-col">: 310,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 20</td>
-                        <td class="exp-col">: 354,500</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 4 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-emerald-400 font-bold text-sm mb-2 uppercase tracking-wide">Phong trào</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 16 : 196,000</div>
+                  <div>Lv. 17 : 230,500</div>
+                  <div>Lv. 18 : 268,500</div>
+                  <div>Lv. 19 : 310,000</div>
+                  <div>Lv. 20 : 354,500</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 5 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_5.png" alt="Header Title 5">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 21</td>
-                        <td class="exp-col">: 403,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 22</td>
-                        <td class="exp-col">: 456,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 23</td>
-                        <td class="exp-col">: 512,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 24</td>
-                        <td class="exp-col">: 572,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 25</td>
-                        <td class="exp-col">: 637,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 5 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-green-400 font-bold text-sm mb-2 uppercase tracking-wide">Nghiệp dư</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 21 : 403,500</div>
+                  <div>Lv. 22 : 456,000</div>
+                  <div>Lv. 23 : 512,000</div>
+                  <div>Lv. 24 : 572,500</div>
+                  <div>Lv. 25 : 637,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 6 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_6.png" alt="Header Title 6">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 26</td>
-                        <td class="exp-col">: 705,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 27</td>
-                        <td class="exp-col">: 778,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 28</td>
-                        <td class="exp-col">: 855,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 29</td>
-                        <td class="exp-col">: 937,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 30</td>
-                        <td class="exp-col">: 1,023,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 6 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-lime-400 font-bold text-sm mb-2 uppercase tracking-wide">Nhảy nền</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 26 : 705,500</div>
+                  <div>Lv. 27 : 778,000</div>
+                  <div>Lv. 28 : 855,500</div>
+                  <div>Lv. 29 : 937,000</div>
+                  <div>Lv. 30 : 1,023,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 7 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_7.png" alt="Header Title 7">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 31</td>
-                        <td class="exp-col">: 1,113,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 32</td>
-                        <td class="exp-col">: 1,208,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 33</td>
-                        <td class="exp-col">: 1,308,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 34</td>
-                        <td class="exp-col">: 1,413,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 35</td>
-                        <td class="exp-col">: 1,523,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 7 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-yellow-400 font-bold text-sm mb-2 uppercase tracking-wide">Nhảy chính</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 31 : 1,113,500</div>
+                  <div>Lv. 32 : 1,208,500</div>
+                  <div>Lv. 33 : 1,308,500</div>
+                  <div>Lv. 34 : 1,413,500</div>
+                  <div>Lv. 35 : 1,523,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 8 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_8.png" alt="Header Title 8">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 36</td>
-                        <td class="exp-col">: 1,638,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 37</td>
-                        <td class="exp-col">: 1,757,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 38</td>
-                        <td class="exp-col">: 1,882,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 39</td>
-                        <td class="exp-col">: 2,012,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 40</td>
-                        <td class="exp-col">: 2,147,500</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 8 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-amber-400 font-bold text-sm mb-2 uppercase tracking-wide">Bán chuyên</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 36 : 1,638,000</div>
+                  <div>Lv. 37 : 1,757,500</div>
+                  <div>Lv. 38 : 1,882,500</div>
+                  <div>Lv. 39 : 2,012,000</div>
+                  <div>Lv. 40 : 2,147,500</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 9 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_9.png" alt="Header Title 9">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 41</td>
-                        <td class="exp-col">: 2,288,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 42</td>
-                        <td class="exp-col">: 2,434,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 43</td>
-                        <td class="exp-col">: 2,585,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 44</td>
-                        <td class="exp-col">: 2,742,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 45</td>
-                        <td class="exp-col">: 2,904,500</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 9 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-orange-400 font-bold text-sm mb-2 uppercase tracking-wide">Chuyên nghiệp</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 41 : 2,288,000</div>
+                  <div>Lv. 42 : 2,434,000</div>
+                  <div>Lv. 43 : 2,585,000</div>
+                  <div>Lv. 44 : 2,742,000</div>
+                  <div>Lv. 45 : 2,904,500</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 10 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_10.png" alt="Header Title 10">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 46</td>
-                        <td class="exp-col">: 3,072,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 47</td>
-                        <td class="exp-col">: 3,246,500</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 48</td>
-                        <td class="exp-col">: 3,426,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 49</td>
-                        <td class="exp-col">: 3,611,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 50</td>
-                        <td class="exp-col">: 3,802,500</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 10 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-teal-400 font-bold text-sm mb-2 uppercase tracking-wide">Thiên tài</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 46 : 3,072,500</div>
+                  <div>Lv. 47 : 3,246,500</div>
+                  <div>Lv. 48 : 3,426,000</div>
+                  <div>Lv. 49 : 3,611,000</div>
+                  <div>Lv. 50 : 3,802,500</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 11 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_11.png" alt="Header Title 11">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 51</td>
-                        <td class="exp-col">: 4,000,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 52</td>
-                        <td class="exp-col">: 4,300,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 53</td>
-                        <td class="exp-col">: 4,650,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 54</td>
-                        <td class="exp-col">: 5,000,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 55</td>
-                        <td class="exp-col">: 5,400,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 11 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-purple-400 font-bold text-sm mb-2 uppercase tracking-wide">Xuất chúng</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 51 : 4,000,000</div>
+                  <div>Lv. 52 : 4,300,000</div>
+                  <div>Lv. 53 : 4,650,000</div>
+                  <div>Lv. 54 : 5,000,000</div>
+                  <div>Lv. 55 : 5,400,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 12 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_12.png" alt="Header Title 12">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 56</td>
-                        <td class="exp-col">: 5,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 57</td>
-                        <td class="exp-col">: 6,350,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 58</td>
-                        <td class="exp-col">: 6,900,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 59</td>
-                        <td class="exp-col">: 7,300,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 60</td>
-                        <td class="exp-col">: 7,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 12 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-purple-400 font-bold text-sm mb-2 uppercase tracking-wide">Đẳng cấp</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 56 : 5,850,000</div>
+                  <div>Lv. 57 : 6,350,000</div>
+                  <div>Lv. 58 : 6,900,000</div>
+                  <div>Lv. 59 : 7,300,000</div>
+                  <div>Lv. 60 : 7,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 13 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_13.png" alt="Header Title 13">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 61</td>
-                        <td class="exp-col">: 8,400,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 62</td>
-                        <td class="exp-col">: 9,000,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 63</td>
-                        <td class="exp-col">: 9,600,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 64</td>
-                        <td class="exp-col">: 10,250,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 65</td>
-                        <td class="exp-col">: 10,900,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 13 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-pink-400 font-bold text-sm mb-2 uppercase tracking-wide">Đỉnh cao</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 61 : 8,400,000</div>
+                  <div>Lv. 62 : 9,000,000</div>
+                  <div>Lv. 63 : 9,600,000</div>
+                  <div>Lv. 64 : 10,250,000</div>
+                  <div>Lv. 65 : 10,900,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 14 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_14.png" alt="Header Title 14">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 66</td>
-                        <td class="exp-col">: 11,600,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 67</td>
-                        <td class="exp-col">: 12,350,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 68</td>
-                        <td class="exp-col">: 13,150,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 69</td>
-                        <td class="exp-col">: 14,000,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 70</td>
-                        <td class="exp-col">: 14,900,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 14 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-cyan-400 font-bold text-sm mb-2 uppercase tracking-wide">Thần tượng</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 66 : 11,600,000</div>
+                  <div>Lv. 67 : 12,350,000</div>
+                  <div>Lv. 68 : 13,150,000</div>
+                  <div>Lv. 69 : 14,000,000</div>
+                  <div>Lv. 70 : 14,900,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 15 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_15.png" alt="Header Title 15">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 71</td>
-                        <td class="exp-col">: 15,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 72</td>
-                        <td class="exp-col">: 16,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 73</td>
-                        <td class="exp-col">: 17,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 74</td>
-                        <td class="exp-col">: 18,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 75</td>
-                        <td class="exp-col">: 19,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 15 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-indigo-400 font-bold text-sm mb-2 uppercase tracking-wide">Siêu sao</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 71 : 15,850,000</div>
+                  <div>Lv. 72 : 16,850,000</div>
+                  <div>Lv. 73 : 17,850,000</div>
+                  <div>Lv. 74 : 18,850,000</div>
+                  <div>Lv. 75 : 19,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 16 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_16.png" alt="Header Title 16">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 76</td>
-                        <td class="exp-col">: 21,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 77</td>
-                        <td class="exp-col">: 23,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 78</td>
-                        <td class="exp-col">: 25,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 79</td>
-                        <td class="exp-col">: 27,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 80</td>
-                        <td class="exp-col">: 29,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 16 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-amber-400 font-bold text-sm mb-2 uppercase tracking-wide">Tinh anh</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 76 : 21,850,000</div>
+                  <div>Lv. 77 : 23,850,000</div>
+                  <div>Lv. 78 : 25,850,000</div>
+                  <div>Lv. 79 : 27,850,000</div>
+                  <div>Lv. 80 : 29,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 17 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_17.png" alt="Header Title 17">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 81</td>
-                        <td class="exp-col">: 32,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 82</td>
-                        <td class="exp-col">: 35,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 83</td>
-                        <td class="exp-col">: 38,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 84</td>
-                        <td class="exp-col">: 41,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 85</td>
-                        <td class="exp-col">: 44,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 17 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-sky-400 font-bold text-sm mb-2 uppercase tracking-wide">Tinh tú</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 81 : 32,850,000</div>
+                  <div>Lv. 82 : 35,850,000</div>
+                  <div>Lv. 83 : 38,850,000</div>
+                  <div>Lv. 84 : 41,850,000</div>
+                  <div>Lv. 85 : 44,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 18 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_18.png" alt="Header Title 18">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 86</td>
-                        <td class="exp-col">: 48,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 87</td>
-                        <td class="exp-col">: 52,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 88</td>
-                        <td class="exp-col">: 56,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 89</td>
-                        <td class="exp-col">: 60,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 90</td>
-                        <td class="exp-col">: 64,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 18 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-blue-400 font-bold text-sm mb-2 uppercase tracking-wide">Vũ thần</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 86 : 48,850,000</div>
+                  <div>Lv. 87 : 52,850,000</div>
+                  <div>Lv. 88 : 56,850,000</div>
+                  <div>Lv. 89 : 60,850,000</div>
+                  <div>Lv. 90 : 64,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 19 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_19.png" alt="Header Title 19">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 91</td>
-                        <td class="exp-col">: 69,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 92</td>
-                        <td class="exp-col">: 74,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 93</td>
-                        <td class="exp-col">: 79,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 94</td>
-                        <td class="exp-col">: 84,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 95</td>
-                        <td class="exp-col">: 89,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 19 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-lime-400 font-bold text-sm mb-2 uppercase tracking-wide">Vĩ đại</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 91 : 69,850,000</div>
+                  <div>Lv. 92 : 74,850,000</div>
+                  <div>Lv. 93 : 79,850,000</div>
+                  <div>Lv. 94 : 84,850,000</div>
+                  <div>Lv. 95 : 89,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 20 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_20.png" alt="Header Title 20">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 96</td>
-                        <td class="exp-col">: 95,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 97</td>
-                        <td class="exp-col">: 101,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 98</td>
-                        <td class="exp-col">: 107,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 99</td>
-                        <td class="exp-col">: 113,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 100</td>
-                        <td class="exp-col">: 119,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 20 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-rose-400 font-bold text-sm mb-2 uppercase tracking-wide">Huyền thoại</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 96 : 95,850,000</div>
+                  <div>Lv. 97 : 101,850,000</div>
+                  <div>Lv. 98 : 107,850,000</div>
+                  <div>Lv. 99 : 113,850,000</div>
+                  <div>Lv. 100 : 119,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 21 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_21.png" alt="Header Title 21">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 101</td>
-                        <td class="exp-col">: 126,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 102</td>
-                        <td class="exp-col">: 133,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 103</td>
-                        <td class="exp-col">: 140,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 104</td>
-                        <td class="exp-col">: 147,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 105</td>
-                        <td class="exp-col">: 154,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 21 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-red-500 font-bold text-sm mb-2 uppercase tracking-wide">Siêu Cấp</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 101 : 126,850,000</div>
+                  <div>Lv. 102 : 133,850,000</div>
+                  <div>Lv. 103 : 140,850,000</div>
+                  <div>Lv. 104 : 147,850,000</div>
+                  <div>Lv. 105 : 154,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 22 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_22.png" alt="Header Title 22">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 106</td>
-                        <td class="exp-col">: 162,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 107</td>
-                        <td class="exp-col">: 170,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 108</td>
-                        <td class="exp-col">: 178,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 109</td>
-                        <td class="exp-col">: 186,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 110</td>
-                        <td class="exp-col">: 194,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 22 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-slate-200 font-bold text-sm mb-2 uppercase tracking-wide">Elite</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 106 : 162,850,000</div>
+                  <div>Lv. 107 : 170,850,000</div>
+                  <div>Lv. 108 : 178,850,000</div>
+                  <div>Lv. 109 : 186,850,000</div>
+                  <div>Lv. 110 : 194,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 23 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_23.png" alt="Header Title 23">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 111</td>
-                        <td class="exp-col">: 203,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 112</td>
-                        <td class="exp-col">: 212,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 113</td>
-                        <td class="exp-col">: 221,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 114</td>
-                        <td class="exp-col">: 230,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 115</td>
-                        <td class="exp-col">: 239,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 23 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-fuchsia-400 font-bold text-sm mb-2 uppercase tracking-wide">Superstar</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 111 : 203,850,000</div>
+                  <div>Lv. 112 : 212,850,000</div>
+                  <div>Lv. 113 : 221,850,000</div>
+                  <div>Lv. 114 : 230,850,000</div>
+                  <div>Lv. 115 : 239,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 24 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_24.png" alt="Header Title 24">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 116</td>
-                        <td class="exp-col">: 249,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 117</td>
-                        <td class="exp-col">: 259,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 118</td>
-                        <td class="exp-col">: 269,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 119</td>
-                        <td class="exp-col">: 279,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 120</td>
-                        <td class="exp-col">: 289,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 24 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-indigo-400 font-bold text-sm mb-2 uppercase tracking-wide">Supreme</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 116 : 249,850,000</div>
+                  <div>Lv. 117 : 259,850,000</div>
+                  <div>Lv. 118 : 269,850,000</div>
+                  <div>Lv. 119 : 279,850,000</div>
+                  <div>Lv. 120 : 289,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 25 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_25.png" alt="Header Title 25">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 121</td>
-                        <td class="exp-col">: 300,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 122</td>
-                        <td class="exp-col">: 311,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 123</td>
-                        <td class="exp-col">: 322,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 124</td>
-                        <td class="exp-col">: 333,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 125</td>
-                        <td class="exp-col">: 344,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 25 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-emerald-400 font-bold text-sm mb-2 uppercase tracking-wide">Extreme</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 121 : 300,850,000</div>
+                  <div>Lv. 122 : 311,850,000</div>
+                  <div>Lv. 123 : 322,850,000</div>
+                  <div>Lv. 124 : 333,850,000</div>
+                  <div>Lv. 125 : 344,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 26 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_26.png" alt="Header Title 26">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 126</td>
-                        <td class="exp-col">: 357,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 127</td>
-                        <td class="exp-col">: 370,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 128</td>
-                        <td class="exp-col">: 383,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 129</td>
-                        <td class="exp-col">: 396,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 130</td>
-                        <td class="exp-col">: 409,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 26 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-pink-400 font-bold text-sm mb-2 uppercase tracking-wide">Expert</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 126 : 357,850,000</div>
+                  <div>Lv. 127 : 370,850,000</div>
+                  <div>Lv. 128 : 383,850,000</div>
+                  <div>Lv. 129 : 396,850,000</div>
+                  <div>Lv. 130 : 409,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 27 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_27.png" alt="Header Title 27">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 131</td>
-                        <td class="exp-col">: 424,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 132</td>
-                        <td class="exp-col">: 439,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 133</td>
-                        <td class="exp-col">: 454,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 134</td>
-                        <td class="exp-col">: 469,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 135</td>
-                        <td class="exp-col">: 484,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 27 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-amber-500 font-bold text-sm mb-2 uppercase tracking-wide">Master</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 131 : 424,850,000</div>
+                  <div>Lv. 132 : 439,850,000</div>
+                  <div>Lv. 133 : 454,850,000</div>
+                  <div>Lv. 134 : 469,850,000</div>
+                  <div>Lv. 135 : 484,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 28 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_28.png" alt="Header Title 28">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 136</td>
-                        <td class="exp-col">: 501,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 137</td>
-                        <td class="exp-col">: 518,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 138</td>
-                        <td class="exp-col">: 535,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 139</td>
-                        <td class="exp-col">: 552,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 140</td>
-                        <td class="exp-col">: 569,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 28 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-violet-400 font-bold text-sm mb-2 uppercase tracking-wide">Wizard</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 136 : 501,850,000</div>
+                  <div>Lv. 137 : 518,850,000</div>
+                  <div>Lv. 138 : 535,850,000</div>
+                  <div>Lv. 139 : 552,850,000</div>
+                  <div>Lv. 140 : 569,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 29 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_29.png" alt="Header Title 29">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 141</td>
-                        <td class="exp-col">: 588,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 142</td>
-                        <td class="exp-col">: 607,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 143</td>
-                        <td class="exp-col">: 626,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 144</td>
-                        <td class="exp-col">: 645,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 145</td>
-                        <td class="exp-col">: 664,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 29 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-rose-400 font-bold text-sm mb-2 uppercase tracking-wide">Virtuosa</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 141 : 588,850,000</div>
+                  <div>Lv. 142 : 607,850,000</div>
+                  <div>Lv. 143 : 626,850,000</div>
+                  <div>Lv. 144 : 645,850,000</div>
+                  <div>Lv. 145 : 664,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 30 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_30.png" alt="Header Title 30">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 146</td>
-                        <td class="exp-col">: 685,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 147</td>
-                        <td class="exp-col">: 706,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 148</td>
-                        <td class="exp-col">: 727,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 149</td>
-                        <td class="exp-col">: 748,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. MAX</td>
-                        <td class="exp-col">: 769,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+              <!-- Block 30 -->
+              <div class="bg-slate-800/80 border border-slate-700/60 rounded-xl p-3 flex flex-col items-center hover:border-indigo-500 transition-colors shadow">
+                <div class="text-cyan-300 font-bold text-sm mb-2 uppercase tracking-wide">Maestro</div>
+                <div class="w-full space-y-1 text-slate-300 text-center">
+                  <div>Lv. 146 : 685,850,000</div>
+                  <div>Lv. 147 : 706,850,000</div>
+                  <div>Lv. 148 : 727,850,000</div>
+                  <div>Lv. 149 : 748,850,000</div>
+                  <div class="text-amber-400 font-bold">Lv. MAX : 769,850,000</div>
+                </div>
+              </div>
 
-        <!-- Bảng con 31 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_31.png" alt="Header Title 31">
             </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 151</td>
-                        <td class="exp-col">: 792,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 152</td>
-                        <td class="exp-col">: 815,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 153</td>
-                        <td class="exp-col">: 838,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 154</td>
-                        <td class="exp-col">: 861,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 155</td>
-                        <td class="exp-col">: 884,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Bảng con 32 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_32.png" alt="Header Title 32">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 156</td>
-                        <td class="exp-col">: 909,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 157</td>
-                        <td class="exp-col">: 934,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 158</td>
-                        <td class="exp-col">: 959,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 159</td>
-                        <td class="exp-col">: 984,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 160</td>
-                        <td class="exp-col">: 1,009,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Bảng con 33 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_33.png" alt="Header Title 33">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 161</td>
-                        <td class="exp-col">: 1,036,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 162</td>
-                        <td class="exp-col">: 1,063,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 163</td>
-                        <td class="exp-col">: 1,090,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 164</td>
-                        <td class="exp-col">: 1,117,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 165</td>
-                        <td class="exp-col">: 1,144,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Bảng con 34 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_34.png" alt="Header Title 34">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 166</td>
-                        <td class="exp-col">: 1,173,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 167</td>
-                        <td class="exp-col">: 1,202,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 168</td>
-                        <td class="exp-col">: 1,231,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 169</td>
-                        <td class="exp-col">: 1,260,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 170</td>
-                        <td class="exp-col">: 1,289,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Bảng con 35 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_35.png" alt="Header Title 35">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 171</td>
-                        <td class="exp-col">: 1,324,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 172</td>
-                        <td class="exp-col">: 1,359,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 173</td>
-                        <td class="exp-col">: 1,394,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 174</td>
-                        <td class="exp-col">: 1,429,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 175</td>
-                        <td class="exp-col">: 1,464,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Bảng con 36 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_36.png" alt="Header Title 36">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 176</td>
-                        <td class="exp-col">: 1,506,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 177</td>
-                        <td class="exp-col">: 1,548,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 178</td>
-                        <td class="exp-col">: 1,590,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 179</td>
-                        <td class="exp-col">: 1,632,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 180</td>
-                        <td class="exp-col">: 1,674,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Bảng con 37 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_37.png" alt="Header Title 37">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 181</td>
-                        <td class="exp-col">: 1,724,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 182</td>
-                        <td class="exp-col">: 1,774,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 183</td>
-                        <td class="exp-col">: 1,824,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 184</td>
-                        <td class="exp-col">: 1,874,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 185</td>
-                        <td class="exp-col">: 1,924,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Bảng con 38 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_38.png" alt="Header Title 38">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 186</td>
-                        <td class="exp-col">: 1,984,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 187</td>
-                        <td class="exp-col">: 2,044,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 188</td>
-                        <td class="exp-col">: 2,104,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 189</td>
-                        <td class="exp-col">: 2,164,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 190</td>
-                        <td class="exp-col">: 2,224,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Bảng con 39 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_39.png" alt="Header Title 39">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 191</td>
-                        <td class="exp-col">: 2,296,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 192</td>
-                        <td class="exp-col">: 2,368,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 193</td>
-                        <td class="exp-col">: 2,440,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 194</td>
-                        <td class="exp-col">: 2,512,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 195</td>
-                        <td class="exp-col">: 2,584,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Bảng con 40 -->
-        <div class="card-table">
-            <div class="card-header">
-                <!-- THAY LINK ÁNH CỦA BẠN VÀO THUỘC TÍNH src BÊN DƯỚI -->
-                <img src="YOUR_IMAGE_URL_40.png" alt="Header Title 40">
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td class="lv-col">Lv. 196</td>
-                        <td class="exp-col">: 2,670,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 197</td>
-                        <td class="exp-col">: 2,756,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 198</td>
-                        <td class="exp-col">: 2,842,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 199</td>
-                        <td class="exp-col">: 2,928,850,000</td>
-                    </tr>
-                    <tr>
-                        <td class="lv-col">Lv. 200</td>
-                        <td class="exp-col">: 3,014,850,000</td>
-                    </tr>
-                </tbody>
-            </table>
-			  
           </div>
         </div>
 
