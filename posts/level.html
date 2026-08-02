@@ -1,6 +1,3 @@
-
-
-
 <script src="https://hieubeo91.github.io/au/config.js"></script> 
 <script>
 (function() {
@@ -21,2177 +18,630 @@
 </script>
 
 <meta property="og:type" content="article">
-    <meta property="og:title" content="' + title + '">
-    <meta property="og:image" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
-    <meta property="og:image:secure_url" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
-    <meta property="og:url" content="' + window.location.href + '">
+<meta property="og:title" content="' + title + '">
+<meta property="og:image" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
+<meta property="og:image:secure_url" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
+<meta property="og:url" content="' + window.location.href + '">
 
-  <meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc">
-  <script data-goatcounter="https://vetraitim.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
-  <meta charset="UTF-8">
-	<meta property="fb:app_id" content="966242223397117">
-	<meta property="og:type" content="article">
-	<meta property="og:title" content="Thang cấp độ level trong Audition">
-	<meta property="og:description" content="Việc nâng cấp level không chỉ giúp bạn khẳng định vị thế cá nhân trên sàn nhảy, mà còn là điều kiện bắt buộc để mở khóa các tính năng quan trọng như kill boss, tạo Fam, ghép đôi. Trong bài viết này, chúng ta sẽ cùng nhìn lại toàn bộ bảng thang cấp độ Audition mới nhất để chuẩn bị sẵn sàng cho hành trình chinh phục những cột mốc danh hiệu huyền thoại nhé!">
+<meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc">
+<script data-goatcounter="https://vetraitim.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
+<meta charset="UTF-8">
+<meta property="fb:app_id" content="966242223397117">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thang cấp độ level trong Audition">
+<meta property="og:description" content="Việc nâng cấp level không chỉ giúp bạn khẳng định vị thế cá nhân trên sàn nhảy, mà còn là điều kiện bắt buộc để mở khóa các tính năng quan trọng như kill boss, tạo Fam, ghép đôi. Trong bài viết này, chúng ta sẽ cùng nhìn lại toàn bộ bảng thang cấp độ Audition mới nhất để chuẩn bị sẵn sàng cho hành trình chinh phục những cột mốc danh hiệu huyền thoại nhé!">
 
-	<meta property="og:image" content="https://lh3.googleusercontent.com/d/1OKZn9RFW9hvrAU3Hp-K5tkeG_ml4vReM">
-	<meta property="og:image:secure_url" content="https://lh3.googleusercontent.com/d/1OKZn9RFW9hvrAU3Hp-K5tkeG_ml4vReM">
-	<meta property="og:url" content="${window.location.href}">
-		
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hieubeo's Audition Studio</title>
-  
- <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
- <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
-  
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #f8fafc;
-      scroll-behavior: smooth;
-    }
-    .swiper {
-      width: 100%;
-      height: 400px;
-      border-radius: 12px;
-    }
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: #ffffff !important;
-      background: rgba(0, 0, 0, 0.4);
-      width: 40px !important;
-      height: 40px !important;
-      border-radius: 50%;
-      transition: all 0.2s ease;
-    }
-    .swiper-button-next:hover,
-    .swiper-button-prev:hover {
-      background: rgba(99, 102, 241, 0.9);
-      transform: scale(1.05);
-    }
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-      font-size: 14px !important;
-      font-weight: bold;
-    }
-    .swiper-pagination-bullet-active {
-      background: #6366f1 !important;
-      width: 24px !important;
-      border-radius: 4px !important;
-    }
-    #back-to-top {
-      transition: all 0.3s ease;
-      opacity: 0;
-      visibility: hidden;
-    }
-    #back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
+<meta property="og:image" content="https://lh3.googleusercontent.com/d/1OKZn9RFW9hvrAU3Hp-K5tkeG_ml4vReM">
+<meta property="og:image:secure_url" content="https://lh3.googleusercontent.com/d/1OKZn9RFW9hvrAU3Hp-K5tkeG_ml4vReM">
+<meta property="og:url" content="${window.location.href}">
 	
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hieubeo's Audition Studio</title>
 
-	@keyframes heartFlyUp {
-		0% {
-		  transform: translateY(0) translateX(0) scale(0.6) rotate(0deg);
-		  opacity: 1;
-		}
-		50% {
-		  opacity: 0.9;
-		}
-		100% {
-		  transform: translateY(-140px) translateX(var(--drift-x)) scale(1.3) rotate(var(--rotate-deg));
-		  opacity: 0;
-		}
-	  }
-	.floating-heart {
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f8fafc;
+    scroll-behavior: smooth;
+  }
+  .swiper {
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+  }
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #ffffff !important;
+    background: rgba(0, 0, 0, 0.4);
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background: rgba(99, 102, 241, 0.9);
+    transform: scale(1.05);
+  }
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 14px !important;
+    font-weight: bold;
+  }
+  .swiper-pagination-bullet-active {
+    background: #6366f1 !important;
+    width: 24px !important;
+    border-radius: 4px !important;
+  }
+  #back-to-top {
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes heartFlyUp {
+    0% {
+      transform: translateY(0) translateX(0) scale(0.6) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateY(-140px) translateX(var(--drift-x)) scale(1.3) rotate(var(--rotate-deg));
+      opacity: 0;
+    }
+  }
+  .floating-heart {
     position: absolute;
     color: #f43f5e;
     pointer-events: none;
     animation: heartFlyUp 1.2s ease-out forwards;
     z-index: 50;
-	}
-  </style>
-
+  }
+</style>
 
 <div id="fb-root"></div>
 <script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;version=v18.0"></script>
-  
-  <div id="header-container"></div>
 
-  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start w-full">
-      <div class="w-full lg:col-span-2 space-y-6">
+<div id="header-container"></div>
+
+<main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start w-full">
+    <div class="w-full lg:col-span-2 space-y-6">
+      
+      <article id="main-article-element" data-id="post-level" class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm w-full">
+        <a href="../index.html" class="mb-6 inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
+          <i class="fa-solid fa-arrow-left"></i> Quay lại trang chủ
+        </a>
         
-        <article id="main-article-element" data-id="post-level" class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm w-full">
-          <a href="../index.html" class="mb-6 inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
-            <i class="fa-solid fa-arrow-left"></i> Quay lại trang chủ
-          </a>
-          
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-            <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_free" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fef2f2; color: #dc2626;" title="Xem thêm bài viết thuộc chủ đề Miễn phí">Miễn phí</a>
-              <a href="../index.html?cat=cat_guide" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f5f3ff; color: #7c3aed;" title="Xem thêm bài viết thuộc chủ đề Hướng dẫn">Hướng dẫn</a>
-              <a href="../index.html?cat=cat_misc" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fdf2f8; color: #db2777;" title="Xem thêm bài viết thuộc chủ đề Khác">Khác</a>
-              <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>02/08/2026</span>
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <div class="flex items-center gap-3">
+            <a href="../index.html?cat=cat_free" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fef2f2; color: #dc2626;" title="Xem thêm bài viết thuộc chủ đề Miễn phí">Miễn phí</a>
+            <a href="../index.html?cat=cat_guide" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #f5f3ff; color: #7c3aed;" title="Xem thêm bài viết thuộc chủ đề Hướng dẫn">Hướng dẫn</a>
+            <a href="../index.html?cat=cat_misc" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #fdf2f8; color: #db2777;" title="Xem thêm bài viết thuộc chủ đề Khác">Khác</a>
+            <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>02/08/2026</span>
+          </div>
+        </div>
+
+        <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
+          Thang cấp độ level trong Audition
+        </h1>
+
+        <div class="mb-5">
+          <span class="text-sm text-slate-500 font-medium">
+            <i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span>
+          </span>
+        </div>
+
+        <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="https://lh3.googleusercontent.com/d/1OKZn9RFW9hvrAU3Hp-K5tkeG_ml4vReM" data-fancybox="gallery-post-thang-cap-do-level-trong-audition" data-caption="Thang cấp độ level trong Audition" class="block w-full h-full relative group">
+                <img src="https://lh3.googleusercontent.com/d/1OKZn9RFW9hvrAU3Hp-K5tkeG_ml4vReM" alt="Thang cấp độ level trong Audition" class="hover:scale-105 transition-transform duration-300">
+              </a>
             </div>
           </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
 
-          <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            Thang cấp độ level trong Audition
-          </h1>
-
-          <div class="mb-5">
-            <span class="text-sm text-slate-500 font-medium">
-              <i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span>
-            </span>
+        <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
+          <div class="mb-4">
+            Đối với thế hệ game thủ 8x, 9x và cả những thế hệ sau này, Audition đã trở thành một phần thanh xuân không thể thay thế. 
+            Sức hút của tựa game casual vũ đạo này không chỉ đến từ kho âm nhạc thời thượng hay những bộ thời trang lộng lẫy, mà còn nằm ở hành trình 
+            chinh phục đầy thử thách của hệ thống thang cấp độ nhân vật.
+            <br><br>
+            Bạn có còn nhớ cảm giác hồi hộp khi thực hiện chuỗi nhiệm vụ để đổi tên danh hiệu? Hay cảm giác tự hào khi nhìn nhân vật của mình 
+            tiến hóa từ một "Newbie" vô danh lên đến các cột mốc "Siêu Sao", "Huyền thoại", và tiến thẳng tới level "Siêu cấp" cực khủng?
+            <br><br>
+            Việc nâng cấp level không chỉ giúp bạn khẳng định vị thế cá nhân trên sàn nhảy, mà còn là điều kiện bắt buộc để mở khóa các tính 
+            năng quan trọng như kill boss, thành lập Fam, ghép đôi. Trong bài viết này, chúng ta sẽ cùng nhìn lại toàn bộ bảng thang cấp độ 
+            Audition mới nhất để chuẩn bị sẵn sàng cho hành trình chinh phục những cột mốc danh hiệu huyền thoại nhé!
           </div>
 
-          <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
-            <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                <a href="https://lh3.googleusercontent.com/d/1OKZn9RFW9hvrAU3Hp-K5tkeG_ml4vReM" data-fancybox="gallery-post-thang-cap-do-level-trong-audition" data-caption="Thang cấp độ level trong Audition" class="block w-full h-full relative group">
-                  <img src="https://lh3.googleusercontent.com/d/1OKZn9RFW9hvrAU3Hp-K5tkeG_ml4vReM" alt="Thang cấp độ level trong Audition" class="hover:scale-105 transition-transform duration-300">
-                  
-                </a>
-              </div>
+          <!-- BẢNG THANG CẤP ĐỘ LEVEL AUDITION -->
+          <div class="my-8 overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-white">
+            <div class="bg-indigo-600 px-4 py-3 text-white font-bold text-base flex items-center justify-between">
+              <span><i class="fa-solid fa-trophy mr-2"></i>Bảng Thang Cấp Độ & Danh Hiệu Audition</span>
+              <span class="text-xs bg-indigo-500 px-2.5 py-1 rounded-full font-normal">Mới nhất</span>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+            <table class="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead>
+                <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                  <th class="p-3 text-center w-16">Cấp độ</th>
+                  <th class="p-3">Danh hiệu (Title)</th>
+                  <th class="p-3 text-right">EXP Yêu cầu</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr class="hover:bg-slate-50 transition-colors">
+                  <td class="p-3 text-center font-bold text-slate-500">1 - 5</td>
+                  <td class="p-3 font-semibold text-slate-700">Mới chơi (Beginner)</td>
+                  <td class="p-3 text-right text-slate-500">0 - 1,500</td>
+                </tr>
+                <tr class="hover:bg-slate-50 transition-colors">
+                  <td class="p-3 text-center font-bold text-slate-500">6 - 10</td>
+                  <td class="p-3 font-semibold text-slate-700">Tập sự (Trainee)</td>
+                  <td class="p-3 text-right text-slate-500">1,501 - 10,000</td>
+                </tr>
+                <tr class="hover:bg-slate-50 transition-colors">
+                  <td class="p-3 text-center font-bold text-slate-500">11 - 15</td>
+                  <td class="p-3 font-semibold text-slate-700">Vũ công nghiệp dư (Street Dancer)</td>
+                  <td class="p-3 text-right text-slate-500">10,001 - 35,000</td>
+                </tr>
+                <tr class="hover:bg-slate-50 transition-colors">
+                  <td class="p-3 text-center font-bold text-indigo-600">16 - 20</td>
+                  <td class="p-3 font-semibold text-indigo-600">Vũ công chính thức (Club Dancer)</td>
+                  <td class="p-3 text-right text-slate-500">35,001 - 100,000</td>
+                </tr>
+                <tr class="hover:bg-slate-50 transition-colors">
+                  <td class="p-3 text-center font-bold text-indigo-600">21 - 30</td>
+                  <td class="p-3 font-semibold text-indigo-600">Vũ công chuyên nghiệp (Pro Dancer)</td>
+                  <td class="p-3 text-right text-slate-500">100,001 - 350,000</td>
+                </tr>
+                <tr class="hover:bg-slate-50 transition-colors">
+                  <td class="p-3 text-center font-bold text-purple-600">31 - 40</td>
+                  <td class="p-3 font-semibold text-purple-600">Biên đạo múa (Choreographer)</td>
+                  <td class="p-3 text-right text-slate-500">350,001 - 1,000,000</td>
+                </tr>
+                <tr class="hover:bg-slate-50 transition-colors">
+                  <td class="p-3 text-center font-bold text-purple-600">41 - 50</td>
+                  <td class="p-3 font-semibold text-purple-600">Ngôi sao (Star)</td>
+                  <td class="p-3 text-right text-slate-500">1,000,001 - 2,500,000</td>
+                </tr>
+                <tr class="hover:bg-slate-50 transition-colors">
+                  <td class="p-3 text-center font-bold text-pink-600">51 - 60</td>
+                  <td class="p-3 font-semibold text-pink-600">Siêu sao (Superstar)</td>
+                  <td class="p-3 text-right text-slate-500">2,500,001 - 6,000,000</td>
+                </tr>
+                <tr class="hover:bg-slate-50 transition-colors">
+                  <td class="p-3 text-center font-bold text-pink-600">61 - 70</td>
+                  <td class="p-3 font-semibold text-pink-600">Bậc thầy nhảy (Dancing Master)</td>
+                  <td class="p-3 text-right text-slate-500">6,000,001 - 15,000,000</td>
+                </tr>
+                <tr class="hover:bg-slate-50 transition-colors">
+                  <td class="p-3 text-center font-bold text-amber-600">71 - 80</td>
+                  <td class="p-3 font-semibold text-amber-600">Huyền thoại (Legend)</td>
+                  <td class="p-3 text-right text-slate-500">15,000,001 - 35,000,000</td>
+                </tr>
+                <tr class="hover:bg-amber-50/50 transition-colors bg-amber-50/20">
+                  <td class="p-3 text-center font-bold text-amber-600">81 - 99</td>
+                  <td class="p-3 font-bold text-amber-600"><i class="fa-solid fa-crown text-amber-500 mr-1"></i>Thần tượng đỉnh cao (Audition Icon)</td>
+                  <td class="p-3 text-right font-semibold text-amber-700">35,000,001+</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-
-          <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">Đối với thế hệ game thủ 8x, 9x và cả những thế hệ sau này, Audition đã trở thành một phần thanh xuân không thể thay thế. 
-						Sức hút của tựa game casual vũ đạo này không chỉ đến từ kho âm nhạc thời thượng hay những bộ thời trang lộng lẫy, mà còn nằm ở hành trình 
-						chinh phục đầy thử thách của hệ thống thang cấp độ nhân vật.
-						<div>
-							<br>
-						</div>
-						<div>Bạn có còn nhớ cảm giác hồi hộp khi thực hiện chuỗi nhiệm vụ để đổi tên danh hiệu? Hay cảm giác tự hào khi nhìn nhân vật của mình 
-							tiến hóa từ một "Newbie" vô danh lên đến các cột mốc "Siêu Sao", "Huyền thoại", và tiến thẳng tới level "Siêu cấp" cực khủng?
-						</div>
-						<div>
-							<br>
-						</div>
-						<div>Việc nâng cấp level không chỉ giúp bạn khẳng định vị thế cá nhân trên sàn nhảy, mà còn là điều kiện bắt buộc để mở khóa các tính 
-							năng quan trọng như kill boss, thành lập Fam, ghép đôi. Trong bài viết này, chúng ta sẽ cùng nhìn lại toàn bộ bảng thang cấp độ 
-							Audition mới nhất để chuẩn bị sẵn sàng cho hành trình chinh phục những cột mốc danh hiệu huyền thoại nhé!
-							<div>
-								<br>
-							</div>
-
-<div class="grid-container">
-
-    <!-- Bảng con 1 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_1.png" alt="Thang cấp độ đôi Audition Level 1 - 5">
         </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 1</td><td class="exp-col">: 0</td></tr>
-                <tr><td class="lv-col">Lv. 2</td><td class="exp-col">: 220</td></tr>
-                <tr><td class="lv-col">Lv. 3</td><td class="exp-col">: 1,260</td></tr>
-                <tr><td class="lv-col">Lv. 4</td><td class="exp-col">: 3,480</td></tr>
-                <tr><td class="lv-col">Lv. 5</td><td class="exp-col">: 7,140</td></tr>
-            </tbody>
-        </table>
-    </div>
 
-    <!-- Bảng con 2 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_2.png" alt="Thang cấp độ đôi Audition Level 6 - 10">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 6</td><td class="exp-col">: 12,500</td></tr>
-                <tr><td class="lv-col">Lv. 7</td><td class="exp-col">: 19,695</td></tr>
-                <tr><td class="lv-col">Lv. 8</td><td class="exp-col">: 29,000</td></tr>
-                <tr><td class="lv-col">Lv. 9</td><td class="exp-col">: 40,500</td></tr>
-                <tr><td class="lv-col">Lv. 10</td><td class="exp-col">: 54,500</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 3 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_3.png" alt="Thang cấp độ đôi Audition Level 11 - 15">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 11</td><td class="exp-col">: 71,000</td></tr>
-                <tr><td class="lv-col">Lv. 12</td><td class="exp-col">: 90,000</td></tr>
-                <tr><td class="lv-col">Lv. 13</td><td class="exp-col">: 112,000</td></tr>
-                <tr><td class="lv-col">Lv. 14</td><td class="exp-col">: 137,000</td></tr>
-                <tr><td class="lv-col">Lv. 15</td><td class="exp-col">: 165,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 4 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_4.png" alt="Thang cấp độ đôi Audition Level 16 - 20">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 16</td><td class="exp-col">: 196,000</td></tr>
-                <tr><td class="lv-col">Lv. 17</td><td class="exp-col">: 230,500</td></tr>
-                <tr><td class="lv-col">Lv. 18</td><td class="exp-col">: 268,500</td></tr>
-                <tr><td class="lv-col">Lv. 19</td><td class="exp-col">: 310,000</td></tr>
-                <tr><td class="lv-col">Lv. 20</td><td class="exp-col">: 354,500</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 5 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_5.png" alt="Thang cấp độ đôi Audition Level 21 - 25">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 21</td><td class="exp-col">: 403,500</td></tr>
-                <tr><td class="lv-col">Lv. 22</td><td class="exp-col">: 456,000</td></tr>
-                <tr><td class="lv-col">Lv. 23</td><td class="exp-col">: 512,000</td></tr>
-                <tr><td class="lv-col">Lv. 24</td><td class="exp-col">: 572,500</td></tr>
-                <tr><td class="lv-col">Lv. 25</td><td class="exp-col">: 637,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 6 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_6.png" alt="Thang cấp độ đôi Audition Level 26 - 30">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 26</td><td class="exp-col">: 705,500</td></tr>
-                <tr><td class="lv-col">Lv. 27</td><td class="exp-col">: 778,000</td></tr>
-                <tr><td class="lv-col">Lv. 28</td><td class="exp-col">: 855,500</td></tr>
-                <tr><td class="lv-col">Lv. 29</td><td class="exp-col">: 937,000</td></tr>
-                <tr><td class="lv-col">Lv. 30</td><td class="exp-col">: 1,023,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 7 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_7.png" alt="Thang cấp độ đôi Audition Level 31 - 35">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 31</td><td class="exp-col">: 1,113,500</td></tr>
-                <tr><td class="lv-col">Lv. 32</td><td class="exp-col">: 1,208,500</td></tr>
-                <tr><td class="lv-col">Lv. 33</td><td class="exp-col">: 1,308,500</td></tr>
-                <tr><td class="lv-col">Lv. 34</td><td class="exp-col">: 1,413,500</td></tr>
-                <tr><td class="lv-col">Lv. 35</td><td class="exp-col">: 1,523,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 8 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_8.png" alt="Thang cấp độ đôi Audition Level 36 - 40">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 36</td><td class="exp-col">: 1,638,000</td></tr>
-                <tr><td class="lv-col">Lv. 37</td><td class="exp-col">: 1,757,500</td></tr>
-                <tr><td class="lv-col">Lv. 38</td><td class="exp-col">: 1,882,500</td></tr>
-                <tr><td class="lv-col">Lv. 39</td><td class="exp-col">: 2,012,000</td></tr>
-                <tr><td class="lv-col">Lv. 40</td><td class="exp-col">: 2,147,500</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 9 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_9.png" alt="Thang cấp độ đôi Audition Level 41 - 45">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 41</td><td class="exp-col">: 2,288,000</td></tr>
-                <tr><td class="lv-col">Lv. 42</td><td class="exp-col">: 2,434,000</td></tr>
-                <tr><td class="lv-col">Lv. 43</td><td class="exp-col">: 2,585,000</td></tr>
-                <tr><td class="lv-col">Lv. 44</td><td class="exp-col">: 2,742,000</td></tr>
-                <tr><td class="lv-col">Lv. 45</td><td class="exp-col">: 2,904,500</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 10 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_10.png" alt="Thang cấp độ đôi Audition Level 46 - 50">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 46</td><td class="exp-col">: 3,072,500</td></tr>
-                <tr><td class="lv-col">Lv. 47</td><td class="exp-col">: 3,246,500</td></tr>
-                <tr><td class="lv-col">Lv. 48</td><td class="exp-col">: 3,426,000</td></tr>
-                <tr><td class="lv-col">Lv. 49</td><td class="exp-col">: 3,611,000</td></tr>
-                <tr><td class="lv-col">Lv. 50</td><td class="exp-col">: 3,802,500</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 11 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_11.png" alt="Thang cấp độ đôi Audition Level 51 - 55">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 51</td><td class="exp-col">: 4,000,000</td></tr>
-                <tr><td class="lv-col">Lv. 52</td><td class="exp-col">: 4,300,000</td></tr>
-                <tr><td class="lv-col">Lv. 53</td><td class="exp-col">: 4,650,000</td></tr>
-                <tr><td class="lv-col">Lv. 54</td><td class="exp-col">: 5,000,000</td></tr>
-                <tr><td class="lv-col">Lv. 55</td><td class="exp-col">: 5,400,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 12 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_12.png" alt="Thang cấp độ đôi Audition Level 56 - 60">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 56</td><td class="exp-col">: 5,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 57</td><td class="exp-col">: 6,350,000</td></tr>
-                <tr><td class="lv-col">Lv. 58</td><td class="exp-col">: 6,900,000</td></tr>
-                <tr><td class="lv-col">Lv. 59</td><td class="exp-col">: 7,300,000</td></tr>
-                <tr><td class="lv-col">Lv. 60</td><td class="exp-col">: 7,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 13 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_13.png" alt="Thang cấp độ đôi Audition Level 61 - 65">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 61</td><td class="exp-col">: 8,400,000</td></tr>
-                <tr><td class="lv-col">Lv. 62</td><td class="exp-col">: 9,000,000</td></tr>
-                <tr><td class="lv-col">Lv. 63</td><td class="exp-col">: 9,600,000</td></tr>
-                <tr><td class="lv-col">Lv. 64</td><td class="exp-col">: 10,250,000</td></tr>
-                <tr><td class="lv-col">Lv. 65</td><td class="exp-col">: 10,900,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 14 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_14.png" alt="Thang cấp độ đôi Audition Level 66 - 70">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 66</td><td class="exp-col">: 11,600,000</td></tr>
-                <tr><td class="lv-col">Lv. 67</td><td class="exp-col">: 12,350,000</td></tr>
-                <tr><td class="lv-col">Lv. 68</td><td class="exp-col">: 13,150,000</td></tr>
-                <tr><td class="lv-col">Lv. 69</td><td class="exp-col">: 14,000,000</td></tr>
-                <tr><td class="lv-col">Lv. 70</td><td class="exp-col">: 14,900,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 15 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_15.png" alt="Thang cấp độ đôi Audition Level 71 - 75">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 71</td><td class="exp-col">: 15,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 72</td><td class="exp-col">: 16,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 73</td><td class="exp-col">: 17,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 74</td><td class="exp-col">: 18,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 75</td><td class="exp-col">: 19,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 16 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_16.png" alt="Thang cấp độ đôi Audition Level 76 - 80">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 76</td><td class="exp-col">: 21,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 77</td><td class="exp-col">: 23,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 78</td><td class="exp-col">: 25,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 79</td><td class="exp-col">: 27,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 80</td><td class="exp-col">: 29,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 17 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_17.png" alt="Thang cấp độ đôi Audition Level 81 - 85">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 81</td><td class="exp-col">: 32,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 82</td><td class="exp-col">: 35,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 83</td><td class="exp-col">: 38,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 84</td><td class="exp-col">: 41,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 85</td><td class="exp-col">: 44,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 18 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_18.png" alt="Thang cấp độ đôi Audition Level 86 - 90">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 86</td><td class="exp-col">: 48,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 87</td><td class="exp-col">: 52,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 88</td><td class="exp-col">: 56,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 89</td><td class="exp-col">: 60,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 90</td><td class="exp-col">: 64,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 19 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_19.png" alt="Thang cấp độ đôi Audition Level 91 - 95">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 91</td><td class="exp-col">: 69,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 92</td><td class="exp-col">: 74,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 93</td><td class="exp-col">: 79,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 94</td><td class="exp-col">: 84,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 95</td><td class="exp-col">: 89,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 20 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_20.png" alt="Thang cấp độ đôi Audition Level 96 - 100">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 96</td><td class="exp-col">: 95,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 97</td><td class="exp-col">: 101,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 98</td><td class="exp-col">: 107,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 99</td><td class="exp-col">: 113,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 100</td><td class="exp-col">: 119,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 21 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_21.png" alt="Thang cấp độ đôi Audition Level 101 - 105">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 101</td><td class="exp-col">: 126,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 102</td><td class="exp-col">: 133,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 103</td><td class="exp-col">: 140,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 104</td><td class="exp-col">: 147,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 105</td><td class="exp-col">: 154,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 22 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_22.png" alt="Thang cấp độ đôi Audition Level 106 - 110">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 106</td><td class="exp-col">: 162,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 107</td><td class="exp-col">: 170,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 108</td><td class="exp-col">: 178,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 109</td><td class="exp-col">: 186,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 110</td><td class="exp-col">: 194,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 23 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_23.png" alt="Thang cấp độ đôi Audition Level 111 - 115">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 111</td><td class="exp-col">: 203,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 112</td><td class="exp-col">: 212,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 113</td><td class="exp-col">: 221,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 114</td><td class="exp-col">: 230,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 115</td><td class="exp-col">: 239,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 24 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_24.png" alt="Thang cấp độ đôi Audition Level 116 - 120">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 116</td><td class="exp-col">: 249,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 117</td><td class="exp-col">: 259,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 118</td><td class="exp-col">: 269,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 119</td><td class="exp-col">: 279,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 120</td><td class="exp-col">: 289,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 25 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_25.png" alt="Thang cấp độ đôi Audition Level 121 - 125">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 121</td><td class="exp-col">: 300,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 122</td><td class="exp-col">: 311,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 123</td><td class="exp-col">: 322,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 124</td><td class="exp-col">: 333,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 125</td><td class="exp-col">: 344,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 26 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_26.png" alt="Thang cấp độ đôi Audition Level 126 - 130">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 126</td><td class="exp-col">: 357,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 127</td><td class="exp-col">: 370,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 128</td><td class="exp-col">: 383,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 129</td><td class="exp-col">: 396,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 130</td><td class="exp-col">: 409,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 27 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_27.png" alt="Thang cấp độ đôi Audition Level 131 - 135">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 131</td><td class="exp-col">: 424,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 132</td><td class="exp-col">: 439,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 133</td><td class="exp-col">: 454,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 134</td><td class="exp-col">: 469,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 135</td><td class="exp-col">: 484,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 28 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_28.png" alt="Thang cấp độ đôi Audition Level 136 - 140">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 136</td><td class="exp-col">: 501,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 137</td><td class="exp-col">: 518,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 138</td><td class="exp-col">: 535,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 139</td><td class="exp-col">: 552,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 140</td><td class="exp-col">: 569,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 29 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_29.png" alt="Thang cấp độ đôi Audition Level 141 - 145">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 141</td><td class="exp-col">: 588,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 142</td><td class="exp-col">: 607,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 143</td><td class="exp-col">: 626,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 144</td><td class="exp-col">: 645,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 145</td><td class="exp-col">: 664,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 30 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_30.png" alt="Thang cấp độ đôi Audition Level 146 - MAX (150)">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 146</td><td class="exp-col">: 685,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 147</td><td class="exp-col">: 706,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 148</td><td class="exp-col">: 727,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 149</td><td class="exp-col">: 748,850,000</td></tr>
-                <tr><td class="lv-col">Lv. MAX</td><td class="exp-col">: 769,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 31 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_31.png" alt="Thang cấp độ đôi Audition Level 151 - 155">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 151</td><td class="exp-col">: 792,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 152</td><td class="exp-col">: 815,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 153</td><td class="exp-col">: 838,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 154</td><td class="exp-col">: 861,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 155</td><td class="exp-col">: 884,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 32 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_32.png" alt="Thang cấp độ đôi Audition Level 156 - 160">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 156</td><td class="exp-col">: 909,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 157</td><td class="exp-col">: 934,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 158</td><td class="exp-col">: 959,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 159</td><td class="exp-col">: 984,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 160</td><td class="exp-col">: 1,009,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 33 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_33.png" alt="Thang cấp độ đôi Audition Level 161 - 165">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 161</td><td class="exp-col">: 1,036,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 162</td><td class="exp-col">: 1,063,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 163</td><td class="exp-col">: 1,090,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 164</td><td class="exp-col">: 1,117,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 165</td><td class="exp-col">: 1,144,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 34 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_34.png" alt="Thang cấp độ đôi Audition Level 166 - 170">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 166</td><td class="exp-col">: 1,173,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 167</td><td class="exp-col">: 1,202,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 168</td><td class="exp-col">: 1,231,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 169</td><td class="exp-col">: 1,260,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 170</td><td class="exp-col">: 1,289,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 35 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_35.png" alt="Thang cấp độ đôi Audition Level 171 - 175">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 171</td><td class="exp-col">: 1,324,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 172</td><td class="exp-col">: 1,359,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 173</td><td class="exp-col">: 1,394,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 174</td><td class="exp-col">: 1,429,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 175</td><td class="exp-col">: 1,464,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 36 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_36.png" alt="Thang cấp độ đôi Audition Level 176 - 180">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 176</td><td class="exp-col">: 1,506,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 177</td><td class="exp-col">: 1,548,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 178</td><td class="exp-col">: 1,590,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 179</td><td class="exp-col">: 1,632,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 180</td><td class="exp-col">: 1,674,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 37 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_37.png" alt="Thang cấp độ đôi Audition Level 181 - 185">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 181</td><td class="exp-col">: 1,724,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 182</td><td class="exp-col">: 1,774,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 183</td><td class="exp-col">: 1,824,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 184</td><td class="exp-col">: 1,874,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 185</td><td class="exp-col">: 1,924,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 38 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_38.png" alt="Thang cấp độ đôi Audition Level 186 - 190">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 186</td><td class="exp-col">: 1,984,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 187</td><td class="exp-col">: 2,044,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 188</td><td class="exp-col">: 2,104,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 189</td><td class="exp-col">: 2,164,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 190</td><td class="exp-col">: 2,224,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 39 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_39.png" alt="Thang cấp độ đôi Audition Level 91 - 195">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 191</td><td class="exp-col">: 2,296,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 192</td><td class="exp-col">: 2,368,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 193</td><td class="exp-col">: 2,440,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 194</td><td class="exp-col">: 2,512,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 195</td><td class="exp-col">: 2,584,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- Bảng con 40 -->
-    <div class="card-table">
-        <div class="card-header">
-            <img src="YOUR_IMAGE_URL_40.png" alt="Thang cấp độ đôi Audition Level 196 - 200">
-        </div>
-        <table>
-            <tbody>
-                <tr><td class="lv-col">Lv. 196</td><td class="exp-col">: 2,670,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 197</td><td class="exp-col">: 2,756,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 198</td><td class="exp-col">: 2,842,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 199</td><td class="exp-col">: 2,928,850,000</td></tr>
-                <tr><td class="lv-col">Lv. 200</td><td class="exp-col">: 3,014,850,000</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-</div>
-          </div>
-
-          <div class="mt-8 pt-6 border-t border-slate-100 relative mb-4">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Chia sẻ</span>
-              </div>
-              <div class="flex flex-wrap items-center gap-3">
-                <button id="custom-heart-btn" class="flex items-center gap-2 px-3 py-1.5 bg-rose-50 hover:bg-rose-500 text-rose-500 hover:text-white text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm border border-rose-100 group active:scale-95 h-[32px]">
-                  <i class="fa-solid fa-heart text-sm transition-transform" id="heart-icon"></i> 
-                  <span id="heart-count">0</span>
-                </button>
-                <button id="share-facebook-btn" class="flex items-center gap-1.5 px-3 py-1.5 bg-[#1877F2] hover:bg-[#166FE5] text-white text-xs font-medium rounded-lg transition-colors cursor-pointer shadow-sm h-[32px]">
-                  <i class="fab fa-facebook-f text-[11px]"></i> Chia sẻ
-                </button>
-				<button id="copy-link-btn" class="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm h-[32px] min-w-[120px]">
-                  <i class="fa-regular fa-copy text-[11px] flex-shrink-0"></i> 
-                  <span id="copy-text" class="block text-center w-full">Sao chép Link</span>
-                </button>
-              </div>
+        <div class="mt-8 pt-6 border-t border-slate-100 relative mb-4">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Chia sẻ</span>
             </div>
-          </div>
-          <div class="pt-6 border-t border-slate-100">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
-            <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=Audition" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#Audition</a>
-              <a href="../index.html?search=Level" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#Level</a>
-              <a href="../index.html?search=Thang cấp độ" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#Thang cấp độ</a>
-              <a href="../index.html?search=Up" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#Up</a>
-            </div>
-          </div>
-        </article>
-
-		<div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm mt-6 space-y-6 w-full">
-          <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
-            <i class="fa-regular fa-comments text-indigo-500"></i>
-            Bình luận (<span id="comment-total-count">0</span>)
-          </h3>
-
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-3">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">
-                  Tên của bạn
-                </label>
-                <input type="text" id="comment-name" class="w-full px-3 py-1.5 text-[12px] bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 transition-colors" placeholder="Nhập tên của bạn tại đây.">
-              </div>
-            </div>
-            <div>
-              <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">Nội dung bình luận</label>
-              <textarea id="comment-content" rows="3" class="w-full px-3 py-1.5 text-[12px] bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 resize-none" placeholder="Viết bình luận của bạn tại đây."></textarea>
-            </div>
-            <div class="flex justify-end">
-              <button id="submit-comment-btn" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition active:scale-95 flex items-center gap-1.5 cursor-pointer">
-                <i class="fa-solid fa-paper-plane"></i>Gửi bình luận
+            <div class="flex flex-wrap items-center gap-3">
+              <button id="custom-heart-btn" class="flex items-center gap-2 px-3 py-1.5 bg-rose-50 hover:bg-rose-500 text-rose-500 hover:text-white text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm border border-rose-100 group active:scale-95 h-[32px]">
+                <i class="fa-solid fa-heart text-sm transition-transform" id="heart-icon"></i> 
+                <span id="heart-count">0</span>
+              </button>
+              <button id="share-facebook-btn" class="flex items-center gap-1.5 px-3 py-1.5 bg-[#1877F2] hover:bg-[#166FE5] text-white text-xs font-medium rounded-lg transition-colors cursor-pointer shadow-sm h-[32px]">
+                <i class="fab fa-facebook-f text-[11px]"></i> Chia sẻ
+              </button>
+              <button id="copy-link-btn" class="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm h-[32px] min-w-[120px]">
+                <i class="fa-regular fa-copy text-[11px] flex-shrink-0"></i> 
+                <span id="copy-text" class="block text-center w-full">Sao chép Link</span>
               </button>
             </div>
           </div>
-
-			<div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-4">
-			  <span class="text-[11px] font-semibold text-slate-700">Sắp xếp bình luận</span>
-			  <select id="comment-sort-select" class="text-xs bg-white border border-slate-200 rounded px-2 py-1 text-slate-600 outline-none cursor-pointer">
-				<option value="newest">Mới nhất lên trước</option>
-				<option value="oldest">Cũ nhất lên trước</option>
-			  </select>
-			</div>
-
-          <div id="comments-wrapper" class="space-y-4 w-full"></div>
-		  
-		  <div id="comment-pagination-container" class="flex justify-center w-full mt-8"></div>
         </div>
-
-        <div class="flex justify-center pt-4 w-full">
-          <a href="../index.html" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
-            <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
-          </a>
+        <div class="pt-6 border-t border-slate-100">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
+          <div class="flex flex-wrap gap-2 text-sm">
+            <a href="../index.html?search=Audition" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#Audition</a>
+            <a href="../index.html?search=Level" class="px-3 py-1 bg-pink-50 text-pink-600 rounded-full text-xs hover:bg-pink-100 transition text-sm">#Level</a>
+            <a href="../index.html?search=Thang cấp độ" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#Thang cấp độ</a>
+            <a href="../index.html?search=Up" class="px-3 py-1 bg-indigo-50 text-indigo-600 rounded-full text-xs hover:bg-indigo-100 transition text-sm">#Up</a>
+          </div>
         </div>
+      </article>
 
-      </div>
+      <div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm mt-6 space-y-6 w-full">
+        <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
+          <i class="fa-regular fa-comments text-indigo-500"></i>
+          Bình luận (<span id="comment-total-count">0</span>)
+        </h3>
 
-
-	  <aside class="w-full lg:col-span-1 lg:sticky lg:top-0 space-y-6">
-		<div id="auto-injected-slide-container" class="w-full [&amp;&gt;div]:mt-0"></div>
-		
-
-        <div class="w-full max-w-md mx-auto aspect-[16/9] relative rounded-2xl overflow-hidden bg-slate-900 shadow-sm group">
-            <img id="fb-banner-img" src="" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-4">
-                <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-blue-600/90 flex items-center justify-center text-white text-sm backdrop-blur-sm">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </div>
-                <div class="text-white mb-3">
-                    <h4 id="fb-banner-title" class="text-[14px] font-bold tracking-wide drop-shadow-sm truncate"></h4>
-                    <p id="fb-banner-desc" class="text-[11px] text-slate-200/90 mt-0.5 line-clamp-1"></p>
-                </div>
-                <a id="fb-banner-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full h-9 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-[13px] rounded-xl flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-md">
-                    <i class="fa-solid fa-user-plus text-xs"></i>
-                    Tham gia nhóm
-                </a>
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">
+                Tên của bạn
+              </label>
+              <input type="text" id="comment-name" class="w-full px-3 py-1.5 text-[12px] bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 transition-colors" placeholder="Nhập tên của bạn tại đây.">
             </div>
-        </div>	
-
-		
-        <div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden w-full">
-          <div class="flex border-b border-slate-100 bg-slate-50/50">
-            <button id="related-btn" class="flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer">
-              <i class="fa-solid fa-link mr-1.5"></i>Cùng chủ đề
-            </button>
-            <button id="random-btn" class="flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer">
-              <i class="fa-solid fa-shuffle mr-1.5"></i>Ngẫu nhiên
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">Nội dung bình luận</label>
+            <textarea id="comment-content" rows="3" class="w-full px-3 py-1.5 text-[12px] bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 resize-none" placeholder="Viết bình luận của bạn tại đây."></textarea>
+          </div>
+          <div class="flex justify-end">
+            <button id="submit-comment-btn" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition active:scale-95 flex items-center gap-1.5 cursor-pointer">
+              <i class="fa-solid fa-paper-plane"></i>Gửi bình luận
             </button>
           </div>
-          
-          <div id="detail-sidebar-list" class="p-4 space-y-4 max-h-[450px] overflow-y-auto w-full"></div>
         </div>
-      </aside>
+
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-4">
+          <span class="text-[11px] font-semibold text-slate-700">Sắp xếp bình luận</span>
+          <select id="comment-sort-select" class="text-xs bg-white border border-slate-200 rounded px-2 py-1 text-slate-600 outline-none cursor-pointer">
+            <option value="newest">Mới nhất lên trước</option>
+            <option value="oldest">Cũ nhất lên trước</option>
+          </select>
+        </div>
+
+        <div id="comments-wrapper" class="space-y-4 w-full"></div>
+        
+        <div id="comment-pagination-container" class="flex justify-center w-full mt-8"></div>
+      </div>
+
+      <div class="flex justify-center pt-4 w-full">
+        <a href="../index.html" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
+          <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
+        </a>
+      </div>
 
     </div>
-  </main>
 
-  <div id="footer-container"></div>
+    <aside class="w-full lg:col-span-1 lg:sticky lg:top-0 space-y-6">
+      <div id="auto-injected-slide-container" class="w-full [&amp;&gt;div]:mt-0"></div>
+      
+      <div class="w-full max-w-md mx-auto aspect-[16/9] relative rounded-2xl overflow-hidden bg-slate-900 shadow-sm group">
+          <img id="fb-banner-img" src="" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-4">
+              <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-blue-600/90 flex items-center justify-center text-white text-sm backdrop-blur-sm">
+                  <i class="fa-brands fa-facebook-f"></i>
+              </div>
+              <div class="text-white mb-3">
+                  <h4 id="fb-banner-title" class="text-[14px] font-bold tracking-wide drop-shadow-sm truncate"></h4>
+                  <p id="fb-banner-desc" class="text-[11px] text-slate-200/90 mt-0.5 line-clamp-1"></p>
+              </div>
+              <a id="fb-banner-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full h-9 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-[13px] rounded-xl flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-md">
+                  <i class="fa-solid fa-user-plus text-xs"></i>
+                  Tham gia nhóm
+              </a>
+          </div>
+      </div>	
 
-  <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto" title="Quay lên đầu trang">
-    <i class="fa-solid fa-arrow-up text-lg"></i>
-  </button>
+      <div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden w-full">
+        <div class="flex border-b border-slate-100 bg-slate-50/50">
+          <button id="related-btn" class="flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer">
+            <i class="fa-solid fa-link mr-1.5"></i>Cùng chủ đề
+          </button>
+          <button id="random-btn" class="flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer">
+            <i class="fa-solid fa-shuffle mr-1.5"></i>Ngẫu nhiên
+          </button>
+        </div>
+        
+        <div id="detail-sidebar-list" class="p-4 space-y-4 max-h-[450px] overflow-y-auto w-full"></div>
+      </div>
+    </aside>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-  <script>
-    function initAllSwipers() {
-      document.querySelectorAll('.mySwiper').forEach((el) => {
-        if (el.swiper) { el.swiper.destroy(true, true); }
-        new Swiper(el, {
-          loop: true,
-          spaceBetween: 10,
-          observer: true,
-          observeParents: true,
-          pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
-          navigation: { nextEl: el.querySelector('.swiper-button-next'), prevEl: el.querySelector('.swiper-button-prev') },
-          autoplay: { delay: 4500, disableOnInteraction: true },
-        });
+  </div>
+</main>
+
+<div id="footer-container"></div>
+
+<button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto" title="Quay lên đầu trang">
+  <i class="fa-solid fa-arrow-up text-lg"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script>
+  function initAllSwipers() {
+    document.querySelectorAll('.mySwiper').forEach((el) => {
+      if (el.swiper) { el.swiper.destroy(true, true); }
+      new Swiper(el, {
+        loop: true,
+        spaceBetween: 10,
+        observer: true,
+        observeParents: true,
+        pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
+        navigation: { nextEl: el.querySelector('.swiper-button-next'), prevEl: el.querySelector('.swiper-button-prev') },
+        autoplay: { delay: 4500, disableOnInteraction: true },
       });
-    }
-    initAllSwipers();
-
-    Fancybox.bind("[data-fancybox^='gallery-']", { Thumbs: { autoStart: true } });
-
-    const backToTopBtn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) { backToTopBtn.classList.add('show'); }
-      else { backToTopBtn.classList.remove('show'); }
     });
-    backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  }
+  initAllSwipers();
 
-    const newsletterForm = document.getElementById('newsletter-form');
-    const newsletterSuccess = document.getElementById('newsletter-success');
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        newsletterForm.classList.add('hidden');
-        newsletterSuccess.classList.remove('hidden');
-      });
-    }
+  Fancybox.bind("[data-fancybox^='gallery-']", { Thumbs: { autoStart: true } });
 
-    const CURRENT_POST = {
-      title: "Thang cấp độ level trong Audition",
-      tags: ["Audition", "Level", "Thang cấp độ", "Up"]
-    };
+  const backToTopBtn = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) { backToTopBtn.classList.add('show'); }
+    else { backToTopBtn.classList.remove('show'); }
+  });
+  backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-    async function loadPosts() {
-      try {
-        const response = await fetch("../index.html");
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
-        const cards = doc.querySelectorAll(".post-card");
-        const posts = [];
-        cards.forEach(card => {
-          posts.push({
-            title: card.dataset.title,
-            url: card.dataset.url,
-            image: card.dataset.image,
-            tags: (card.dataset.tags || "").split(",").map(tag => tag.trim()).filter(Boolean)
-          });
+  const CURRENT_POST = {
+    title: "Thang cấp độ level trong Audition",
+    tags: ["Audition", "Level", "Thang cấp độ", "Up"]
+  };
+
+  async function loadPosts() {
+    try {
+      const response = await fetch("../index.html");
+      const html = await response.text();
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+      const cards = doc.querySelectorAll(".post-card");
+      const posts = [];
+      cards.forEach(card => {
+        posts.push({
+          title: card.dataset.title,
+          url: card.dataset.url,
+          image: card.dataset.image,
+          tags: (card.dataset.tags || "").split(",").map(tag => tag.trim()).filter(Boolean)
         });
-        return posts;
-      } catch (e) {
-        console.error("Lỗi khi tải danh sách bài viết:", e);
-        return [];
+      });
+      return posts;
+    } catch (e) {
+      console.error("Lỗi khi tải danh sách bài viết:", e);
+      return [];
+    }
+  }
+
+  function getRelatedPosts(posts) {
+    if (!posts || !Array.isArray(posts)) return [];
+    return [...posts]
+      .filter(post => {
+        if (!post || !CURRENT_POST) return false;
+        if (post.title === CURRENT_POST.title) return false;
+        if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
+        
+        const postCats = (post.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
+        const currentCats = (CURRENT_POST.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
+        const hasCommonCategory = currentCats.some(cat => postCats.includes(cat));
+        
+        const postTagsStr = Array.isArray(post.tags) ? post.tags.join(',') : (post.tags || '');
+        const postTags = postTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+        
+        const currentTagsStr = Array.isArray(CURRENT_POST.tags) ? CURRENT_POST.tags.join(',') : (CURRENT_POST.tags || '');
+        const currentTags = currentTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+        
+        const hasCommonTag = currentTags.some(tag => postTags.includes(tag));
+        
+        return hasCommonCategory || hasCommonTag;
+      })
+      .slice(0, 3);
+  }
+
+  function getRandomPosts(posts) {
+    if (!posts || !Array.isArray(posts)) return [];
+    return [...posts]
+      .filter(post => {
+        if (!post) return false;
+        if (post.title === CURRENT_POST.title) return false;
+        if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
+        return true;
+      })
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3);
+  }
+
+  function renderPosts(postsList) {
+    let container = document.getElementById("detail-sidebar-list") || 
+                    document.querySelector('#sidebar-posts') || 
+                    document.querySelector('.space-y-4.mt-4');
+
+    if (!container) return;
+
+    if (!postsList || postsList.length === 0) {
+      container.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-4">Không có bài viết nào phù hợp.</p>`;
+      return;
+    }
+
+    let listHTML = '';
+    postsList.forEach(post => {
+      if (!post) return;
+      let correctUrl = post.url || '';
+      if (correctUrl && !correctUrl.startsWith('http') && !correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
+        correctUrl = `../${correctUrl}`;
       }
-    }
-
-	function renderPosts(posts) {
-      const container = document.getElementById("suggested-posts");
-      if(!container) return;
       
-      const displayPosts = (posts || []).slice(0, 5);
-      
-      container.innerHTML = "";
-      if(displayPosts.length === 0) {
-        container.innerHTML = '<div class="text-xs text-slate-400 text-center py-4">Không có bài viết gợi ý phù hợp.</div>';
-        return;
+      let excerptText = post.excerpt ? post.excerpt.trim() : '';
+      if (!excerptText) {
+        const cleanTags = Array.isArray(post.tags) ? post.tags.join(', ') : (post.tags || '');
+        excerptText = cleanTags ? `Hashtag: ${cleanTags}` : `Xem chi tiết nội dung bài viết ${post.title}`;
       }
       
-      displayPosts.forEach(post => {
-        let correctUrl = post.url || '#';
-        if (!correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
-          correctUrl = '../' + correctUrl;
-        }
-        const imgUrl = post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png';
+      listHTML += `
+        <a href="${correctUrl}" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-colors">
+          <img src="${post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'}" class="w-24 aspect-[16/9] object-cover rounded-lg border border-slate-100 flex-shrink-0" onerror="this.src='https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'">
+          <div class="min-w-0 flex-grow" style="margin-top: -2px;">
+            <h5 class="text-[12px] font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug mb-0.5">${post.title}</h5>
+            <p class="text-xs text-slate-400 line-clamp-1 mb-1 leading-normal">${excerptText}</p>
+            <span class="text-[10px] text-slate-400 block">${post.date || ''}</span>
+          </div>
+        </a>
+      `;
+    });
+    
+    container.innerHTML = listHTML;
+  }
 
-        container.innerHTML += '<a href="' + correctUrl + '" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-all duration-200">';
-        container.innerHTML += '  <img src="' + imgUrl + '" class="w-14 h-14 rounded-lg object-cover flex-shrink-0 border border-slate-100 shadow-sm group-hover:scale-105 transition-transform">';
-        container.innerHTML += '  <div class="space-y-1 flex-grow">';
-        container.innerHTML += '    <h4 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">' + post.title + '</h4>';
-        container.innerHTML += '    <span class="text-[10px] text-slate-400 block mt-1">Xem bài viết →</span>';
-        container.innerHTML += '  </div>';
-        container.innerHTML += '</a>';
-      });
-    }
-
-    function getRelatedPosts(posts) {
-      if (!posts || !Array.isArray(posts)) return [];
-      return [...posts]
-        .filter(post => {
-          if (!post || !CURRENT_POST) return false;
-          if (post.title === CURRENT_POST.title) return false;
-          if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
-          
-          const postCats = (post.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
-          const currentCats = (CURRENT_POST.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
-          const hasCommonCategory = currentCats.some(cat => postCats.includes(cat));
-          
-          const postTagsStr = Array.isArray(post.tags) ? post.tags.join(',') : (post.tags || '');
-          const postTags = postTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
-          
-          const currentTagsStr = Array.isArray(CURRENT_POST.tags) ? CURRENT_POST.tags.join(',') : (CURRENT_POST.tags || '');
-          const currentTags = currentTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
-          
-          const hasCommonTag = currentTags.some(tag => postTags.includes(tag));
-          
-          return hasCommonCategory || hasCommonTag;
-        })
-        .slice(0, 3);
-    }
-
-    function getRandomPosts(posts) {
-      if (!posts || !Array.isArray(posts)) return [];
-      return [...posts]
-        .filter(post => {
-          if (!post) return false;
-          if (post.title === CURRENT_POST.title) return false;
-          if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
-          return true;
-        })
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 3);
-    }
-
-	function renderPosts(postsList) {
-	  let container = document.getElementById("detail-sidebar-list") || 
-					  document.querySelector('#sidebar-posts') || 
-					  document.querySelector('.space-y-4.mt-4');
-					  
-	  if (!container) {
-		const btn = document.getElementById("related-btn");
-		if (btn && btn.parentElement && btn.parentElement.nextElementSibling) {
-		  container = btn.parentElement.nextElementSibling;
-		}
-	  }
-
-	  if (!container) {
-		console.error("Không tìm thấy phân vùng Sidebar hiển thị bài viết trên trang!");
-		return;
-	  }
-
-	  if (!postsList || postsList.length === 0) {
-		container.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-4">Không có bài viết nào phù hợp.</p>`;
-		return;
-	  }
-
-	  let listHTML = '';
-	  postsList.forEach(post => {
-		if (!post) return;
-		let correctUrl = post.url || '';
-		if (correctUrl && !correctUrl.startsWith('http') && !correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
-		  correctUrl = `../${correctUrl}`;
-		}
-		
-		let excerptText = post.excerpt ? post.excerpt.trim() : '';
-		if (!excerptText) {
-		  const cleanTags = Array.isArray(post.tags) ? post.tags.join(', ') : (post.tags || '');
-		  if (cleanTags) {
-			excerptText = `Hashtag: ${cleanTags}`;
-		  } else {
-			excerptText = `Xem chi tiết nội dung bài viết ${post.title}`;
-		  }
-		}
-		
-		listHTML += `
-		  <a href="${correctUrl}" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-colors">
-			<img src="${post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'}" class="w-24 aspect-[16/9] object-cover rounded-lg border border-slate-100 flex-shrink-0" onerror="this.src='https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'">
-			<div class="min-w-0 flex-grow" style="margin-top: -2px;">
-			  <h5 class="text-[12px] font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug mb-0.5">${post.title}</h5>
-			  <p class="text-xs text-slate-400 line-clamp-1 mb-1 leading-normal">${excerptText}</p>
-			  <span class="text-[10px] text-slate-400 block">${post.date || ''}</span>
-			</div>
-		  </a>
-		`;
-	  });
-	  
-	  container.innerHTML = listHTML;
-	}
-
-    let ALL_POSTS = [];
-    if (typeof loadPosts === "function") {
-      loadPosts().then(posts => {
-        ALL_POSTS = posts || [];
-        const related = getRelatedPosts(ALL_POSTS);
-        if (related.length === 0) {
-          renderPosts(getRandomPosts(ALL_POSTS));
-          setActiveButton(document.getElementById("random-btn"));
-        } else {
-          renderPosts(related);
-          setActiveButton(document.getElementById("related-btn"));
-        }
-      }).catch(err => {
-        console.error("Lỗi khi tải danh sách bài viết bằng loadPosts():", err);
-      });
-    }
-
-    const rBtn = document.getElementById("related-btn");
-    const mBtn = document.getElementById("random-btn");
-
-    if (rBtn) {
-      rBtn.addEventListener("click", () => {
-        renderPosts(getRelatedPosts(ALL_POSTS));
-        setActiveButton(rBtn);
-      });
-    }
-
-    if (mBtn) {
-      mBtn.addEventListener("click", () => {
+  let ALL_POSTS = [];
+  if (typeof loadPosts === "function") {
+    loadPosts().then(posts => {
+      ALL_POSTS = posts || [];
+      const related = getRelatedPosts(ALL_POSTS);
+      if (related.length === 0) {
         renderPosts(getRandomPosts(ALL_POSTS));
-        setActiveButton(mBtn);
-      });
-    }
-
-	
-	function setActiveButton(activeBtn) {
-      const relatedBtn = document.getElementById("related-btn");
-      const randomBtn = document.getElementById("random-btn");
-      if(!relatedBtn || !randomBtn || !activeBtn) return;
-      
-      [relatedBtn, randomBtn].forEach(btn => {
-        btn.className = "flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer";
-      });
-      
-      activeBtn.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
-    }
-	
-    if (typeof CURRENT_POST !== 'undefined') {
-      if (CURRENT_POST.title) {
-        document.title = CURRENT_POST.title;
+        setActiveButton(document.getElementById("random-btn"));
+      } else {
+        renderPosts(related);
+        setActiveButton(document.getElementById("related-btn"));
       }
+    }).catch(err => {
+      console.error("Lỗi khi tải danh sách bài viết:", err);
+    });
+  }
 
-      const ogTitle = document.getElementById('meta-og-title');
-      const ogDesc = document.getElementById('meta-og-description');
-      const ogImage = document.getElementById('meta-og-image');
-      const ogUrl = document.getElementById('meta-og-url');
+  const rBtn = document.getElementById("related-btn");
+  const mBtn = document.getElementById("random-btn");
 
-      if (ogTitle) ogTitle.setAttribute('content', CURRENT_POST.title || document.title);
-      
-      const cleanExcerpt = CURRENT_POST.excerpt ? CURRENT_POST.excerpt.trim() : '';
-      if (ogDesc) ogDesc.setAttribute('content', cleanExcerpt || 'Xem chi tiết nội dung bài viết tại https://hieubeo91.github.io/au');
-      
-      if (ogImage) ogImage.setAttribute('content', CURRENT_POST.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png');
-      if (ogUrl) ogUrl.setAttribute('content', window.location.href);
-    }
-	
-	const firebaseConfig = {
-	  apiKey: "AIzaSyCsc84GUdMK5zethbCibY1oSXpeXA9YlSo",
-	  authDomain: "myblog-heart.firebaseapp.com",
-	  databaseURL: "https://myblog-heart-default-rtdb.firebaseio.com",
-	  projectId: "myblog-heart",
-	  storageBucket: "myblog-heart.firebasestorage.app",
-	  messagingSenderId: "424150915416",
-	  appId: "1:424150915416:web:1e6c9bbdf99a5da7642d2d",
-	  measurementId: "G-4570E7XHL4"
-	};
+  if (rBtn) {
+    rBtn.addEventListener("click", () => {
+      renderPosts(getRelatedPosts(ALL_POSTS));
+      setActiveButton(rBtn);
+    });
+  }
 
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-    }
-    const database = firebase.database();
+  if (mBtn) {
+    mBtn.addEventListener("click", () => {
+      renderPosts(getRandomPosts(ALL_POSTS));
+      setActiveButton(mBtn);
+    });
+  }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const currentUrl = window.location.href;
-      const encodedUrl = encodeURIComponent(currentUrl);
-      
-      const pageId = (window.location.pathname.split('/').pop() || 'index').replace(/\./g, '_');
-      const dbRef = database.ref('heart_counts/' + pageId);
-      const localClickedKey = `heart_voted_${pageId}`;
+  function setActiveButton(activeBtn) {
+    const relatedBtn = document.getElementById("related-btn");
+    const randomBtn = document.getElementById("random-btn");
+    if(!relatedBtn || !randomBtn || !activeBtn) return;
+    
+    [relatedBtn, randomBtn].forEach(btn => {
+      btn.className = "flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer";
+    });
+    
+    activeBtn.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
+  }
 
-      const heartBtn = document.getElementById('custom-heart-btn');
-      const heartCountEl = document.getElementById('heart-count');
+  const firebaseConfig = {
+    apiKey: "AIzaSyCsc84GUdMK5zethbCibY1oSXpeXA9YlSo",
+    authDomain: "myblog-heart.firebaseapp.com",
+    databaseURL: "https://myblog-heart-default-rtdb.firebaseio.com",
+    projectId: "myblog-heart",
+    storageBucket: "myblog-heart.firebasestorage.app",
+    messagingSenderId: "424150915416",
+    appId: "1:424150915416:web:1e6c9bbdf99a5da7642d2d",
+    measurementId: "G-4570E7XHL4"
+  };
 
-      dbRef.on('value', (snapshot) => {
-        const votes = snapshot.val();
-        if (votes === null) {
-          const initialHearts = Math.floor(Math.random() * 25) + 15;
-          dbRef.set(initialHearts);
-          heartCountEl.textContent = initialHearts;
-        } else {
-          heartCountEl.textContent = votes;
-        }
-      });
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+  const database = firebase.database();
 
-      if (localStorage.getItem(localClickedKey) === 'true' && heartBtn) {
+  document.addEventListener('DOMContentLoaded', () => {
+    const currentUrl = window.location.href;
+    const encodedUrl = encodeURIComponent(currentUrl);
+    
+    const pageId = (window.location.pathname.split('/').pop() || 'index').replace(/\./g, '_');
+    const dbRef = database.ref('heart_counts/' + pageId);
+
+    const heartBtn = document.getElementById('custom-heart-btn');
+    const heartCountEl = document.getElementById('heart-count');
+
+    dbRef.on('value', (snapshot) => {
+      const votes = snapshot.val();
+      if (votes === null) {
+        const initialHearts = Math.floor(Math.random() * 25) + 15;
+        dbRef.set(initialHearts);
+        heartCountEl.textContent = initialHearts;
+      } else {
+        heartCountEl.textContent = votes;
+      }
+    });
+
+    if (heartBtn) {
+      heartBtn.addEventListener('click', () => {
+        dbRef.transaction((currentValue) => (currentValue || 0) + 1);
         heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
         heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
-      }
-
-	if (heartBtn) {
-        heartBtn.addEventListener('click', (e) => {
-          
-          dbRef.transaction((currentValue) => {
-            return (currentValue || 0) + 1;
-          });
-
-          heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
-          heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
-
-          let effectContainer = heartBtn.querySelector('.heart-effect-zone');
-          if (!effectContainer) {
-            effectContainer = document.createElement('div');
-            effectContainer.className = 'heart-effect-zone';
-            effectContainer.style.position = 'absolute';
-            effectContainer.style.top = '0';
-            effectContainer.style.left = '0';
-            effectContainer.style.width = '100%';
-            effectContainer.style.height = '100%';
-            effectContainer.style.pointerEvents = 'none';
-            heartBtn.style.position = 'relative';
-            heartBtn.appendChild(effectContainer);
-          }
-
-          for (let i = 0; i < 9; i++) {
-            const heart = document.createElement('i');
-            heart.className = 'fa-solid fa-heart floating-heart';
-            heart.style.position = 'absolute';
-            heart.style.color = '#f43f5e'; 
-            heart.style.pointerEvents = 'none';
-            heart.style.zIndex = '100';
-            
-            heart.style.left = `${15 + (Math.random() * 40 - 20)}px`;
-            heart.style.top = `-5px`;
-            
-            heart.style.fontSize = `${Math.floor(Math.random() * 8) + 10}px`;
-            
-            const randomDriftX = `${Math.floor(Math.random() * 120) - 60}px`;
-            const randomRotate = `${Math.floor(Math.random() * 80) - 40}deg`;
-            
-            heart.style.setProperty('--drift-x', randomDriftX);
-            heart.style.setProperty('--rotate-deg', randomRotate);
-            
-            heart.style.animation = `heartFlyUp ${0.8 + Math.random() * 0.4}s ease-out forwards`;
-            
-            effectContainer.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 1200);
-          }
-        });
-      }
-
-      const fbBtn = document.getElementById('share-facebook-btn');
-      if (fbBtn) {
-        fbBtn.addEventListener('click', () => {
-          const isAndroid = /Android/i.test(navigator.userAgent);
-          const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-          
-          const targetUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-
-          if (isAndroid) {
-            const androidIntent = `intent://www.facebook.com/sharer/sharer.php?u=${encodedUrl}#Intent;scheme=https;package=com.facebook.katana;end`;
-            window.location.href = androidIntent;
-          } 
-          else if (isIOS) {
-            window.open(targetUrl, '_blank');
-          } 
-          else {
-            window.open(targetUrl, '_blank', 'width=600,height=400,resizable=yes,scrollbars=yes');
-          }
-        });
-      }
-
-      const copyBtn = document.getElementById('copy-link-btn');
-      const copyText = document.getElementById('copy-text');
-      if (copyBtn && copyText) {
-        copyBtn.addEventListener('click', () => {
-          navigator.clipboard.writeText(currentUrl).then(() => {
-            
-            const currentWidth = copyBtn.offsetWidth;
-            copyBtn.style.width = `${currentWidth}px`;
-
-            copyText.textContent = 'Đã sao chép!';
-            copyBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-            copyBtn.classList.add('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-
-            setTimeout(() => {
-              copyText.textContent = 'Sao chép Link';
-              copyBtn.classList.remove('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-              copyBtn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-              
-              copyBtn.style.width = '';
-            }, 2000);
-          }).catch(err => {
-            console.error('Không thể sao chép Link: ', err);
-          });
-        });
-      }
-    });
-
-document.addEventListener('DOMContentLoaded', function() {
-  const slideContainer = document.getElementById('auto-injected-slide-container');
-  if (!slideContainer) return;
-
-  slideContainer.innerHTML = `
-    <div id="shared-banner-slide" class="w-full max-w-md mx-auto my-6 bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-      <div class="px-4 pt-3 pb-2 flex items-center gap-1.5 border-b border-slate-50">
-        <span class="flex h-2 w-2 relative">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
-        </span>
-        <h3 class="text-[12px] font-bold text-slate-700 uppercase tracking-wider">Bài viết nổi bật</h3>
-      </div>
-      <div class="relative w-full aspect-[16/9] group overflow-hidden bg-slate-900">
-        <div id="banner-slides-container" class="flex w-full h-full transition-transform duration-500 ease-out"></div>
-        <button id="prev-slide-btn" class="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/80 hover:bg-white text-slate-800 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-sm z-10 text-xs">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button id="next-slide-btn" class="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/80 hover:bg-white text-slate-800 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-sm z-10 text-xs">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-        <div id="slide-dots-container" class="absolute bottom-2 right-4 flex gap-1.5 z-10"></div>
-      </div>
-    </div>
-  `;
-
-	  const container = slideContainer.querySelector('#banner-slides-container');
-	  
-	  if (container && typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.bannerSlides) {
-		let slidesHTML = '';
-		
-		MY_SITE_CONFIG.bannerSlides.forEach(slide => {
-		  slidesHTML += `
-			<a href="${slide.link}" class="w-full h-full flex-shrink-0 relative block">
-			  <img src="${slide.image}" class="w-full h-full object-cover" alt="${slide.altText || 'Banner'}">
-			  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-				<p class="text-[13px] font-semibold text-white leading-snug line-clamp-2">${slide.title}</p>
-			  </div>
-			</a>
-		  `;
-		});
-		
-		container.innerHTML = slidesHTML;
-		
-		initInjectedSlide();
-	  }
-
-	  function initInjectedSlide() {
-		const prevBtn = slideContainer.querySelector('#prev-slide-btn');
-		const nextBtn = slideContainer.querySelector('#next-slide-btn');
-		const dotsContainer = slideContainer.querySelector('#slide-dots-container');
-		
-		const slides = container.children;
-		const totalSlides = slides.length;
-		let currentIndex = 0;
-		let slideInterval;
-
-		if (dotsContainer) {
-		  dotsContainer.innerHTML = ''; 
-		  for (let i = 0; i < totalSlides; i++) {
-			const dot = document.createElement('div');
-			dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
-			if (i === 0) dot.className += ' bg-white w-3';
-			dot.setAttribute('data-index', i);
-			dotsContainer.appendChild(dot);
-		  }
-		}
-		
-		const dots = dotsContainer ? dotsContainer.children : [];
-
-		function goToSlide(index) {
-		  if (index < 0) index = totalSlides - 1;
-		  if (index >= totalSlides) index = 0;
-		  currentIndex = index;
-		  container.style.transform = `translateX(-${currentIndex * 100}%)`;
-		  
-		  for (let j = 0; j < dots.length; j++) {
-			if (j === currentIndex) {
-			  dots[j].className = 'w-1.5 h-1.5 rounded-full bg-white transition-all cursor-pointer w-3';
-			} else {
-			  dots[j].className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
-			}
-		  }
-		}
-
-		function startAutoSlide() {
-		  stopAutoSlide();
-		  if (totalSlides <= 1) return;
-		  slideInterval = setInterval(() => goToSlide(currentIndex + 1), 4000);
-		}
-
-		function stopAutoSlide() {
-		  if (slideInterval) clearInterval(slideInterval);
-		}
-
-		if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); startAutoSlide(); });
-		if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); startAutoSlide(); });
-
-		if (dotsContainer) {
-		  dotsContainer.addEventListener('click', (e) => {
-			if (e.target.hasAttribute('data-index')) {
-			  const targetIdx = parseInt(e.target.getAttribute('data-index'));
-			  goToSlide(targetIdx);
-			  startAutoSlide();
-			}
-		  });
-		}
-
-		if (container.parentElement) {
-		  container.parentElement.addEventListener('mouseenter', stopAutoSlide);
-		  container.parentElement.addEventListener('mouseleave', startAutoSlide);
-		}
-
-		startAutoSlide();
-	  }
-	});
-
-  </script>
-
-<script>
-  window.addEventListener('DOMContentLoaded', function() {
-    function _sha256(ascii) {
-      function rightRotate(value, amount) { return (value>>>amount) | (value<<(32-amount)); };
-      var mathPow = Math.pow; var maxWord = mathPow(2, 32); var lengthProperty = 'length'; var i, j;
-      var result = ''; var words = []; var asciiLength = ascii[lengthProperty]; var hash = []; var k = [];
-      var primeCounter = 0; var isPrime = function(n) {
-        for (var factor = 2; factor * factor <= n; factor++) { if (n % factor === 0) return false; } return true;
-      };
-      while (primeCounter < 64) {
-        if (isPrime(j = j ? j + 1 : 2)) {
-          if (primeCounter < 8) hash[primeCounter] = (mathPow(j, .5)*maxWord)|0;
-          k[primeCounter++] = (mathPow(j, 1/3)*maxWord)|0;
-        }
-      }
-      ascii += '\x80';
-      while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
-      for (i = 0; i < ascii[lengthProperty]; i++) {
-        j = ascii.charCodeAt(i); if (j >> 8) return; words[i >> 2] |= j << ((3 - i % 4) * 8);
-      }
-      words[words[lengthProperty]] = ((asciiLength * 8) / maxWord) | 0; words[words[lengthProperty]] = (asciiLength * 8);
-      for (j = 0; j < words[lengthProperty]; j += 16) {
-        var w = words.slice(j, j + 16); var oldHash = hash.slice(0);
-        for (i = 0; i < 64; i++) {
-          var wItem = w[i];
-          if (i >= 16) {
-            var s0 = rightRotate(w[i-15], 7) ^ rightRotate(w[i-15], 18) ^ (w[i-15] >>> 3);
-            var s1 = rightRotate(w[i-2], 17) ^ rightRotate(w[i-2], 19) ^ (w[i-2] >>> 10);
-            wItem = w[i] = (w[i-16] + s0 + w[i-7] + s1) | 0;
-          }
-          var ch = (hash[4] & hash[5]) ^ (~hash[4] & hash[6]);
-          var maj = (hash[0] & hash[1]) ^ (hash[0] & hash[2]) ^ (hash[1] & hash[2]);
-          var sigma0 = rightRotate(hash[0], 2) ^ rightRotate(hash[0], 13) ^ rightRotate(hash[0], 22);
-          var sigma1 = rightRotate(hash[4], 6) ^ rightRotate(hash[4], 11) ^ rightRotate(hash[4], 25);
-          var t1 = (hash[7] + sigma1 + ch + k[i] + (wItem || 0)) | 0; var t2 = (sigma0 + maj) | 0;
-          hash = [(t1 + t2) | 0].concat(hash); hash[4] = (hash[4] + t1) | 0; hash = hash.slice(0, 8);
-        }
-        for (i = 0; i < 8; i++) hash[i] = (hash[i] + oldHash[i]) | 0;
-      }
-      for (i = 0; i < 8; i++) {
-        for (j = 3; j >= 0; j--) { var b = (hash[i] >> (j * 8)) & 255; result += ((b < 16) ? '0' : '') + b.toString(16); }
-      }
-      return result;
-    }
-
-    var currentUrl = window.location.href;
-    var postDataId = document.getElementById('main-article-element') ? document.getElementById('main-article-element').getAttribute('data-id') : 'post-default';
-    
-    var commentsWrapper = document.getElementById('comments-wrapper'); 
-    var commentCountSpan = document.getElementById('comment-total-count');
-    var commentNameInput = document.getElementById('comment-name');
-    var commentContentInput = document.getElementById('comment-content');
-    var submitCommentBtn = document.getElementById('submit-comment-btn');
-    var sortSelect = document.getElementById('comment-sort-select');
-
-	var sortSelect = document.getElementById('comment-sort-select');
-
-    var currentPage = 1; 
-    var commentsPerPage = 10;
-    var paginationContainer = document.getElementById('comment-pagination-container');
-
-    var currentReplyToId = null;
-    var cachedSnapshotData = null;
-
-    var commentRef;
-    if (typeof firebase !== 'undefined' && firebase.database) {
-      commentRef = firebase.database().ref('blog_comments/' + postDataId);
-    }
-
-	var isAdminActive = false;
-    if (commentNameInput) {
-      commentNameInput.addEventListener('input', function(e) {
-        var val = e.target.value.trim();
-        
-        if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin) {
-          var secureTargetHash = MY_SITE_CONFIG.admin.secureTargetHash;
-          
-          if (_sha256(val) === secureTargetHash && !isAdminActive) {
-            isAdminActive = true;
-            
-            e.target.value = MY_SITE_CONFIG.admin.displayName || 'Quản trị viên';
-            
-            e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
-            e.target.blur();
-            
-            document.querySelectorAll('.admin-action-btn').forEach(function(btn) {
-              btn.classList.remove('hidden');
-            });
-            if (cachedSnapshotData) renderComments(cachedSnapshotData);
-          }
-        }
       });
     }
 
-    if (sortSelect) {
-      sortSelect.addEventListener('change', function() {
-        if (cachedSnapshotData) {
-          renderComments(cachedSnapshotData);
-        }
+    const fbBtn = document.getElementById('share-facebook-btn');
+    if (fbBtn) {
+      fbBtn.addEventListener('click', () => {
+        const targetUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+        window.open(targetUrl, '_blank', 'width=600,height=400');
       });
     }
 
-	function renderComments(dataObj) {
-		  if (!commentsWrapper) return;
-		  commentsWrapper.innerHTML = '';
-		  
-		  var commentKeys = Object.keys(dataObj);
-		  var allComments = commentKeys.map(function(key) {
-			var item = dataObj[key];
-			item._fbKey = key;
-			return item;
-		  });
-
-		  if (commentCountSpan) commentCountSpan.textContent = allComments.length;
-
-		  if (allComments.length === 0) {
-			commentsWrapper.innerHTML = '<p class="text-xs text-slate-400 italic text-center py-4">Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ cảm nghĩ!</p>';
-			return;
-		  }
-
-		  var currentSortOrder = sortSelect ? sortSelect.value : 'newest';
-
-		  var rootComments = allComments.filter(function(c) { return !c.replyTo; });
-		  var replyComments = allComments.filter(function(c) { return c.replyTo; });
-
-		  var pinnedRoots = rootComments.filter(function(c) { return c.isPinned === true; });
-		  var normalRoots = rootComments.filter(function(c) { return !c.isPinned; });
-
-		  normalRoots.sort(function(a, b) {
-			if (currentSortOrder === 'newest') {
-			  return (b.timestamp || 0) - (a.timestamp || 0);
-			} else {
-			  return (a.timestamp || 0) - (b.timestamp || 0);
-			}
-		  });
-
-		  pinnedRoots.sort(function(a, b) {
-			return (a.timestamp || 0) - (b.timestamp || 0);
-		  });
-
-		  var finalOrderedRoots = pinnedRoots.concat(normalRoots);
-
-		  replyComments.sort(function(a, b) {
-			if (currentSortOrder === 'newest') {
-			  return (b.timestamp || 0) - (a.timestamp || 0);
-			} else {
-			  return (a.timestamp || 0) - (b.timestamp || 0);
-			}
-		  });
-
-function generateCommentHTML(cmt, isChild) {
-          var date = new Date(cmt.timestamp);
-          var timeStr = date.toLocaleDateString('vi-VN') + ' ' + date.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'});
-          
-          var displayName = cmt.name && cmt.name.trim() !== "" ? cmt.name.trim() : "Nặc danh";
-          var adminBadge = cmt.isAdmin ? `<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Admin</span>` : '';
-          var pinBadge = cmt.isPinned ? `<span class="px-1.5 py-0.5 bg-amber-100 text-amber-700 font-bold rounded text-[9px] uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-thumbtack text-[8px]"></i> Đã ghim</span>` : '';
-          
-          var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
-          var borderClass = cmt.isPinned ? 'border-amber-200 bg-amber-50/10' : (cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : '');
-          var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
-          var adminBtnClass = isAdminActive ? '' : 'hidden';
-
-          var pinActionText = cmt.isPinned ? 'Bỏ ghim' : 'Ghim bài';
-          var pinIconClass = cmt.isPinned ? 'fa-solid fa-unlink' : 'fa-solid fa-thumbtack';
-
-          // --- 🌟 XỬ LÝ LOGIC ĐỌC ICON TỪ FILE CẤU HÌNH (TỰ ĐỘNG CHECK TEXT/LINK ẢNH) ---
-          var rcConfig = (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.reactions) ? MY_SITE_CONFIG.reactions : {
-              favorite: "❤️", haha: "😆", wow: "😮", sad: "😢", angry: "😡"
-          };
-
-          // Hàm phụ trợ tự động chuyển chữ -> <span> hoặc link -> <img> với kích thước chuẩn
-          function renderIconHTML(iconData, extraClass) {
-              var cls = extraClass || "w-[16px] h-[16px]";
-              var isUrl = typeof iconData === 'string' && (iconData.indexOf('http') === 0 || iconData.indexOf('/') === 0);
-              if (isUrl) {
-                  return `<img src="${iconData}" class="${cls} object-contain inline-block transition-transform" alt="reaction" />`;
-              }
-              var fontSize = cls.includes('w-') ? '' : 'text-[15px]';
-              return `<span class="${fontSize} ${cls} transition-transform flex items-center justify-center">${iconData}</span>`;
-          }
-
-          var rx = cmt.reactions || {};
-          var favCount = rx.favorite || 0;
-          var hahaCount = rx.haha || 0;
-          var wowCount = rx.wow || 0;
-          var sadCount = rx.sad || 0;
-          var angryCount = rx.angry || 0;
-          
-          var totalReactions = favCount + hahaCount + wowCount + sadCount + angryCount;
-
-          var reactionMap = [
-              { key: 'favorite', count: favCount, icon: rcConfig.favorite },
-              { key: 'haha',     count: hahaCount, icon: rcConfig.haha },
-              { key: 'wow',      count: wowCount,  icon: rcConfig.wow },
-              { key: 'sad',      count: sadCount,  icon: rcConfig.sad },
-              { key: 'angry',    count: angryCount, icon: rcConfig.angry }
-          ];
-
-          // Tạo chuỗi icon hiển thị động dựa trên số lượt tương tác > 0
-          var reactionIconsHTML = '';
-          reactionMap.forEach(function(item) {
-              if (item.count > 0) {
-                  reactionIconsHTML += renderIconHTML(item.icon, "w-[15px] h-[15px]");
-              }
-          });
-
-          // Tạo chuỗi text động dạng văn bản cho Tooltip (Nút rê chuột)
-          var tooltipParts = [];
-          reactionMap.forEach(function(item) {
-              // 🎯 ĐÃ SỬA TẠI ĐÂY: Thay thế iconData lỗi bằng item.icon chuẩn xác
-              var isUrl = typeof item.icon === 'string' && (item.icon.indexOf('http') === 0 || item.icon.indexOf('/') === 0);
-              var label = isUrl ? `[${item.key.toUpperCase()}]` : item.icon;
-              tooltipParts.push(`${label} ${item.count}`);
-          });
-          var tooltipText = tooltipParts.join('      ');
-
-          var reactionResultBox = '';
-          if (totalReactions > 0) {
-            reactionResultBox = `
-              <div class="relative group/tooltip flex items-center gap-1 bg-white border border-slate-100 shadow-sm px-2 py-0.5 rounded-full cursor-default select-none ml-1">
-                <div class="flex items-center -space-x-1 text-xs">
-                  ${reactionIconsHTML}
-                </div>
-                <span class="text-[10px] font-bold text-slate-500">${totalReactions}</span>
-                
-                <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover/tooltip:block bg-slate-800 text-white text-[12px] rounded px-2 py-1 whitespace-nowrap z-30 shadow-md">
-                  ${tooltipText}
-                  <div class="w-1.5 h-1.5 bg-slate-800 rotate-45 absolute top-full left-1/2 -translate-x-1/2 -mt-0.5"></div>
-                </div>
-              </div>
-            `;
-          }
-          // -----------------------------------------------------------------------------
-
-          var processedContent = (cmt.content || "").replace(/(@[^\s:]+)/g, '<span class="text-indigo-600 font-semibold">$1</span>');
-          var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
-          var safeName = displayName.replace(/'/g, "\\'");
-
-          return `
-            <div class="flex gap-3 transition-all relative group/item ${layoutClass} ${borderClass}">
-              <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs flex-shrink-0">
-                ${cmt.name ? cmt.name.charAt(0).toUpperCase() : '?'}
-              </div>
-              <div class="min-w-0 flex-grow">
-                <div class="flex items-center gap-1.5 flex-wrap">
-                  <span class="text-[14px] ${nameColor}">${displayName}</span>
-                  ${adminBadge}
-                  ${pinBadge}
-                  <span class="text-[12px] text-slate-400 ml-auto">${timeStr}</span>
-                </div>
-                <p class="text-[14px] text-slate-600 mt-1 leading-relaxed whitespace-pre-line">${processedContent}</p>
-                
-                <div class="flex flex-wrap items-center gap-y-2 gap-x-3 mt-2 pt-1.5 border-t border-slate-100/60">
-                  
-                  <button onclick="window._replyToComment('${replyTargetId}', '${safeName}')" class="text-[12px] text-slate-500 hover:text-indigo-600 font-bold flex items-center gap-1 cursor-pointer transition-colors">
-                    <i class="fa-solid fa-reply text-[10px]"></i> Trả lời
-                  </button>
-
-                  <div class="relative group/reaction py-1">
-                    <button class="text-[12px] text-slate-500 group-hover/reaction:text-amber-500 font-bold flex items-center gap-1 cursor-pointer transition-colors py-0.5">
-                      <i class="fa-regular fa-face-smile text-[10px]"></i> Cảm xúc
-                    </button>
-                    
-                    <div class="absolute bottom-full left-0 w-full h-3 hidden group-hover/reaction:block bg-transparent z-10"></div>
-                    
-                    <div class="absolute bottom-[calc(100%+6px)] left-0 mb-0 hidden group-hover/reaction:flex items-center gap-2 bg-white shadow-xl border border-slate-100 px-3 py-2 rounded-full animate-bounce-short z-20 whitespace-nowrap">
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'favorite')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Yêu thích">
-                        ${renderIconHTML(rcConfig.favorite, "w-6 h-6 text-2xl")}
-                      </button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'haha')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Haha">
-                        ${renderIconHTML(rcConfig.haha, "w-6 h-6 text-2xl")}
-                      </button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'wow')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Wow">
-                        ${renderIconHTML(rcConfig.wow, "w-6 h-6 text-2xl")}
-                      </button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'sad')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Buồn">
-                        ${renderIconHTML(rcConfig.sad, "w-6 h-6 text-2xl")}
-                      </button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'angry')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Phẫn nộ">
-                        ${renderIconHTML(rcConfig.angry, "w-6 h-6 text-2xl")}
-                      </button>
-                    </div>
-                  </div>
-
-                  ${reactionResultBox}
-
-                  <div class="ml-auto flex items-center gap-3">
-                    <button onclick="window._togglePinComment('${cmt._fbKey}', ${cmt.isPinned || false})" class="admin-action-btn ${adminBtnClass} ${isChild ? 'hidden' : ''} text-[12px] text-amber-600 hover:text-amber-800 font-bold flex items-center gap-1 cursor-pointer transition-colors">
-                      <i class="${pinIconClass}"></i> ${pinActionText}
-                    </button>
-                    <button onclick="window._deleteComment('${cmt._fbKey}')" class="admin-action-btn ${adminBtnClass} text-[12px] text-rose-500 hover:text-rose-700 font-bold flex items-center gap-1 cursor-pointer transition-colors">
-                      <i class="fa-regular fa-trash-can"></i> Xóa
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          `;
-}
-
-		  finalOrderedRoots.forEach(function(root) {
-			var clusterWrapper = document.createElement('div');
-			clusterWrapper.className = 'comment-cluster space-y-2 border-b border-slate-100/60 pb-3 last:border-0';
-			if (root.isPinned) {
-				clusterWrapper.classList.add('is-pinned-cluster');
-			}
-			
-			var clusterHTML = generateCommentHTML(root, false);
-			var subReplies = replyComments.filter(function(r) { return r.replyTo === root._fbKey; });
-			subReplies.forEach(function(reply) {
-			  clusterHTML += generateCommentHTML(reply, true);
-			});
-
-			clusterWrapper.innerHTML = clusterHTML;
-			commentsWrapper.appendChild(clusterWrapper);
-		  });
-
-		  executeClientPagination();
-		}
-
-		if (commentRef) {
-		  commentRef.on('value', function(snapshot) {
-			cachedSnapshotData = snapshot.val() || {};
-			renderComments(cachedSnapshotData);
-		  });
-		}
-
-		window._replyToComment = function(commentId, targetName) {
-		  if (!commentContentInput) return;
-		  currentReplyToId = commentId;
-		  commentContentInput.value = "@" + targetName.replace(/ /g, "") + " "; 
-		  commentContentInput.focus();
-		  commentContentInput.scrollIntoView({ behavior: "smooth", block: "center" });
-		};
-
-		window._reactComment = function(fbKey, type) {
-		  if (!commentRef) return;
-		  var reactionPath = commentRef.child(fbKey + '/reactions/' + type);
-		  reactionPath.transaction(function(currentCount) {
-			return (currentCount || 0) + 1;
-		  });
-		};
-
-		window._togglePinComment = function(fbKey, currentPinnedStatus) {
-		  if (!commentRef) return;
-		  commentRef.child(fbKey).update({
-			isPinned: !currentPinnedStatus
-		  }).catch(function(err) {
-			alert("Lỗi thực thi ghim: " + err.message);
-		  });
-		};
-
-		window._deleteComment = function(fbKey) {
-		  if (!commentRef) return;
-		  if (confirm("Bạn có chắc chắn muốn xóa vĩnh viễn bình luận này khỏi hệ thống không?")) {
-			commentRef.child(fbKey).remove().then(function() {
-			  commentRef.once('value', function(snap) {
-				var data = snap.val() || {};
-				Object.keys(data).forEach(function(key) {
-				  if (data[key].replyTo === fbKey) {
-					commentRef.child(key).remove();
-				  }
-				});
-			  });
-			}).catch(function(err) {
-			  alert("Lỗi không thể xóa: " + err.message);
-			});
-		  }
-		};
-
-		if (submitCommentBtn) {
-		  submitCommentBtn.addEventListener('click', function() {
-			var name = commentNameInput ? commentNameInput.value.trim() : '';
-			var content = commentContentInput ? commentContentInput.value.trim() : '';
-
-			if (!name) { alert("Vui lòng nhập tên của bạn!"); return; }
-			if (!content) { alert("Vui lòng nhập nội dung bình luận!"); return; }
-
-			// Xác định tên hiển thị chính thức của người gửi
-			var finalName = isAdminActive ? (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin ? MY_SITE_CONFIG.admin.displayName : "Hiệu Béo 👑") : name;
-
-			var newComment = {
-			  name: finalName,
-			  content: content,
-			  isAdmin: isAdminActive,
-			  timestamp: firebase.database.ServerValue.TIMESTAMP,
-			  isPinned: false,
-			  reactions: { favorite: 0, haha: 0, wow: 0, sad: 0, angry: 0 }
-			};
-
-			if (currentReplyToId) {
-			  newComment.replyTo = currentReplyToId;
-			}
-
-			submitCommentBtn.disabled = true;
-			submitCommentBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang gửi...';
-
-			if (commentRef) {
-			  commentRef.push(newComment).then(function() {
-				
-				// 🎯 BẮT ĐẦU: ĐOẠN CODE GỬI THÔNG BÁO TELEGRAM ĐỌC TỪ CONFIG.JS
-				if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin && MY_SITE_CONFIG.admin.telegram) {
-				  var telConfig = MY_SITE_CONFIG.admin.telegram;
-				  
-				  // Chỉ gửi nếu trong config đã điền đầy đủ token và chatId
-				  if (telConfig.token && telConfig.chatId) {
-					var messageType = currentReplyToId ? "💬 CÓ PHẢN HỒI MỚI!" : "📝 CÓ BÌNH LUẬN MỚI!";
-					var postTitle = document.title;
-					var postUrl = window.location.href;
-
-					var textMsg = `${messageType}\n👤 Người gửi: ${finalName}\n📄 Bài viết: ${postTitle}\n🔗 Link: ${postUrl}\n💬 Nội dung:\n"${content}"`;
-
-					// Gọi API Telegram với thông tin lấy từ file cấu hình
-					fetch(`https://api.telegram.org/bot${telConfig.token}/sendMessage`, {
-					  method: 'POST',
-					  headers: { 'Content-Type': 'application/json' },
-					  body: JSON.stringify({
-						chat_id: telConfig.chatId,
-						text: textMsg
-					  })
-					}).catch(function(tErr) {
-					  console.error("Lỗi gửi Telegram:", tErr);
-					});
-				  }
-				}
-				// 🎯 KẾT THÚC ĐOẠN CODE TELEGRAM
-
-				if (commentContentInput) commentContentInput.value = "";
-				currentReplyToId = null;
-				submitCommentBtn.disabled = false;
-				submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
-			  }).catch(function(err) {
-				console.error("Lỗi gửi bình luận:", err);
-				alert("Có lỗi xảy ra khi gửi bình luận!");
-				submitCommentBtn.disabled = false;
-				submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
-			  });
-			}
-		  });
-		}
-
-		var shareFbBtn = document.getElementById('share-fb-btn');
-		if (shareFbBtn) {
-		  shareFbBtn.addEventListener('click', function() {
-			var targetUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(currentUrl);
-			if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-			  window.open(targetUrl, '_blank');
-			} else {
-			  window.open(targetUrl, '_blank', 'width=600,height=400,resizable=yes,scrollbars=yes');
-			}
-		  });
-		}
-
-		var copyBtn = document.getElementById('copy-link-btn');
-		var copyText = document.getElementById('copy-text');
-		if (copyBtn && copyText) {
-		  copyBtn.addEventListener('click', function() {
-			navigator.clipboard.writeText(currentUrl).then(function() {
-			  var currentWidth = copyBtn.offsetWidth;
-			  copyBtn.style.width = currentWidth + 'px';
-			  copyText.textContent = 'Đã sao chép!';
-			  copyBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-			  copyBtn.classList.add('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-			  setTimeout(function() {
-				copyText.textContent = 'Sao chép Link';
-				copyBtn.classList.remove('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-				copyBtn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-				copyBtn.style.width = '';
-			  }, 2000);
-			});
-		  });
-		}
-	  });
-  
-	document.addEventListener("DOMContentLoaded", function () {
-		const commentContainer = document.getElementById('comments-wrapper');
-		const paginationContainer = document.getElementById('comment-pagination-container');
-		
-		if (!commentContainer || !paginationContainer) return;
-
-		const commentsPerPage = 10;
-		let currentPage = 1;
-
-		function initCommentPagination() {
-			const container = document.getElementById('comments-wrapper');
-			if (!container) return;
-
-			const allComments = Array.from(container.children);
-			
-			const pinnedComments = allComments.filter(comment => 
-				comment.classList.contains('is-pinned-cluster') || 
-				comment.querySelector('.comment-is-pinned') !== null || 
-				comment.querySelector('.comment-pinned') !== null
-			);
-			
-			const regularComments = allComments.filter(comment => 
-				!comment.classList.contains('is-pinned-cluster') && 
-				comment.querySelector('.comment-is-pinned') === null && 
-				comment.querySelector('.comment-pinned') === null
-			);
-
-			const totalPages = Math.ceil(regularComments.length / commentsPerPage);
-			const startIndex = (currentPage - 1) * commentsPerPage;
-			const endIndex = startIndex + commentsPerPage;
-
-			regularComments.forEach((comment, index) => {
-				if (index >= startIndex && index < endIndex) {
-					comment.style.display = "block";
-				} else {
-					comment.style.display = "none";
-				}
-			});
-
-			pinnedComments.forEach(comment => {
-				comment.style.setProperty('display', 'block', 'important');
-			});
-
-			if (totalPages > 1) {
-				paginationContainer.style.display = "flex";
-				renderCommentControls(totalPages);
-			} else {
-				paginationContainer.style.display = "none";
-			}
-		}
-
-		function renderCommentControls(totalPages) {
-		    paginationContainer.innerHTML = "";
-		    
-		    let html = `<div class="flex items-center justify-between w-full max-w-md mx-auto pt-4 border-t border-slate-100 select-none">`;
-		
-		    html += `
-		        <button id="prev-comment-btn" 
-		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer flex-shrink-0 ${currentPage === 1 ? 'opacity-40 pointer-events-none' : ''}">
-		            <i class="fa-solid fa-angle-left"></i> Trước
-		        </button>
-		    `;
-		
-		    html += `<div class="flex items-center justify-center gap-1 flex-grow min-w-[180px] mx-2">`;
-		
-		    const range = 2; 
-		    let hasLeftDot = false;
-		    let hasRightDot = false;
-		
-		    for (let i = 1; i <= totalPages; i++) {
-		        if (i === 1 || i === totalPages || (i >= currentPage - range && i <= currentPage + range)) {
-		            const isCurrent = i === currentPage;
-		            html += `
-		                <button data-cpage="${i}" 
-		                        class="comment-page-btn w-7 h-7 text-xs font-bold rounded-lg transition-all cursor-pointer ${isCurrent ? 'bg-indigo-600 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}">
-		                    ${i}
-		                </button>
-		            `;
-		        } else if (i < currentPage - range && !hasLeftDot) {
-		            html += `<span class="w-7 text-center text-slate-400 text-xs font-bold">...</span>`;
-		            hasLeftDot = true;
-		        } else if (i > currentPage + range && !hasRightDot) {
-		            html += `<span class="w-7 text-center text-slate-400 text-xs font-bold">...</span>`;
-		            hasRightDot = true;
-		        }
-		    }
-		
-		    html += `</div>`;
-		
-		    html += `
-		        <button id="next-comment-btn" 
-		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer flex-shrink-0 ${currentPage === totalPages ? 'opacity-40 pointer-events-none' : ''}">
-		            Sau <i class="fa-solid fa-angle-right"></i>
-		        </button>
-		    `;
-		
-		    html += `</div>`;
-		    paginationContainer.innerHTML = html;
-		
-		    paginationContainer.querySelectorAll('.comment-page-btn').forEach(btn => {
-		        btn.addEventListener('click', function() {
-		            currentPage = parseInt(this.getAttribute('data-cpage'));
-		            initCommentPagination();
-		        });
-		    });
-		    paginationContainer.querySelector('#prev-comment-btn').addEventListener('click', function() { if (currentPage > 1) { currentPage--; initCommentPagination(); } });
-		    paginationContainer.querySelector('#next-comment-btn').addEventListener('click', function() { if (currentPage < totalPages) { currentPage++; initCommentPagination(); } });
-		}
-
-		const observer = new MutationObserver(function (mutations) {
-			observer.disconnect();
-			initCommentPagination();
-			observer.observe(commentContainer, { childList: true });
-		});
-
-		observer.observe(commentContainer, { childList: true });
-		
-		initCommentPagination();
-	});
-  
-	var commentCurrentPage = 1;
-	var commentsPerPageConfig = 5;
-
-	function executeClientPagination() {
-		var wrapper = document.getElementById('comments-wrapper');
-		var pagContainer = document.getElementById('comment-pagination-container');
-		if (!wrapper || !pagContainer) return;
-
-		var allClusters = Array.from(wrapper.getElementsByClassName('comment-cluster'));
-		
-		var pinnedClusters = allClusters.filter(function(el) { return el.classList.contains('is-pinned-cluster'); });
-		var normalClusters = allClusters.filter(function(el) { return !el.classList.contains('is-pinned-cluster'); });
-
-		pinnedClusters.forEach(function(el) { el.style.display = 'block'; });
-
-		var totalPages = Math.ceil(normalClusters.length / commentsPerPageConfig);
-		if (commentCurrentPage > totalPages && totalPages > 0) commentCurrentPage = totalPages;
-
-		var startIndex = (commentCurrentPage - 1) * commentsPerPageConfig;
-		var endIndex = startIndex + commentsPerPageConfig;
-
-		normalClusters.forEach(function(el, index) {
-			if (index >= startIndex && index < endIndex) {
-				el.style.display = 'block';
-			} else {
-				el.style.display = 'none';
-			}
-		});
-
-		if (totalPages > 1) {
-			pagContainer.style.display = 'flex';
-			
-			let html = `<div class="flex items-center justify-between w-full max-w-[540px] mx-auto mt-4 select-none">`;
-			html += `<button id="prev-comment-btn" class="px-3 py-1 bg-white border border-slate-200 text-xs text-slate-600 rounded hover:bg-slate-50 transition cursor-pointer">Trước</button>`;
-			html += `<div class="flex items-center justify-center gap-1 flex-grow min-w-[180px] mx-2 text-xs font-semibold text-slate-500">Trang ${commentCurrentPage} / ${totalPages}</div>`;
-			html += `<button id="next-comment-btn" class="px-3 py-1 bg-white border border-slate-200 text-xs text-slate-600 rounded hover:bg-slate-50 transition cursor-pointer">Sau</button>`;
-			html += `</div>`;
-			
-			pagContainer.innerHTML = html;
-
-			var prevBtn = pagContainer.querySelector('#prev-comment-btn');
-			if (prevBtn) {
-				prevBtn.addEventListener('click', function() {
-					if (commentCurrentPage > 1) {
-						commentCurrentPage--;
-						executeClientPagination();
-					}
-				});
-			}
-
-			var nextBtn = pagContainer.querySelector('#next-comment-btn');
-			if (nextBtn) {
-				nextBtn.addEventListener('click', function() {
-					if (commentCurrentPage < totalPages) {
-						commentCurrentPage++;
-						executeClientPagination();
-					}
-				});
-			}
-		} else {
-			pagContainer.style.display = 'none';
-		}
-	}
-	
-	document.addEventListener('DOMContentLoaded', function () {
-		var fbConfig = (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.facebookGroup) ? MY_SITE_CONFIG.facebookGroup : {
-			title: "Thư viện Audition Group",
-			description: "Chia sẻ kinh nghiệm, tài nguyên mod game Audition",
-			groupUrl: "https://www.facebook.com/groups/ThuvienAu",
-			imageUrl: "https://lh3.googleusercontent.com/d/1jNcrWoKc9YN3C8KiG1rT2LLUACaVl0LS",
-			appUrl: ""
-		};
-
-		var fbImg = document.getElementById('fb-banner-img');
-		var fbTitle = document.getElementById('fb-banner-title');
-		var fbDesc = document.getElementById('fb-banner-desc');
-		var fbLink = document.getElementById('fb-banner-link');
-
-		if (fbImg) {
-			fbImg.src = fbConfig.imageUrl;
-			fbImg.alt = fbConfig.title;
-		}
-		if (fbTitle) fbTitle.textContent = fbConfig.title;
-		if (fbDesc) fbDesc.textContent = fbConfig.description;
-		
-		if (fbLink) {
-			if (fbConfig.appUrl && fbConfig.appUrl.trim() !== "") {
-				fbLink.href = fbConfig.appUrl;
-				fbLink.setAttribute('onclick', `window.open('${fbConfig.groupUrl}'); return false;`);
-			} else {
-				fbLink.href = fbConfig.groupUrl;
-			}
-		}
-	});
-	
-	// Kiểm tra xem MY_SITE_CONFIG đã được định nghĩa chưa
-	if (typeof MY_SITE_CONFIG !== 'undefined') {
-		
-		// 1. Vẽ Header
-		const headerContainer = document.getElementById('header-container');
-		if (headerContainer && MY_SITE_CONFIG.layout && MY_SITE_CONFIG.layout.headerHTML) {
-			headerContainer.innerHTML = MY_SITE_CONFIG.layout.headerHTML;
-		}
-
-		// 2. Vẽ Footer
-		const footerContainer = document.getElementById('footer-container');
-		if (footerContainer && MY_SITE_CONFIG.layout && MY_SITE_CONFIG.layout.footerHTML) {
-			footerContainer.innerHTML = MY_SITE_CONFIG.layout.footerHTML;
-		}
-
-		console.log("Đã vẽ Header/Footer từ MY_SITE_CONFIG thành công!");
-	} else {
-		console.error("LỖI: Không tìm thấy biến MY_SITE_CONFIG. Kiểm tra lại việc nhúng file config.js");
-	}
-  
-  </script>
- 
-
+    const copyBtn = document.getElementById('copy-link-btn');
+    const copyText = document.getElementById('copy-text');
+    if (copyBtn && copyText) {
+      copyBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(currentUrl).then(() => {
+          copyText.textContent = 'Đã sao chép!';
+          copyBtn.classList.remove('bg-slate-100', 'text-slate-700');
+          copyBtn.classList.add('bg-emerald-500', 'text-white');
+          setTimeout(() => {
+            copyText.textContent = 'Sao chép Link';
+            copyBtn.classList.remove('bg-emerald-500', 'text-white');
+            copyBtn.classList.add('bg-slate-100', 'text-slate-700');
+          }, 2000);
+        });
+      });
+    }
+  });
+
+  if (typeof MY_SITE_CONFIG !== 'undefined') {
+    const headerContainer = document.getElementById('header-container');
+    if (headerContainer && MY_SITE_CONFIG.layout && MY_SITE_CONFIG.layout.headerHTML) {
+      headerContainer.innerHTML = MY_SITE_CONFIG.layout.headerHTML;
+    }
+    const footerContainer = document.getElementById('footer-container');
+    if (footerContainer && MY_SITE_CONFIG.layout && MY_SITE_CONFIG.layout.footerHTML) {
+      footerContainer.innerHTML = MY_SITE_CONFIG.layout.footerHTML;
+    }
+  }
+</script>
