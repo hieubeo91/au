@@ -10,6 +10,12 @@ const MY_SITE_CONFIG = {
             title: "Thang cấp độ đôi trong Audition",
             altText: "Thang cấp độ đôi trong Audition"
         },
+        {
+            link: "https://hieubeo91.github.io/au/posts/level.html",
+            image: "https://lh3.googleusercontent.com/d/1NTYiVYS9a1rT_6cRCWCtcHDqFZLG0wBI",
+            title: "Thang cấp độ level trong Audition",
+            altText: "Thang cấp độ level trong Audition"
+        },
     ],
 
     // Cấu hình Quản trị viên
