@@ -1,1532 +1,982 @@
-
-
-
-<script src="https://hieubeo91.github.io/au/config.js"></script> 
-<script>
-(function() {
-  if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.globalBgImage && MY_SITE_CONFIG.globalBgImage !== 'none') {
-    const style = document.createElement('style');
-    style.innerHTML = `
-      body {
-        background-image: url('${MY_SITE_CONFIG.globalBgImage}') !important;
-        background-attachment: fixed !important;
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-      }
-    `;
-    (document.head || document.body || document.documentElement).appendChild(style);
-  }
-})();
-</script>
-
-<meta property="og:type" content="article">
-    <meta property="og:title" content="' + title + '">
-    <meta property="og:image" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
-    <meta property="og:image:secure_url" content="' + (inputDataImage ? inputDataImage : 'https://lh3.googleusercontent.com/d/1JnudrCPUIi6L4hHslVgmBds-swdjRkqM') + '">
-    <meta property="og:url" content="' + window.location.href + '">
-
-  <meta name="google-site-verification" content="lFUO5oaJH9M034fgxEq1A0rtAkkrsLVS9baEoi0hHGc">
-  <script data-goatcounter="https://vetraitim.goatcounter.com/count" async="" src="//gc.zgo.at/count.js"></script>
-  <meta charset="UTF-8">
-	<meta property="fb:app_id" content="966242223397117">
-	<meta property="og:type" content="article">
-	<meta property="og:title" content="Tiêu đề bài viết">
-	<meta property="og:description" content="fhfgh">
-
-	<meta property="og:image" content="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/banner-sharing.png?raw=true">
-	<meta property="og:image:secure_url" content="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/banner-sharing.png?raw=true">
-	<meta property="og:url" content="${window.location.href}">
-		
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hieubeo's Audition Studio</title>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Gallery Showcase & Community</title>
   
- <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
- <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
-  
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png?v=1">
+  <link rel="icon" type="image/png" href="https://picsum.photos/id/1025/32/32" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #f8fafc;
-      scroll-behavior: smooth;
-    }
-    .swiper {
-      width: 100%;
-      height: 400px;
-      border-radius: 12px;
-    }
-    .swiper-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: #ffffff !important;
-      background: rgba(0, 0, 0, 0.4);
-      width: 40px !important;
-      height: 40px !important;
-      border-radius: 50%;
-      transition: all 0.2s ease;
-    }
-    .swiper-button-next:hover,
-    .swiper-button-prev:hover {
-      background: rgba(99, 102, 241, 0.9);
-      transform: scale(1.05);
-    }
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-      font-size: 14px !important;
-      font-weight: bold;
-    }
-    .swiper-pagination-bullet-active {
-      background: #6366f1 !important;
-      width: 24px !important;
-      border-radius: 4px !important;
-    }
-    #back-to-top {
-      transition: all 0.3s ease;
-      opacity: 0;
-      visibility: hidden;
-    }
-    #back-to-top.show {
-      opacity: 1;
-      visibility: visible;
-    }
-	
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-	@keyframes heartFlyUp {
-		0% {
-		  transform: translateY(0) translateX(0) scale(0.6) rotate(0deg);
-		  opacity: 1;
-		}
-		50% {
-		  opacity: 0.9;
-		}
-		100% {
-		  transform: translateY(-140px) translateX(var(--drift-x)) scale(1.3) rotate(var(--rotate-deg));
-		  opacity: 0;
-		}
-	  }
-	.floating-heart {
-    position: absolute;
-    color: #f43f5e;
-    pointer-events: none;
-    animation: heartFlyUp 1.2s ease-out forwards;
-    z-index: 50;
-	}
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans antialiased relative">
 
+  <!-- Header -->
+  <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="text-slate-400 hover:text-white transition flex items-center gap-2 text-sm font-medium">
+        <i class="fa-solid fa-arrow-left"></i> Quay lại
+      </a>
+      <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+        AI Gallery Community
+      </span>
+    </div>
+  </header>
 
-<div id="fb-root"></div>
-<script async="" defer="" crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&amp;version=v18.0"></script>
-  
-  <div id="header-container"></div>
+  <main class="max-w-7xl mx-auto px-4 py-8">
+    
+    <!-- Tiêu đề -->
+    <article class="mb-8 text-center">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-2">
+        Bộ Sưu Tập Prompts & Art Showcase
+      </h1>
+      <p class="text-slate-400 text-sm md:text-base max-w-2xl mx-auto">
+        Khám phá các tác phẩm nghệ thuật AI, tương tác cùng tác giả và chia sẻ prompt.
+      </p>
+    </article>
 
-  <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start w-full">
-      <div class="w-full lg:col-span-2 space-y-6">
-        
-        <article id="main-article-element" data-id="ten-hien-thi-tren-tab" class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm w-full">
-          <a href="../index.html" class="mb-6 inline-flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
-            <i class="fa-solid fa-arrow-left"></i> Quay lại trang chủ
-          </a>
-          
-          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-            <div class="flex items-center gap-3">
-              <a href="../index.html?cat=cat_mod" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider hover:opacity-85 transition-opacity" style="background-color: #ecfdf5; color: #059669;" title="Xem thêm bài viết thuộc chủ đề Modding">Modding</a>
-              <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>13/07/2026</span>
-            </div>
+    <!-- Thanh Tìm Kiếm & Hashtags -->
+    <div class="mb-8 space-y-4">
+      <div class="relative max-w-xl mx-auto">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+        <input 
+          type="text" 
+          id="search-input"
+          placeholder="Tìm kiếm theo tên ảnh, tác giả hoặc #hashtag..." 
+          class="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-11 pr-4 py-3 text-sm text-slate-200 placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition shadow-inner"
+        />
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 max-w-4xl mx-auto justify-center px-2" id="hashtag-chips"></div>
+    </div>
+
+    <!-- Toolbar Thanh Điều Khiển -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-800/80 text-sm">
+      <div class="text-slate-400">
+        Hiển thị: <span id="item-count-info" class="font-semibold text-slate-200">0</span> tác phẩm
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <!-- BỘ LỌC SẮP XẾP -->
+        <div class="h-10 flex items-center gap-1.5 bg-slate-800/60 px-2.5 rounded-xl border border-slate-700/60">
+          <span class="text-xs font-medium text-slate-400 whitespace-nowrap flex items-center gap-1">
+            <i class="fa-solid fa-arrow-down-wide-short"></i> Sắp xếp:
+          </span>
+          <select id="sort-select" onchange="changeSort(this.value)" class="bg-slate-900 text-xs text-slate-200 font-semibold rounded-lg px-2.5 py-1 border border-slate-700 focus:outline-none focus:border-indigo-500 cursor-pointer">
+            <option value="newest">Mới nhất</option>
+            <option value="searches">Tìm kiếm nhiều nhất</option>
+            <option value="likes">Yêu thích nhiều nhất</option>
+            <option value="views">Xem nhiều nhất</option>
+          </select>
+        </div>
+
+        <!-- CHẾ ĐỘ HIỂN THỊ ẢNH -->
+        <div class="h-10 flex items-center gap-1 bg-slate-800/60 px-2.5 rounded-xl border border-slate-700/60">
+          <span class="text-xs font-medium text-slate-400 whitespace-nowrap flex items-center gap-1 mr-1">
+            <i class="fa-solid fa-expand"></i> Ảnh:
+          </span>
+          <button id="btn-fit-fill" onclick="setPreviewFit('fill')" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition">
+            Fill
+          </button>
+          <button id="btn-fit-fit" onclick="setPreviewFit('fit')" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
+            Fit
+          </button>
+        </div>
+
+        <!-- NÚT ON/OFF NSFW -->
+        <div class="h-10 flex items-center justify-between gap-2 bg-slate-800/60 px-2.5 rounded-xl border border-slate-700/60 w-[115px]">
+          <span class="text-xs font-medium text-slate-400 whitespace-nowrap flex items-center gap-1">
+            <i class="fa-solid fa-eye-slash"></i> NSFW:
+          </span>
+          <button id="btn-nsfw-toggle" onclick="toggleNSFWGlobal()" class="w-9 py-1 rounded-lg text-xs font-semibold bg-slate-700 text-slate-300 hover:bg-slate-600 transition text-center">
+            OFF
+          </button>
+        </div>
+
+        <!-- CHẾ ĐỘ TẢI -->
+        <div class="h-10 flex items-center gap-1 bg-slate-800/60 px-2.5 rounded-xl border border-slate-700/60">
+          <span class="text-xs font-medium text-slate-400 whitespace-nowrap flex items-center gap-1 mr-1">
+            <i class="fa-solid fa-cloud-arrow-down"></i> Tải:
+          </span>
+          <button id="btn-mode-scroll" onclick="switchMode('scroll')" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition">
+            Cuộn
+          </button>
+          <button id="btn-mode-page" onclick="switchMode('page')" class="px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition">
+            Trang
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Danh Sách Lưới Ảnh -->
+    <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+
+    <div id="empty-state" class="hidden py-16 text-center text-slate-500">
+      <i class="fa-solid fa-folder-open text-4xl mb-3"></i>
+      <p>Không tìm thấy hình ảnh hoặc tác giả phù hợp.</p>
+    </div>
+
+    <div id="loading-indicator" class="py-10 flex flex-col items-center justify-center gap-2 text-slate-500">
+      <i class="fa-solid fa-circle-notch fa-spin text-2xl text-indigo-500"></i>
+      <span class="text-xs font-medium uppercase tracking-wider">Đang tải thêm...</span>
+    </div>
+
+    <div id="pagination-controls" class="hidden py-8 flex items-center justify-center gap-2"></div>
+  </main>
+
+  <button 
+    id="btn-back-to-top" 
+    onclick="scrollToTop()" 
+    class="fixed bottom-6 right-6 z-40 w-11 h-11 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full flex items-center justify-center shadow-2xl transition-all duration-300 opacity-0 pointer-events-none translate-y-4 border border-indigo-400/30"
+  >
+    <i class="fa-solid fa-arrow-up text-base"></i>
+  </button>
+
+  <!-- MODAL CHI TIẾT -->
+  <div id="detail-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-y-auto">
+    <div class="fixed inset-0" onclick="closeModal()"></div>
+
+    <button onclick="navigateModal(-1)" class="fixed left-3 top-1/2 -translate-y-1/2 z-50 w-12 h-12 bg-slate-900/80 hover:bg-indigo-600 text-white rounded-full flex items-center justify-center border border-slate-700/80 shadow-2xl transition hover:scale-110">
+      <i class="fa-solid fa-chevron-left text-lg"></i>
+    </button>
+    <button onclick="navigateModal(1)" class="fixed right-3 top-1/2 -translate-y-1/2 z-50 w-12 h-12 bg-slate-900/80 hover:bg-indigo-600 text-white rounded-full flex items-center justify-center border border-slate-700/80 shadow-2xl transition hover:scale-110">
+      <i class="fa-solid fa-chevron-right text-lg"></i>
+    </button>
+
+    <div class="relative w-full max-w-5xl bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden z-10 flex flex-col md:flex-row max-h-[90vh]">
+      
+      <button onclick="closeModal()" class="absolute top-3 right-3 z-30 w-8 h-8 bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white rounded-full flex items-center justify-center border border-slate-600/50 transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Khung Trái -->
+      <div class="relative w-full md:w-3/5 bg-slate-950 flex flex-col justify-between items-center p-4 min-h-[350px]">
+        <div class="relative flex-1 flex items-center justify-center w-full h-full min-h-[250px] overflow-hidden">
+          <img id="modal-image" src="" alt="" class="max-h-[60vh] w-auto max-w-full object-contain rounded-lg shadow-lg transition duration-300" />
+
+          <div id="nsfw-overlay" class="absolute inset-0 bg-slate-950/80 backdrop-blur-lg flex flex-col items-center justify-center p-6 text-center z-20 hidden">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500 text-3xl mb-2"></i>
+            <p class="text-sm font-semibold text-slate-200 mb-1">Nội dung nhạy cảm (18+)</p>
+            <p class="text-xs text-slate-400 mb-4 max-w-xs">Hình ảnh này có chứa nội dung NSFW.</p>
+            <button onclick="revealNSFWInModal()" class="px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white rounded-xl text-xs font-bold transition shadow-lg flex items-center gap-2">
+              <i class="fa-solid fa-eye"></i> Xác nhận xem ảnh
+            </button>
           </div>
+        </div>
 
-          <h1 class="text-xl font-bold text-slate-900 mb-2 leading-snug">
-            Tiêu đề bài viết
-          </h1>
+        <!-- Tỉ lệ tự động tính (Cách 1) & Badge Biến thể -->
+        <div class="flex items-center gap-2 mt-2">
+          <span id="modal-ratio-badge" class="text-[10px] font-mono px-2.5 py-1 rounded-md bg-slate-900/80 text-slate-300 border border-slate-700/80 shadow">
+            Tỉ lệ: Đang tính...
+          </span>
+          <span id="modal-variant-badge" class="text-[10px] font-semibold px-2.5 py-1 bg-indigo-500/20 text-indigo-400 rounded-md border border-indigo-500/30 whitespace-nowrap">
+            Biến thể 1/1
+          </span>
+        </div>
 
-          <div class="mb-5">
-            <span class="text-sm text-slate-500 font-medium">
-              <i class="fa-solid fa-pen-nib mr-1.5 text-indigo-400"></i>Bởi <span class="post-author">Nguyễn Văn Hiệu</span>
-            </span>
-          </div>
+        <div id="modal-thumbnails" class="flex items-center justify-center gap-2.5 mt-3 pt-3 border-t border-slate-800/80 w-full overflow-x-auto no-scrollbar"></div>
+      </div>
 
-          <div class="swiper mySwiper mb-5 w-full [&amp;_.swiper-slide_img]:w-full [&amp;_.swiper-slide_img]:aspect-[16/9] [&amp;_.swiper-slide_img]:object-cover">
-            <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                <a href="https://lh3.googleusercontent.com/d/1WymWT2sziCOP-r7Krj-g0vk59pA7x2Dx" data-fancybox="gallery-post-tieu-de-bai-viet" data-caption="Tiêu đề bài viết" class="block w-full h-full relative group">
-                  <img src="https://lh3.googleusercontent.com/d/1WymWT2sziCOP-r7Krj-g0vk59pA7x2Dx" alt="Tiêu đề bài viết" class="hover:scale-105 transition-transform duration-300">
-                  
-                </a>
+      <!-- Khung Phải -->
+      <div class="w-full md:w-2/5 p-5 flex flex-col justify-between overflow-y-auto bg-slate-900">
+        <div class="space-y-4">
+          <div class="pr-8">
+            <div class="flex items-center justify-between mb-1">
+              <div class="flex items-center gap-1.5 text-xs">
+                <span class="text-slate-400">Tác giả:</span>
+                <button id="modal-author" onclick="searchByAuthorFromModal()" class="font-bold text-indigo-400 hover:underline text-left"></button>
               </div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+            
+            <h2 id="modal-title" class="text-xl font-bold text-white"></h2>
+            
+            <div class="text-[11px] text-slate-400 mt-1 flex items-center gap-1.5">
+              <i class="fa-regular fa-clock text-slate-500"></i>
+              <span id="modal-created-at"></span>
+            </div>
+
+            <p id="modal-description" class="text-xs text-slate-400 mt-2 leading-relaxed"></p>
           </div>
 
-          <div class="mb-6 leading-relaxed text-slate-600 text-sm overflow-hidden clear-both">
-                    <div class="mb-4">fghgfh</div>
-
+          <div class="flex items-center gap-2 py-2 border-y border-slate-800">
+            <button id="btn-download-img" onclick="downloadImage()" class="flex-1 h-10 px-3 bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white rounded-lg text-xs font-medium transition flex items-center justify-center gap-1.5 border border-slate-700 whitespace-nowrap">
+              <i class="fa-solid fa-download text-xs"></i> <span>Tải về</span>
+            </button>
+            <button id="btn-copy-link" onclick="copyImageLink()" class="flex-1 h-10 px-3 bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white rounded-lg text-xs font-medium transition flex items-center justify-center gap-1.5 border border-slate-700 whitespace-nowrap">
+              <i class="fa-solid fa-link text-xs"></i> <span>Sao chép Link</span>
+            </button>
+            <button onclick="shareImage()" class="flex-1 h-10 px-3 bg-slate-800 hover:bg-indigo-600 text-slate-200 hover:text-white rounded-lg text-xs font-medium transition flex items-center justify-center gap-1.5 border border-slate-700 whitespace-nowrap">
+              <i class="fa-solid fa-share-nodes text-xs"></i> <span>Chia sẻ</span>
+            </button>
           </div>
 
-          <div class="mt-8 pt-6 border-t border-slate-100 relative mb-4">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-              <div class="flex items-center gap-2">
-                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Chia sẻ</span>
-              </div>
-              <div class="flex flex-wrap items-center gap-3">
-                <button id="custom-heart-btn" class="flex items-center gap-2 px-3 py-1.5 bg-rose-50 hover:bg-rose-500 text-rose-500 hover:text-white text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm border border-rose-100 group active:scale-95 h-[32px]">
-                  <i class="fa-solid fa-heart text-sm transition-transform" id="heart-icon"></i> 
-                  <span id="heart-count">0</span>
-                </button>
-                <button id="share-facebook-btn" class="flex items-center gap-1.5 px-3 py-1.5 bg-[#1877F2] hover:bg-[#166FE5] text-white text-xs font-medium rounded-lg transition-colors cursor-pointer shadow-sm h-[32px]">
-                  <i class="fab fa-facebook-f text-[11px]"></i> Chia sẻ
-                </button>
-				<button id="copy-link-btn" class="flex items-center justify-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium rounded-lg transition-all duration-200 cursor-pointer shadow-sm h-[32px] min-w-[120px]">
-                  <i class="fa-regular fa-copy text-[11px] flex-shrink-0"></i> 
-                  <span id="copy-text" class="block text-center w-full">Sao chép Link</span>
-                </button>
-              </div>
+          <div id="modal-hashtags" class="flex flex-wrap gap-1.5"></div>
+
+          <div class="flex items-center gap-4 py-2 border-b border-slate-800 text-xs text-slate-400">
+            <button id="modal-like-btn" onclick="toggleLikeModal()" class="flex items-center gap-1.5 hover:text-rose-500 transition">
+              <i id="modal-like-icon" class="fa-regular fa-heart text-sm"></i>
+              <span id="modal-likes-count">0</span> Lượt thích
+            </button>
+            <div class="flex items-center gap-1.5">
+              <i class="fa-regular fa-eye text-sm"></i>
+              <span id="modal-views-count">0</span> Lượt xem
+            </div>
+            <div class="flex items-center gap-1.5">
+              <i class="fa-regular fa-comment text-sm"></i>
+              <span id="modal-comments-count">0</span> Bình luận
             </div>
           </div>
-          <div class="pt-6 border-t border-slate-100">
-            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-3">Hashtags</span>
-            <div class="flex flex-wrap gap-2 text-sm">
-                            <a href="../index.html?search=hfgh" class="px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs hover:bg-purple-100 transition text-sm">#hfgh</a>
-            </div>
-          </div>
-        </article>
 
-		<div class="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm mt-6 space-y-6 w-full">
-          <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
-            <i class="fa-regular fa-comments text-indigo-500"></i>
-            Bình luận (<span id="comment-total-count">0</span>)
-          </h3>
-
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-3">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div>
-                <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">
-                  Tên của bạn
-                </label>
-                <input type="text" id="comment-name" class="w-full px-3 py-1.5 text-[12px] bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 transition-colors" placeholder="Nhập tên của bạn tại đây.">
-              </div>
-            </div>
-            <div>
-              <label class="block text-[11px] font-bold text-slate-500 uppercase mb-1">Nội dung bình luận</label>
-              <textarea id="comment-content" rows="3" class="w-full px-3 py-1.5 text-[12px] bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-500 text-slate-700 resize-none" placeholder="Viết bình luận của bạn tại đây."></textarea>
-            </div>
-            <div class="flex justify-end">
-              <button id="submit-comment-btn" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg transition active:scale-95 flex items-center gap-1.5 cursor-pointer">
-                <i class="fa-solid fa-paper-plane"></i>Gửi bình luận
+          <div>
+            <span class="text-xs font-semibold text-slate-300 block mb-1.5">Prompt Chi Tiết:</span>
+            <div class="relative bg-slate-950 border border-slate-800 rounded-xl p-3 pr-10 text-xs font-mono text-slate-300 leading-relaxed max-h-36 overflow-y-auto">
+              <p id="modal-prompt" class="select-all"></p>
+              <button onclick="copyModalPrompt(this)" class="absolute top-2.5 right-2.5 p-1.5 bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white rounded border border-slate-700 transition">
+                <i class="fa-regular fa-copy text-xs"></i>
               </button>
             </div>
           </div>
 
-			<div class="flex items-center justify-between border-b border-slate-200 pb-2 mb-4">
-			  <span class="text-[11px] font-semibold text-slate-700">Sắp xếp bình luận</span>
-			  <select id="comment-sort-select" class="text-xs bg-white border border-slate-200 rounded px-2 py-1 text-slate-600 outline-none cursor-pointer">
-				<option value="newest">Mới nhất lên trước</option>
-				<option value="oldest">Cũ nhất lên trước</option>
-			  </select>
-			</div>
-
-          <div id="comments-wrapper" class="space-y-4 w-full"></div>
-		  
-		  <div id="comment-pagination-container" class="flex justify-center w-full mt-8"></div>
+          <div class="pt-2">
+            <h4 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">Bình luận</h4>
+            <div id="modal-comments-list" class="space-y-3 max-h-48 overflow-y-auto pr-1"></div>
+          </div>
         </div>
 
-        <div class="flex justify-center pt-4 w-full">
-          <a href="../index.html" class="px-6 py-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-2xl transition-all duration-200 flex items-center gap-2 shadow-sm">
-            <i class="fa-solid fa-house text-sm"></i> Quay lại trang chủ
-          </a>
-        </div>
-
-      </div>
-
-
-	  <aside class="w-full lg:col-span-1 lg:sticky lg:top-0 space-y-6">
-		<div id="auto-injected-slide-container" class="w-full [&amp;&gt;div]:mt-0"></div>
-		
-
-        <div class="w-full max-w-md mx-auto aspect-[16/9] relative rounded-2xl overflow-hidden bg-slate-900 shadow-sm group">
-            <img id="fb-banner-img" src="" alt="" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-            
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-4">
-                <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-blue-600/90 flex items-center justify-center text-white text-sm backdrop-blur-sm">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </div>
-                <div class="text-white mb-3">
-                    <h4 id="fb-banner-title" class="text-[14px] font-bold tracking-wide drop-shadow-sm truncate"></h4>
-                    <p id="fb-banner-desc" class="text-[11px] text-slate-200/90 mt-0.5 line-clamp-1"></p>
-                </div>
-                <a id="fb-banner-link" href="#" target="_blank" rel="noopener noreferrer" class="w-full h-9 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-[13px] rounded-xl flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-md">
-                    <i class="fa-solid fa-user-plus text-xs"></i>
-                    Tham gia nhóm
-                </a>
-            </div>
-        </div>	
-
-		
-        <div class="bg-white border border-slate-100 rounded-2xl shadow-sm overflow-hidden w-full">
-          <div class="flex border-b border-slate-100 bg-slate-50/50">
-            <button id="related-btn" class="flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer">
-              <i class="fa-solid fa-link mr-1.5"></i>Cùng chủ đề
-            </button>
-            <button id="random-btn" class="flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer">
-              <i class="fa-solid fa-shuffle mr-1.5"></i>Ngẫu nhiên
+        <div class="mt-4 pt-3 border-t border-slate-800">
+          <div id="replying-banner" class="hidden text-[11px] text-slate-400 mb-1 flex justify-between items-center bg-slate-800/50 px-2 py-0.5 rounded">
+            <span>Đang trả lời <b id="replying-to-user" class="text-indigo-400"></b></span>
+            <button onclick="cancelReply()" class="text-slate-500 hover:text-slate-300"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="flex gap-2">
+            <input 
+              type="text" 
+              id="comment-input" 
+              placeholder="Viết bình luận của bạn..." 
+              class="flex-grow bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-indigo-500"
+            />
+            <button onclick="submitComment()" class="px-3 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-semibold transition">
+              Gửi
             </button>
           </div>
-          
-          <div id="detail-sidebar-list" class="p-4 space-y-4 max-h-[450px] overflow-y-auto w-full"></div>
         </div>
-      </aside>
 
+      </div>
     </div>
-  </main>
+  </div>
 
-  <div id="footer-container"></div>
-
-  <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-indigo-600 text-white shadow-lg flex items-center justify-center hover:bg-indigo-700 hover:scale-110 active:scale-95 z-50 pointer-events-auto" title="Quay lên đầu trang">
-    <i class="fa-solid fa-arrow-up text-lg"></i>
-  </button>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
   <script>
-    function initAllSwipers() {
-      document.querySelectorAll('.mySwiper').forEach((el) => {
-        if (el.swiper) { el.swiper.destroy(true, true); }
-        new Swiper(el, {
-          loop: true,
-          spaceBetween: 10,
-          observer: true,
-          observeParents: true,
-          pagination: { el: el.querySelector('.swiper-pagination'), clickable: true },
-          navigation: { nextEl: el.querySelector('.swiper-button-next'), prevEl: el.querySelector('.swiper-button-prev') },
-          autoplay: { delay: 4500, disableOnInteraction: true },
-        });
-      });
-    }
-    initAllSwipers();
-
-    Fancybox.bind("[data-fancybox^='gallery-']", { Thumbs: { autoStart: true } });
-
-    const backToTopBtn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) { backToTopBtn.classList.add('show'); }
-      else { backToTopBtn.classList.remove('show'); }
-    });
-    backToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-
-    const newsletterForm = document.getElementById('newsletter-form');
-    const newsletterSuccess = document.getElementById('newsletter-success');
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        newsletterForm.classList.add('hidden');
-        newsletterSuccess.classList.remove('hidden');
-      });
-    }
-
-    const CURRENT_POST = {
-      title: "Tên hiển thị trên thẻ tab",
-      tags: ["hfgh"]
-    };
-
-    async function loadPosts() {
-      try {
-        const response = await fetch("../index.html");
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, "text/html");
-        const cards = doc.querySelectorAll(".post-card");
-        const posts = [];
-        cards.forEach(card => {
-          posts.push({
-            title: card.dataset.title,
-            url: card.dataset.url,
-            image: card.dataset.image,
-            tags: (card.dataset.tags || "").split(",").map(tag => tag.trim()).filter(Boolean)
-          });
-        });
-        return posts;
-      } catch (e) {
-        console.error("Lỗi khi tải danh sách bài viết:", e);
-        return [];
+    // Dữ liệu mẫu chứa các bài viết có nhiều ảnh con với kích thước/tỉ lệ KHÁC NHAU
+    const rawData = [
+      {
+        id: 1,
+        author: "Alex Nguyen",
+        title: "Cyberpunk Girl Neon Collection",
+        shortDesc: "Bộ sưu tập đa tỉ lệ phong cách cyberpunk (1:1, 16:9, 9:16, 4:3).",
+        images: [
+          "https://picsum.photos/id/1025/800/800",   // Ảnh 1: 800x800 -> Tỉ lệ 1:1
+          "https://picsum.photos/id/1027/1200/675",  // Ảnh 2: 1200x675 -> Tỉ lệ 16:9
+          "https://picsum.photos/id/1062/675/1200",  // Ảnh 3: 675x1200 -> Tỉ lệ 9:16
+          "https://picsum.photos/id/1011/1200/900"   // Ảnh 4: 1200x900 -> Tỉ lệ 4:3
+        ],
+        prompt: "Cyberpunk girl with glowing katana, neon city lights, rainy night, octane render --v 6.0",
+        hashtags: ["cyberpunk", "character", "neon"],
+        likes: 128, views: 1420, searches: 980, createdAt: 1710000000000, liked: false,
+        comments: [{ id: 101, user: "MinhTu", text: "Prompt lên màu neon đẹp quá bạn ơi!", time: "2 giờ trước", replies: [] }]
+      },
+      {
+        id: 2,
+        author: "Elena Rostova",
+        title: "Dystopian Metropolis Panorama",
+        shortDesc: "Toàn cảnh thành phố tương lai góc rộng cinematic và dọc.",
+        images: [
+          "https://picsum.photos/id/1039/1200/675",  // 16:9
+          "https://picsum.photos/id/1018/1200/900",  // 4:3
+          "https://picsum.photos/id/1024/675/1200"   // 9:16
+        ],
+        prompt: "Wide angle panoramic view of futuristic dystopian city skyline, flying cars, Unreal Engine 5",
+        hashtags: ["landscape", "cyberpunk", "scifi"],
+        likes: 245, views: 3100, searches: 1450, createdAt: 1710500000000, liked: false, comments: []
+      },
+      {
+        id: 3,
+        author: "Hana Sato",
+        title: "Cyber Samurai Variations",
+        shortDesc: "Samurai hiện đại với giáp công nghệ cao.",
+        images: [
+          "https://picsum.photos/id/1024/675/1200",  // 9:16
+          "https://picsum.photos/id/1062/800/800",   // 1:1
+          "https://picsum.photos/id/1018/1200/675"   // 16:9
+        ],
+        prompt: "Cyberpunk samurai warrior holding glowing katana in rainy alley",
+        hashtags: ["cyberpunk", "character", "samurai"],
+        likes: 290, views: 3400, searches: 1600, createdAt: 1710700000000, liked: false, comments: []
       }
+    ];
+
+    let activeHashtag = 'all';
+    let searchQuery = '';
+    let previewFitMode = 'fill';
+    let currentSort = 'newest';
+    let loadMode = 'scroll';
+    let showNSFWGlobal = false;
+    
+    let currentPage = 1;
+    const itemsPerPage = 4;
+    let displayedScrollCount = 4;
+    let isLoading = false;
+    let currentModalItem = null;
+    let activeImageIndex = 0;
+    let replyingToCommentId = null;
+
+    const grid = document.getElementById('gallery-grid');
+    const hashtagContainer = document.getElementById('hashtag-chips');
+    const searchInput = document.getElementById('search-input');
+    const itemCountInfo = document.getElementById('item-count-info');
+    const loadingIndicator = document.getElementById('loading-indicator');
+    const paginationControls = document.getElementById('pagination-controls');
+    const emptyState = document.getElementById('empty-state');
+    const btnBackToTop = document.getElementById('btn-back-to-top');
+
+    // CÁCH 1: HÀM TÌM ƯỚC SỐ CHUNG LỚN NHẤT (GCD) ĐỂ RÚT GỌN TỈ LỆ ÁNH
+    function getGCD(a, b) {
+      return b === 0 ? a : getGCD(b, a % b);
     }
 
-	function renderPosts(posts) {
-      const container = document.getElementById("suggested-posts");
-      if(!container) return;
-      
-      const displayPosts = (posts || []).slice(0, 5);
-      
-      container.innerHTML = "";
-      if(displayPosts.length === 0) {
-        container.innerHTML = '<div class="text-xs text-slate-400 text-center py-4">Không có bài viết gợi ý phù hợp.</div>';
-        return;
+    function formatDate(timestamp) {
+      const d = new Date(timestamp);
+      const hours = String(d.getHours()).padStart(2, '0');
+      const minutes = String(d.getMinutes()).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const year = d.getFullYear();
+      return `${hours}:${minutes} - ${day}/${month}/${year}`;
+    }
+
+    function isNSFW(item) {
+      return item.hashtags.some(tag => tag.toLowerCase() === 'nsfw');
+    }
+
+    function toggleNSFWGlobal() {
+      showNSFWGlobal = !showNSFWGlobal;
+      const btn = document.getElementById('btn-nsfw-toggle');
+      if (showNSFWGlobal) {
+        btn.innerText = 'ON';
+        btn.className = "w-[36px] py-1 rounded-lg text-xs font-semibold bg-rose-600 text-white shadow transition text-center";
+      } else {
+        btn.innerText = 'OFF';
+        btn.className = "w-[36px] py-1 rounded-lg text-xs font-semibold bg-slate-700 text-slate-300 hover:bg-slate-600 transition text-center";
       }
-      
-      displayPosts.forEach(post => {
-        let correctUrl = post.url || '#';
-        if (!correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
-          correctUrl = '../' + correctUrl;
-        }
-        const imgUrl = post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png';
-
-        container.innerHTML += '<a href="' + correctUrl + '" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-all duration-200">';
-        container.innerHTML += '  <img src="' + imgUrl + '" class="w-14 h-14 rounded-lg object-cover flex-shrink-0 border border-slate-100 shadow-sm group-hover:scale-105 transition-transform">';
-        container.innerHTML += '  <div class="space-y-1 flex-grow">';
-        container.innerHTML += '    <h4 class="text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">' + post.title + '</h4>';
-        container.innerHTML += '    <span class="text-[10px] text-slate-400 block mt-1">Xem bài viết →</span>';
-        container.innerHTML += '  </div>';
-        container.innerHTML += '</a>';
-      });
+      render();
     }
 
-    function getRelatedPosts(posts) {
-      if (!posts || !Array.isArray(posts)) return [];
-      return [...posts]
-        .filter(post => {
-          if (!post || !CURRENT_POST) return false;
-          if (post.title === CURRENT_POST.title) return false;
-          if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
-          
-          const postCats = (post.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
-          const currentCats = (CURRENT_POST.categories || '').split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
-          const hasCommonCategory = currentCats.some(cat => postCats.includes(cat));
-          
-          const postTagsStr = Array.isArray(post.tags) ? post.tags.join(',') : (post.tags || '');
-          const postTags = postTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
-          
-          const currentTagsStr = Array.isArray(CURRENT_POST.tags) ? CURRENT_POST.tags.join(',') : (CURRENT_POST.tags || '');
-          const currentTags = currentTagsStr.split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
-          
-          const hasCommonTag = currentTags.some(tag => postTags.includes(tag));
-          
-          return hasCommonCategory || hasCommonTag;
-        })
-        .slice(0, 3);
-    }
-
-    function getRandomPosts(posts) {
-      if (!posts || !Array.isArray(posts)) return [];
-      return [...posts]
-        .filter(post => {
-          if (!post) return false;
-          if (post.title === CURRENT_POST.title) return false;
-          if (CURRENT_POST.dataUrl && post.url && post.url.includes(CURRENT_POST.dataUrl)) return false;
-          return true;
-        })
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 3);
-    }
-
-	function renderPosts(postsList) {
-	  let container = document.getElementById("detail-sidebar-list") || 
-					  document.querySelector('#sidebar-posts') || 
-					  document.querySelector('.space-y-4.mt-4');
-					  
-	  if (!container) {
-		const btn = document.getElementById("related-btn");
-		if (btn && btn.parentElement && btn.parentElement.nextElementSibling) {
-		  container = btn.parentElement.nextElementSibling;
-		}
-	  }
-
-	  if (!container) {
-		console.error("Không tìm thấy phân vùng Sidebar hiển thị bài viết trên trang!");
-		return;
-	  }
-
-	  if (!postsList || postsList.length === 0) {
-		container.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-4">Không có bài viết nào phù hợp.</p>`;
-		return;
-	  }
-
-	  let listHTML = '';
-	  postsList.forEach(post => {
-		if (!post) return;
-		let correctUrl = post.url || '';
-		if (correctUrl && !correctUrl.startsWith('http') && !correctUrl.startsWith('../') && !correctUrl.startsWith('./')) {
-		  correctUrl = `../${correctUrl}`;
-		}
-		
-		let excerptText = post.excerpt ? post.excerpt.trim() : '';
-		if (!excerptText) {
-		  const cleanTags = Array.isArray(post.tags) ? post.tags.join(', ') : (post.tags || '');
-		  if (cleanTags) {
-			excerptText = `Hashtag: ${cleanTags}`;
-		  } else {
-			excerptText = `Xem chi tiết nội dung bài viết ${post.title}`;
-		  }
-		}
-		
-		listHTML += `
-		  <a href="${correctUrl}" class="flex items-start gap-3 group p-2 rounded-xl hover:bg-slate-50 transition-colors">
-			<img src="${post.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'}" class="w-24 aspect-[16/9] object-cover rounded-lg border border-slate-100 flex-shrink-0" onerror="this.src='https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png'">
-			<div class="min-w-0 flex-grow" style="margin-top: -2px;">
-			  <h5 class="text-[12px] font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug mb-0.5">${post.title}</h5>
-			  <p class="text-xs text-slate-400 line-clamp-1 mb-1 leading-normal">${excerptText}</p>
-			  <span class="text-[10px] text-slate-400 block">${post.date || ''}</span>
-			</div>
-		  </a>
-		`;
-	  });
-	  
-	  container.innerHTML = listHTML;
-	}
-
-    let ALL_POSTS = [];
-    if (typeof loadPosts === "function") {
-      loadPosts().then(posts => {
-        ALL_POSTS = posts || [];
-        const related = getRelatedPosts(ALL_POSTS);
-        if (related.length === 0) {
-          renderPosts(getRandomPosts(ALL_POSTS));
-          setActiveButton(document.getElementById("random-btn"));
-        } else {
-          renderPosts(related);
-          setActiveButton(document.getElementById("related-btn"));
-        }
-      }).catch(err => {
-        console.error("Lỗi khi tải danh sách bài viết bằng loadPosts():", err);
-      });
-    }
-
-    const rBtn = document.getElementById("related-btn");
-    const mBtn = document.getElementById("random-btn");
-
-    if (rBtn) {
-      rBtn.addEventListener("click", () => {
-        renderPosts(getRelatedPosts(ALL_POSTS));
-        setActiveButton(rBtn);
-      });
-    }
-
-    if (mBtn) {
-      mBtn.addEventListener("click", () => {
-        renderPosts(getRandomPosts(ALL_POSTS));
-        setActiveButton(mBtn);
-      });
-    }
-
-	
-	function setActiveButton(activeBtn) {
-      const relatedBtn = document.getElementById("related-btn");
-      const randomBtn = document.getElementById("random-btn");
-      if(!relatedBtn || !randomBtn || !activeBtn) return;
-      
-      [relatedBtn, randomBtn].forEach(btn => {
-        btn.className = "flex-1 py-3 text-sm font-semibold text-slate-400 border-b-2 border-transparent hover:text-slate-600 transition-colors cursor-pointer";
-      });
-      
-      activeBtn.className = "flex-1 py-3 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 transition-colors cursor-pointer";
-    }
-	
-    if (typeof CURRENT_POST !== 'undefined') {
-      if (CURRENT_POST.title) {
-        document.title = CURRENT_POST.title;
-      }
-
-      const ogTitle = document.getElementById('meta-og-title');
-      const ogDesc = document.getElementById('meta-og-description');
-      const ogImage = document.getElementById('meta-og-image');
-      const ogUrl = document.getElementById('meta-og-url');
-
-      if (ogTitle) ogTitle.setAttribute('content', CURRENT_POST.title || document.title);
-      
-      const cleanExcerpt = CURRENT_POST.excerpt ? CURRENT_POST.excerpt.trim() : '';
-      if (ogDesc) ogDesc.setAttribute('content', cleanExcerpt || 'Xem chi tiết nội dung bài viết tại https://hieubeo91.github.io/au');
-      
-      if (ogImage) ogImage.setAttribute('content', CURRENT_POST.image || 'https://raw.githubusercontent.com/hieubeo91/storage/main/blog/icon.png');
-      if (ogUrl) ogUrl.setAttribute('content', window.location.href);
-    }
-	
-	const firebaseConfig = {
-	  apiKey: "AIzaSyCsc84GUdMK5zethbCibY1oSXpeXA9YlSo",
-	  authDomain: "myblog-heart.firebaseapp.com",
-	  databaseURL: "https://myblog-heart-default-rtdb.firebaseio.com",
-	  projectId: "myblog-heart",
-	  storageBucket: "myblog-heart.firebasestorage.app",
-	  messagingSenderId: "424150915416",
-	  appId: "1:424150915416:web:1e6c9bbdf99a5da7642d2d",
-	  measurementId: "G-4570E7XHL4"
-	};
-
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-    }
-    const database = firebase.database();
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const currentUrl = window.location.href;
-      const encodedUrl = encodeURIComponent(currentUrl);
-      
-      const pageId = (window.location.pathname.split('/').pop() || 'index').replace(/\./g, '_');
-      const dbRef = database.ref('heart_counts/' + pageId);
-      const localClickedKey = `heart_voted_${pageId}`;
-
-      const heartBtn = document.getElementById('custom-heart-btn');
-      const heartCountEl = document.getElementById('heart-count');
-
-      dbRef.on('value', (snapshot) => {
-        const votes = snapshot.val();
-        if (votes === null) {
-          const initialHearts = Math.floor(Math.random() * 25) + 15;
-          dbRef.set(initialHearts);
-          heartCountEl.textContent = initialHearts;
-        } else {
-          heartCountEl.textContent = votes;
-        }
+    function getFilteredAndSortedData() {
+      let result = rawData.filter(item => {
+        const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              item.author.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              item.hashtags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
+        const matchesTag = activeHashtag === 'all' || item.hashtags.some(t => t.toLowerCase() === activeHashtag.toLowerCase());
+        return matchesSearch && matchesTag;
       });
 
-      if (localStorage.getItem(localClickedKey) === 'true' && heartBtn) {
-        heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
-        heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
-      }
+      result.sort((a, b) => {
+        if (currentSort === 'newest') return b.createdAt - a.createdAt;
+        if (currentSort === 'searches') return b.searches - a.searches;
+        if (currentSort === 'likes') return b.likes - a.likes;
+        if (currentSort === 'views') return b.views - a.views;
+        return 0;
+      });
 
-	if (heartBtn) {
-        heartBtn.addEventListener('click', (e) => {
-          
-          dbRef.transaction((currentValue) => {
-            return (currentValue || 0) + 1;
-          });
-
-          heartBtn.classList.remove('bg-rose-50', 'text-rose-600');
-          heartBtn.classList.add('bg-rose-600', 'text-white', 'border-rose-600');
-
-          let effectContainer = heartBtn.querySelector('.heart-effect-zone');
-          if (!effectContainer) {
-            effectContainer = document.createElement('div');
-            effectContainer.className = 'heart-effect-zone';
-            effectContainer.style.position = 'absolute';
-            effectContainer.style.top = '0';
-            effectContainer.style.left = '0';
-            effectContainer.style.width = '100%';
-            effectContainer.style.height = '100%';
-            effectContainer.style.pointerEvents = 'none';
-            heartBtn.style.position = 'relative';
-            heartBtn.appendChild(effectContainer);
-          }
-
-          for (let i = 0; i < 9; i++) {
-            const heart = document.createElement('i');
-            heart.className = 'fa-solid fa-heart floating-heart';
-            heart.style.position = 'absolute';
-            heart.style.color = '#f43f5e'; 
-            heart.style.pointerEvents = 'none';
-            heart.style.zIndex = '100';
-            
-            heart.style.left = `${15 + (Math.random() * 40 - 20)}px`;
-            heart.style.top = `-5px`;
-            
-            heart.style.fontSize = `${Math.floor(Math.random() * 8) + 10}px`;
-            
-            const randomDriftX = `${Math.floor(Math.random() * 120) - 60}px`;
-            const randomRotate = `${Math.floor(Math.random() * 80) - 40}deg`;
-            
-            heart.style.setProperty('--drift-x', randomDriftX);
-            heart.style.setProperty('--rotate-deg', randomRotate);
-            
-            heart.style.animation = `heartFlyUp ${0.8 + Math.random() * 0.4}s ease-out forwards`;
-            
-            effectContainer.appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 1200);
-          }
-        });
-      }
-
-      const fbBtn = document.getElementById('share-facebook-btn');
-      if (fbBtn) {
-        fbBtn.addEventListener('click', () => {
-          const isAndroid = /Android/i.test(navigator.userAgent);
-          const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-          
-          const targetUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-
-          if (isAndroid) {
-            const androidIntent = `intent://www.facebook.com/sharer/sharer.php?u=${encodedUrl}#Intent;scheme=https;package=com.facebook.katana;end`;
-            window.location.href = androidIntent;
-          } 
-          else if (isIOS) {
-            window.open(targetUrl, '_blank');
-          } 
-          else {
-            window.open(targetUrl, '_blank', 'width=600,height=400,resizable=yes,scrollbars=yes');
-          }
-        });
-      }
-
-      const copyBtn = document.getElementById('copy-link-btn');
-      const copyText = document.getElementById('copy-text');
-      if (copyBtn && copyText) {
-        copyBtn.addEventListener('click', () => {
-          navigator.clipboard.writeText(currentUrl).then(() => {
-            
-            const currentWidth = copyBtn.offsetWidth;
-            copyBtn.style.width = `${currentWidth}px`;
-
-            copyText.textContent = 'Đã sao chép!';
-            copyBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-            copyBtn.classList.add('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-
-            setTimeout(() => {
-              copyText.textContent = 'Sao chép Link';
-              copyBtn.classList.remove('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-              copyBtn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-              
-              copyBtn.style.width = '';
-            }, 2000);
-          }).catch(err => {
-            console.error('Không thể sao chép Link: ', err);
-          });
-        });
-      }
-    });
-
-document.addEventListener('DOMContentLoaded', function() {
-  const slideContainer = document.getElementById('auto-injected-slide-container');
-  if (!slideContainer) return;
-
-  slideContainer.innerHTML = `
-    <div id="shared-banner-slide" class="w-full max-w-md mx-auto my-6 bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-      <div class="px-4 pt-3 pb-2 flex items-center gap-1.5 border-b border-slate-50">
-        <span class="flex h-2 w-2 relative">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
-        </span>
-        <h3 class="text-[12px] font-bold text-slate-700 uppercase tracking-wider">Bài viết nổi bật</h3>
-      </div>
-      <div class="relative w-full aspect-[16/9] group overflow-hidden bg-slate-900">
-        <div id="banner-slides-container" class="flex w-full h-full transition-transform duration-500 ease-out"></div>
-        <button id="prev-slide-btn" class="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/80 hover:bg-white text-slate-800 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-sm z-10 text-xs">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button id="next-slide-btn" class="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-white/80 hover:bg-white text-slate-800 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-sm z-10 text-xs">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-        <div id="slide-dots-container" class="absolute bottom-2 right-4 flex gap-1.5 z-10"></div>
-      </div>
-    </div>
-  `;
-
-	  const container = slideContainer.querySelector('#banner-slides-container');
-	  
-	  if (container && typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.bannerSlides) {
-		let slidesHTML = '';
-		
-		MY_SITE_CONFIG.bannerSlides.forEach(slide => {
-		  slidesHTML += `
-			<a href="${slide.link}" class="w-full h-full flex-shrink-0 relative block">
-			  <img src="${slide.image}" class="w-full h-full object-cover" alt="${slide.altText || 'Banner'}">
-			  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-				<p class="text-[13px] font-semibold text-white leading-snug line-clamp-2">${slide.title}</p>
-			  </div>
-			</a>
-		  `;
-		});
-		
-		container.innerHTML = slidesHTML;
-		
-		initInjectedSlide();
-	  }
-
-	  function initInjectedSlide() {
-		const prevBtn = slideContainer.querySelector('#prev-slide-btn');
-		const nextBtn = slideContainer.querySelector('#next-slide-btn');
-		const dotsContainer = slideContainer.querySelector('#slide-dots-container');
-		
-		const slides = container.children;
-		const totalSlides = slides.length;
-		let currentIndex = 0;
-		let slideInterval;
-
-		if (dotsContainer) {
-		  dotsContainer.innerHTML = ''; 
-		  for (let i = 0; i < totalSlides; i++) {
-			const dot = document.createElement('div');
-			dot.className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
-			if (i === 0) dot.className += ' bg-white w-3';
-			dot.setAttribute('data-index', i);
-			dotsContainer.appendChild(dot);
-		  }
-		}
-		
-		const dots = dotsContainer ? dotsContainer.children : [];
-
-		function goToSlide(index) {
-		  if (index < 0) index = totalSlides - 1;
-		  if (index >= totalSlides) index = 0;
-		  currentIndex = index;
-		  container.style.transform = `translateX(-${currentIndex * 100}%)`;
-		  
-		  for (let j = 0; j < dots.length; j++) {
-			if (j === currentIndex) {
-			  dots[j].className = 'w-1.5 h-1.5 rounded-full bg-white transition-all cursor-pointer w-3';
-			} else {
-			  dots[j].className = 'w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer';
-			}
-		  }
-		}
-
-		function startAutoSlide() {
-		  stopAutoSlide();
-		  if (totalSlides <= 1) return;
-		  slideInterval = setInterval(() => goToSlide(currentIndex + 1), 4000);
-		}
-
-		function stopAutoSlide() {
-		  if (slideInterval) clearInterval(slideInterval);
-		}
-
-		if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); startAutoSlide(); });
-		if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); startAutoSlide(); });
-
-		if (dotsContainer) {
-		  dotsContainer.addEventListener('click', (e) => {
-			if (e.target.hasAttribute('data-index')) {
-			  const targetIdx = parseInt(e.target.getAttribute('data-index'));
-			  goToSlide(targetIdx);
-			  startAutoSlide();
-			}
-		  });
-		}
-
-		if (container.parentElement) {
-		  container.parentElement.addEventListener('mouseenter', stopAutoSlide);
-		  container.parentElement.addEventListener('mouseleave', startAutoSlide);
-		}
-
-		startAutoSlide();
-	  }
-	});
-
-  </script>
-
-<script>
-  window.addEventListener('DOMContentLoaded', function() {
-    function _sha256(ascii) {
-      function rightRotate(value, amount) { return (value>>>amount) | (value<<(32-amount)); };
-      var mathPow = Math.pow; var maxWord = mathPow(2, 32); var lengthProperty = 'length'; var i, j;
-      var result = ''; var words = []; var asciiLength = ascii[lengthProperty]; var hash = []; var k = [];
-      var primeCounter = 0; var isPrime = function(n) {
-        for (var factor = 2; factor * factor <= n; factor++) { if (n % factor === 0) return false; } return true;
-      };
-      while (primeCounter < 64) {
-        if (isPrime(j = j ? j + 1 : 2)) {
-          if (primeCounter < 8) hash[primeCounter] = (mathPow(j, .5)*maxWord)|0;
-          k[primeCounter++] = (mathPow(j, 1/3)*maxWord)|0;
-        }
-      }
-      ascii += '\x80';
-      while (ascii[lengthProperty] % 64 - 56) ascii += '\x00';
-      for (i = 0; i < ascii[lengthProperty]; i++) {
-        j = ascii.charCodeAt(i); if (j >> 8) return; words[i >> 2] |= j << ((3 - i % 4) * 8);
-      }
-      words[words[lengthProperty]] = ((asciiLength * 8) / maxWord) | 0; words[words[lengthProperty]] = (asciiLength * 8);
-      for (j = 0; j < words[lengthProperty]; j += 16) {
-        var w = words.slice(j, j + 16); var oldHash = hash.slice(0);
-        for (i = 0; i < 64; i++) {
-          var wItem = w[i];
-          if (i >= 16) {
-            var s0 = rightRotate(w[i-15], 7) ^ rightRotate(w[i-15], 18) ^ (w[i-15] >>> 3);
-            var s1 = rightRotate(w[i-2], 17) ^ rightRotate(w[i-2], 19) ^ (w[i-2] >>> 10);
-            wItem = w[i] = (w[i-16] + s0 + w[i-7] + s1) | 0;
-          }
-          var ch = (hash[4] & hash[5]) ^ (~hash[4] & hash[6]);
-          var maj = (hash[0] & hash[1]) ^ (hash[0] & hash[2]) ^ (hash[1] & hash[2]);
-          var sigma0 = rightRotate(hash[0], 2) ^ rightRotate(hash[0], 13) ^ rightRotate(hash[0], 22);
-          var sigma1 = rightRotate(hash[4], 6) ^ rightRotate(hash[4], 11) ^ rightRotate(hash[4], 25);
-          var t1 = (hash[7] + sigma1 + ch + k[i] + (wItem || 0)) | 0; var t2 = (sigma0 + maj) | 0;
-          hash = [(t1 + t2) | 0].concat(hash); hash[4] = (hash[4] + t1) | 0; hash = hash.slice(0, 8);
-        }
-        for (i = 0; i < 8; i++) hash[i] = (hash[i] + oldHash[i]) | 0;
-      }
-      for (i = 0; i < 8; i++) {
-        for (j = 3; j >= 0; j--) { var b = (hash[i] >> (j * 8)) & 255; result += ((b < 16) ? '0' : '') + b.toString(16); }
-      }
       return result;
     }
 
-    var currentUrl = window.location.href;
-    var postDataId = document.getElementById('main-article-element') ? document.getElementById('main-article-element').getAttribute('data-id') : 'post-default';
-    
-    var commentsWrapper = document.getElementById('comments-wrapper'); 
-    var commentCountSpan = document.getElementById('comment-total-count');
-    var commentNameInput = document.getElementById('comment-name');
-    var commentContentInput = document.getElementById('comment-content');
-    var submitCommentBtn = document.getElementById('submit-comment-btn');
-    var sortSelect = document.getElementById('comment-sort-select');
-
-	var sortSelect = document.getElementById('comment-sort-select');
-
-    var currentPage = 1; 
-    var commentsPerPage = 10;
-    var paginationContainer = document.getElementById('comment-pagination-container');
-
-    var currentReplyToId = null;
-    var cachedSnapshotData = null;
-
-    var commentRef;
-    if (typeof firebase !== 'undefined' && firebase.database) {
-      commentRef = firebase.database().ref('blog_comments/' + postDataId);
+    function changeSort(val) {
+      currentSort = val;
+      currentPage = 1;
+      displayedScrollCount = itemsPerPage;
+      render();
     }
 
-	var isAdminActive = false;
-    if (commentNameInput) {
-      commentNameInput.addEventListener('input', function(e) {
-        var val = e.target.value.trim();
-        
-        if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin) {
-          var secureTargetHash = MY_SITE_CONFIG.admin.secureTargetHash;
-          
-          if (_sha256(val) === secureTargetHash && !isAdminActive) {
-            isAdminActive = true;
-            
-            e.target.value = MY_SITE_CONFIG.admin.displayName || 'Quản trị viên';
-            
-            e.target.classList.add('border-emerald-500', 'bg-emerald-50/30', 'text-emerald-700', 'font-bold');
-            e.target.blur();
-            
-            document.querySelectorAll('.admin-action-btn').forEach(function(btn) {
-              btn.classList.remove('hidden');
-            });
-            if (cachedSnapshotData) renderComments(cachedSnapshotData);
-          }
-        }
+    function setPreviewFit(mode) {
+      previewFitMode = mode;
+      const btnFill = document.getElementById('btn-fit-fill');
+      const btnFit = document.getElementById('btn-fit-fit');
+
+      if (mode === 'fill') {
+        btnFill.className = "px-2.5 py-1 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition";
+        btnFit.className = "px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition";
+      } else {
+        btnFit.className = "px-2.5 py-1 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition";
+        btnFill.className = "px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition";
+      }
+      render();
+    }
+
+    function initHashtagChips() {
+      const allTags = new Set();
+      rawData.forEach(item => item.hashtags.forEach(tag => allTags.add(tag.toLowerCase())));
+
+      let html = `<button onclick="filterByTag('all')" class="px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition border ${activeHashtag === 'all' ? 'bg-indigo-600 text-white border-indigo-500' : 'bg-slate-800 text-slate-400 border-slate-700 hover:border-slate-500'}"># Tất cả</button>`;
+      allTags.forEach(tag => {
+        const isSelected = activeHashtag.toLowerCase() === tag;
+        html += `<button onclick="filterByTag('${tag}')" class="px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap transition border ${isSelected ? 'bg-indigo-600 text-white border-indigo-500' : 'bg-slate-800 text-slate-400 border-slate-700 hover:border-slate-500'}">#${tag}</button>`;
       });
+      hashtagContainer.innerHTML = html;
     }
 
-    if (sortSelect) {
-      sortSelect.addEventListener('change', function() {
-        if (cachedSnapshotData) {
-          renderComments(cachedSnapshotData);
-        }
-      });
+    function toggleLikeOutside(e, id) {
+      e.stopPropagation();
+      const item = rawData.find(i => i.id === id);
+      if (!item) return;
+
+      item.liked = !item.liked;
+      item.likes += item.liked ? 1 : -1;
+
+      render();
     }
 
-	function renderComments(dataObj) {
-		  if (!commentsWrapper) return;
-		  commentsWrapper.innerHTML = '';
-		  
-		  var commentKeys = Object.keys(dataObj);
-		  var allComments = commentKeys.map(function(key) {
-			var item = dataObj[key];
-			item._fbKey = key;
-			return item;
-		  });
+    function clickHashtagOutside(e, tag) {
+      e.stopPropagation();
+      filterByTag(tag);
+    }
 
-		  if (commentCountSpan) commentCountSpan.textContent = allComments.length;
+    function clickHashtagInModal(tag) {
+      closeModal();
+      filterByTag(tag);
+    }
 
-		  if (allComments.length === 0) {
-			commentsWrapper.innerHTML = '<p class="text-xs text-slate-400 italic text-center py-4">Chưa có bình luận nào. Hãy là người đầu tiên chia sẻ cảm nghĩ!</p>';
-			return;
-		  }
+    function filterByAuthorOutside(e, authorName) {
+      e.stopPropagation();
+      searchInput.value = authorName;
+      searchQuery = authorName;
+      currentPage = 1;
+      displayedScrollCount = itemsPerPage;
+      render();
+    }
 
-		  var currentSortOrder = sortSelect ? sortSelect.value : 'newest';
+    function searchByAuthorFromModal() {
+      if (!currentModalItem) return;
+      const author = currentModalItem.author;
+      closeModal();
+      searchInput.value = author;
+      searchQuery = author;
+      currentPage = 1;
+      displayedScrollCount = itemsPerPage;
+      render();
+    }
 
-		  var rootComments = allComments.filter(function(c) { return !c.replyTo; });
-		  var replyComments = allComments.filter(function(c) { return c.replyTo; });
+    function createCardHTML(item) {
+      const tagsHTML = item.hashtags.map(t => 
+        `<span onclick="clickHashtagOutside(event, '${t}')" class="text-[11px] ${t.toLowerCase() === 'nsfw' ? 'text-rose-400 font-bold' : 'text-indigo-400 font-medium'} hover:underline cursor-pointer">#${t}</span>`
+      ).join(' ');
 
-		  var pinnedRoots = rootComments.filter(function(c) { return c.isPinned === true; });
-		  var normalRoots = rootComments.filter(function(c) { return !c.isPinned; });
+      const imgClass = previewFitMode === 'fill' ? 'object-cover' : 'object-contain';
+      const itemIsNSFW = isNSFW(item);
+      const shouldBlur = itemIsNSFW && !showNSFWGlobal;
+      const mainCoverImage = item.images && item.images.length > 0 ? item.images[0] : '';
+      const imageCount = item.images ? item.images.length : 1;
 
-		  normalRoots.sort(function(a, b) {
-			if (currentSortOrder === 'newest') {
-			  return (b.timestamp || 0) - (a.timestamp || 0);
-			} else {
-			  return (a.timestamp || 0) - (b.timestamp || 0);
-			}
-		  });
-
-		  pinnedRoots.sort(function(a, b) {
-			return (a.timestamp || 0) - (b.timestamp || 0);
-		  });
-
-		  var finalOrderedRoots = pinnedRoots.concat(normalRoots);
-
-		  replyComments.sort(function(a, b) {
-			if (currentSortOrder === 'newest') {
-			  return (b.timestamp || 0) - (a.timestamp || 0);
-			} else {
-			  return (a.timestamp || 0) - (b.timestamp || 0);
-			}
-		  });
-
-function generateCommentHTML(cmt, isChild) {
-          var date = new Date(cmt.timestamp);
-          var timeStr = date.toLocaleDateString('vi-VN') + ' ' + date.toLocaleTimeString('vi-VN', {hour: '2-digit', minute:'2-digit'});
-          
-          var displayName = cmt.name && cmt.name.trim() !== "" ? cmt.name.trim() : "Nặc danh";
-          var adminBadge = cmt.isAdmin ? `<span class="px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded text-[9px] uppercase tracking-wider">Admin</span>` : '';
-          var pinBadge = cmt.isPinned ? `<span class="px-1.5 py-0.5 bg-amber-100 text-amber-700 font-bold rounded text-[9px] uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-thumbtack text-[8px]"></i> Đã ghim</span>` : '';
-          
-          var layoutClass = isChild ? 'ml-8 border-l-2 border-slate-200 pl-4 bg-slate-50/70 p-2.5 rounded-r-xl' : 'border border-slate-100 bg-slate-50/40 p-3 rounded-xl';
-          var borderClass = cmt.isPinned ? 'border-amber-200 bg-amber-50/10' : (cmt.isAdmin ? 'border-emerald-200 bg-emerald-50/20' : '');
-          var nameColor = cmt.isAdmin ? 'text-emerald-700 font-bold' : 'text-slate-800 font-semibold';
-          var adminBtnClass = isAdminActive ? '' : 'hidden';
-
-          var pinActionText = cmt.isPinned ? 'Bỏ ghim' : 'Ghim bài';
-          var pinIconClass = cmt.isPinned ? 'fa-solid fa-unlink' : 'fa-solid fa-thumbtack';
-
-          // --- 🌟 XỬ LÝ LOGIC ĐỌC ICON TỪ FILE CẤU HÌNH (TỰ ĐỘNG CHECK TEXT/LINK ẢNH) ---
-          var rcConfig = (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.reactions) ? MY_SITE_CONFIG.reactions : {
-              favorite: "❤️", haha: "😆", wow: "😮", sad: "😢", angry: "😡"
-          };
-
-          // Hàm phụ trợ tự động chuyển chữ -> <span> hoặc link -> <img> với kích thước chuẩn
-          function renderIconHTML(iconData, extraClass) {
-              var cls = extraClass || "w-[16px] h-[16px]";
-              var isUrl = typeof iconData === 'string' && (iconData.indexOf('http') === 0 || iconData.indexOf('/') === 0);
-              if (isUrl) {
-                  return `<img src="${iconData}" class="${cls} object-contain inline-block transition-transform" alt="reaction" />`;
-              }
-              var fontSize = cls.includes('w-') ? '' : 'text-[15px]';
-              return `<span class="${fontSize} ${cls} transition-transform flex items-center justify-center">${iconData}</span>`;
-          }
-
-          var rx = cmt.reactions || {};
-          var favCount = rx.favorite || 0;
-          var hahaCount = rx.haha || 0;
-          var wowCount = rx.wow || 0;
-          var sadCount = rx.sad || 0;
-          var angryCount = rx.angry || 0;
-          
-          var totalReactions = favCount + hahaCount + wowCount + sadCount + angryCount;
-
-          var reactionMap = [
-              { key: 'favorite', count: favCount, icon: rcConfig.favorite },
-              { key: 'haha',     count: hahaCount, icon: rcConfig.haha },
-              { key: 'wow',      count: wowCount,  icon: rcConfig.wow },
-              { key: 'sad',      count: sadCount,  icon: rcConfig.sad },
-              { key: 'angry',    count: angryCount, icon: rcConfig.angry }
-          ];
-
-          // Tạo chuỗi icon hiển thị động dựa trên số lượt tương tác > 0
-          var reactionIconsHTML = '';
-          reactionMap.forEach(function(item) {
-              if (item.count > 0) {
-                  reactionIconsHTML += renderIconHTML(item.icon, "w-[15px] h-[15px]");
-              }
-          });
-
-          // Tạo chuỗi text động dạng văn bản cho Tooltip (Nút rê chuột)
-          var tooltipParts = [];
-          reactionMap.forEach(function(item) {
-              // 🎯 ĐÃ SỬA TẠI ĐÂY: Thay thế iconData lỗi bằng item.icon chuẩn xác
-              var isUrl = typeof item.icon === 'string' && (item.icon.indexOf('http') === 0 || item.icon.indexOf('/') === 0);
-              var label = isUrl ? `[${item.key.toUpperCase()}]` : item.icon;
-              tooltipParts.push(`${label} ${item.count}`);
-          });
-          var tooltipText = tooltipParts.join('      ');
-
-          var reactionResultBox = '';
-          if (totalReactions > 0) {
-            reactionResultBox = `
-              <div class="relative group/tooltip flex items-center gap-1 bg-white border border-slate-100 shadow-sm px-2 py-0.5 rounded-full cursor-default select-none ml-1">
-                <div class="flex items-center -space-x-1 text-xs">
-                  ${reactionIconsHTML}
-                </div>
-                <span class="text-[10px] font-bold text-slate-500">${totalReactions}</span>
-                
-                <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover/tooltip:block bg-slate-800 text-white text-[12px] rounded px-2 py-1 whitespace-nowrap z-30 shadow-md">
-                  ${tooltipText}
-                  <div class="w-1.5 h-1.5 bg-slate-800 rotate-45 absolute top-full left-1/2 -translate-x-1/2 -mt-0.5"></div>
-                </div>
+      return `
+        <div onclick="openModal(${item.id})" class="bg-slate-800/60 border border-slate-700/60 rounded-xl overflow-hidden shadow-md hover:border-indigo-500/60 transition-all duration-300 flex flex-col group cursor-pointer">
+          <div class="relative aspect-square overflow-hidden bg-slate-950 flex items-center justify-center">
+            <img src="${mainCoverImage}" alt="${item.title}" class="w-full h-full ${imgClass} ${shouldBlur ? 'blur-xl scale-110' : 'group-hover:scale-105'} transition duration-500" loading="lazy" />
+            
+            ${shouldBlur ? `
+              <div class="absolute inset-0 bg-slate-950/40 flex items-center justify-center">
+                <span class="bg-rose-600/90 text-white text-[10px] font-bold px-2 py-1 rounded-full border border-rose-400/30">NSFW 18+</span>
               </div>
-            `;
-          }
-          // -----------------------------------------------------------------------------
+            ` : ''}
 
-          var processedContent = (cmt.content || "").replace(/(@[^\s:]+)/g, '<span class="text-indigo-600 font-semibold">$1</span>');
-          var replyTargetId = isChild ? cmt.replyTo : cmt._fbKey;
-          var safeName = displayName.replace(/'/g, "\\'");
+            ${imageCount > 1 ? `
+              <span class="absolute top-2.5 left-2.5 bg-indigo-600/90 backdrop-blur-md text-[10px] font-bold text-white px-2 py-0.5 rounded-full border border-indigo-400/40 flex items-center gap-1">
+                <i class="fa-solid fa-layer-group text-[9px]"></i> ${imageCount} ảnh
+              </span>
+            ` : ''}
+          </div>
 
-          return `
-            <div class="flex gap-3 transition-all relative group/item ${layoutClass} ${borderClass}">
-              <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs flex-shrink-0">
-                ${cmt.name ? cmt.name.charAt(0).toUpperCase() : '?'}
+          <div class="p-4 flex flex-col flex-grow justify-between">
+            <div>
+              <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
+                <span>by <button onclick="filterByAuthorOutside(event, '${item.author}')" class="text-indigo-400 font-semibold hover:underline">${item.author}</button></span>
+                <span class="text-[10px] text-slate-500"><i class="fa-regular fa-clock"></i> ${formatDate(item.createdAt)}</span>
               </div>
-              <div class="min-w-0 flex-grow">
-                <div class="flex items-center gap-1.5 flex-wrap">
-                  <span class="text-[14px] ${nameColor}">${displayName}</span>
-                  ${adminBadge}
-                  ${pinBadge}
-                  <span class="text-[12px] text-slate-400 ml-auto">${timeStr}</span>
-                </div>
-                <p class="text-[14px] text-slate-600 mt-1 leading-relaxed whitespace-pre-line">${processedContent}</p>
-                
-                <div class="flex flex-wrap items-center gap-y-2 gap-x-3 mt-2 pt-1.5 border-t border-slate-100/60">
-                  
-                  <button onclick="window._replyToComment('${replyTargetId}', '${safeName}')" class="text-[12px] text-slate-500 hover:text-indigo-600 font-bold flex items-center gap-1 cursor-pointer transition-colors">
-                    <i class="fa-solid fa-reply text-[10px]"></i> Trả lời
-                  </button>
-
-                  <div class="relative group/reaction py-1">
-                    <button class="text-[12px] text-slate-500 group-hover/reaction:text-amber-500 font-bold flex items-center gap-1 cursor-pointer transition-colors py-0.5">
-                      <i class="fa-regular fa-face-smile text-[10px]"></i> Cảm xúc
-                    </button>
-                    
-                    <div class="absolute bottom-full left-0 w-full h-3 hidden group-hover/reaction:block bg-transparent z-10"></div>
-                    
-                    <div class="absolute bottom-[calc(100%+6px)] left-0 mb-0 hidden group-hover/reaction:flex items-center gap-2 bg-white shadow-xl border border-slate-100 px-3 py-2 rounded-full animate-bounce-short z-20 whitespace-nowrap">
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'favorite')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Yêu thích">
-                        ${renderIconHTML(rcConfig.favorite, "w-6 h-6 text-2xl")}
-                      </button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'haha')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Haha">
-                        ${renderIconHTML(rcConfig.haha, "w-6 h-6 text-2xl")}
-                      </button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'wow')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Wow">
-                        ${renderIconHTML(rcConfig.wow, "w-6 h-6 text-2xl")}
-                      </button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'sad')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Buồn">
-                        ${renderIconHTML(rcConfig.sad, "w-6 h-6 text-2xl")}
-                      </button>
-                      <button onclick="window._reactComment('${cmt._fbKey}', 'angry')" class="w-7 h-7 hover:scale-130 transition-transform duration-150 active:scale-95 cursor-pointer flex items-center justify-center" title="Phẫn nộ">
-                        ${renderIconHTML(rcConfig.angry, "w-6 h-6 text-2xl")}
-                      </button>
-                    </div>
-                  </div>
-
-                  ${reactionResultBox}
-
-                  <div class="ml-auto flex items-center gap-3">
-                    <button onclick="window._togglePinComment('${cmt._fbKey}', ${cmt.isPinned || false})" class="admin-action-btn ${adminBtnClass} ${isChild ? 'hidden' : ''} text-[12px] text-amber-600 hover:text-amber-800 font-bold flex items-center gap-1 cursor-pointer transition-colors">
-                      <i class="${pinIconClass}"></i> ${pinActionText}
-                    </button>
-                    <button onclick="window._deleteComment('${cmt._fbKey}')" class="admin-action-btn ${adminBtnClass} text-[12px] text-rose-500 hover:text-rose-700 font-bold flex items-center gap-1 cursor-pointer transition-colors">
-                      <i class="fa-regular fa-trash-can"></i> Xóa
-                    </button>
-                  </div>
-                </div>
-
-              </div>
+              <h3 class="text-sm font-bold text-white mb-1 line-clamp-1">${item.title}</h3>
+              <p class="text-xs text-slate-400 mb-2 line-clamp-2">${item.shortDesc}</p>
+              <div class="flex flex-wrap gap-x-2 gap-y-1 mb-3">${tagsHTML}</div>
             </div>
-          `;
-}
 
-		  finalOrderedRoots.forEach(function(root) {
-			var clusterWrapper = document.createElement('div');
-			clusterWrapper.className = 'comment-cluster space-y-2 border-b border-slate-100/60 pb-3 last:border-0';
-			if (root.isPinned) {
-				clusterWrapper.classList.add('is-pinned-cluster');
-			}
-			
-			var clusterHTML = generateCommentHTML(root, false);
-			var subReplies = replyComments.filter(function(r) { return r.replyTo === root._fbKey; });
-			subReplies.forEach(function(reply) {
-			  clusterHTML += generateCommentHTML(reply, true);
-			});
+            <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-700/40">
+              <button onclick="toggleLikeOutside(event, ${item.id})" class="flex items-center gap-1.5 hover:text-rose-500 transition px-1 py-0.5 rounded hover:bg-slate-700/40">
+                <i class="${item.liked ? 'fa-solid text-rose-500' : 'fa-regular'} fa-heart"></i> 
+                <span class="${item.liked ? 'text-rose-500 font-bold' : ''}">${item.likes}</span>
+              </button>
+              <span class="flex items-center gap-1"><i class="fa-regular fa-eye"></i> ${item.views}</span>
+              <span class="flex items-center gap-1"><i class="fa-regular fa-comment"></i> ${item.comments.length}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
 
-			clusterWrapper.innerHTML = clusterHTML;
-			commentsWrapper.appendChild(clusterWrapper);
-		  });
+    function render() {
+      const data = getFilteredAndSortedData();
+      itemCountInfo.innerText = data.length;
+      grid.innerHTML = '';
 
-		  executeClientPagination();
-		}
+      if (data.length === 0) {
+        emptyState.classList.remove('hidden');
+        loadingIndicator.classList.add('hidden');
+        paginationControls.classList.add('hidden');
+        return;
+      }
+      emptyState.classList.add('hidden');
 
-		if (commentRef) {
-		  commentRef.on('value', function(snapshot) {
-			cachedSnapshotData = snapshot.val() || {};
-			renderComments(cachedSnapshotData);
-		  });
-		}
+      if (loadMode === 'scroll') {
+        paginationControls.classList.add('hidden');
+        const itemsToRender = data.slice(0, displayedScrollCount);
+        itemsToRender.forEach(item => grid.insertAdjacentHTML('beforeend', createCardHTML(item)));
 
-		window._replyToComment = function(commentId, targetName) {
-		  if (!commentContentInput) return;
-		  currentReplyToId = commentId;
-		  commentContentInput.value = "@" + targetName.replace(/ /g, "") + " "; 
-		  commentContentInput.focus();
-		  commentContentInput.scrollIntoView({ behavior: "smooth", block: "center" });
-		};
+        if (displayedScrollCount >= data.length) {
+          loadingIndicator.classList.add('hidden');
+        } else {
+          loadingIndicator.classList.remove('hidden');
+        }
+      } else {
+        loadingIndicator.classList.add('hidden');
+        paginationControls.classList.remove('hidden');
 
-		window._reactComment = function(fbKey, type) {
-		  if (!commentRef) return;
-		  var reactionPath = commentRef.child(fbKey + '/reactions/' + type);
-		  reactionPath.transaction(function(currentCount) {
-			return (currentCount || 0) + 1;
-		  });
-		};
+        const totalPages = Math.ceil(data.length / itemsPerPage);
+        if (currentPage > totalPages) currentPage = 1;
 
-		window._togglePinComment = function(fbKey, currentPinnedStatus) {
-		  if (!commentRef) return;
-		  commentRef.child(fbKey).update({
-			isPinned: !currentPinnedStatus
-		  }).catch(function(err) {
-			alert("Lỗi thực thi ghim: " + err.message);
-		  });
-		};
+        const start = (currentPage - 1) * itemsPerPage;
+        const pageItems = data.slice(start, start + itemsPerPage);
+        pageItems.forEach(item => grid.insertAdjacentHTML('beforeend', createCardHTML(item)));
 
-		window._deleteComment = function(fbKey) {
-		  if (!commentRef) return;
-		  if (confirm("Bạn có chắc chắn muốn xóa vĩnh viễn bình luận này khỏi hệ thống không?")) {
-			commentRef.child(fbKey).remove().then(function() {
-			  commentRef.once('value', function(snap) {
-				var data = snap.val() || {};
-				Object.keys(data).forEach(function(key) {
-				  if (data[key].replyTo === fbKey) {
-					commentRef.child(key).remove();
-				  }
-				});
-			  });
-			}).catch(function(err) {
-			  alert("Lỗi không thể xóa: " + err.message);
-			});
-		  }
-		};
+        renderPagination(totalPages);
+      }
+    }
 
-		if (submitCommentBtn) {
-		  submitCommentBtn.addEventListener('click', function() {
-			var name = commentNameInput ? commentNameInput.value.trim() : '';
-			var content = commentContentInput ? commentContentInput.value.trim() : '';
+    function renderPagination(totalPages) {
+      let html = `
+        <button onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled class="opacity-40 cursor-not-allowed px-3 py-1.5 bg-slate-800 rounded-lg text-xs"' : 'class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs text-slate-300"'}>
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+      `;
 
-			if (!name) { alert("Vui lòng nhập tên của bạn!"); return; }
-			if (!content) { alert("Vui lòng nhập nội dung bình luận!"); return; }
+      for (let i = 1; i <= totalPages; i++) {
+        html += `
+          <button onclick="goToPage(${i})" class="w-8 h-8 rounded-lg text-xs font-bold transition border ${currentPage === i ? 'bg-indigo-600 border-indigo-500 text-white' : 'bg-slate-800 border-slate-700 text-slate-400 hover:bg-slate-700'}">
+            ${i}
+          </button>
+        `;
+      }
 
-			// Xác định tên hiển thị chính thức của người gửi
-			var finalName = isAdminActive ? (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin ? MY_SITE_CONFIG.admin.displayName : "Hiệu Béo 👑") : name;
+      html += `
+        <button onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled class="opacity-40 cursor-not-allowed px-3 py-1.5 bg-slate-800 rounded-lg text-xs"' : 'class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 rounded-lg text-xs text-slate-300"'}>
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      `;
 
-			var newComment = {
-			  name: finalName,
-			  content: content,
-			  isAdmin: isAdminActive,
-			  timestamp: firebase.database.ServerValue.TIMESTAMP,
-			  isPinned: false,
-			  reactions: { favorite: 0, haha: 0, wow: 0, sad: 0, angry: 0 }
-			};
+      paginationControls.innerHTML = html;
+    }
 
-			if (currentReplyToId) {
-			  newComment.replyTo = currentReplyToId;
-			}
+    function goToPage(page) {
+      const data = getFilteredAndSortedData();
+      const totalPages = Math.ceil(data.length / itemsPerPage);
+      if (page < 1 || page > totalPages) return;
 
-			submitCommentBtn.disabled = true;
-			submitCommentBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Đang gửi...';
+      currentPage = page;
+      render();
+      window.scrollTo({ top: grid.offsetTop - 100, behavior: 'smooth' });
+    }
 
-			if (commentRef) {
-			  commentRef.push(newComment).then(function() {
-				
-				// 🎯 BẮT ĐẦU: ĐOẠN CODE GỬI THÔNG BÁO TELEGRAM ĐỌC TỪ CONFIG.JS
-				if (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.admin && MY_SITE_CONFIG.admin.telegram) {
-				  var telConfig = MY_SITE_CONFIG.admin.telegram;
-				  
-				  // Chỉ gửi nếu trong config đã điền đầy đủ token và chatId
-				  if (telConfig.token && telConfig.chatId) {
-					var messageType = currentReplyToId ? "💬 CÓ PHẢN HỒI MỚI!" : "📝 CÓ BÌNH LUẬN MỚI!";
-					var postTitle = document.title;
-					var postUrl = window.location.href;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btnBackToTop.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+        btnBackToTop.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      } else {
+        btnBackToTop.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+        btnBackToTop.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }
 
-					var textMsg = `${messageType}\n👤 Người gửi: ${finalName}\n📄 Bài viết: ${postTitle}\n🔗 Link: ${postUrl}\n💬 Nội dung:\n"${content}"`;
+      if (loadMode !== 'scroll' || isLoading) return;
 
-					// Gọi API Telegram với thông tin lấy từ file cấu hình
-					fetch(`https://api.telegram.org/bot${telConfig.token}/sendMessage`, {
-					  method: 'POST',
-					  headers: { 'Content-Type': 'application/json' },
-					  body: JSON.stringify({
-						chat_id: telConfig.chatId,
-						text: textMsg
-					  })
-					}).catch(function(tErr) {
-					  console.error("Lỗi gửi Telegram:", tErr);
-					});
-				  }
-				}
-				// 🎯 KẾT THÚC ĐOẠN CODE TELEGRAM
+      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+      const data = getFilteredAndSortedData();
 
-				if (commentContentInput) commentContentInput.value = "";
-				currentReplyToId = null;
-				submitCommentBtn.disabled = false;
-				submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
-			  }).catch(function(err) {
-				console.error("Lỗi gửi bình luận:", err);
-				alert("Có lỗi xảy ra khi gửi bình luận!");
-				submitCommentBtn.disabled = false;
-				submitCommentBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>Gửi bình luận';
-			  });
-			}
-		  });
-		}
+      if (scrollTop + clientHeight >= scrollHeight - 300) {
+        if (displayedScrollCount < data.length) {
+          isLoading = true;
+          setTimeout(() => {
+            displayedScrollCount += itemsPerPage;
+            render();
+            isLoading = false;
+          }, 400);
+        }
+      }
+    });
 
-		var shareFbBtn = document.getElementById('share-fb-btn');
-		if (shareFbBtn) {
-		  shareFbBtn.addEventListener('click', function() {
-			var targetUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(currentUrl);
-			if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-			  window.open(targetUrl, '_blank');
-			} else {
-			  window.open(targetUrl, '_blank', 'width=600,height=400,resizable=yes,scrollbars=yes');
-			}
-		  });
-		}
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-		var copyBtn = document.getElementById('copy-link-btn');
-		var copyText = document.getElementById('copy-text');
-		if (copyBtn && copyText) {
-		  copyBtn.addEventListener('click', function() {
-			navigator.clipboard.writeText(currentUrl).then(function() {
-			  var currentWidth = copyBtn.offsetWidth;
-			  copyBtn.style.width = currentWidth + 'px';
-			  copyText.textContent = 'Đã sao chép!';
-			  copyBtn.classList.remove('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-			  copyBtn.classList.add('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-			  setTimeout(function() {
-				copyText.textContent = 'Sao chép Link';
-				copyBtn.classList.remove('bg-emerald-500', 'text-white', 'hover:bg-emerald-600');
-				copyBtn.classList.add('bg-slate-100', 'text-slate-700', 'hover:bg-slate-200');
-				copyBtn.style.width = '';
-			  }, 2000);
-			});
-		  });
-		}
-	  });
-  
-	document.addEventListener("DOMContentLoaded", function () {
-		const commentContainer = document.getElementById('comments-wrapper');
-		const paginationContainer = document.getElementById('comment-pagination-container');
-		
-		if (!commentContainer || !paginationContainer) return;
+    function switchMode(mode) {
+      loadMode = mode;
+      const btnScroll = document.getElementById('btn-mode-scroll');
+      const btnPage = document.getElementById('btn-mode-page');
 
-		const commentsPerPage = 10;
-		let currentPage = 1;
+      if (mode === 'scroll') {
+        btnScroll.className = "px-2.5 py-1 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition";
+        btnPage.className = "px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition";
+        displayedScrollCount = itemsPerPage;
+      } else {
+        btnPage.className = "px-2.5 py-1 rounded-lg text-xs font-semibold bg-indigo-600 text-white shadow transition";
+        btnScroll.className = "px-2.5 py-1 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition";
+        currentPage = 1;
+      }
+      render();
+    }
 
-		function initCommentPagination() {
-			const container = document.getElementById('comments-wrapper');
-			if (!container) return;
+    function openModal(id) {
+      currentModalItem = rawData.find(item => item.id === id);
+      if (!currentModalItem || !currentModalItem.images || currentModalItem.images.length === 0) return;
 
-			const allComments = Array.from(container.children);
-			
-			const pinnedComments = allComments.filter(comment => 
-				comment.classList.contains('is-pinned-cluster') || 
-				comment.querySelector('.comment-is-pinned') !== null || 
-				comment.querySelector('.comment-pinned') !== null
-			);
-			
-			const regularComments = allComments.filter(comment => 
-				!comment.classList.contains('is-pinned-cluster') && 
-				comment.querySelector('.comment-is-pinned') === null && 
-				comment.querySelector('.comment-pinned') === null
-			);
+      currentModalItem.views++;
+      activeImageIndex = 0;
 
-			const totalPages = Math.ceil(regularComments.length / commentsPerPage);
-			const startIndex = (currentPage - 1) * commentsPerPage;
-			const endIndex = startIndex + commentsPerPage;
+      document.getElementById('modal-author').innerText = currentModalItem.author;
+      document.getElementById('modal-title').innerText = currentModalItem.title;
+      document.getElementById('modal-created-at').innerText = formatDate(currentModalItem.createdAt);
+      document.getElementById('modal-description').innerText = currentModalItem.shortDesc;
+      document.getElementById('modal-prompt').innerText = currentModalItem.prompt;
+      document.getElementById('modal-likes-count').innerText = currentModalItem.likes;
+      document.getElementById('modal-views-count').innerText = currentModalItem.views;
 
-			regularComments.forEach((comment, index) => {
-				if (index >= startIndex && index < endIndex) {
-					comment.style.display = "block";
-				} else {
-					comment.style.display = "none";
-				}
-			});
+      const newUrl = new URL(window.location.href);
+      newUrl.searchParams.set('id', currentModalItem.id);
+      window.history.replaceState({}, '', newUrl);
 
-			pinnedComments.forEach(comment => {
-				comment.style.setProperty('display', 'block', 'important');
-			});
+      const icon = document.getElementById('modal-like-icon');
+      if (currentModalItem.liked) {
+        icon.className = 'fa-solid fa-heart text-sm text-rose-500';
+      } else {
+        icon.className = 'fa-regular fa-heart text-sm';
+      }
 
-			if (totalPages > 1) {
-				paginationContainer.style.display = "flex";
-				renderCommentControls(totalPages);
-			} else {
-				paginationContainer.style.display = "none";
-			}
-		}
+      const tagsContainer = document.getElementById('modal-hashtags');
+      tagsContainer.innerHTML = currentModalItem.hashtags.map(t => {
+        const isNsfwTag = t.toLowerCase() === 'nsfw';
+        return `<span onclick="clickHashtagInModal('${t}')" class="text-[11px] cursor-pointer hover:underline ${isNsfwTag ? 'bg-rose-950/80 text-rose-400 border-rose-800' : 'bg-slate-800 text-indigo-400 border-slate-700'} px-2 py-0.5 rounded border">#${t}</span>`;
+      }).join('');
 
-		function renderCommentControls(totalPages) {
-		    paginationContainer.innerHTML = "";
-		    
-		    let html = `<div class="flex items-center justify-between w-full max-w-md mx-auto pt-4 border-t border-slate-100 select-none">`;
-		
-		    html += `
-		        <button id="prev-comment-btn" 
-		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer flex-shrink-0 ${currentPage === 1 ? 'opacity-40 pointer-events-none' : ''}">
-		            <i class="fa-solid fa-angle-left"></i> Trước
-		        </button>
-		    `;
-		
-		    html += `<div class="flex items-center justify-center gap-1 flex-grow min-w-[180px] mx-2">`;
-		
-		    const range = 2; 
-		    let hasLeftDot = false;
-		    let hasRightDot = false;
-		
-		    for (let i = 1; i <= totalPages; i++) {
-		        if (i === 1 || i === totalPages || (i >= currentPage - range && i <= currentPage + range)) {
-		            const isCurrent = i === currentPage;
-		            html += `
-		                <button data-cpage="${i}" 
-		                        class="comment-page-btn w-7 h-7 text-xs font-bold rounded-lg transition-all cursor-pointer ${isCurrent ? 'bg-indigo-600 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'}">
-		                    ${i}
-		                </button>
-		            `;
-		        } else if (i < currentPage - range && !hasLeftDot) {
-		            html += `<span class="w-7 text-center text-slate-400 text-xs font-bold">...</span>`;
-		            hasLeftDot = true;
-		        } else if (i > currentPage + range && !hasRightDot) {
-		            html += `<span class="w-7 text-center text-slate-400 text-xs font-bold">...</span>`;
-		            hasRightDot = true;
-		        }
-		    }
-		
-		    html += `</div>`;
-		
-		    html += `
-		        <button id="next-comment-btn" 
-		                class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer flex-shrink-0 ${currentPage === totalPages ? 'opacity-40 pointer-events-none' : ''}">
-		            Sau <i class="fa-solid fa-angle-right"></i>
-		        </button>
-		    `;
-		
-		    html += `</div>`;
-		    paginationContainer.innerHTML = html;
-		
-		    paginationContainer.querySelectorAll('.comment-page-btn').forEach(btn => {
-		        btn.addEventListener('click', function() {
-		            currentPage = parseInt(this.getAttribute('data-cpage'));
-		            initCommentPagination();
-		        });
-		    });
-		    paginationContainer.querySelector('#prev-comment-btn').addEventListener('click', function() { if (currentPage > 1) { currentPage--; initCommentPagination(); } });
-		    paginationContainer.querySelector('#next-comment-btn').addEventListener('click', function() { if (currentPage < totalPages) { currentPage++; initCommentPagination(); } });
-		}
+      updateModalImageView();
+      renderComments();
+      
+      document.getElementById('detail-modal').classList.remove('hidden');
+      render();
+    }
 
-		const observer = new MutationObserver(function (mutations) {
-			observer.disconnect();
-			initCommentPagination();
-			observer.observe(commentContainer, { childList: true });
-		});
+    // TỰ ĐỘNG TÍNH VÀ CẬP NHẬT TỈ LỆ ẢNH CON DÙNG CÁCH 1
+    function updateModalImageView() {
+      if (!currentModalItem || !currentModalItem.images) return;
 
-		observer.observe(commentContainer, { childList: true });
-		
-		initCommentPagination();
-	});
-  
-	var commentCurrentPage = 1;
-	var commentsPerPageConfig = 5;
+      const modalImg = document.getElementById('modal-image');
+      const nsfwOverlay = document.getElementById('nsfw-overlay');
+      const thumbnailsContainer = document.getElementById('modal-thumbnails');
+      const variantBadge = document.getElementById('modal-variant-badge');
+      const ratioBadge = document.getElementById('modal-ratio-badge');
 
-	function executeClientPagination() {
-		var wrapper = document.getElementById('comments-wrapper');
-		var pagContainer = document.getElementById('comment-pagination-container');
-		if (!wrapper || !pagContainer) return;
+      const currentImageUrl = currentModalItem.images[activeImageIndex];
+      
+      // Đặt thông báo tạm thời trong khi tải ảnh
+      ratioBadge.innerText = 'Tỉ lệ: Đang tính...';
 
-		var allClusters = Array.from(wrapper.getElementsByClassName('comment-cluster'));
-		
-		var pinnedClusters = allClusters.filter(function(el) { return el.classList.contains('is-pinned-cluster'); });
-		var normalClusters = allClusters.filter(function(el) { return !el.classList.contains('is-pinned-cluster'); });
+      // Hàm xử lý lấy kích thước thực tế và tính toán GCD
+      const calculateRatio = () => {
+        const w = modalImg.naturalWidth;
+        const h = modalImg.naturalHeight;
+        if (w && h) {
+          const gcd = getGCD(w, h);
+          const rw = w / gcd;
+          const rh = h / gcd;
+          ratioBadge.innerText = `Tỉ lệ: ${rw}:${rh} (${w}x${h}px)`;
+        }
+      };
 
-		pinnedClusters.forEach(function(el) { el.style.display = 'block'; });
+      // Đăng ký sự kiện onload trước khi thay đổi src
+      modalImg.onload = calculateRatio;
+      modalImg.src = currentImageUrl;
 
-		var totalPages = Math.ceil(normalClusters.length / commentsPerPageConfig);
-		if (commentCurrentPage > totalPages && totalPages > 0) commentCurrentPage = totalPages;
+      // Xử lý trường hợp ảnh đã được lưu trong cache trình duyệt
+      if (modalImg.complete && modalImg.naturalWidth) {
+        calculateRatio();
+      }
 
-		var startIndex = (commentCurrentPage - 1) * commentsPerPageConfig;
-		var endIndex = startIndex + commentsPerPageConfig;
+      variantBadge.innerText = `Biến thể ${activeImageIndex + 1}/${currentModalItem.images.length}`;
 
-		normalClusters.forEach(function(el, index) {
-			if (index >= startIndex && index < endIndex) {
-				el.style.display = 'block';
-			} else {
-				el.style.display = 'none';
-			}
-		});
+      if (isNSFW(currentModalItem) && !showNSFWGlobal) {
+        modalImg.classList.add('blur-2xl');
+        nsfwOverlay.classList.remove('hidden');
+      } else {
+        modalImg.classList.remove('blur-2xl');
+        nsfwOverlay.classList.add('hidden');
+      }
 
-		if (totalPages > 1) {
-			pagContainer.style.display = 'flex';
-			
-			let html = `<div class="flex items-center justify-between w-full max-w-[540px] mx-auto mt-4 select-none">`;
-			html += `<button id="prev-comment-btn" class="px-3 py-1 bg-white border border-slate-200 text-xs text-slate-600 rounded hover:bg-slate-50 transition cursor-pointer">Trước</button>`;
-			html += `<div class="flex items-center justify-center gap-1 flex-grow min-w-[180px] mx-2 text-xs font-semibold text-slate-500">Trang ${commentCurrentPage} / ${totalPages}</div>`;
-			html += `<button id="next-comment-btn" class="px-3 py-1 bg-white border border-slate-200 text-xs text-slate-600 rounded hover:bg-slate-50 transition cursor-pointer">Sau</button>`;
-			html += `</div>`;
-			
-			pagContainer.innerHTML = html;
+      // Render danh sách thumbnail ảnh con
+      thumbnailsContainer.innerHTML = '';
+      currentModalItem.images.forEach((imgUrl, idx) => {
+        const isSelected = idx === activeImageIndex;
+        const thumbBtn = document.createElement('button');
+        thumbBtn.className = `w-12 h-12 rounded-lg overflow-hidden border-2 transition-all shrink-0 bg-slate-950 ${
+          isSelected 
+            ? 'border-indigo-500 scale-105 shadow-lg shadow-indigo-500/30' 
+            : 'border-slate-800 opacity-60 hover:opacity-100 hover:border-slate-600'
+        }`;
+        
+        thumbBtn.onclick = () => {
+          activeImageIndex = idx;
+          updateModalImageView();
+        };
 
-			var prevBtn = pagContainer.querySelector('#prev-comment-btn');
-			if (prevBtn) {
-				prevBtn.addEventListener('click', function() {
-					if (commentCurrentPage > 1) {
-						commentCurrentPage--;
-						executeClientPagination();
-					}
-				});
-			}
+        thumbBtn.innerHTML = `<img src="${imgUrl}" class="w-full h-full object-cover" />`;
+        thumbnailsContainer.appendChild(thumbBtn);
+      });
+    }
 
-			var nextBtn = pagContainer.querySelector('#next-comment-btn');
-			if (nextBtn) {
-				nextBtn.addEventListener('click', function() {
-					if (commentCurrentPage < totalPages) {
-						commentCurrentPage++;
-						executeClientPagination();
-					}
-				});
-			}
-		} else {
-			pagContainer.style.display = 'none';
-		}
-	}
-	
-	document.addEventListener('DOMContentLoaded', function () {
-		var fbConfig = (typeof MY_SITE_CONFIG !== 'undefined' && MY_SITE_CONFIG.facebookGroup) ? MY_SITE_CONFIG.facebookGroup : {
-			title: "Thư viện Audition Group",
-			description: "Chia sẻ kinh nghiệm, tài nguyên mod game Audition",
-			groupUrl: "https://www.facebook.com/groups/ThuvienAu",
-			imageUrl: "https://lh3.googleusercontent.com/d/1jNcrWoKc9YN3C8KiG1rT2LLUACaVl0LS",
-			appUrl: ""
-		};
+    function navigateModal(direction) {
+      if (!currentModalItem) return;
+      const data = getFilteredAndSortedData();
+      if (data.length === 0) return;
 
-		var fbImg = document.getElementById('fb-banner-img');
-		var fbTitle = document.getElementById('fb-banner-title');
-		var fbDesc = document.getElementById('fb-banner-desc');
-		var fbLink = document.getElementById('fb-banner-link');
+      const currentIndex = data.findIndex(item => item.id === currentModalItem.id);
+      let nextIndex = currentIndex + direction;
 
-		if (fbImg) {
-			fbImg.src = fbConfig.imageUrl;
-			fbImg.alt = fbConfig.title;
-		}
-		if (fbTitle) fbTitle.textContent = fbConfig.title;
-		if (fbDesc) fbDesc.textContent = fbConfig.description;
-		
-		if (fbLink) {
-			if (fbConfig.appUrl && fbConfig.appUrl.trim() !== "") {
-				fbLink.href = fbConfig.appUrl;
-				fbLink.setAttribute('onclick', `window.open('${fbConfig.groupUrl}'); return false;`);
-			} else {
-				fbLink.href = fbConfig.groupUrl;
-			}
-		}
-	});
-	
-	// Kiểm tra xem MY_SITE_CONFIG đã được định nghĩa chưa
-	if (typeof MY_SITE_CONFIG !== 'undefined') {
-		
-		// 1. Vẽ Header
-		const headerContainer = document.getElementById('header-container');
-		if (headerContainer && MY_SITE_CONFIG.layout && MY_SITE_CONFIG.layout.headerHTML) {
-			headerContainer.innerHTML = MY_SITE_CONFIG.layout.headerHTML;
-		}
+      if (nextIndex < 0) nextIndex = data.length - 1;
+      if (nextIndex >= data.length) nextIndex = 0;
 
-		// 2. Vẽ Footer
-		const footerContainer = document.getElementById('footer-container');
-		if (footerContainer && MY_SITE_CONFIG.layout && MY_SITE_CONFIG.layout.footerHTML) {
-			footerContainer.innerHTML = MY_SITE_CONFIG.layout.footerHTML;
-		}
+      openModal(data[nextIndex].id);
+    }
 
-		console.log("Đã vẽ Header/Footer từ MY_SITE_CONFIG thành công!");
-	} else {
-		console.error("LỖI: Không tìm thấy biến MY_SITE_CONFIG. Kiểm tra lại việc nhúng file config.js");
-	}
-  
+    function revealNSFWInModal() {
+      document.getElementById('modal-image').classList.remove('blur-2xl');
+      document.getElementById('nsfw-overlay').classList.add('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('detail-modal').classList.add('hidden');
+      currentModalItem = null;
+      cancelReply();
+
+      const newUrl = new URL(window.location.href);
+      newUrl.searchParams.delete('id');
+      window.history.replaceState({}, '', newUrl);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('detail-modal');
+      if (modal.classList.contains('hidden')) return;
+
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        closeModal();
+      } else if (e.key === 'ArrowLeft') {
+        navigateModal(-1);
+      } else if (e.key === 'ArrowRight') {
+        navigateModal(1);
+      }
+    });
+
+    async function downloadImage() {
+      if (!currentModalItem) return;
+      
+      const btn = document.getElementById('btn-download-img');
+      const originalText = btn.innerHTML;
+      const currentImageUrl = currentModalItem.images[activeImageIndex];
+      
+      btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-xs"></i> <span>Đang tải...</span>`;
+      btn.disabled = true;
+
+      try {
+        const response = await fetch(currentImageUrl);
+        const blob = await response.blob();
+        const blobUrl = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = `${currentModalItem.title.replace(/\s+/g, '_')}_var${activeImageIndex + 1}.jpg`;
+        document.body.appendChild(a);
+        a.click();
+        
+        document.body.removeChild(a);
+        URL.revokeObjectURL(blobUrl);
+      } catch (error) {
+        const a = document.createElement('a');
+        a.href = currentImageUrl;
+        a.download = `${currentModalItem.title.replace(/\s+/g, '_')}_var${activeImageIndex + 1}.jpg`;
+        a.click();
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+
+    function copyImageLink() {
+      if (!currentModalItem) return;
+      const shareUrl = window.location.href;
+      
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        const btn = document.getElementById('btn-copy-link');
+        const originalContent = btn.innerHTML;
+        const originalClass = btn.className;
+
+        btn.innerHTML = `<i class="fa-solid fa-check text-xs"></i> <span>Đã chép!</span>`;
+        btn.className = "flex-1 h-10 px-3 bg-emerald-600 text-white rounded-lg text-xs font-medium transition flex items-center justify-center gap-1.5 border border-emerald-500 whitespace-nowrap";
+
+        setTimeout(() => {
+          btn.innerHTML = originalContent;
+          btn.className = originalClass;
+        }, 2000);
+      });
+    }
+
+    function shareImage() {
+      if (!currentModalItem) return;
+      if (navigator.share) {
+        navigator.share({
+          title: currentModalItem.title,
+          text: `Xem tác phẩm ${currentModalItem.title} sáng tạo bởi ${currentModalItem.author}`,
+          url: window.location.href,
+        }).catch(() => {});
+      } else {
+        copyImageLink();
+      }
+    }
+
+    function toggleLikeModal() {
+      if (!currentModalItem) return;
+      currentModalItem.liked = !currentModalItem.liked;
+      currentModalItem.likes += currentModalItem.liked ? 1 : -1;
+      document.getElementById('modal-likes-count').innerText = currentModalItem.likes;
+
+      const icon = document.getElementById('modal-like-icon');
+      if (currentModalItem.liked) {
+        icon.className = 'fa-solid fa-heart text-sm text-rose-500';
+      } else {
+        icon.className = 'fa-regular fa-heart text-sm';
+      }
+
+      render();
+    }
+
+    function renderComments() {
+      const container = document.getElementById('modal-comments-list');
+      document.getElementById('modal-comments-count').innerText = currentModalItem.comments.length;
+
+      if (currentModalItem.comments.length === 0) {
+        container.innerHTML = `<p class="text-xs text-slate-500 italic">Chưa có bình luận nào. Hãy là người đầu tiên!</p>`;
+        return;
+      }
+
+      let html = '';
+      currentModalItem.comments.forEach(c => {
+        html += `
+          <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800 text-xs">
+            <div class="flex justify-between items-center mb-1">
+              <span class="font-bold text-slate-200">${c.user}</span>
+              <span class="text-[10px] text-slate-500">${c.time}</span>
+            </div>
+            <p class="text-slate-300">${c.text}</p>
+            <button onclick="setReply(${c.id}, '${c.user}')" class="text-[10px] text-indigo-400 hover:underline mt-1 font-medium">Trả lời</button>
+
+            ${c.replies && c.replies.length > 0 ? `
+              <div class="mt-2 pl-3 border-l-2 border-slate-800 space-y-1.5">
+                ${c.replies.map(r => `
+                  <div class="text-[11px]">
+                    <span class="font-semibold text-indigo-300">${r.user}:</span>
+                    <span class="text-slate-300">${r.text}</span>
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
+    function setReply(commentId, userName) {
+      replyingToCommentId = commentId;
+      document.getElementById('replying-to-user').innerText = userName;
+      document.getElementById('replying-banner').classList.remove('hidden');
+      document.getElementById('comment-input').focus();
+    }
+
+    function cancelReply() {
+      replyingToCommentId = null;
+      document.getElementById('replying-banner').classList.add('hidden');
+    }
+
+    function submitComment() {
+      const input = document.getElementById('comment-input');
+      const text = input.value.trim();
+      if (!text || !currentModalItem) return;
+
+      if (replyingToCommentId) {
+        const parentComment = currentModalItem.comments.find(c => c.id === replyingToCommentId);
+        if (parentComment) {
+          if (!parentComment.replies) parentComment.replies = [];
+          parentComment.replies.push({ user: "You", text: text, time: "Vừa xong" });
+        }
+      } else {
+        currentModalItem.comments.push({
+          id: Date.now(),
+          user: "You",
+          text: text,
+          time: "Vừa xong",
+          replies: []
+        });
+      }
+
+      input.value = '';
+      cancelReply();
+      renderComments();
+      render();
+    }
+
+    function copyModalPrompt(btn) {
+      navigator.clipboard.writeText(currentModalItem.prompt).then(() => {
+        const icon = btn.querySelector('i');
+        icon.className = 'fa-solid fa-check text-green-400';
+        setTimeout(() => { icon.className = 'fa-regular fa-copy'; }, 2000);
+      });
+    }
+
+    function filterByTag(tag) {
+      activeHashtag = tag;
+      currentPage = 1;
+      displayedScrollCount = itemsPerPage;
+      initHashtagChips();
+      render();
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim();
+      currentPage = 1;
+      displayedScrollCount = itemsPerPage;
+      render();
+    });
+
+    initHashtagChips();
+    render();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialId = parseInt(urlParams.get('id'));
+    if (initialId) {
+      openModal(initialId);
+    }
   </script>
- 
-
+</body>
+</html>
